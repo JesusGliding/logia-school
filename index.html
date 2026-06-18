@@ -1,11 +1,153 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <title>LOGIA School</title>
+  <meta charset="UTF-8">
+  <title>LOGIA School</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      height: 100vh;
+      display: grid;
+      grid-template-rows: 145px 1fr 90px;
+      grid-template-columns: 240px 1fr;
+    }
+
+    header {
+      grid-column: 1 / 3;
+      border-bottom: 1px solid #999;
+      padding: 20px;
+
+      background-image: url("images/University-background.png");
+      background-size: cover;
+      background-position: center;
+
+      position: relative;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.55);
+    }
+    
+    aside {
+      border-right: 1px solid #999;
+
+
+      padding: 20px;
+      overflow-y: auto;
+      background: #fafafa;
+    }
+
+    main {
+      padding: 0;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    footer {
+      grid-column: 1 / 3;
+      border-top: 1px solid #999;
+      padding: 18px 20px;
+      background: #f5f5f5;
+      font-size: 14px;
+    }
+
+    h1 {
+      margin: 0;
+      color: #444;
+      text-shadow: none;
+      font-weight: 900;
+      font-size: 42px;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 a {
+      color: #444;
+      text-decoration: none;
+    }
+
+    h1 a:hover {
+      color: #444;
+      text-decoration: none;
+    }
+
+    h1 a:active {
+      color: #444;
+    }
+
+    header p {
+      margin: 4px;
+      color: #666;
+      position: relative;
+      z-index: 1;
+    }
+
+    h2 {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    a {
+      display: block;
+      margin: 6px 0;
+      color: #0066cc;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    a:hover {
+      color: #003366;
+    }
+  </style>
 </head>
+
 <body>
-    <h1>LOGIA School</h1>
-    <p>LOGIA School은 개인 학습 사이트입니다.</p>
+  <header>
+    <h1>
+      <a href="home.html" target="contentFrame">LOGIA School</a>
+    </h1>
+    <p>대학 교육의 시작 - A Personal University</p>
+  </header>
+
+  <aside>
+    <a href="home.html" target="contentFrame">🏠</a>
+    
+    <h2>교과목 소개</h2>
+    <a href="subjects/calculus.html" target="contentFrame">1. 미분적분학 I·II</a>
+    <a href="subjects/chemistry.html" target="contentFrame">2. 일반화학 I</a>
+    <a href="subjects/physics.html" target="contentFrame">3. 대학물리학</a>
+    <a href="subjects/biology.html" target="contentFrame">4. 캠벨 생명과학</a>
+    <a href="subjects/engineering-math.html" target="contentFrame">5. 공업수학</a>
+    <a href="subjects/python.html" target="contentFrame">6. 파이썬</a>
+    <a href="subjects/tlcl.html" target="contentFrame">7. TLCL</a>
+    <a href="subjects/cosmology.html" target="contentFrame">8. 우주의 구조</a>
+
+    <h2>자료실</h2>
+    <a href="resources/science-history.html" target="contentFrame">A. 과학사</a>
+    <a href="resources/math-history.html" target="contentFrame">B. 수학사</a>
+    <a href="resources/notes.html" target="contentFrame">C. 노트</a>
+    <a href="resources/hobby-research.html" target="contentFrame">D. 취미로 연구하자</a>
+
+    <h2>프로젝트</h2>
+    <a href="projects/cosmology-cardgame.html" target="contentFrame">우주론 완성 게임</a>
+  </aside>
+
+  <main>
+    <iframe name="contentFrame" src="home.html"></iframe>
+  </main>
+
+  <footer>
+    <strong>LOGIA School</strong>은 평생 학습을 위한 개인 대학이다.<br>
+    배움의 흔적을 기록하고, 질문을 남기고, 지식의 구조를 세우며, 스스로의 학문 세계를 만들어 가는 여정이다.
+  </footer>
 </body>
 </html>
