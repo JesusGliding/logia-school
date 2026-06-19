@@ -17,13 +17,15 @@
     header {
       grid-column: 1 / 3;
       border-bottom: 1px solid #999;
-      padding: 20px;
-
-      background-image: url("images/University-background.png");
+      background-image: url("images/University-background-small.jpg");
       background-size: cover;
       background-position: center;
-
       position: relative;
+
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding-left: 40px;
     }
 
     header::before {
@@ -31,6 +33,21 @@
       position: absolute;
       inset: 0;
       background: rgba(255, 255, 255, 0.55);
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-content h1 {
+      margin: 0;
+      font-size: 42px;
+      line-height: 1.1;
+    }
+
+    .header-content p {
+      margin: 8px 0 0;
     }
     
     aside {
@@ -112,10 +129,12 @@
 
 <body>
   <header>
+    <div class="header-content">
     <h1>
       <a href="home.html" target="contentFrame">LOGIA School</a>
     </h1>
     <p>대학 교육의 시작 - A Personal University</p>
+    </div>
   </header>
 
   <aside>
