@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>일반화학 학습보드</title>
+
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+
+    .back-button {
+      font-size: 15px;
+      margin-left: 20px;
+      color: #0066cc;
+      text-decoration: none;
+
+      position: relative;
+      top: -3px;
+    }
+
+    .back-button:hover {
+      color: #003366;
+      text-decoration: underline;
+    }
+
+    .board-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 280px 280px;
+      gap: 20px;
+    }
+
+    .panel {
+      border: 1px solid #999;
+      border-radius: 12px;
+      padding: 20px;
+      background: #fafafa;
+      overflow: auto;
+    }
+
+    .panel h3 {
+      margin-top: 0;
+      font-size: 18px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 180px;
+      resize: none;
+      border: 1px solid #aaa;
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 15px;
+      box-sizing: border-box;  
+    }
+
+    @media (max-width: 800px) {
+      .board-grid {
+         grid-template-columns: 1fr;
+         grid-template-rows: auto;
+    }
+    }
+  </style>
+
+</head>
+<body>
+  <h2>일반화학 I <학습 보드>
+  <a href="chemistry.html" class="back-button" title="상위 페이지로 이동">↩️</a>
+  </h2>
+
+  <div class="board-grid">
+
+    <section class="panel calendar-panel">
+      <h3>날짜 달력</h3>
+      <input type="date">
+    </section>
+
+    <section class="panel status-panel">
+      <h3>학습 상태</h3>
+      <p><strong>학습시작 :</strong> 6/25/2026</p>
+      <p><strong>진도율 :</strong> █████░░░░░ 28%</p>
+      <p><strong>오늘날짜 :</strong> 6/30/2026</p>
+      <p><strong>최근학습 :</strong> 6/28/2026</p>
+    </section>
+
+    <section class="panel memo-panel">
+      <h3>간단한 메모 노트</h3>
+      <textarea>
+  화학의 기초 개관, 과학적 방법에 관해 배워보았다.
+  측정 단위, 단위 변환, 유효 숫자 계산등 화학의 가장 기초적인 부분을 공부했다.
+      </textarea>
+    </section>
+
+    <section class="panel files-panel">
+      <h3>학습내용</h3>
+
+      <ul>
+        <li><a href="chemistry/2026-06-24-01.jpg" target="_blank">2026-06-24 내용</a></li>
+        <li><a href="chemistry/2026-06-24-02.jpg" target="_blank">2026-06-24 문제풀이</a></li>
+        <li><a href="chemistry/2026-06-24-summary.jpg" target="_blank">2026-06-24 요약</a></li>
+      </ul>
+    </section>
+
+  </div>
+
+
+</body>
+</html>
