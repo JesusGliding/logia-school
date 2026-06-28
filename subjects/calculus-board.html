@@ -72,7 +72,7 @@
 
 </head>
 <body>
-  <h2>미분적분학 I · II <학습 보드>
+  <h2>미분적분학 I · II &lt;학습 보드&gt;
   <a href="calculus.html" class="back-button" title="상위 페이지로 이동">↩️</a>
   </h2>
 
@@ -80,7 +80,7 @@
 
     <section class="panel calendar-panel">
       <h3>날짜 달력</h3>
-      <input type="date">
+      <input type="date" id="study-date">
     </section>
 
     <section class="panel status-panel">
@@ -93,10 +93,7 @@
 
     <section class="panel memo-panel">
       <h3>간단한 메모 노트</h3>
-      <textarea>
-  오늘은 함수의 극한 개념을 다시 정리했다.
-  아직 ε-δ 정의는 조금 어렵다.
-      </textarea>
+      <textarea id="memo-text"></textarea>
     </section>
 
     <section class="panel files-panel">
@@ -109,8 +106,53 @@
       </ul>
     </section>
 
+
   </div>
 
+  <script>
+    const studyData = {
+
+      "2026-06-28": {
+
+        memo: "오늘은 함수의 극한 개념을 다시 정리했다. \n아직 ε-δ 정의는 조금 어렵다.",
+
+        progress: "28%",
+
+        recent: "2026-06-28",
+        
+        files: [
+          "calculus/2026-06-28-01.jpg",
+          "calculus/2026-06-28-02.jpg",
+          "calculus/2026-06-28-summary.jpg"
+        ]
+      },
+
+      "2026-06-30": {
+        memo: "오늘은 학습 보드 기능 구현을 시작했다.\n날짜를 누르면 메모가 바뀌도록 만들었다.",
+
+        progress: "45%",
+
+        recent: "2026-06-30",
+
+        files: [
+          "calculus/2026-06-30-cover.jpg",
+        ]
+      }
+    };
+
+    const dateInput = document.getElementById("study-date");
+    const memoText = document.getElementById("memo-text");
+
+    dateInput.addEventListener("change", function () {
+      const selectedDate = dateInput.value;
+
+      if (studyData[selectedDate]) {
+        memoText.value = studyData[selectedDate].memo;
+      } else {
+        memoText.value = "이 날의 학습 기록은 아직 없습니다.";
+      }
+    });
+  </script>
 
 </body>
 </html>
