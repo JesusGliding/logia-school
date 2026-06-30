@@ -14,7 +14,7 @@ publish)
    DATE=$(date "+%Y-%m-%d %H:%M")
    python3 logiabuild.py || exit 1
    git add .
-   git commit -m "Update LOGIA Hompage Build $DATE"
+   git commit -m "Update LOGIA Homepage Build $DATE"
    git push
    ;;
 

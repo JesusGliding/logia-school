@@ -5,8 +5,13 @@ memo:
 LSF v1.0
 
 progress:
-3.9/13
+3.7/13
+
+studytime:
+2h 30m
 
 files:
 calculus_2026-06-30-01.jpg | LOGIA Study 표준 파일 형식
 calculus_2026-06-30-cover.jpg | 미적분 교재 표지
+
+

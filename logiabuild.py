@@ -39,6 +39,7 @@ def read_record_file(record_path, media_dir):
     data = {
         "memo": [],
         "progress": None,
+        "studytime": None,
         "media": []
     }
 
@@ -60,6 +61,10 @@ def read_record_file(record_path, media_dir):
             current_section = "progress"
             continue
 
+        if trimmed == "studytime:":
+            current_section = "studytime"
+            continue
+
         if trimmed == "files:":
             current_section = "files"
             continue
@@ -71,6 +76,10 @@ def read_record_file(record_path, media_dir):
         elif current_section == "progress":
             if trimmed and data["progress"] is None:
                 data["progress"] = trimmed
+
+        elif current_section == "studytime":
+            if trimmed and data["studytime"] is None:
+                data["studytime"] = trimmed
 
         elif current_section == "files":
             if trimmed:
@@ -167,6 +176,7 @@ def build_subject_index(subject):
             "date": record_date,
             "file": record_path.name,
             "progress": parsed["progress"],
+            "studytime": parsed["studytime"],
             "memo": parsed["memo"],
             "media": parsed["media"]
         }

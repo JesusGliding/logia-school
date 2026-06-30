@@ -8,7 +8,7 @@
     body {
       font-family: sans-serif;
       margin: 0;
-      padding: 20px;
+      padding: 5px 20px 20px;
     }
 
     h2 {
@@ -34,14 +34,14 @@
     .board-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: 280px 280px;
+      grid-template-rows: 230px 230px;
       gap: 20px;
     }
 
     .panel {
       border: 1px solid #999;
       border-radius: 12px;
-      padding: 20px;
+      padding: 16px;
       background: #fafafa;
       overflow: auto;
     }
@@ -57,7 +57,7 @@
 
     textarea {
       width: 100%;
-      height: 180px;
+      height: 145px;
       resize: none;
       border: 1px solid #aaa;
       border-radius: 8px;
@@ -88,11 +88,34 @@
       transition: width 0.3s;
     }
 
-    @media (max-width: 800px) {
-      .board-grid {
-         grid-template-columns: 1fr;
-         grid-template-rows: auto;
+    #elapsed-text {
+      font-size: 14px;
+      color: #003366;
+      margin-left: 6px;
     }
+
+    #study-days-text {
+      font-size: 14px;
+      color: #003366;
+      margin-left: 6px;
+    }
+
+    @media (min-height: 720px) {
+      .board-grid {
+         grid-template-rows: 305px 305px;
+      }
+      textarea {
+        height: 220px;
+      }
+    }
+
+    @media (min-height: 850px) {
+      .board-grid {
+        grid-template-rows: 370px 370px;
+      }
+      textarea {
+        height: 285px;
+      }
     }
   </style>
 
@@ -111,8 +134,21 @@
 
     <section class="panel status-panel">
       <h3>학습 상태</h3>
-      <p><strong>학습시작 :</strong> <span id="start-date">-</span></p>
-      <p><strong>경과일 :</strong> <span id="elapsed-text">-</span></p>
+      
+      <p>
+        <strong>학습시작 :</strong> 
+        <span id="start-date">-</span>
+        <span id="elapsed-text"></span>
+      </p>
+
+      <p><strong>오늘날짜 :</strong> <span id="today-text"></span></p>
+
+      <p>
+        <strong>최근학습 :</strong> 
+        <span id="recent-date">-</span>
+        <span id="study-days-text"></span>
+      </p>
+      
       <div class="progress-row">
         <strong>진도율 :</strong> 
         <div class="progress-bar">
@@ -120,8 +156,9 @@
         </div>
         <span id="progress-text">-</span>
       </div>
-      <p><strong>오늘날짜 :</strong> <span id="today-text"></span></p>
-      <p><strong>최근학습 :</strong> 2026-06-28</p>
+
+      <p><strong>학습시간 :</strong> <span id="studytime-text">-</span></p>
+
     </section>
 
     <section class="panel memo-panel">
@@ -143,6 +180,8 @@
 
   const SUBJECT = "calculus";  // 과목명 
   const START_DATE = "2026-06-25";  // 학습 시작일
+  const INDEX_FILE = `${SUBJECT}-index.json`; // 학습 데이터 (JSON)
+  let studyIndex = null;
 
   const dateInput = document.getElementById("study-date");
   const memoText = document.getElementById("memo-text");
@@ -152,17 +191,22 @@
   const startDateText = document.getElementById("start-date");
   const todayText = document.getElementById("today-text");
   const elapsedText = document.getElementById("elapsed-text");
+  const studytimeText = document.getElementById("studytime-text");
+  const recentDateText = document.getElementById("recent-date");
+  const studyDaysText = document.getElementById("study-days-text");
 
   init();
 
-  function init() {
+  async function init() {
 
     const TODAY = getToday();
 
     startDateText.textContent = START_DATE;
     dateInput.value = TODAY;
     todayText.textContent = TODAY;
-    elapsedText.textContent = getElapsedDays(START_DATE, TODAY) + "일";
+    elapsedText.textContent = `(${getElapsedDays(START_DATE, TODAY)}일 경과)`;
+
+    await loadStudyIndex();
 
     loadStudyRecord(TODAY);
 
@@ -171,91 +215,62 @@
     });
   }
 
-  function parseStudyFile(text) {
-    const data = {
-      memo: "",
-      progress: "-",
-      files: []
-    };
+  async function loadStudyIndex() {
+    const response = await fetch(INDEX_FILE);
 
-    let currentSection = null;
+    if (!response.ok) {
+      throw new Error("index json not found");
+    }
 
-    text.split("\n").forEach(line => {
-      const trimmed = line.trim();
+    studyIndex = await response.json();
 
-      if (trimmed === "memo:") {
-        currentSection = "memo";
-        return;
-      }
+    recentDateText.textContent = studyIndex.lastRecord || "-";
+    studyDaysText.textContent = studyIndex.studyDays
+      ? `(학습일 ${studyIndex.studyDays}일)`
+      : "";
+  }
 
-      if (trimmed === "progress:") {
-        currentSection = "progress";
-        return;
-      }
-
-      if (trimmed === "files:") {
-        currentSection = "files";
-        return;
-      }
-
-      if (currentSection === "memo") {
-        data.memo += line + "\n";
-      }
-
-      if (currentSection === "progress" && trimmed !== "") {
-        data.progress = trimmed;
-      }
-
-      if (currentSection === "files" && trimmed !== "") {
-        const parts = line.split("|");
-
-        data.files.push({
-          filename: parts[0].trim(),
-          caption: parts[1] ? parts[1].trim() : ""
-        });
-      }
-    });
-
-    data.memo = data.memo.trim();
-
-    return data;
-  }  
-
-  async function loadStudyRecord(date) {
-    const filePath = `records/${SUBJECT}_${date}.txt`;
-
-    try {
-      const response = await fetch(filePath);
-
-      if (!response.ok) {
-        throw new Error("record not found");
-      }
-
-      const text = await response.text();
-      console.log(text);
-      const data = parseStudyFile(text);
-
-      memoText.value = data.memo || "메모가 없습니다.";
-      updateProgress(data.progress);
-
+  function loadStudyRecord(date) {
+    if (!studyIndex || !studyIndex.records) {
+      memoText.value = "학습 데이터베이스를 불러오지 못했습니다.";
+      updateProgress("-");
+      studytimeText.textContent = "-";
       filesList.innerHTML = "";
+      return;
+    }
 
-      data.files.forEach(file => {
+    const record = studyIndex.records.find(item => item.date === date);
+
+    if (!record) {
+      memoText.value = "이 날짜에는 학습 기록이 없습니다.";
+      updateProgress("-");
+      studytimeText.textContent = "-";
+      filesList.innerHTML = "";
+      return;
+    }
+
+    memoText.value = record.memo && record.memo.length > 0
+      ? record.memo.join("\n")
+      : "메모가 없습니다.";
+
+    updateProgress(record.progress || "-");
+
+    studytimeText.textContent = record.studytime || "-";
+
+    filesList.innerHTML = "";
+
+    if (record.media && record.media.length > 0) {
+      record.media.forEach(media => {
         const li = document.createElement("li");
 
         const link = document.createElement("a");
-        link.href = `media/${file.filename}`;
+        link.href = `media/${media.file}`;
         link.target = "_blank";
-        link.textContent = file.caption || file.filename;
+        link.textContent = media.title || media.file;
 
         li.appendChild(link);
         filesList.appendChild(li);
       });
-
-    } catch (error) {
-      memoText.value = "이 날짜에는 학습 기록이 없습니다.";
-      updateProgress("-");
-      filesList.innerHTML = "";
     }
   }
 
@@ -287,18 +302,31 @@
       return;
     }
 
-    const current = Number(parts[0]);
-    const total = Number(parts[1]);
+    const currentText = parts[0].trim();
+    const total = Number(parts[1].trim());
 
-    if (isNaN(current) || isNaN(total) || total <= 0) {
+    const currentParts = currentText.split(".");
+    let currentValue = Number(currentText);
+
+    if (currentParts.length === 2) {
+      const chapter = Number(currentParts[0]);
+      const sectionText = currentParts[1];
+      const section = Number(sectionText);
+
+      if (!isNaN(chapter) && !isNaN(section) && section >= 10) {
+        currentValue = chapter + 0.99;
+      }
+    }
+
+    if (isNaN(currentValue) || isNaN(total) || total <= 0) {
       progressText.textContent = "-";
       progressFill.style.width = "0%";
       return;
     }
 
-    const percent = ((current / total) * 100).toFixed(1);
+    const percent = ((currentValue / total) * 100).toFixed(1);
 
-    progressText.textContent = `${percent}% (${current}/${total})`;
+    progressText.textContent = `${percent}% (${progress})`;
     progressFill.style.width = percent + "%";
   }
 
