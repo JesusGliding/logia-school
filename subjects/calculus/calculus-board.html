@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>미분적분학 학습보드</title>
+
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+
+    .back-button {
+      font-size: 15px;
+      margin-left: 20px;
+      color: #0066cc;
+      text-decoration: none;
+
+      position: relative;
+      top: -3px;
+    }
+
+    .back-button:hover {
+      color: #003366;
+      text-decoration: underline;
+    }
+
+    .board-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 280px 280px;
+      gap: 20px;
+    }
+
+    .panel {
+      border: 1px solid #999;
+      border-radius: 12px;
+      padding: 20px;
+      background: #fafafa;
+      overflow: auto;
+    }
+
+    .panel h3 {
+      margin-top: 0;
+      font-size: 18px;
+    }
+
+    .status-panel p {
+      margin: 4px 0;
+    }
+
+    textarea {
+      width: 100%;
+      height: 180px;
+      resize: none;
+      border: 1px solid #aaa;
+      border-radius: 8px;
+      padding: 12px;
+      font-size: 15px;
+      box-sizing: border-box;  
+    }
+
+    .progress-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .progress-bar {
+      width: 160px;
+      height: 12px;
+      border: 1px solid #aaa;
+      border-radius: 3px;
+      background: #eee;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: #0066cc;
+      transition: width 0.3s;
+    }
+
+    @media (max-width: 800px) {
+      .board-grid {
+         grid-template-columns: 1fr;
+         grid-template-rows: auto;
+    }
+    }
+  </style>
+
+</head>
+<body>
+  <h2>미분적분학 I · II &lt;학습 보드&gt;
+  <a href="calculus.html" class="back-button" title="상위 페이지로 이동">↩️</a>
+  </h2>
+
+  <div class="board-grid">
+
+    <section class="panel calendar-panel">
+      <h3>날짜 달력</h3>
+      <input type="date" id="study-date">
+    </section>
+
+    <section class="panel status-panel">
+      <h3>학습 상태</h3>
+      <p><strong>학습시작 :</strong> <span id="start-date">-</span></p>
+      <p><strong>경과일 :</strong> <span id="elapsed-text">-</span></p>
+      <div class="progress-row">
+        <strong>진도율 :</strong> 
+        <div class="progress-bar">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+        <span id="progress-text">-</span>
+      </div>
+      <p><strong>오늘날짜 :</strong> <span id="today-text"></span></p>
+      <p><strong>최근학습 :</strong> 2026-06-28</p>
+    </section>
+
+    <section class="panel memo-panel">
+      <h3>간단한 메모 노트</h3>
+      <textarea id="memo-text"></textarea>
+    </section>
+
+    <section class="panel files-panel">
+      <h3>학습 내용</h3>
+
+      <ul id="files-list">
+      </ul>
+    </section>
+
+
+  </div>
+
+  <script>
+
+  const SUBJECT = "calculus";  // 과목명 
+  const START_DATE = "2026-06-25";  // 학습 시작일
+
+  const dateInput = document.getElementById("study-date");
+  const memoText = document.getElementById("memo-text");
+  const progressText = document.getElementById("progress-text");
+  const progressFill = document.getElementById("progress-fill");
+  const filesList = document.getElementById("files-list");
+  const startDateText = document.getElementById("start-date");
+  const todayText = document.getElementById("today-text");
+  const elapsedText = document.getElementById("elapsed-text");
+
+  init();
+
+  function init() {
+
+    const TODAY = getToday();
+
+    startDateText.textContent = START_DATE;
+    dateInput.value = TODAY;
+    todayText.textContent = TODAY;
+    elapsedText.textContent = getElapsedDays(START_DATE, TODAY) + "일";
+
+    loadStudyRecord(TODAY);
+
+    dateInput.addEventListener("change", function () {
+        loadStudyRecord(dateInput.value);
+    });
+  }
+
+  function parseStudyFile(text) {
+    const data = {
+      memo: "",
+      progress: "-",
+      files: []
+    };
+
+    let currentSection = null;
+
+    text.split("\n").forEach(line => {
+      const trimmed = line.trim();
+
+      if (trimmed === "memo:") {
+        currentSection = "memo";
+        return;
+      }
+
+      if (trimmed === "progress:") {
+        currentSection = "progress";
+        return;
+      }
+
+      if (trimmed === "files:") {
+        currentSection = "files";
+        return;
+      }
+
+      if (currentSection === "memo") {
+        data.memo += line + "\n";
+      }
+
+      if (currentSection === "progress" && trimmed !== "") {
+        data.progress = trimmed;
+      }
+
+      if (currentSection === "files" && trimmed !== "") {
+        const parts = line.split("|");
+
+        data.files.push({
+          filename: parts[0].trim(),
+          caption: parts[1] ? parts[1].trim() : ""
+        });
+      }
+    });
+
+    data.memo = data.memo.trim();
+
+    return data;
+  }  
+
+  async function loadStudyRecord(date) {
+    const filePath = `records/${SUBJECT}_${date}.txt`;
+
+    try {
+      const response = await fetch(filePath);
+
+      if (!response.ok) {
+        throw new Error("record not found");
+      }
+
+      const text = await response.text();
+      console.log(text);
+      const data = parseStudyFile(text);
+
+      memoText.value = data.memo || "메모가 없습니다.";
+      updateProgress(data.progress);
+
+      filesList.innerHTML = "";
+
+      data.files.forEach(file => {
+        const li = document.createElement("li");
+
+        const link = document.createElement("a");
+        link.href = `media/${file.filename}`;
+        link.target = "_blank";
+        link.textContent = file.caption || file.filename;
+
+        li.appendChild(link);
+        filesList.appendChild(li);
+      });
+
+    } catch (error) {
+      memoText.value = "이 날짜에는 학습 기록이 없습니다.";
+      updateProgress("-");
+      filesList.innerHTML = "";
+    }
+  }
+
+  function getToday() {
+
+      const today = new Date();
+
+      const year = today.getFullYear();
+      const month = String(today.getMonth() + 1).padStart(2, "0");
+      const day = String(today.getDate()).padStart(2, "0");
+
+      return `${year}-${month}-${day}`;
+  }  
+
+  function getElapsedDays(startDate, endDate) {
+      const start = new Date(startDate);
+      const end = new Date(endDate);
+      const diff = end - start;
+
+      return Math.floor(diff / (1000 * 60 * 60 * 24)) + 1;
+  }
+
+  function updateProgress(progress) {
+    const parts = progress.split("/");
+
+    if (parts.length !== 2) {
+      progressText.textContent = progress;
+      progressFill.style.width = "0%";
+      return;
+    }
+
+    const current = Number(parts[0]);
+    const total = Number(parts[1]);
+
+    if (isNaN(current) || isNaN(total) || total <= 0) {
+      progressText.textContent = "-";
+      progressFill.style.width = "0%";
+      return;
+    }
+
+    const percent = ((current / total) * 100).toFixed(1);
+
+    progressText.textContent = `${percent}% (${current}/${total})`;
+    progressFill.style.width = percent + "%";
+  }
+
+  </script>
+</body>
+</html>

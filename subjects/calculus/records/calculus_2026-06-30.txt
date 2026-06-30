@@ -1,0 +1,12 @@
+memo: 
+오늘은 로기아 학습툴 엔진을 만들었다.
+표준 파일 규격이 더 중요해 보인다.
+이름하여 LOGIA Study File Specification 
+LSF v1.0
+
+progress:
+3.9/13
+
+files:
+calculus_2026-06-30-01.jpg | LOGIA Study 표준 파일 형식
+calculus_2026-06-30-cover.jpg | 미적분 교재 표지

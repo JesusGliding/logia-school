@@ -1,0 +1,49 @@
+{
+  "subject": "calculus",
+  "recordCount": 2,
+  "mediaCount": 2,
+  "firstRecord": "2026-06-30",
+  "lastRecord": "2026-07-01",
+  "studyDays": 2,
+  "latestProgress": "0/13",
+  "recordDates": [
+    "2026-06-30",
+    "2026-07-01"
+  ],
+  "records": [
+    {
+      "date": "2026-06-30",
+      "file": "calculus_2026-06-30.txt",
+      "progress": "3.9/13",
+      "memo": [
+        "오늘은 로기아 학습툴 엔진을 만들었다.",
+        "표준 파일 규격이 더 중요해 보인다.",
+        "이름하여 LOGIA Study File Specification ",
+        "LSF v1.0"
+      ],
+      "media": [
+        {
+          "file": "calculus_2026-06-30-01.jpg",
+          "title": "LOGIA Study 표준 파일 형식",
+          "exists": true
+        },
+        {
+          "file": "calculus_2026-06-30-cover.jpg",
+          "title": "미적분 교재 표지",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "date": "2026-07-01",
+      "file": "calculus_2026-07-01.txt",
+      "progress": "0/13",
+      "memo": [
+        "계속해서 스터디 보드 엔진을 개선해 나가고 있다.",
+        "진도율 0일때 표기 테스트"
+      ],
+      "media": []
+    }
+  ],
+  "updated": "2026-06-30T09:40:56"
+}
