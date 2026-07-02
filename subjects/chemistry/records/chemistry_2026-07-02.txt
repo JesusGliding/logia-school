@@ -1,0 +1,14 @@
+memo: 
+오늘은 화학 보드를 붙여넣었다. 
+이식이 아주 잘된다. 성공적이다.
+
+progress:
+3.11/22
+
+studytime:
+30m
+
+files:
+chemistry_2026-06-24-01.jpg | 화학교재 내용 견본
+chemistry_2026-06-24-02.jpg | 화학교재 문제 견본
+chemistry_2026-06-24-summary.jpg | 화학교재 요약부분 견본

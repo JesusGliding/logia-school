@@ -1,0 +1,15 @@
+memo: 
+오늘은 달력 완성을 목표로 이것 저것 가다듬고 있다.
+곧 학습이 시작될거 같다. 
+
+progress:
+11.3/13
+
+studytime: 
+3h 
+
+false data:
+
+files:
+calculus_2026-07-02-01.jpg | 차례 목록 추출 사진
+

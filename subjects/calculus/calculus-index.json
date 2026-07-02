@@ -1,14 +1,16 @@
 {
+  "cacheVersion": 1782969663,
   "subject": "calculus",
-  "recordCount": 2,
-  "mediaCount": 2,
+  "recordCount": 3,
+  "mediaCount": 3,
   "firstRecord": "2026-06-30",
-  "lastRecord": "2026-07-01",
-  "studyDays": 2,
-  "latestProgress": "0/13",
+  "lastRecord": "2026-07-02",
+  "studyDays": 3,
+  "latestProgress": "11.3/13",
   "recordDates": [
     "2026-06-30",
-    "2026-07-01"
+    "2026-07-01",
+    "2026-07-02"
   ],
   "records": [
     {
@@ -45,7 +47,24 @@
         "진도율 0일때 표기 테스트"
       ],
       "media": []
+    },
+    {
+      "date": "2026-07-02",
+      "file": "calculus_2026-07-02.txt",
+      "progress": "11.3/13",
+      "studytime": "3h",
+      "memo": [
+        "오늘은 달력 완성을 목표로 이것 저것 가다듬고 있다.",
+        "곧 학습이 시작될거 같다. "
+      ],
+      "media": [
+        {
+          "file": "calculus_2026-07-02-01.jpg",
+          "title": "차례 목록 추출 사진",
+          "exists": true
+        }
+      ]
     }
   ],
-  "updated": "2026-07-01T02:16:59"
+  "updated": "2026-07-02T14:21:03"
 }

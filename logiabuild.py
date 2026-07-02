@@ -1,5 +1,6 @@
 from pathlib import Path
 import json
+import time
 from datetime import datetime, date
 
 SUBJECTS_DIR = Path("subjects")
@@ -130,7 +131,7 @@ def print_missing_media_warning(subject, record_file, media_items):
     return len(missing)
 
 
-def build_subject_index(subject):
+def build_subject_index(subject, build_cache):
     subject_dir = SUBJECTS_DIR / subject
     records_dir = subject_dir / "records"
     media_dir = subject_dir / "media"
@@ -209,6 +210,8 @@ def build_subject_index(subject):
             latest_progress = last_progress
 
     index_data = {
+        "cacheVersion": build_cache,
+
         "subject": subject,
 
         "recordCount": len(records),
@@ -254,6 +257,8 @@ def build_subject_index(subject):
 
 
 def main():
+    build_cache = int(time.time())
+
     print("===================================")
     print("LOGIA Build v1.0")
     print("===================================")
@@ -262,11 +267,13 @@ def main():
     total_warnings = 0
 
     for subject in SUBJECTS:
-        total_warnings += build_subject_index(subject)
+        total_warnings += build_subject_index(subject, build_cache)
 
     print("===================================")
     print("LOGIA Build Complete")
-    print(f"Warnings: {total_warnings}")
+    print()
+    print(f"Build Cache : {build_cache}")
+    print(f"Warnings    : {total_warnings}")
     print("===================================")
 
 

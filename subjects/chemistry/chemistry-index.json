@@ -1,12 +1,43 @@
 {
+  "cacheVersion": 1782969663,
   "subject": "chemistry",
-  "recordCount": 0,
-  "mediaCount": 0,
-  "firstRecord": null,
-  "lastRecord": null,
-  "studyDays": 0,
-  "latestProgress": "0/0",
-  "recordDates": [],
-  "records": [],
-  "updated": "2026-07-01T02:16:59"
+  "recordCount": 1,
+  "mediaCount": 3,
+  "firstRecord": "2026-07-02",
+  "lastRecord": "2026-07-02",
+  "studyDays": 1,
+  "latestProgress": "3.11/22",
+  "recordDates": [
+    "2026-07-02"
+  ],
+  "records": [
+    {
+      "date": "2026-07-02",
+      "file": "chemistry_2026-07-02.txt",
+      "progress": "3.11/22",
+      "studytime": "30m",
+      "memo": [
+        "오늘은 화학 보드를 붙여넣었다. ",
+        "이식이 아주 잘된다. 성공적이다."
+      ],
+      "media": [
+        {
+          "file": "chemistry_2026-06-24-01.jpg",
+          "title": "화학교재 내용 견본",
+          "exists": true
+        },
+        {
+          "file": "chemistry_2026-06-24-02.jpg",
+          "title": "화학교재 문제 견본",
+          "exists": true
+        },
+        {
+          "file": "chemistry_2026-06-24-summary.jpg",
+          "title": "화학교재 요약부분 견본",
+          "exists": true
+        }
+      ]
+    }
+  ],
+  "updated": "2026-07-02T14:21:03"
 }

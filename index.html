@@ -11,7 +11,7 @@
       height: 100vh;
       max-width: 1560px;
       display: grid;
-      grid-template-rows: 138px 1fr 70px;
+      grid-template-rows: 114px 1fr 60px;
       grid-template-columns: 240px 1fr;
       background: white;
     }
@@ -44,7 +44,7 @@
 
     .header-content h1 {
       margin: 0;
-      font-size: 42px;
+      font-size: 39px;
       line-height: 1.0;
     }
 
@@ -55,10 +55,16 @@
     aside {
       border-right: 1px solid #999;
 
-
       padding: 20px;
       overflow-y: auto;
       background: #fafafa;
+    }
+
+    .home-link {
+      margin-top: 1;
+      margin-bottom: 8px;
+      line-height: 1.0;
+      font-size: 16px;
     }
 
     main {
@@ -147,7 +153,7 @@
   </header>
 
   <aside>
-    <a href="home.html" target="contentFrame">🏠</a>
+    <a class="home-link" href="home.html" target="contentFrame">🏠</a>
     
     <h2>교과목 소개</h2>
     <a href="subjects/calculus/calculus.html" target="contentFrame">1. 미분적분학 I·II</a>

@@ -8,17 +8,17 @@
     body {
       font-family: sans-serif;
       margin: 0;
-      padding: 5px 20px 20px;
+      padding: 1px 20px 20px;
     }
 
     h2 {
       margin-bottom: 10px;
-      font-size: 24px;
+      font-size: 22px;
     }
 
     .back-button {
       font-size: 15px;
-      margin-left: 20px;
+      margin-left: 38px;
       color: #0066cc;
       text-decoration: none;
 
@@ -34,7 +34,7 @@
     .board-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: 230px 230px;
+      grid-template-rows: 232px 232px;
       gap: 20px;
     }
 
@@ -100,9 +100,95 @@
       margin-left: 6px;
     }
 
+    .chapter-text {
+      margin-top: 6px;
+      margin-left: 4px;
+      font-size: 14px;
+    }
+
+    .calendar-panel {
+      overflow: hidden;
+    }
+
+    .calendar-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .calendar-header button {
+      width: 26px;
+      height: 24px;
+      border: 1px solid #aaa;
+      border-radius: 6px;
+      background: white;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    #calendar-title {
+      font-size: 15px;
+    }
+
+    .calendar-weekdays,
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      text-align: center;
+    }
+
+    .calendar-grid,
+    .calendar-weekdays,
+    .calendar-header {
+      width: 78%;
+      margin: 0 auto;
+    }
+
+    .calendar-weekdays {
+      font-size: 12px;
+      color: #666;
+      margin-top: 8px;
+      margin-bottom: 2px;
+    }
+
+    .calendar-day {
+      height: 24px;
+      line-height: 24px;
+      padding: 0;
+      margin: 1px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .calendar-day:hover {
+      background: #eef5ff;
+    }
+
+    .calendar-day.empty {
+      cursor: default;
+    }
+
+    .calendar-day.today {
+      border: 1px solid #0066cc;
+    }
+
+    .calendar-day.has-record {
+      background: #dceeff;
+      font-weight: bold;
+      color: #0055aa;
+    }
+
+    .calendar-day.selected {
+      outline: 2px solid #0066cc;
+    }
+    
     @media (min-height: 720px) {
       .board-grid {
          grid-template-rows: 305px 305px;
+         gap: 25px;
+         padding: 3px 2px 2px;
       }
       textarea {
         height: 220px;
@@ -112,14 +198,16 @@
     @media (min-height: 850px) {
       .board-grid {
         grid-template-rows: 370px 370px;
+        gap: 30px;
+        padding: 4px 8px 8px;
       }
       textarea {
         height: 285px;
       }
     }
   </style>
-
 </head>
+
 <body>
   <h2>미분적분학 I · II &lt;학습 보드&gt;
   <a href="calculus.html" class="back-button" title="상위 페이지로 이동">↩️</a>
@@ -128,8 +216,21 @@
   <div class="board-grid">
 
     <section class="panel calendar-panel">
-      <h3>날짜 달력</h3>
-      <input type="date" id="study-date">
+      <!-- <h3>날짜 달력</h3> -->
+
+      <div class="calendar-header">
+        <button id="prev-month">◀</button>
+        <strong id="calendar-title">-</strong>
+        <button id="next-month">▶</button>
+      </div>
+
+      <div class="calendar-weekdays">
+        <span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span>
+      </div>
+
+      <div id="calendar-grid" class="calendar-grid"></div>
+
+      <input type="date" id="study-date" hidden>
     </section>
 
     <section class="panel status-panel">
@@ -140,8 +241,6 @@
         <span id="start-date">-</span>
         <span id="elapsed-text"></span>
       </p>
-
-      <p><strong>오늘날짜 :</strong> <span id="today-text"></span></p>
 
       <p>
         <strong>최근학습 :</strong> 
@@ -158,6 +257,8 @@
       </div>
 
       <p><strong>학습시간 :</strong> <span id="studytime-text">-</span></p>
+
+      <p id="chapter-text" class="chapter-text">-</p>
 
     </section>
 
@@ -182,6 +283,15 @@
   const START_DATE = "2026-06-25";  // 학습 시작일
   const INDEX_FILE = `${SUBJECT}-index.json`; // 학습 데이터 (JSON)
   let studyIndex = null;
+  const CHAPTER_FILE = `${SUBJECT}-chapters.txt`; // 챕터 데이터 (txt)
+  let chapterList = [];  
+
+  const calendarTitle = document.getElementById("calendar-title");
+  const calendarGrid = document.getElementById("calendar-grid");
+  const prevMonthButton = document.getElementById("prev-month");
+  const nextMonthButton = document.getElementById("next-month");
+  let calendarYear = null;
+  let calendarMonth = null;
 
   const dateInput = document.getElementById("study-date");
   const memoText = document.getElementById("memo-text");
@@ -189,34 +299,59 @@
   const progressFill = document.getElementById("progress-fill");
   const filesList = document.getElementById("files-list");
   const startDateText = document.getElementById("start-date");
-  const todayText = document.getElementById("today-text");
   const elapsedText = document.getElementById("elapsed-text");
   const studytimeText = document.getElementById("studytime-text");
   const recentDateText = document.getElementById("recent-date");
   const studyDaysText = document.getElementById("study-days-text");
+  const chapterText = document.getElementById("chapter-text");
 
   init();
 
   async function init() {
 
-    const TODAY = getToday();
+    const TODAY = getKoreaToday();
 
     startDateText.textContent = START_DATE;
     dateInput.value = TODAY;
-    todayText.textContent = TODAY;
     elapsedText.textContent = `(${getElapsedDays(START_DATE, TODAY)}일 경과)`;
 
+    await loadChapterList();  
     await loadStudyIndex();
-
-    loadStudyRecord(TODAY);
 
     dateInput.addEventListener("change", function () {
         loadStudyRecord(dateInput.value);
+        selectCalendarDay(dateInput.value);
+    });
+
+    prevMonthButton.addEventListener("click", function () {
+      calendarMonth--;
+
+      if (calendarMonth < 0) {
+        calendarMonth = 11;
+        calendarYear--;
+      }
+
+      buildCalendar();
+      markRecordedDates();
+      selectCalendarDay(dateInput.value);
+    });
+
+    nextMonthButton.addEventListener("click", function () {
+      calendarMonth++;
+
+      if (calendarMonth > 11) {
+        calendarMonth = 0;
+        calendarYear++;
+      }
+
+      buildCalendar();
+      markRecordedDates();
+      selectCalendarDay(dateInput.value);
     });
   }
 
   async function loadStudyIndex() {
-    const response = await fetch(INDEX_FILE);
+    const response = await fetch(INDEX_FILE, {cache: "no-cache"});
 
     if (!response.ok) {
       throw new Error("index json not found");
@@ -228,6 +363,20 @@
     studyDaysText.textContent = studyIndex.studyDays
       ? `(학습일 ${studyIndex.studyDays}일)`
       : "";
+
+    const today = getKoreaToday();
+    const [year, month] = today.split("-").map(Number);
+
+    calendarYear = year;
+    calendarMonth = month - 1;
+
+    dateInput.value = today;
+
+    buildCalendar();
+    markRecordedDates();
+
+    loadStudyRecord(today);
+    selectCalendarDay(today);
   }
 
   function loadStudyRecord(date) {
@@ -245,6 +394,7 @@
       memoText.value = "이 날짜에는 학습 기록이 없습니다.";
       updateProgress("-");
       studytimeText.textContent = "-";
+      chapterText.textContent = "-";
       filesList.innerHTML = "";
       return;
     }
@@ -254,6 +404,7 @@
       : "메모가 없습니다.";
 
     updateProgress(record.progress || "-");
+    chapterText.textContent = getChapterTitle(record.progress);
 
     studytimeText.textContent = record.studytime || "-";
 
@@ -274,16 +425,16 @@
     }
   }
 
-  function getToday() {
-
-      const today = new Date();
-
-      const year = today.getFullYear();
-      const month = String(today.getMonth() + 1).padStart(2, "0");
-      const day = String(today.getDate()).padStart(2, "0");
-
-      return `${year}-${month}-${day}`;
-  }  
+  function getKoreaToday() {
+      const now = new Date();
+     
+      return new Intl.DateTimeFormat("en-ca", {
+          timeZone: "Asia/Seoul",
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit"
+      }).format(now);
+  }
 
   function getElapsedDays(startDate, endDate) {
       const start = new Date(startDate);
@@ -324,10 +475,113 @@
       return;
     }
 
-    const percent = ((currentValue / total) * 100).toFixed(1);
+    const percent = ((currentValue / (total + 1)) * 100).toFixed(1); // chapter.section/chapter+1
 
     progressText.textContent = `${percent}% (${progress})`;
     progressFill.style.width = percent + "%";
+  }
+
+  function markRecordedDates() {
+    if (!studyIndex || !studyIndex.records) return;
+
+    studyIndex.records.forEach(record => {
+      const cell = document.querySelector(`[data-date="${record.date}"]`);
+      if (cell) {
+        cell.classList.add("has-record");
+      }
+    });
+  }
+
+  function buildCalendar() {
+    calendarGrid.innerHTML = "";
+
+    calendarTitle.textContent = `${calendarYear}년 ${calendarMonth + 1}월`;
+
+    const firstDay = new Date(calendarYear, calendarMonth, 1);
+    const lastDay = new Date(calendarYear, calendarMonth + 1, 0);
+
+    const startWeekday = firstDay.getDay();
+    const lastDate = lastDay.getDate();
+
+    for (let i = 0; i < startWeekday; i++) {
+      const empty = document.createElement("div");
+      empty.className = "calendar-day empty";
+      calendarGrid.appendChild(empty);
+    }
+
+    const today = getKoreaToday();
+
+    for (let day = 1; day <= lastDate; day++) {
+      const date = `${calendarYear}-${String(calendarMonth + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+
+      const cell = document.createElement("div");
+      cell.className = "calendar-day";
+      cell.dataset.date = date;
+      cell.textContent = day;
+
+      if (date === today) {
+        cell.classList.add("today");
+      }
+
+      cell.addEventListener("click", function () {
+        dateInput.value = date;
+        loadStudyRecord(date);
+        selectCalendarDay(date);
+      });
+
+      calendarGrid.appendChild(cell);
+    }
+  }
+
+  function selectCalendarDay(date) {
+    document.querySelectorAll(".calendar-day.selected").forEach(cell => {
+      cell.classList.remove("selected");
+    });
+
+    const selectedCell = document.querySelector(`[data-date="${date}"]`);
+
+    if (selectedCell) {
+      selectedCell.classList.add("selected");
+    }
+  }
+
+  async function loadChapterList() {
+    const response = await fetch(CHAPTER_FILE, {cache: "no-cache"});
+
+    if (!response.ok) {
+      chapterList = [];
+      return;
+    }
+
+    const text = await response.text();
+    
+    chapterList = text
+      .split("\n")
+      .map(line => line.trim())
+      .filter(line => line !== "");
+  }
+
+  function getProgressUnit(progress) {
+    return String(progress).split("/")[0].trim();
+  }
+
+  function getChapterTitle(progress) {
+    if (!progress || !chapterList.length) return "-";
+
+    const unit = getProgressUnit(progress);
+    const mainNumber = unit.split(".")[0];
+
+    const mainTitle = chapterList.find(line => 
+      line.startsWith(mainNumber + " ")
+    );
+     
+    const subTitle = chapterList.find(line => 
+      line.startsWith(unit + " ")
+    );
+
+    if (!mainTitle || !subTitle) return "-";
+
+    return `(${mainTitle} - ${subTitle})`;
   }
 
   </script>
