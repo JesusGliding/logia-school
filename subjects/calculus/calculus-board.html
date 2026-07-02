@@ -404,7 +404,7 @@
       : "메모가 없습니다.";
 
     updateProgress(record.progress || "-");
-    chapterText.textContent = getChapterTitle(record.progress);
+    chapterText.innerHTML = getChapterTitle(record.progress);
 
     studytimeText.textContent = record.studytime || "-";
 
@@ -581,7 +581,7 @@
 
     if (!mainTitle || !subTitle) return "-";
 
-    return `(${mainTitle} - ${subTitle})`;
+    return `${mainTitle} | ${subTitle}`;
   }
 
   </script>
