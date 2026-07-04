@@ -1,13 +1,44 @@
 {
-  "cacheVersion": 1782976199,
+  "cacheVersion": 1783130659,
   "subject": "biology",
-  "recordCount": 0,
-  "mediaCount": 0,
-  "firstRecord": null,
-  "lastRecord": null,
-  "studyDays": 0,
-  "latestProgress": "0/0",
-  "recordDates": [],
-  "records": [],
-  "updated": "2026-07-02T16:09:59"
+  "recordCount": 1,
+  "mediaCount": 3,
+  "firstRecord": "2026-07-04",
+  "lastRecord": "2026-07-04",
+  "studyDays": 1,
+  "latestProgress": "1.3/56",
+  "recordDates": [
+    "2026-07-04"
+  ],
+  "records": [
+    {
+      "date": "2026-07-04",
+      "file": "biology_2026-07-04.txt",
+      "progress": "1.3/56",
+      "studytime": "0m",
+      "memo": [
+        "생명과학 보드를 완성중이다.",
+        "이 subject는 단원명이 다른 과목들과는 좀 다르다.",
+        "그래서 보드를 확장 구성, 테스트 중이다."
+      ],
+      "media": [
+        {
+          "file": "biology_2026-06-25-01.jpg",
+          "title": "생명과학 공동저자 차례 표시",
+          "exists": true
+        },
+        {
+          "file": "biology_2026-06-25-02.jpg",
+          "title": "생명과학교재 내용",
+          "exists": true
+        },
+        {
+          "file": "biology_2026-06-25-cover.jpg",
+          "title": "캠벨 생명과학 표지",
+          "exists": true
+        }
+      ]
+    }
+  ],
+  "updated": "2026-07-04T11:04:19"
 }

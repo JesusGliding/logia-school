@@ -3,114 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <title>공업수학 학습보드</title>
-    
-  <style>
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      padding: 20px;
-    }
-
-    h2 {
-      margin-bottom: 10px;
-      font-size: 24px;
-    }
-
-    .back-button {
-      font-size: 15px;
-      margin-left: 20px;
-      color: #0066cc;
-      text-decoration: none;
-
-      position: relative;
-      top: -3px;
-    }
-
-    .back-button:hover {
-      color: #003366;
-      text-decoration: underline;
-    }
-
-    .board-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 280px 280px;
-      gap: 20px;
-    }
-
-    .panel {
-      border: 1px solid #999;
-      border-radius: 12px;
-      padding: 20px;
-      background: #fafafa;
-      overflow: auto;
-    }
-
-    .panel h3 {
-      margin-top: 0;
-      font-size: 18px;
-    }
-
-    textarea {
-      width: 100%;
-      height: 180px;
-      resize: none;
-      border: 1px solid #aaa;
-      border-radius: 8px;
-      padding: 12px;
-      font-size: 15px;
-      box-sizing: border-box;  
-    }
-
-    @media (max-width: 800px) {
-      .board-grid {
-         grid-template-columns: 1fr;
-         grid-template-rows: auto;
-    }
-    }
-  </style>
-
+  <link rel="stylesheet" href="../../assets/css/board.css">
 </head>
+
 <body>
-  <h2>공업수학 <학습 보드>
+  <h2>공업수학 &lt;학습 보드&gt;
   <a href="engineering-math.html" class="back-button" title="상위 페이지로 이동">↩️</a>
   </h2>
 
   <div class="board-grid">
 
     <section class="panel calendar-panel">
-      <h3>날짜 달력</h3>
-      <input type="date">
+      <!-- <h3>날짜 달력</h3> -->
+
+      <div class="calendar-header">
+        <button id="prev-month">◀</button>
+        <strong id="calendar-title">-</strong>
+        <button id="next-month">▶</button>
+      </div>
+
+      <div class="calendar-weekdays">
+        <span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span>
+      </div>
+
+      <div id="calendar-grid" class="calendar-grid"></div>
+
+      <input type="date" id="study-date" hidden>
     </section>
 
     <section class="panel status-panel">
       <h3>학습 상태</h3>
-      <p><strong>학습시작 :</strong> 6/25/2026</p>
-      <p><strong>진도율 :</strong> █████░░░░░ 28%</p>
-      <p><strong>오늘날짜 :</strong> 6/27/2026</p>
-      <p><strong>최근학습 :</strong> 6/26/2026</p>
+      
+      <p>
+        <strong>학습시작 :</strong> 
+        <span id="start-date">-</span>
+        <span id="elapsed-text"></span>
+      </p>
+
+      <p>
+        <strong>최근학습 :</strong> 
+        <span id="recent-date">-</span>
+        <span id="study-days-text"></span>
+      </p>
+      
+      <div class="progress-row">
+        <strong>진도율 :</strong> 
+        <div class="progress-bar">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+        <span id="progress-text">-</span>
+      </div>
+
+      <p><strong>학습시간 :</strong> <span id="studytime-text">-</span></p>
+
+      <p id="chapter-text" class="chapter-text">-</p>
+
     </section>
 
     <section class="panel memo-panel">
       <h3>간단한 메모 노트</h3>
-      <textarea>
-    공업수학 학습보드를 처음 만든날이다. 
-    교재 표지와 저자서문, 첫 페이지를 실었다.
-      </textarea>
+      <textarea id="memo-text"></textarea>
     </section>
 
     <section class="panel files-panel">
-      <h3>학습내용</h3>
+      <h3>학습 내용</h3>
 
-      <ul>
-        <li><a href="engineering-math/EngineeringMath_2026-06-27-cover.jpg" target="_blank">공업수학 교재 표지</a></li>
-        <li><a href="engineering-math/EngineeringMath_2026-06-27-01.jpg" target="_blank">저자 서문</a></li>
-        <li><a href="engineering-math/EngineeringMath_2026-06-27-02.jpg" target="_blank">공업수학 내용소개</a></li>
-    </ul>
+      <ul id="files-list">
+      </ul>
     </section>
+
 
   </div>
 
-
+  <script>
+    const BOARD_CONFIG = {
+      subject: "engineering-math",
+      startDate: "2026-07-",
+      separator: " - " // 챕터 제목 구분자 (기본값: " | ")
+    }
+  </script>
+  <script src="../../assets/js/board.js"></script>
+  
 </body>
 </html>
