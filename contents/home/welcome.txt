@@ -1,0 +1,141 @@
+@speed slow
+LOGIA School
+
+@pause 1
+LOGIA School은 개인의 평생 학습을 위해 설계된
+Personal University 프로젝트입니다.
+
+@pause 2
+@speed normal
+인터넷에는 수많은 교육 자료가 존재하지만,
+자신의 학습을 수년, 수십 년 동안
+체계적으로 기록하고 관리할 수 있는 환경은 많지 않습니다.
+
+LOGIA School은 이러한 문제를 해결하기 위해 시작되었습니다.
+
+학습 기록과 교육 자료,
+독서와 연구 프로젝트를 하나의 구조 안에서 관리하며,
+시간이 지날수록 성장하는
+개인의 학문적 자산을 만들어 갑니다.
+
+
+
+
+
+
+
+Purpose
+
+@pause 1
+LOGIA School의 목적은
+단순히 지식을 저장하는 것이 아닙니다.
+
+배움의 과정을 기록하고,
+꾸준한 학습을 통해
+자신의 지식 체계를 구축하는 것입니다.
+
+시험을 위한 플랫폼이 아니라,
+평생 학습을 위한 교육 환경을 지향합니다.
+
+
+
+
+
+
+
+Educational Philosophy
+
+@pause 1
+LOGIA School은
+결과보다 과정을 중요하게 생각합니다.
+
+깊이 이해하고,
+꾸준히 기록하며,
+오랜 시간에 걸쳐 성장하는 것이
+진정한 학습이라고 믿습니다.
+
+사용자는 학습에 집중하고,
+시스템은 반복 작업을 담당합니다.
+
+
+
+
+
+
+
+Core Components
+
+@pause 0.5
+Learning Contents
+LSF (LOGIA Study Format)
+Build System
+Study Board
+Static Website
+
+
+
+
+
+
+
+Current Features
+
+@pause 1
+• Subject Management
+• Study Records
+• Automatic Build System
+• JSON Database
+• Study Board
+• Lifelong Learning Archive
+
+
+
+
+
+
+
+Future
+
+@pause 1
+Learning Statistics
+Progress Graph
+Search
+PDF Textbooks
+Multi-language Support
+Hundreds of Subjects
+
+
+
+
+
+
+
+
+LOGIA School does not merely preserve Knowledge.
+
+It preserves the process of learning.
+
+@pause 2
+
+
+@fade
+@pause 1
+@clear
+
+
+
+
+LOGIA School 
+A Personal University
+
+
+
+
+
+
+
+
+
+It is designed to grow together with its learner.
+
+@stop

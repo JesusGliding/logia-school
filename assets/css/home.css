@@ -1,0 +1,131 @@
+/* .home-section h2 {
+    font-size: 26px;
+    margin: 18px 10px 10px;
+} */
+
+.flow-window {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    z-index: 10;
+}
+
+.flow-content {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    line-height: 1.8;
+    font-size: 16px;
+    white-space: pre-line;
+    pointer-events: none;
+}
+
+#welcome-hover-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60%;
+    height: 100%;
+    z-index: 20;
+    cursor: pointer;
+}
+
+.home-section > p,
+body > p {
+    margin: 0 10px 20px;
+    line-height: 1.55;
+}
+
+.home-bottom {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    align-items: start;
+    margin-top: 18px;
+}
+
+.courses-section {
+    padding: 0 36px 0 30px;
+    border-right: 1px solid #ccc;
+}
+
+.sitemap-section {
+    padding: 0 0 0 40px;
+}
+
+.courses-section h2 {
+    text-align: center;
+    font-size: 24px;
+    margin: 0 0 16px;
+}
+.sitemap-section h2 {
+    font-size: 24px;
+    margin: 0 0 12px 200px;
+}
+
+.courses-section ul {
+    margin: 0;
+    padding-left: 24px;
+}
+
+.courses-section li {
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.site-map {
+    display: grid;
+    grid-template-columns: 75px 100px 110px 105px 90px;
+    column-gap: 20px;
+    align-items: start;
+    margin-bottom: 10px;
+}
+
+.site-column strong {
+    display: block;
+    font-size: 20px;
+    padding-bottom: 12px;
+    margin-bottom: 28px;
+    border-bottom: 1px solid #aaa;
+}
+
+.site-column span {
+    display: block;
+    font-size: 16px;
+    margin: 0;
+    line-height: 1.75;
+    white-space: nowrap;
+}
+
+.site-title {
+    font-size: 20px;
+    font-weight: 700;
+
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+
+    border-bottom: 1px solid #aaa;
+}
+
+.home-title {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+}
+
+.home-title h2 {
+    font-size: 26px;
+    margin: 4px 10px 10px;
+}
+
+.overview-link {
+    font-size: 15px;
+    font-weight: 500;
+    color: #666;
+    text-decoration: none;
+}
+
+.overview-link:hover {
+    color: #000;
+    text-decoration: underline;
+}

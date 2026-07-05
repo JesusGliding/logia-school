@@ -81,6 +81,11 @@
       transition: width 0.3s;
     }
 
+    #progress-text {
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
     #elapsed-text {
       font-size: 14px;
       color: #003366;
