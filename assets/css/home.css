@@ -76,8 +76,8 @@ body > p {
 
 .site-map {
     display: grid;
-    grid-template-columns: 75px 100px 110px 105px 90px;
-    column-gap: 30px;
+    grid-template-columns: 75px 100px 110px 100px 85px;
+    column-gap: 32px;
     align-items: start;
     margin-bottom: 10px;
 }
