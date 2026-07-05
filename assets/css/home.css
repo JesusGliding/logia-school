@@ -8,6 +8,7 @@
     overflow: hidden;
     position: relative;
     z-index: 10;
+    margin-left: 10px;
 }
 
 .flow-content {
@@ -60,7 +61,7 @@ body > p {
 }
 .sitemap-section h2 {
     font-size: 24px;
-    margin: 0 0 12px 200px;
+    margin: 0 0 12px 210px;
 }
 
 .courses-section ul {
@@ -76,7 +77,7 @@ body > p {
 .site-map {
     display: grid;
     grid-template-columns: 75px 100px 110px 105px 90px;
-    column-gap: 20px;
+    column-gap: 30px;
     align-items: start;
     margin-bottom: 10px;
 }
