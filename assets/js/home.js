@@ -21,7 +21,7 @@ async function loadFlowText(filePath) {
       { transform: "translateY(-100%)" }
     ],
     {
-      duration: 150000,
+      duration: 180000,
       easing: "linear",
       fill: "forwards"
     }
