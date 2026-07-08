@@ -1,5 +1,5 @@
 {
-  "cacheVersion": 1783334941,
+  "cacheVersion": 1783525887,
   "subject": "calculus",
   "recordCount": 3,
   "mediaCount": 3,
@@ -40,7 +40,7 @@
     {
       "date": "2026-07-01",
       "file": "calculus_2026-07-01.txt",
-      "progress": "0/13",
+      "progress": null,
       "studytime": "0h",
       "memo": [
         "계속해서 스터디 보드 엔진을 개선해 나가고 있다.",
@@ -71,5 +71,5 @@
       ]
     }
   ],
-  "updated": "2026-07-06T19:49:01"
+  "updated": "2026-07-09T00:51:27"
 }

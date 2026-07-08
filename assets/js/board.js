@@ -4,8 +4,9 @@
   let studyIndex = null;
   const CHAPTER_FILE = `${SUBJECT}-chapters.txt`; // 챕터 데이터 (txt)
   let chapterList = [];  
-  const CHAPTER_FORMAT = SUBJECT === "biology" ? "campbell" : "standard"; // 챕터 형식 (campbell or standard)
+  const CHAPTER_FORMAT = BOARD_CONFIG.chapterFormat ?? "general"; // 챕터 형식 (general, campbell, classic, simple)
   const CHAPTER_SEPARATOR = BOARD_CONFIG.separator ?? " | "; // 챕터 제목 구분자 (기본값: " | ")
+  const CHAPTER_TITLE_LAYOUT = BOARD_CONFIG.chapterTitleLayout ?? "inline";
 
   const calendarTitle = document.getElementById("calendar-title");
   const calendarGrid = document.getElementById("calendar-grid");
@@ -105,17 +106,20 @@
       memoText.value = "학습 데이터베이스를 불러오지 못했습니다.";
       updateProgress("-");
       studytimeText.textContent = "-";
+      chapterText.textContent = "-";
       filesList.innerHTML = "";
       return;
     }
 
     const record = studyIndex.records.find(item => item.date === date);
+    const progress = getProgressForDate(date);
+
+    updateProgress(progress);
+    chapterText.textContent = getChapterTitle(progress);
 
     if (!record) {
       memoText.value = "이 날짜에는 학습 기록이 없습니다.";
-      updateProgress("-");
       studytimeText.textContent = "-";
-      chapterText.textContent = "-";
       filesList.innerHTML = "";
       return;
     }
@@ -124,8 +128,8 @@
       ? record.memo.join("\n")
       : "메모가 없습니다.";
 
-    updateProgress(record.progress || "-");
-    chapterText.textContent = getChapterTitle(record.progress);
+    updateProgress(getProgressForDate(date));
+    chapterText.textContent = getChapterTitle(progress);
 
     studytimeText.textContent = record.studytime || "-";
 
@@ -166,7 +170,7 @@
   }
 
   function updateProgress(progress) {
-    const parts = progress.split("/");
+    const parts = String(progress).split("/");
 
     if (parts.length !== 2) {
       progressText.textContent = progress;
@@ -174,29 +178,20 @@
       return;
     }
 
-    const currentText = parts[0].trim();
-    const total = Number(parts[1].trim());
+    const currentStudyUnitCount = getCurrentStudyUnitCount(progress);
+    const totalStudyUnitCount = getTotalStudyUnitCount();
 
-    const currentParts = currentText.split(".");
-    let currentValue = Number(currentText);
-
-    if (currentParts.length === 2) {
-      const chapter = Number(currentParts[0]);
-      const sectionText = currentParts[1];
-      const section = Number(sectionText);
-
-      if (!isNaN(chapter) && !isNaN(section) && section >= 10) {
-        currentValue = chapter + 0.99;
-      }
-    }
-
-    if (isNaN(currentValue) || isNaN(total) || total <= 0) {
+    if (
+      currentStudyUnitCount <= 0 ||
+      totalStudyUnitCount <= 0
+    ) {
       progressText.textContent = "-";
       progressFill.style.width = "0%";
       return;
     }
 
-    const percent = ((currentValue / (total + 1)) * 100).toFixed(1); // chapter.section/chapter+1
+    const percent =
+      ((currentStudyUnitCount / totalStudyUnitCount) * 100).toFixed(1);
 
     progressText.textContent = `${percent}% (${progress})`;
     progressFill.style.width = percent + "%";
@@ -282,11 +277,80 @@
       .filter(line => line !== "");
   }
 
+  function getProgressForDate(date) {
+    if (!studyIndex || !studyIndex.records) return "-";
+    if (date < START_DATE) return "-";
+
+    const record = [...studyIndex.records]
+      .filter(r => r.date <= date && r.progress)
+      .sort((a, b) => b.date.localeCompare(a.date))[0];
+
+    return record ? record.progress : "-";
+  }
+  
   function getProgressUnit(progress) {
     return String(progress).split("/")[0].trim();
   }
 
-  function getStandardChapterTitle(progress) {
+  function isStudyUnitLine(line) {
+    if (CHAPTER_FORMAT === "classic") {
+      return /^제\d+장/.test(line);
+    }
+
+    if (CHAPTER_FORMAT === "simple") {
+      return (
+        /^제\d+장/.test(line) ||
+        /^\d+장/.test(line) ||
+        /^Chapter\s+\d+/.test(line)
+      );
+    }
+
+    return /^\d+\.\d+\s+/.test(line);
+  }
+
+
+  function matchesStudyUnit(line, unit) {
+    const chapterNumber = unit.split(".")[0];
+
+    if (CHAPTER_FORMAT === "classic") {
+      return line.startsWith(`제${chapterNumber}장`);
+    }
+
+    if (CHAPTER_FORMAT === "simple") {
+      return (
+        line.startsWith(`제${chapterNumber}장`) ||
+        line.startsWith(`${chapterNumber}장`) ||
+        line.startsWith(`Chapter ${chapterNumber}`)
+      );
+    }
+
+    return line.startsWith(unit + " ");
+  }
+
+
+  function getTotalStudyUnitCount() {
+    return chapterList.filter(line => isStudyUnitLine(line)).length;
+  }
+
+
+  function getCurrentStudyUnitCount(progress) {
+    const unit = getProgressUnit(progress);
+    let count = 0;
+
+    for (const line of chapterList) {
+      if (!isStudyUnitLine(line)) continue;
+
+      count++;
+
+      if (matchesStudyUnit(line, unit)) {
+        return count;
+      }
+    }
+
+    return 0;
+  }
+
+  function getGeneralChapterTitle(progress) {
     if (!progress || !chapterList.length) return "-";
 
     const unit = getProgressUnit(progress);
@@ -308,9 +372,14 @@
   function getChapterTitle(progress) {
     if (CHAPTER_FORMAT === "campbell") {
       return getCampbellChapterTitle(progress);
-    } else {
-      return getStandardChapterTitle(progress);
     }
+    if (CHAPTER_FORMAT === "classic") {
+      return getClassicChapterTitle(progress);
+    }
+    if (CHAPTER_FORMAT === "simple") {
+      return getSimpleChapterTitle(progress);
+    } 
+    return getGeneralChapterTitle(progress);
   }
 
   function getCampbellChapterTitle(progress) {
@@ -349,4 +418,53 @@
     }
 
     return `${partTitle} | ${chapterTitle}\n(${detailTitle})`;
-}
+  }
+
+  function getClassicChapterTitle(progress) {
+    if (!progress || !chapterList.length) return "-";
+
+    const unit = getProgressUnit(progress);
+    const chapterNumber = unit.split(".")[0];
+
+    const chapterIndex = chapterList.findIndex(line =>
+      line.startsWith(`제${chapterNumber}장`)
+    );
+
+    if (chapterIndex === -1) return "-";
+
+    const chapterTitle = chapterList[chapterIndex];
+    let partTitle = "";
+
+    for (let i = chapterIndex - 1; i >= 0; i--) {
+      const line = chapterList[i];
+
+      if (/^[IVXLCDM]+\s+/.test(line)) {
+        partTitle = line;
+        break;
+      }
+    }
+
+    if (!partTitle) return chapterTitle;
+
+    if (BOARD_CONFIG.chapterTitleLayout === "newline") {
+      return `${partTitle}\n${chapterTitle}`;
+    }
+
+    return `${partTitle}${CHAPTER_SEPARATOR}${chapterTitle}`;
+  }
+
+
+  function getSimpleChapterTitle(progress) {
+    if (!progress || !chapterList.length) return "-";
+
+    const unit = getProgressUnit(progress);
+    const chapterNumber = unit.split(".")[0];
+
+    const chapterTitle = chapterList.find(line =>
+      line.startsWith(`제${chapterNumber}장`) ||
+      line.startsWith(`${chapterNumber}장`) ||
+      line.startsWith(`Chapter ${chapterNumber}`)
+    );
+
+    return chapterTitle || "-";
+  }

@@ -52,4 +52,4 @@ hoverArea.addEventListener("click", () => {
     }
 });
 
-loadFlowText("contents/home/welcome.txt");
+loadFlowText("contents/home/LOGIA-welcome.txt");

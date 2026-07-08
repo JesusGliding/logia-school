@@ -18,6 +18,18 @@ publish)
    git push
    ;;
 
+clean)
+
+   python3 -c "
+from pathlib import Path
+p = Path('$2')
+p.write_text(
+   p.read_text(encoding='utf-8').replace('\ufeff', ''),
+   encoding='utf-8'
+)
+"
+   ;;
+
 *)
    echo ""
    echo "LOGIA"
@@ -26,6 +38,7 @@ publish)
    echo "  ./logia build"
    echo "  ./logia serve"
    echo "  ./logia publish"
+   echo "  ./logia clean"
    ;;
 esac
 

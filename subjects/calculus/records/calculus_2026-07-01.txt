@@ -3,7 +3,6 @@ memo:
 진도율 0일때 표기 테스트
 
 progress:
-0/13
 
 studytime:
 0h

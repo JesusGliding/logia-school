@@ -1,14 +1,15 @@
 {
-  "cacheVersion": 1783334941,
+  "cacheVersion": 1783525887,
   "subject": "biology",
-  "recordCount": 1,
+  "recordCount": 2,
   "mediaCount": 4,
   "firstRecord": "2026-07-04",
-  "lastRecord": "2026-07-04",
-  "studyDays": 1,
-  "latestProgress": "1.1/56",
+  "lastRecord": "2026-07-06",
+  "studyDays": 3,
+  "latestProgress": "3.2/56",
   "recordDates": [
-    "2026-07-04"
+    "2026-07-04",
+    "2026-07-06"
   ],
   "records": [
     {
@@ -46,7 +47,20 @@
           "exists": true
         }
       ]
+    },
+    {
+      "date": "2026-07-06",
+      "file": "biology_2026-07-06.txt",
+      "progress": "3.2/56",
+      "studytime": "1h 20m",
+      "memo": [
+        "오늘은 의미 있는날. 로기아 스쿨 홈페이지 v1.0을 공개했다.",
+        "LOGIA School 개교일이다.",
+        "축하를 뒤로한채 생물학 작업 마저 끝냈다.",
+        "오늘은 공부는 못하고 단원(챕터 목록 정리)를 마무리 했다."
+      ],
+      "media": []
     }
   ],
-  "updated": "2026-07-06T19:49:01"
+  "updated": "2026-07-09T00:51:27"
 }
