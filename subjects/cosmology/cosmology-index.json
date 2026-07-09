@@ -1,8 +1,8 @@
 {
-  "cacheVersion": 1783566489,
+  "cacheVersion": 1783616865,
   "subject": "cosmology",
   "recordCount": 2,
-  "mediaCount": 1,
+  "mediaCount": 2,
   "firstRecord": "2026-07-08",
   "lastRecord": "2026-07-09",
   "studyDays": 1,
@@ -46,9 +46,14 @@
           "file": "cosmology_2026-07-09-01.pdf",
           "title": "학습 노트 필기",
           "exists": true
+        },
+        {
+          "file": "우주론과목서문.pdf",
+          "title": "우주론 과목 서문",
+          "exists": true
         }
       ]
     }
   ],
-  "updated": "2026-07-09T12:08:09"
+  "updated": "2026-07-10T02:07:45"
 }

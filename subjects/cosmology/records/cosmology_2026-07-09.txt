@@ -18,4 +18,5 @@ studytime:
 
 files:
 cosmology_2026-07-09-01.pdf | 학습 노트 필기
+우주론과목서문.pdf | 우주론 과목 서문
 
