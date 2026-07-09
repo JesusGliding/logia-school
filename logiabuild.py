@@ -100,16 +100,12 @@ def read_record_file(record_path, media_dir):
     return data
 
 
-def calculate_study_days(first_record, last_record):
-    if not first_record or not last_record:
-        return 0
-
-    try:
-        start = date.fromisoformat(first_record)
-        end = date.fromisoformat(last_record)
-        return (end - start).days + 1
-    except Exception:
-        return 0
+def calculate_study_days(records):
+    return len({
+        record["date"]
+        for record in records
+        if record.get("progress")
+    })
 
 
 def print_missing_media_warning(subject, record_file, media_items):
@@ -195,7 +191,7 @@ def build_subject_index(subject, build_cache):
 
     first_record = record_dates[0] if record_dates else None
     last_record = record_dates[-1] if record_dates else None
-    study_days = calculate_study_days(first_record, last_record)
+    study_days = calculate_study_days(records)
 
     media_count = sum(len(record["media"]) for record in records)
 

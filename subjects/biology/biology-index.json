@@ -1,11 +1,11 @@
 {
-  "cacheVersion": 1783542852,
+  "cacheVersion": 1783566489,
   "subject": "biology",
   "recordCount": 2,
   "mediaCount": 4,
   "firstRecord": "2026-07-04",
   "lastRecord": "2026-07-06",
-  "studyDays": 3,
+  "studyDays": 1,
   "latestProgress": "3.2/56",
   "recordDates": [
     "2026-07-04",
@@ -51,7 +51,7 @@
     {
       "date": "2026-07-06",
       "file": "biology_2026-07-06.txt",
-      "progress": "3.2/56",
+      "progress": null,
       "studytime": "1h 20m",
       "memo": [
         "오늘은 의미 있는날. 로기아 스쿨 홈페이지 v1.0을 공개했다.",
@@ -62,5 +62,5 @@
       "media": []
     }
   ],
-  "updated": "2026-07-09T05:34:12"
+  "updated": "2026-07-09T12:08:09"
 }

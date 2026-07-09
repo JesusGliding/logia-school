@@ -3,7 +3,6 @@ memo:
 이식이 아주 잘된다. 성공적이다.
 
 progress:
-3.11/22
 
 studytime:
 30m

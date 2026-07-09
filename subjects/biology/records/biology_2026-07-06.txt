@@ -5,7 +5,6 @@ LOGIA School 개교일이다.
 오늘은 공부는 못하고 단원(챕터 목록 정리)를 마무리 했다.
 
 progress:
-3.2/56
 
 studytime:
 1h 20m

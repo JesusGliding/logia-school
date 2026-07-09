@@ -1,11 +1,11 @@
 {
-  "cacheVersion": 1783542852,
+  "cacheVersion": 1783566489,
   "subject": "calculus",
   "recordCount": 3,
   "mediaCount": 3,
   "firstRecord": "2026-06-30",
   "lastRecord": "2026-07-02",
-  "studyDays": 3,
+  "studyDays": 2,
   "latestProgress": "11.3/13",
   "recordDates": [
     "2026-06-30",
@@ -71,5 +71,5 @@
       ]
     }
   ],
-  "updated": "2026-07-09T05:34:12"
+  "updated": "2026-07-09T12:08:09"
 }

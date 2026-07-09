@@ -1,11 +1,11 @@
 {
-  "cacheVersion": 1783542852,
+  "cacheVersion": 1783566489,
   "subject": "chemistry",
   "recordCount": 2,
   "mediaCount": 4,
   "firstRecord": "2026-07-02",
   "lastRecord": "2026-07-07",
-  "studyDays": 6,
+  "studyDays": 1,
   "latestProgress": "1.4/22",
   "recordDates": [
     "2026-07-02",
@@ -15,7 +15,7 @@
     {
       "date": "2026-07-02",
       "file": "chemistry_2026-07-02.txt",
-      "progress": "3.11/22",
+      "progress": null,
       "studytime": "30m",
       "memo": [
         "오늘은 화학 보드를 붙여넣었다. ",
@@ -61,5 +61,5 @@
       ]
     }
   ],
-  "updated": "2026-07-09T05:34:12"
+  "updated": "2026-07-09T12:08:09"
 }
