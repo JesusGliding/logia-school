@@ -9,7 +9,9 @@ const ReadingBoard = (() => {
 
   let readingData = null;
   let books = [];
+  let allBooks = [];
   let selectedBookId = null;
+  const readingDataCache = {};
 
   const urlParams =
     new URLSearchParams(window.location.search);
@@ -121,78 +123,133 @@ const ReadingBoard = (() => {
      데이터 불러오기
      --------------------------------------------------------- */
 
-  async function loadReadingData(categoryKey = currentCategory) {
+  async function fetchReadingCategory(categoryKey) {
+    const cachedData =
+      readingDataCache[categoryKey];
+
+    if (cachedData) {
+      return cachedData;
+    }
 
     const categoryConfig =
-        READING_CONFIG.categories[categoryKey];
+      READING_CONFIG.categories[categoryKey];
 
     if (!categoryConfig) {
-        console.error(
-        `Reading Category Error : ${categoryKey}`
-        );
-        return;
+      throw new Error(
+        `정의되지 않은 Reading 카테고리입니다: ${categoryKey}`
+      );
+    }
+
+    const separator =
+      categoryConfig.dataFile.includes("?")
+        ? "&"
+        : "?";
+
+    const dataUrl =
+      `${categoryConfig.dataFile}${separator}v=${Date.now()}`;
+
+    const response = await fetch(dataUrl, {
+      cache: "no-store"
+    });
+
+    if (!response.ok) {
+      throw new Error(
+        `${categoryKey} JSON 로딩 실패: HTTP ${response.status}`
+      );
+    }
+
+    const data = await response.json();
+
+    /*
+    * 각 책에 상위 카테고리 정보를 추가한다.
+    * 원본 JSON을 수정하는 것이 아니라 브라우저 메모리에만 붙인다.
+    */
+    data.books = Array.isArray(data.books)
+      ? data.books.map(book => ({
+          ...book,
+          readingCategory: categoryKey
+        }))
+      : [];
+
+    readingDataCache[categoryKey] = data;
+
+    return data;
+  }
+
+  async function loadAllReadingBooks() {
+    const categoryKeys =
+      Object.keys(READING_CONFIG.categories);
+
+    const categoryDataList =
+      await Promise.all(
+        categoryKeys.map(categoryKey =>
+          fetchReadingCategory(categoryKey)
+        )
+      );
+
+    allBooks = categoryDataList.flatMap(data =>
+      Array.isArray(data.books)
+        ? data.books
+        : []
+    );
+  }
+
+  async function loadReadingData(
+    categoryKey = currentCategory,
+    targetBookId = null,
+    preserveSearchResults = false
+  ) {
+    const categoryConfig =
+      READING_CONFIG.categories[categoryKey];
+
+    if (!categoryConfig) {
+      console.error(
+        `Reading Category Error: ${categoryKey}`
+      );
+
+      return;
     }
 
     currentCategory = categoryKey;
-    currentMediaPath = categoryConfig.mediaPath;
+    currentMediaPath =
+      categoryConfig.mediaPath || "";
+
+    updateCategoryButtons();
 
     try {
+      readingData =
+        await fetchReadingCategory(categoryKey);
 
-        const separator =
-            categoryConfig.dataFile.includes("?")
-                ? "&"
-                : "?";
+      books = Array.isArray(readingData.books)
+        ? readingData.books
+        : [];
 
-        const dataUrl =
-            `${categoryConfig.dataFile}${separator}v=${Date.now()}`;
+      selectedBookId = null;
 
-        const response = await fetch(
-            dataUrl,
-            {
-                cache: "no-store"
-            }
-        );
+      initializeBoard(
+        targetBookId,
+        preserveSearchResults
+      );
 
-        if (!response.ok) {
-            throw new Error(
-                `Reading JSON을 불러오지 못했습니다. HTTP ${response.status}`
-            );
-        }
+    } catch (error) {
+      console.error(error);
 
-        readingData = await response.json();
-
-        books = Array.isArray(readingData.books)
-            ? readingData.books
-            : [];
-
-        selectedBookId = null;
-
-        initializeBoard();
-
-    }
-
-    catch (error) {
-
-        console.error(error);
-
-        completedList.innerHTML = createErrorMessage(
+      completedList.innerHTML = createErrorMessage(
         "완독 목록을 불러오지 못했습니다."
-        );
+      );
 
-        readingList.innerHTML = createErrorMessage(
+      readingList.innerHTML = createErrorMessage(
         "읽는 중 목록을 불러오지 못했습니다."
-        );
+      );
 
-        searchResults.innerHTML = createErrorMessage(
+      searchResults.innerHTML = createErrorMessage(
         "검색 데이터를 불러오지 못했습니다."
-        );
+      );
 
-        bookDetail.innerHTML = createErrorMessage(
+      bookDetail.innerHTML = createErrorMessage(
         "도서 정보를 불러오지 못했습니다."
-        );
-
+      );
     }
-
   }
 
     function createErrorMessage(message) {
@@ -264,23 +321,42 @@ const ReadingBoard = (() => {
         초기 화면
         --------------------------------------------------------- */
 
-    function initializeBoard() {
-        renderCompletedBooks();
-        renderReadingBooks();
-        renderSearchResults(books, "전체 도서");
+  function initializeBoard(
+    targetBookId = null,
+    preserveSearchResults = false
+  ) {
+    renderCompletedBooks();
+    renderReadingBooks();
 
-        const firstBook =
-        getCompletedBooks()[0]
-        || getReadingBooks()[0]
-        || books[0]
-        || null;
-
-        if (firstBook) {
-        selectBook(firstBook.id);
-        } else {
-        renderEmptyDetail();
-        }
+  /*
+  * 검색 결과는 항상 allBooks 기준이다.
+  * 검색 결과에서 책을 선택한 경우에는 기존 결과를 유지한다.
+  */
+    if (!preserveSearchResults) {
+      renderSearchResults(
+        allBooks,
+        "전체 도서"
+      );
     }
+
+    const targetBook =
+      targetBookId
+        ? getBookById(targetBookId)
+        : null;
+
+    const firstBook =
+      targetBook
+      || getCompletedBooks()[0]
+      || getReadingBooks()[0]
+      || books[0]
+      || null;
+
+    if (firstBook) {
+      selectBook(firstBook.id);
+    } else {
+      renderEmptyDetail();
+    }
+  }
 
 
   /* ---------------------------------------------------------
@@ -395,9 +471,44 @@ const ReadingBoard = (() => {
     );
 
     buttons.forEach(button => {
-      button.addEventListener("click", () => {
-        selectBook(button.dataset.bookId);
-      });
+      button.addEventListener(
+        "click",
+        async () => {
+          const bookId =
+            button.dataset.bookId;
+
+          const bookCategory =
+            button.dataset.bookCategory;
+
+          /*
+          * 검색 결과에서 다른 카테고리의 책을 눌렀을 때
+          */
+          if (
+            bookCategory
+            && bookCategory !== currentCategory
+          ) {
+            const newUrl =
+              `${window.location.pathname}`
+              + `?category=${encodeURIComponent(bookCategory)}`;
+
+            window.history.replaceState(
+              null,
+              "",
+              newUrl
+            );
+
+            await loadReadingData(
+              bookCategory,
+              bookId,
+              true
+            );
+
+            return;
+          }
+
+          selectBook(bookId);
+        }
+      );
     });
   }
 
@@ -644,14 +755,14 @@ const ReadingBoard = (() => {
 
     if (!hasSearchQuery) {
       renderSearchResults(
-        books,
+        allBooks,
         "전체 도서"
       );
 
       return;
     }
 
-    const matchedBooks = books.filter(book => {
+    const matchedBooks = allBooks.filter(book => {
       const title = normalizeText(book.title);
       const author = normalizeText(book.author);
 
@@ -702,7 +813,7 @@ const ReadingBoard = (() => {
     searchForm.reset();
 
     renderSearchResults(
-      books,
+      allBooks,
       "전체 도서"
     );
 
@@ -753,25 +864,41 @@ const ReadingBoard = (() => {
             ? " selected"
             : "";
 
-        return `
-          <button
-            type="button"
-            class="search-result-item${selectedClass}"
-            data-book-id="${escapeHtml(book.id)}"
-          >
-            <span class="search-result-date">
-              ${escapeHtml(getDisplayDate(book))}
-            </span>
+    const categoryTitle =
+      READING_CONFIG.categories[
+        book.readingCategory
+      ]?.title || "";
 
-            <span class="search-result-title">
-              ${escapeHtml(book.title || "제목 없음")}
-            </span>
+    return `
+      <button
+        type="button"
+        class="search-result-item${selectedClass}"
+        data-book-id="${escapeHtml(book.id)}"
+        data-book-category="${escapeHtml(
+          book.readingCategory || ""
+        )}"
+      >
+        <span class="search-result-meta">
 
-            <span class="search-result-author">
-              ${escapeHtml(book.author || "저자 없음")}
-            </span>
-          </button>
-        `;
+          <span class="search-result-date">
+            ${escapeHtml(getDisplayDate(book))}
+          </span>
+
+          <span class="search-result-category">
+            ${escapeHtml(categoryTitle)}
+          </span>
+
+        </span>
+
+        <span class="search-result-title">
+          ${escapeHtml(book.title || "제목 없음")}
+        </span>
+
+        <span class="search-result-author">
+          ${escapeHtml(book.author || "저자 없음")}
+        </span>
+      </button>
+    `;
       })
       .join("");
 
@@ -811,15 +938,36 @@ const ReadingBoard = (() => {
      실행
      --------------------------------------------------------- */
 
-    function init() {
+  async function init() {
+    bindEvents();
+    updateCategoryButtons();
 
-        bindEvents();
+    try {
+      /*
+      * 검색을 위해 먼저 전체 카테고리 데이터를 확보한다.
+      */
+      await loadAllReadingBooks();
 
-        updateCategoryButtons();
+      /*
+      * URL 또는 기본 설정으로 결정된 카테고리를 화면에 표시한다.
+      */
+      await loadReadingData(currentCategory);
 
-        loadReadingData(currentCategory);
+    } catch (error) {
+      console.error(error);
 
+      searchResults.innerHTML =
+        createErrorMessage(
+          "전체 도서 데이터를 불러오지 못했습니다."
+        );
+
+      searchStatus.textContent =
+        "불러오기 실패";
+
+      searchCount.textContent =
+        "0권";
     }
+  }
 
 
   return {
