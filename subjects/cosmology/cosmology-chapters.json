@@ -1,0 +1,200 @@
+{
+  "cacheVersion": 1783815709,
+  "subject": "cosmology",
+  "format": "classic",
+  "sourceFile": "cosmology-chapters.txt",
+  "groupCount": 5,
+  "chapterCount": 16,
+  "sectionCount": 0,
+  "groups": [
+    {
+      "type": "part",
+      "number": "I",
+      "title": "진리의 각축장"
+    },
+    {
+      "type": "part",
+      "number": "II",
+      "title": "시간과 경험"
+    },
+    {
+      "type": "part",
+      "number": "III",
+      "title": "시공간과 우주론"
+    },
+    {
+      "type": "part",
+      "number": "IV",
+      "title": "근원과 통일"
+    },
+    {
+      "type": "part",
+      "number": "V",
+      "title": "실체와 상상의 세계"
+    }
+  ],
+  "chapters": [
+    {
+      "number": "1",
+      "title": "진리로 가는길:시간과 공간은 왜 지금과 같은 모습을 하고 있는가?",
+      "group": {
+        "type": "part",
+        "number": "I",
+        "title": "진리의 각축장"
+      },
+      "sections": []
+    },
+    {
+      "number": "2",
+      "title": "회전하는 물통과 우주:공간은 물리적 실체인가?",
+      "group": {
+        "type": "part",
+        "number": "I",
+        "title": "진리의 각축장"
+      },
+      "sections": []
+    },
+    {
+      "number": "3",
+      "title": "상대성과 절대성:시공간은 아인슈타인이 만들어 낸 추상적 개념인가?",
+      "group": {
+        "type": "part",
+        "number": "I",
+        "title": "진리의 각축장"
+      },
+      "sections": []
+    },
+    {
+      "number": "4",
+      "title": "얽혀 있는 공간:양자적 우주에서 서로 분리되어 있다는 것은 무엇을 의미하는가?",
+      "group": {
+        "type": "part",
+        "number": "I",
+        "title": "진리의 각축장"
+      },
+      "sections": []
+    },
+    {
+      "number": "5",
+      "title": "얼어붙은 강:시간은 정말로 흐르고 있는가?",
+      "group": {
+        "type": "part",
+        "number": "II",
+        "title": "시간과 경험"
+      },
+      "sections": []
+    },
+    {
+      "number": "6",
+      "title": "우연과 화살:시간은 방향성을 갖고 있는가?",
+      "group": {
+        "type": "part",
+        "number": "II",
+        "title": "시간과 경험"
+      },
+      "sections": []
+    },
+    {
+      "number": "7",
+      "title": "시간과 양자:양자의 세계에서 시간의 본질을 추적하다",
+      "group": {
+        "type": "part",
+        "number": "II",
+        "title": "시간과 경험"
+      },
+      "sections": []
+    },
+    {
+      "number": "8",
+      "title": "눈송이와 시공간:우주의 대칭성과 진화",
+      "group": {
+        "type": "part",
+        "number": "III",
+        "title": "시공간과 우주론"
+      },
+      "sections": []
+    },
+    {
+      "number": "9",
+      "title": "증발된 진공:열과 무, 그리고 통일",
+      "group": {
+        "type": "part",
+        "number": "III",
+        "title": "시공간과 우주론"
+      },
+      "sections": []
+    },
+    {
+      "number": "10",
+      "title": "빅뱅의 재구성:무엇이 폭발했는가?",
+      "group": {
+        "type": "part",
+        "number": "III",
+        "title": "시공간과 우주론"
+      },
+      "sections": []
+    },
+    {
+      "number": "11",
+      "title": "다이아몬드를 가진 하늘의 양자:인플라톤과 양자적 요동",
+      "group": {
+        "type": "part",
+        "number": "III",
+        "title": "시공간과 우주론"
+      },
+      "sections": []
+    },
+    {
+      "number": "12",
+      "title": "끈 위의 세계:끈이론이 말하는 시공간의 구조",
+      "group": {
+        "type": "part",
+        "number": "IV",
+        "title": "근원과 통일"
+      },
+      "sections": []
+    },
+    {
+      "number": "13",
+      "title": "막(Brane) 위의 우주:M-이론이 예견하는 시간과 공간",
+      "group": {
+        "type": "part",
+        "number": "IV",
+        "title": "근원과 통일"
+      },
+      "sections": []
+    },
+    {
+      "number": "14",
+      "title": "이상과 현실:실험을 통해 시간과 공간의 실체를 규명하다",
+      "group": {
+        "type": "part",
+        "number": "V",
+        "title": "실체와 상상의 세계"
+      },
+      "sections": []
+    },
+    {
+      "number": "15",
+      "title": "순간이동과 타임머신:시간과 공간을 마음대로 넘나들 수 있을까?",
+      "group": {
+        "type": "part",
+        "number": "V",
+        "title": "실체와 상상의 세계"
+      },
+      "sections": []
+    },
+    {
+      "number": "16",
+      "title": "암시적인 미래:시간과 공간의 전망",
+      "group": {
+        "type": "part",
+        "number": "V",
+        "title": "실체와 상상의 세계"
+      },
+      "sections": []
+    }
+  ],
+  "unparsedLines": [],
+  "updated": "2026-07-12T09:21:49"
+}

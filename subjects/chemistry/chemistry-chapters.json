@@ -1,0 +1,940 @@
+{
+  "cacheVersion": 1783815709,
+  "subject": "chemistry",
+  "format": "general",
+  "sourceFile": "chemistry-chapters.txt",
+  "groupCount": 0,
+  "chapterCount": 22,
+  "sectionCount": 193,
+  "groups": [],
+  "chapters": [
+    {
+      "number": "1",
+      "title": "화학의 기초",
+      "group": null,
+      "sections": [
+        {
+          "number": "1.1",
+          "title": "화학: 개관"
+        },
+        {
+          "number": "1.2",
+          "title": "과학: 자연과 자연의 변화를 이해하는 과정"
+        },
+        {
+          "number": "1.3",
+          "title": "측정 단위"
+        },
+        {
+          "number": "1.4",
+          "title": "측정의 불확정성"
+        },
+        {
+          "number": "1.5",
+          "title": "유효 숫자와 계산"
+        },
+        {
+          "number": "1.6",
+          "title": "체계적인 문제 해결 학습"
+        },
+        {
+          "number": "1.7",
+          "title": "차원 분석"
+        },
+        {
+          "number": "1.8",
+          "title": "온도"
+        },
+        {
+          "number": "1.9",
+          "title": "밀도"
+        },
+        {
+          "number": "1.10",
+          "title": "물질의 분류"
+        },
+        {
+          "number": "1.11",
+          "title": "혼합물의 분리"
+        }
+      ]
+    },
+    {
+      "number": "2",
+      "title": "원자, 분자와 이온",
+      "group": null,
+      "sections": [
+        {
+          "number": "2.1",
+          "title": "화학의 초기 역사"
+        },
+        {
+          "number": "2.2",
+          "title": "기본적인 화학 법칙"
+        },
+        {
+          "number": "2.3",
+          "title": "Dalton의 원자론"
+        },
+        {
+          "number": "2.4",
+          "title": "원자에 대한 초기 실험들"
+        },
+        {
+          "number": "2.5",
+          "title": "원자 구조에 대한 현대적 관점: 소개"
+        },
+        {
+          "number": "2.6",
+          "title": "분자와 이온"
+        },
+        {
+          "number": "2.7",
+          "title": "주기율표에 대한 소개"
+        },
+        {
+          "number": "2.8",
+          "title": "간단한 화합물의 명명법"
+        }
+      ]
+    },
+    {
+      "number": "3",
+      "title": "화학량론",
+      "group": null,
+      "sections": [
+        {
+          "number": "3.1",
+          "title": "무게 측정을 이용한 개수 세기"
+        },
+        {
+          "number": "3.2",
+          "title": "원자 질량"
+        },
+        {
+          "number": "3.3",
+          "title": "몰(Mole)"
+        },
+        {
+          "number": "3.4",
+          "title": "몰질량"
+        },
+        {
+          "number": "3.5",
+          "title": "문제 풀이 학습"
+        },
+        {
+          "number": "3.6",
+          "title": "화합물의 조성 백분율"
+        },
+        {
+          "number": "3.7",
+          "title": "화합물의 화학식 결정"
+        },
+        {
+          "number": "3.8",
+          "title": "화학 반응식"
+        },
+        {
+          "number": "3.9",
+          "title": "화학 반응식의 균형 맞추기"
+        },
+        {
+          "number": "3.10",
+          "title": "화학론 계산: 반응물과 생성물의 양"
+        },
+        {
+          "number": "3.11",
+          "title": "한계 반응물의 개념"
+        }
+      ]
+    },
+    {
+      "number": "4",
+      "title": "화학 반응의 종류와 용액의 화학량론",
+      "group": null,
+      "sections": [
+        {
+          "number": "4.1",
+          "title": "물, 가장 흔한 용매"
+        },
+        {
+          "number": "4.2",
+          "title": "수용액의 성질: 센전해질과 약전해질"
+        },
+        {
+          "number": "4.3",
+          "title": "용액의 조성"
+        },
+        {
+          "number": "4.4",
+          "title": "화학 반응의 종류"
+        },
+        {
+          "number": "4.5",
+          "title": "침전 반응"
+        },
+        {
+          "number": "4.6",
+          "title": "용액에서의 화학 반응의 반응식"
+        },
+        {
+          "number": "4.7",
+          "title": "침전 반응의 화학량론"
+        },
+        {
+          "number": "4.8",
+          "title": "산-염기 반응"
+        },
+        {
+          "number": "4.9",
+          "title": "산화-환원 반응"
+        },
+        {
+          "number": "4.10",
+          "title": "산화-환원 반응식의 균형 맞추기"
+        },
+        {
+          "number": "4.11",
+          "title": "간단한 산화-환원 적정"
+        }
+      ]
+    },
+    {
+      "number": "5",
+      "title": "기체",
+      "group": null,
+      "sections": [
+        {
+          "number": "5.1",
+          "title": "압력"
+        },
+        {
+          "number": "5.2",
+          "title": "Boyle, Charles, Avogadro의 기체 법칙"
+        },
+        {
+          "number": "5.3",
+          "title": "이상 기체 법칙"
+        },
+        {
+          "number": "5.4",
+          "title": "기체 화학량론"
+        },
+        {
+          "number": "5.5",
+          "title": "Dalton의 부분압 법칙"
+        },
+        {
+          "number": "5.6",
+          "title": "기체의 분자 운동론"
+        },
+        {
+          "number": "5.7",
+          "title": "분출과 확산"
+        },
+        {
+          "number": "5.8",
+          "title": "실제 기체"
+        },
+        {
+          "number": "5.9",
+          "title": "몇 가지 실제 기체의 특성"
+        },
+        {
+          "number": "5.10",
+          "title": "대기 화학"
+        }
+      ]
+    },
+    {
+      "number": "6",
+      "title": "열화학",
+      "group": null,
+      "sections": [
+        {
+          "number": "6.1",
+          "title": "에너지의 본질"
+        },
+        {
+          "number": "6.2",
+          "title": "엔탈피와 열량계"
+        },
+        {
+          "number": "6.3",
+          "title": "Hess의 법칙"
+        },
+        {
+          "number": "6.4",
+          "title": "표준 생성 엔탈피"
+        },
+        {
+          "number": "6.5",
+          "title": "현재의 에너지 자원"
+        }
+      ]
+    },
+    {
+      "number": "7",
+      "title": "원자 구조와 주기성 297",
+      "group": null,
+      "sections": [
+        {
+          "number": "7.1",
+          "title": "전자기 복사"
+        },
+        {
+          "number": "7.2",
+          "title": "물질의 성질"
+        },
+        {
+          "number": "7.3",
+          "title": "수소의 원자 스펙트럼"
+        },
+        {
+          "number": "7.4",
+          "title": "Bohr 모형"
+        },
+        {
+          "number": "7.5",
+          "title": "원자의 양자 역학적 모형"
+        },
+        {
+          "number": "7.6",
+          "title": "양자수"
+        },
+        {
+          "number": "7.7",
+          "title": "오비탈의 모양과 에너지"
+        },
+        {
+          "number": "7.8",
+          "title": "전자 스핀과 Pauli의 원리"
+        },
+        {
+          "number": "7.9",
+          "title": "다전자 원자"
+        },
+        {
+          "number": "7.10",
+          "title": "주기율표의 역사"
+        },
+        {
+          "number": "7.11",
+          "title": "쌓음 원리와 주기율표"
+        },
+        {
+          "number": "7.12",
+          "title": "원자 성질들의 주기적 경향"
+        },
+        {
+          "number": "7.13",
+          "title": "족의 성질: 알칼리 금속"
+        }
+      ]
+    },
+    {
+      "number": "8",
+      "title": "결합: 일반 개념",
+      "group": null,
+      "sections": [
+        {
+          "number": "8.1",
+          "title": "화학 결합의 종류"
+        },
+        {
+          "number": "8.2",
+          "title": "전기음성도"
+        },
+        {
+          "number": "8.3",
+          "title": "결합 극성과 쌍극자 모멘트"
+        },
+        {
+          "number": "8.4",
+          "title": "이온: 전자 배열과 크기"
+        },
+        {
+          "number": "8.5",
+          "title": "이성분 이온 결합 화합물의 에너지 효과"
+        },
+        {
+          "number": "8.6",
+          "title": "공유 결합의 부분적 이온성"
+        },
+        {
+          "number": "8.7",
+          "title": "공유 결합: 모형"
+        },
+        {
+          "number": "8.8",
+          "title": "공유 결합 에너지와 화학 반응"
+        },
+        {
+          "number": "8.9",
+          "title": "편재된 전자 결합 모형"
+        },
+        {
+          "number": "8.10",
+          "title": "Lewis 구조"
+        },
+        {
+          "number": "8.11",
+          "title": "팔전자 규칙의 예외"
+        },
+        {
+          "number": "8.12",
+          "title": "공명"
+        },
+        {
+          "number": "8.13",
+          "title": "분자 구조: VSEPR 모형"
+        }
+      ]
+    },
+    {
+      "number": "9",
+      "title": "공유 결합: 오비탈",
+      "group": null,
+      "sections": [
+        {
+          "number": "9.1",
+          "title": "혼성화와 편재 전자 모형"
+        },
+        {
+          "number": "9.2",
+          "title": "분자 오비탈 모형"
+        },
+        {
+          "number": "9.3",
+          "title": "동핵 이원자 분자의 결합"
+        },
+        {
+          "number": "9.4",
+          "title": "이핵 이원자 분자의 결합"
+        },
+        {
+          "number": "9.5",
+          "title": "편재 전자 모형과 분자 오비탈 모형의 결합"
+        }
+      ]
+    },
+    {
+      "number": "10",
+      "title": "액체와 고체",
+      "group": null,
+      "sections": [
+        {
+          "number": "10.1",
+          "title": "물질의 상태 복습"
+        },
+        {
+          "number": "10.2",
+          "title": "분자 간 힘"
+        },
+        {
+          "number": "10.3",
+          "title": "액체 상태"
+        },
+        {
+          "number": "10.4",
+          "title": "고체의 종류와 구조에 대한 소개"
+        },
+        {
+          "number": "10.5",
+          "title": "금속의 구조와 결합"
+        },
+        {
+          "number": "10.6",
+          "title": "탄소와 규소: 그물형 원자성 고체"
+        },
+        {
+          "number": "10.7",
+          "title": "분자성 고체"
+        },
+        {
+          "number": "10.8",
+          "title": "이온성 고체"
+        },
+        {
+          "number": "10.9",
+          "title": "증기압과 상태 변화"
+        },
+        {
+          "number": "10.10",
+          "title": "상평형 그림"
+        }
+      ]
+    },
+    {
+      "number": "11",
+      "title": "용액의 특성",
+      "group": null,
+      "sections": [
+        {
+          "number": "11.1",
+          "title": "용액의 조성"
+        },
+        {
+          "number": "11.2",
+          "title": "용액 형성의 에너지"
+        },
+        {
+          "number": "11.3",
+          "title": "용해도에 영향을 미치는 요인"
+        },
+        {
+          "number": "11.4",
+          "title": "용액의 증기압"
+        },
+        {
+          "number": "11.5",
+          "title": "끓는점 오름과 어는점 내림"
+        },
+        {
+          "number": "11.6",
+          "title": "삼투압"
+        },
+        {
+          "number": "11.7",
+          "title": "전해질 용액의 총괄성"
+        },
+        {
+          "number": "11.8",
+          "title": "콜로이드"
+        }
+      ]
+    },
+    {
+      "number": "12",
+      "title": "화학 반응 속도론",
+      "group": null,
+      "sections": [
+        {
+          "number": "12.1",
+          "title": "반응 속도"
+        },
+        {
+          "number": "12.2",
+          "title": "속도 법칙: 소개"
+        },
+        {
+          "number": "12.3",
+          "title": "속도 법칙의 유형 결정"
+        },
+        {
+          "number": "12.4",
+          "title": "적분 속도 법칙"
+        },
+        {
+          "number": "12.5",
+          "title": "반응 메커니즘"
+        },
+        {
+          "number": "12.6",
+          "title": "화학 반응 속도론 모형"
+        },
+        {
+          "number": "12.7",
+          "title": "촉매작용"
+        }
+      ]
+    },
+    {
+      "number": "13",
+      "title": "화학 평형",
+      "group": null,
+      "sections": [
+        {
+          "number": "13.1",
+          "title": "평형 조건"
+        },
+        {
+          "number": "13.2",
+          "title": "평형 상수"
+        },
+        {
+          "number": "13.3",
+          "title": "압력으로 나타낸 평형식"
+        },
+        {
+          "number": "13.4",
+          "title": "불균일 평형"
+        },
+        {
+          "number": "13.5",
+          "title": "평형 상수의 응용"
+        },
+        {
+          "number": "13.6",
+          "title": "평형 문제의 풀이"
+        },
+        {
+          "number": "13.7",
+          "title": "Le Chatelier의 원리"
+        }
+      ]
+    },
+    {
+      "number": "14",
+      "title": "산과 염기",
+      "group": null,
+      "sections": [
+        {
+          "number": "14.1",
+          "title": "산과 염기의 성질"
+        },
+        {
+          "number": "14.2",
+          "title": "산의 세기"
+        },
+        {
+          "number": "14.3",
+          "title": "pH 척도"
+        },
+        {
+          "number": "14.4",
+          "title": "센산 용액의 pH 계산"
+        },
+        {
+          "number": "14.5",
+          "title": "약산 용액의 pH 계산"
+        },
+        {
+          "number": "14.6",
+          "title": "염기"
+        },
+        {
+          "number": "14.7",
+          "title": "다양성자산"
+        },
+        {
+          "number": "14.8",
+          "title": "염의 산-염기 성질"
+        },
+        {
+          "number": "14.9",
+          "title": "산-염기 성질에 미치는 구조의 영향"
+        },
+        {
+          "number": "14.10",
+          "title": "산화물의 산-염기 성질"
+        },
+        {
+          "number": "14.11",
+          "title": "Lewis의 산-염기 모형"
+        },
+        {
+          "number": "14.12",
+          "title": "산-염기 문제 풀이를 위한 전략: 요약"
+        }
+      ]
+    },
+    {
+      "number": "15",
+      "title": "산-염기 평형",
+      "group": null,
+      "sections": [
+        {
+          "number": "15.1",
+          "title": "공통 이온을 포함하는 산과 염기의 용액"
+        },
+        {
+          "number": "15.2",
+          "title": "완충 용액"
+        },
+        {
+          "number": "15.3",
+          "title": "완충 용량"
+        },
+        {
+          "number": "15.4",
+          "title": "적정과 pH 곡선"
+        },
+        {
+          "number": "15.5",
+          "title": "산-염기 지시약"
+        },
+        {
+          "number": "15.6",
+          "title": "다양성자산 적정"
+        }
+      ]
+    },
+    {
+      "number": "16",
+      "title": "용해도와 착이온 평형",
+      "group": null,
+      "sections": [
+        {
+          "number": "16.1",
+          "title": "용해도 평형과 용해도곱"
+        },
+        {
+          "number": "16.2",
+          "title": "침전과 정성 분석"
+        },
+        {
+          "number": "16.3",
+          "title": "착이온과 관련된 평형"
+        }
+      ]
+    },
+    {
+      "number": "17",
+      "title": "자발성, 엔트로피와 자유 에너지",
+      "group": null,
+      "sections": [
+        {
+          "number": "17.1",
+          "title": "자발적 과정과 엔트로피"
+        },
+        {
+          "number": "17.2",
+          "title": "엔트로피와 열역학 제2법칙"
+        },
+        {
+          "number": "17.3",
+          "title": "자발성에 대한 온도의 영향"
+        },
+        {
+          "number": "17.4",
+          "title": "자유 에너지"
+        },
+        {
+          "number": "17.5",
+          "title": "이온성 수용액에서 엔트로피 변화"
+        },
+        {
+          "number": "17.6",
+          "title": "화학 반응에서의 엔트로피 변화"
+        },
+        {
+          "number": "17.7",
+          "title": "자유 에너지와 화학 반응"
+        },
+        {
+          "number": "17.8",
+          "title": "자유 에너지의 압력 의존성"
+        },
+        {
+          "number": "17.9",
+          "title": "자유 에너지와 평형"
+        },
+        {
+          "number": "17.10",
+          "title": "자유 에너지와 일"
+        }
+      ]
+    },
+    {
+      "number": "18",
+      "title": "전기화학",
+      "group": null,
+      "sections": [
+        {
+          "number": "18.1",
+          "title": "갈바니 전지"
+        },
+        {
+          "number": "18.2",
+          "title": "표준 환원 전위"
+        },
+        {
+          "number": "18.3",
+          "title": "전지 전위, 전기적 일 및 자유 에너지"
+        },
+        {
+          "number": "18.4",
+          "title": "전지 전위의 농도 의존도"
+        },
+        {
+          "number": "18.5",
+          "title": "배터리"
+        },
+        {
+          "number": "18.6",
+          "title": "부식"
+        },
+        {
+          "number": "18.7",
+          "title": "전기분해"
+        },
+        {
+          "number": "18.8",
+          "title": "상업적 전해 과정"
+        }
+      ]
+    },
+    {
+      "number": "19",
+      "title": "핵: 화학자의 관점",
+      "group": null,
+      "sections": [
+        {
+          "number": "19.1",
+          "title": "핵의 안정도와 방사성 붕괴"
+        },
+        {
+          "number": "19.2",
+          "title": "방사성 붕괴의 반응 속도론"
+        },
+        {
+          "number": "19.3",
+          "title": "핵 변환"
+        },
+        {
+          "number": "19.4",
+          "title": "방사능의 검출과 용도"
+        },
+        {
+          "number": "19.5",
+          "title": "핵의 열역학적 안정도"
+        },
+        {
+          "number": "19.6",
+          "title": "핵 분열과 핵 융합"
+        },
+        {
+          "number": "19.7",
+          "title": "방사선의 영향"
+        }
+      ]
+    },
+    {
+      "number": "20",
+      "title": "주족 원소",
+      "group": null,
+      "sections": [
+        {
+          "number": "20.1",
+          "title": "주족 원소의 탐색"
+        },
+        {
+          "number": "20.2",
+          "title": "1A(1)족 원소"
+        },
+        {
+          "number": "20.3",
+          "title": "수소의 화학"
+        },
+        {
+          "number": "20.4",
+          "title": "2A(2)족 원소"
+        },
+        {
+          "number": "20.5",
+          "title": "3A(13)족 원소"
+        },
+        {
+          "number": "20.6",
+          "title": "4A(14)족 원소"
+        },
+        {
+          "number": "20.7",
+          "title": "5A(15)족 원소"
+        },
+        {
+          "number": "20.8",
+          "title": "질소의 화학"
+        },
+        {
+          "number": "20.9",
+          "title": "인의 화학"
+        },
+        {
+          "number": "20.10",
+          "title": "6A(16)족 원소"
+        },
+        {
+          "number": "20.11",
+          "title": "산소의 화학"
+        },
+        {
+          "number": "20.12",
+          "title": "황화학"
+        },
+        {
+          "number": "20.13",
+          "title": "7A(17)족 원소"
+        },
+        {
+          "number": "20.14",
+          "title": "8A(18)족 원소"
+        }
+      ]
+    },
+    {
+      "number": "21",
+      "title": "전이 금속과 배위 화학",
+      "group": null,
+      "sections": [
+        {
+          "number": "21.1",
+          "title": "전이 금속: 개요"
+        },
+        {
+          "number": "21.2",
+          "title": "첫 주기 전이 금속"
+        },
+        {
+          "number": "21.3",
+          "title": "배위 화합물"
+        },
+        {
+          "number": "21.4",
+          "title": "이성질현상"
+        },
+        {
+          "number": "21.5",
+          "title": "착이온의 결합: 편재 전자 모형"
+        },
+        {
+          "number": "21.6",
+          "title": "결정장 모형"
+        },
+        {
+          "number": "21.7",
+          "title": "배위 화합물의 생물학적 중요성"
+        },
+        {
+          "number": "21.8",
+          "title": "야금 및 철과 강철의 생산"
+        }
+      ]
+    },
+    {
+      "number": "22",
+      "title": "유기 분자 및 생물 분자",
+      "group": null,
+      "sections": [
+        {
+          "number": "22.1",
+          "title": "알케인: 포화 탄화수소"
+        },
+        {
+          "number": "22.2",
+          "title": "알켄과 알카인"
+        },
+        {
+          "number": "22.3",
+          "title": "방향족 탄화수소"
+        },
+        {
+          "number": "22.4",
+          "title": "탄화수소 유도체"
+        },
+        {
+          "number": "22.5",
+          "title": "중합체(고분자)"
+        },
+        {
+          "number": "22.6",
+          "title": "천연 중합체"
+        }
+      ]
+    }
+  ],
+  "unparsedLines": [],
+  "updated": "2026-07-12T09:21:49"
+}

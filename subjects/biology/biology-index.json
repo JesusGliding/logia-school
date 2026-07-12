@@ -1,12 +1,12 @@
 {
-  "cacheVersion": 1783616865,
+  "cacheVersion": 1783815709,
   "subject": "biology",
   "recordCount": 2,
   "mediaCount": 4,
   "firstRecord": "2026-07-04",
   "lastRecord": "2026-07-06",
   "studyDays": 1,
-  "latestProgress": "3.2/56",
+  "latestProgress": "1.1/56",
   "recordDates": [
     "2026-07-04",
     "2026-07-06"
@@ -62,5 +62,5 @@
       "media": []
     }
   ],
-  "updated": "2026-07-10T02:07:45"
+  "updated": "2026-07-12T09:21:49"
 }

@@ -1,0 +1,84 @@
+{
+  "cacheVersion": 1783815709,
+  "readingCategory": "science",
+  "bookCount": 2,
+  "completedCount": 1,
+  "readingCount": 1,
+  "mediaCount": 1,
+  "firstStarted": "2026-06-18",
+  "latestStarted": "2026-07-02",
+  "latestCompleted": "2026-06-24",
+  "authors": [
+    "벤 올린",
+    "칼 세이건"
+  ],
+  "categories": [
+    "수학",
+    "천문학"
+  ],
+  "keywords": [
+    "과학사",
+    "생명",
+    "수학",
+    "시각화",
+    "우주",
+    "천문학",
+    "통계",
+    "확률"
+  ],
+  "books": [
+    {
+      "id": "science_2026-07-02_코스모스",
+      "file": "science_2026-07-02_코스모스.txt",
+      "title": "코스모스",
+      "author": "칼 세이건",
+      "date": "2026-07-02/",
+      "startDate": "2026-07-02",
+      "finishDate": null,
+      "status": "reading",
+      "category": "천문학",
+      "keywords": [
+        "우주",
+        "천문학",
+        "과학사",
+        "생명"
+      ],
+      "summary": [
+        "우주와 인류의 관계를 과학사와 함께 설명하는 책이다."
+      ],
+      "reflection": [],
+      "media": []
+    },
+    {
+      "id": "science_2026-06-18_이상한수학책",
+      "file": "science_2026-06-18_이상한수학책.txt",
+      "title": "이상한 수학책",
+      "author": "벤 올린",
+      "date": "2026-06-18/2026-06-24",
+      "startDate": "2026-06-18",
+      "finishDate": "2026-06-24",
+      "status": "completed",
+      "category": "수학",
+      "keywords": [
+        "수학",
+        "확률",
+        "통계",
+        "시각화"
+      ],
+      "summary": [
+        "수학의 여러 개념을 그림과 유머를 이용해 설명하는 책이다."
+      ],
+      "reflection": [
+        "수학은 단순한 계산 기술이 아니라 세상을 바라보는 방식이라는 생각이 들었다."
+      ],
+      "media": [
+        {
+          "file": "science_2026-06-24_이상한수학책.pdf",
+          "title": "독서 감상문",
+          "exists": true
+        }
+      ]
+    }
+  ],
+  "updated": "2026-07-12T09:21:49"
+}

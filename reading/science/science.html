@@ -3,11 +3,280 @@
 <head>
   <meta charset="UTF-8">
 
-  <meta http-equiv="refresh" content="0; url=../../assets/pages/under-construction.html">
-  
-  <title>과학 서적</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
+  <title>과학 서적 | LOGIA School</title>
+
+  <link
+    rel="stylesheet"
+    href="../../assets/css/reading.css"
+  >
 </head>
+
 <body>
+
+  <main class="reading-page">
+
+    <!-- 페이지 제목 -->
+    <header class="reading-header">
+
+      <h1>과학 서적</h1>
+
+      <p class="reading-subtitle">
+        Science Reading & Reflection
+      </p>
+
+    </header>
+
+
+    <!-- 독서 페이지 전체 영역 -->
+    <section class="reading-layout">
+
+
+      <!-- 왼쪽: 도서 목록 및 상세 정보 -->
+      <div class="reading-library">
+
+
+        <!-- 날짜별 완독 목록 -->
+        <section class="reading-panel completed-panel">
+
+          <header class="panel-header">
+
+            <h2>날짜별 읽은 목록</h2>
+
+            <span
+              id="completed-count"
+              class="panel-count"
+            >
+              0권
+            </span>
+
+          </header>
+
+          <div
+            id="completed-list"
+            class="book-list completed-list scroll-area"
+          >
+
+            <p class="empty-message">
+              완독한 책이 없습니다.
+            </p>
+
+          </div>
+
+        </section>
+
+
+        <!-- 읽고 있는 책 -->
+        <section class="reading-panel current-panel">
+
+          <header class="panel-header">
+
+            <h2>읽고 있는 책</h2>
+
+            <span
+              id="reading-count"
+              class="panel-count"
+            >
+              0권
+            </span>
+
+          </header>
+
+          <div
+            id="reading-list"
+            class="book-list reading-list scroll-area"
+          >
+
+            <p class="empty-message">
+              현재 읽고 있는 책이 없습니다.
+            </p>
+
+          </div>
+
+        </section>
+
+
+        <!-- 선택한 도서의 상세 정보 -->
+        <section class="reading-panel detail-panel">
+
+          <header class="panel-header">
+
+            <h2>선택한 도서 정보</h2>
+
+          </header>
+
+          <article
+            id="book-detail"
+            class="book-detail"
+          >
+
+            <p class="empty-message">
+              위 목록에서 도서를 선택해 주세요.
+            </p>
+
+          </article>
+
+        </section>
+
+      </div>
+
+
+      <!-- 오른쪽: 검색 영역 -->
+      <aside class="reading-search">
+
+        <section class="reading-panel search-panel">
+
+          <header class="panel-header">
+
+            <h2>도서 자료 검색</h2>
+
+          </header>
+
+
+          <!-- 검색 입력 -->
+          <form
+            id="search-form"
+            class="search-form"
+          >
+
+            <div class="search-field">
+
+              <label for="search-title">
+                제목
+              </label>
+
+              <input
+                id="search-title"
+                name="title"
+                type="search"
+                autocomplete="off"
+              >
+
+            </div>
+
+
+            <div class="search-field">
+
+              <label for="search-author">
+                저자
+              </label>
+
+              <input
+                id="search-author"
+                name="author"
+                type="search"
+                autocomplete="off"
+              >
+
+            </div>
+
+
+            <div class="search-field">
+
+              <label for="search-date">
+                날짜
+              </label>
+
+              <input
+                id="search-date"
+                name="date"
+                type="search"
+                placeholder="예: 2026-06"
+                autocomplete="off"
+              >
+
+            </div>
+
+
+            <div class="search-field">
+
+              <label for="search-word">
+                단어
+              </label>
+
+              <input
+                id="search-word"
+                name="word"
+                type="search"
+                placeholder="내용, 감상, 키워드"
+                autocomplete="off"
+              >
+
+            </div>
+
+
+            <div class="search-buttons">
+
+              <button
+                id="search-button"
+                type="submit"
+              >
+                검색
+              </button>
+
+              <button
+                id="search-reset"
+                type="button"
+              >
+                초기화
+              </button>
+
+            </div>
+
+          </form>
+
+
+          <!-- 검색 결과 정보 -->
+          <div class="search-summary">
+
+            <span id="search-status">
+              전체 도서
+            </span>
+
+            <span id="search-count">
+              0권
+            </span>
+
+          </div>
+
+
+          <!-- 검색 결과 목록 -->
+          <div
+            id="search-results"
+            class="search-results scroll-area"
+          >
+
+            <p class="empty-message">
+              검색 결과가 여기에 표시됩니다.
+            </p>
+
+          </div>
+
+        </section>
+
+      </aside>
+
+    </section>
+
+  </main>
+
+
+  <!-- 페이지별 설정 -->
+  <script>
+    const READING_CONFIG = {
+      category: "science",
+      title: "과학 서적",
+      dataFile: "science-index.json",
+      mediaPath: "media/"
+    };
+  </script>
+
+  <!-- 공통 Reading 엔진 -->
+  <script src="../../assets/js/reading-board.js"></script>
+
 </body>
 </html>

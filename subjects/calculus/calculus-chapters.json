@@ -1,0 +1,477 @@
+{
+  "cacheVersion": 1783815709,
+  "subject": "calculus",
+  "format": "general",
+  "sourceFile": "calculus-chapters.txt",
+  "groupCount": 0,
+  "chapterCount": 13,
+  "sectionCount": 93,
+  "groups": [],
+  "chapters": [
+    {
+      "number": "1",
+      "title": "함수와 극한",
+      "group": null,
+      "sections": [
+        {
+          "number": "1.1",
+          "title": "함수와 그 표현"
+        },
+        {
+          "number": "1.2",
+          "title": "필수적인 함수 목록"
+        },
+        {
+          "number": "1.3",
+          "title": "함수의 극한"
+        },
+        {
+          "number": "1.4",
+          "title": "극한 셈"
+        },
+        {
+          "number": "1.5",
+          "title": "연속"
+        },
+        {
+          "number": "1.6",
+          "title": "무한대와 관련된 극한"
+        }
+      ]
+    },
+    {
+      "number": "2",
+      "title": "도함수",
+      "group": null,
+      "sections": [
+        {
+          "number": "2.1",
+          "title": "미분 계수와 변화율"
+        },
+        {
+          "number": "2.2",
+          "title": "도함수"
+        },
+        {
+          "number": "2.3",
+          "title": "기본적인 미분법"
+        },
+        {
+          "number": "2.4",
+          "title": "곱과 몫의 미분법"
+        },
+        {
+          "number": "2.5",
+          "title": "연쇄 법칙"
+        },
+        {
+          "number": "2.6",
+          "title": "함수의 미분법"
+        },
+        {
+          "number": "2.7",
+          "title": "서로 관련된 변화율"
+        },
+        {
+          "number": "2.8",
+          "title": "선형 근사와 미분"
+        }
+      ]
+    },
+    {
+      "number": "3",
+      "title": "역함수: 지수•로그•역삼각 함수",
+      "group": null,
+      "sections": [
+        {
+          "number": "3.1",
+          "title": "지수 함수"
+        },
+        {
+          "number": "3.2",
+          "title": "역함수와 로그"
+        },
+        {
+          "number": "3.3",
+          "title": "로그 함수와 지수 함수의 도함수"
+        },
+        {
+          "number": "3.4",
+          "title": "지수적 증가와 감소"
+        },
+        {
+          "number": "3.5",
+          "title": "역삼각 함수"
+        },
+        {
+          "number": "3.6",
+          "title": "쌍선 함수"
+        },
+        {
+          "number": "3.7",
+          "title": "부정형과 로피탈의 법칙"
+        }
+      ]
+    },
+    {
+      "number": "4",
+      "title": "미분의 활용",
+      "group": null,
+      "sections": [
+        {
+          "number": "4.1",
+          "title": "최댓값과 최솟값"
+        },
+        {
+          "number": "4.2",
+          "title": "평균값 정리"
+        },
+        {
+          "number": "4.3",
+          "title": "도함수와 그래프의 모양"
+        },
+        {
+          "number": "4.4",
+          "title": "곡선 그리기"
+        },
+        {
+          "number": "4.5",
+          "title": "최적화 문제"
+        },
+        {
+          "number": "4.6",
+          "title": "뉴턴의 방법"
+        },
+        {
+          "number": "4.7",
+          "title": "역도함수"
+        }
+      ]
+    },
+    {
+      "number": "5",
+      "title": "적분",
+      "group": null,
+      "sections": [
+        {
+          "number": "5.1",
+          "title": "넓이와 거리"
+        },
+        {
+          "number": "5.2",
+          "title": "정적분"
+        },
+        {
+          "number": "5.3",
+          "title": "정적분의 값 찾기"
+        },
+        {
+          "number": "5.4",
+          "title": "미적분학의 기본 정리"
+        },
+        {
+          "number": "5.5",
+          "title": "치환 적분법"
+        }
+      ]
+    },
+    {
+      "number": "6",
+      "title": "적분의 기법",
+      "group": null,
+      "sections": [
+        {
+          "number": "6.1",
+          "title": "부분 적분법"
+        },
+        {
+          "number": "6.2",
+          "title": "삼각 적분과 삼각 치환"
+        },
+        {
+          "number": "6.3",
+          "title": "부분 분수"
+        },
+        {
+          "number": "6.4",
+          "title": "적분표와 컴퓨터 대수 체계"
+        },
+        {
+          "number": "6.5",
+          "title": "근사 적분"
+        },
+        {
+          "number": "6.6",
+          "title": "특이 적분"
+        }
+      ]
+    },
+    {
+      "number": "7",
+      "title": "적분의 활용",
+      "group": null,
+      "sections": [
+        {
+          "number": "7.1",
+          "title": "곡선 사이의 넓이"
+        },
+        {
+          "number": "7.2",
+          "title": "부피"
+        },
+        {
+          "number": "7.3",
+          "title": "기둥 껍질에 의한 부피"
+        },
+        {
+          "number": "7.4",
+          "title": "호의 길이"
+        },
+        {
+          "number": "7.5",
+          "title": "회전면의 넓이"
+        },
+        {
+          "number": "7.6",
+          "title": "물리학과 공학에의 활용"
+        },
+        {
+          "number": "7.7",
+          "title": "미분 방정식"
+        }
+      ]
+    },
+    {
+      "number": "8",
+      "title": "급수",
+      "group": null,
+      "sections": [
+        {
+          "number": "8.1",
+          "title": "수열"
+        },
+        {
+          "number": "8.2",
+          "title": "급수"
+        },
+        {
+          "number": "8.3",
+          "title": "적분 판정법과 비교 판정법"
+        },
+        {
+          "number": "8.4",
+          "title": "다른 수렴 판정법"
+        },
+        {
+          "number": "8.5",
+          "title": "거듭제곱 급수"
+        },
+        {
+          "number": "8.6",
+          "title": "거듭제곱 급수에 의한 함수의 표현"
+        },
+        {
+          "number": "8.7",
+          "title": "테일러 급수와 맥클로린 급수"
+        },
+        {
+          "number": "8.8",
+          "title": "테일러 다항 함수의 활용"
+        }
+      ]
+    },
+    {
+      "number": "9",
+      "title": "매개 방정식과 극 좌표",
+      "group": null,
+      "sections": [
+        {
+          "number": "9.1",
+          "title": "매개 곡선"
+        },
+        {
+          "number": "9.2",
+          "title": "매개 곡선의 미분과 적분"
+        },
+        {
+          "number": "9.3",
+          "title": "극 좌표"
+        },
+        {
+          "number": "9.4",
+          "title": "극 좌표에서의 넓이와 길이"
+        },
+        {
+          "number": "9.5",
+          "title": "극 좌표에서의 원뿔 곡선"
+        }
+      ]
+    },
+    {
+      "number": "10",
+      "title": "벡터와 공간 기하학",
+      "group": null,
+      "sections": [
+        {
+          "number": "10.1",
+          "title": "삼차원 좌표 체계"
+        },
+        {
+          "number": "10.2",
+          "title": "벡터"
+        },
+        {
+          "number": "10.3",
+          "title": "내적"
+        },
+        {
+          "number": "10.4",
+          "title": "외적"
+        },
+        {
+          "number": "10.5",
+          "title": "직선과 평면의 방정식"
+        },
+        {
+          "number": "10.6",
+          "title": "기둥과 이차 곡면"
+        },
+        {
+          "number": "10.7",
+          "title": "벡터 함수와 공간 선"
+        },
+        {
+          "number": "10.8",
+          "title": "호의 길이와 곡률"
+        },
+        {
+          "number": "10.9",
+          "title": "공간 운동: 속도와 가속도"
+        }
+      ]
+    },
+    {
+      "number": "11",
+      "title": "편도함수",
+      "group": null,
+      "sections": [
+        {
+          "number": "11.1",
+          "title": "다변수 함수"
+        },
+        {
+          "number": "11.2",
+          "title": "극한과 연속"
+        },
+        {
+          "number": "11.3",
+          "title": "편도함수"
+        },
+        {
+          "number": "11.4",
+          "title": "접평면과 선형 근사"
+        },
+        {
+          "number": "11.5",
+          "title": "연쇄 법직"
+        },
+        {
+          "number": "11.6",
+          "title": "방향 도함수와 물매 벡터"
+        },
+        {
+          "number": "11.7",
+          "title": "최댓값과 최솟값"
+        },
+        {
+          "number": "11.8",
+          "title": "라그랑주 곱수"
+        }
+      ]
+    },
+    {
+      "number": "12",
+      "title": "다중 적분",
+      "group": null,
+      "sections": [
+        {
+          "number": "12.1",
+          "title": "직사각형 위에서의 이중 적분"
+        },
+        {
+          "number": "12.2",
+          "title": "일반적인 영역 위에서의 이중 적분"
+        },
+        {
+          "number": "12.3",
+          "title": "극 좌표에서의 이중 적분"
+        },
+        {
+          "number": "12.4",
+          "title": "이중 적분의 활용"
+        },
+        {
+          "number": "12.5",
+          "title": "삼중 적분"
+        },
+        {
+          "number": "12.6",
+          "title": "원기둥 좌표에서의 삼중 적분"
+        },
+        {
+          "number": "12.7",
+          "title": "구면 좌표에서의 삼중 적분"
+        },
+        {
+          "number": "12.8",
+          "title": "다중 적분에서의 변수 변환"
+        }
+      ]
+    },
+    {
+      "number": "13",
+      "title": "벡터 해석",
+      "group": null,
+      "sections": [
+        {
+          "number": "13.1",
+          "title": "벡터 마당"
+        },
+        {
+          "number": "13.2",
+          "title": "선 적분"
+        },
+        {
+          "number": "13.3",
+          "title": "선 적분의 기본 정리"
+        },
+        {
+          "number": "13.4",
+          "title": "그린의 정리"
+        },
+        {
+          "number": "13.5",
+          "title": "회전과 발산"
+        },
+        {
+          "number": "13.6",
+          "title": "매개 면과 그 넓이"
+        },
+        {
+          "number": "13.7",
+          "title": "면 적분"
+        },
+        {
+          "number": "13.8",
+          "title": "스토크스의 정리"
+        },
+        {
+          "number": "13.9",
+          "title": "발산 정리"
+        }
+      ]
+    }
+  ],
+  "unparsedLines": [],
+  "updated": "2026-07-12T09:21:49"
+}

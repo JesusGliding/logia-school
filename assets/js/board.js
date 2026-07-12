@@ -125,7 +125,7 @@
     }
 
     memoText.value = record.memo && record.memo.length > 0
-      ? record.memo.join("\n")
+      ? record.memo.join("\n").replace(/\\n/g, "\n")
       : "메모가 없습니다.";
 
     updateProgress(getProgressForDate(date));
