@@ -1,0 +1,513 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  padding: 24px;
+
+  font-family:
+    Arial,
+    "Noto Sans KR",
+    sans-serif;
+
+  background: #f4f4f4;
+  color: #222;
+}
+
+
+/* =========================================================
+   전체 페이지
+   ========================================================= */
+
+.reading-page {
+  width: min(1280px, 100%);
+  margin: 0 auto;
+}
+
+.reading-header {
+  margin-bottom: 20px;
+}
+
+.reading-header h1 {
+  margin: 0 0 5px;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.reading-header p {
+  margin: 0;
+  color: #777;
+  font-size: 14px;
+}
+
+/* =========================================================
+   Reading Category Header
+   ========================================================= */
+
+.reading-category-header {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+
+  margin-bottom: 18px;
+}
+
+.reading-category {
+  min-width: 0;
+  padding: 0 0 11px;
+
+  border: 0;
+  border-bottom: 2px solid transparent;
+
+  background: transparent;
+  color: #777;
+
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.reading-category:hover {
+  color: #333;
+}
+
+.reading-category.active {
+  border-bottom-color: #555;
+  color: #111;
+}
+
+.category-title {
+  display: block;
+
+  font-size: 27px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.reading-category:not(.active) .category-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.category-subtitle {
+  display: none;
+
+  margin-top: 5px;
+
+  color: #777;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.reading-category.active .category-subtitle {
+  display: block;
+}
+
+
+/* =========================================================
+   Reading Category Tabs
+   ========================================================= */
+
+.reading-tab:last-child {
+  border-right: 0;
+}
+
+.reading-tab:hover {
+  background: #ececec;
+}
+
+.reading-tab.active {
+  background: #ddd;
+  color: #111;
+  font-weight: 600;
+}
+
+.reading-tab:focus-visible {
+  position: relative;
+  z-index: 1;
+
+  outline: 2px solid #777;
+  outline-offset: -2px;
+}
+
+
+
+/* =========================================================
+   좌우 레이아웃
+   ========================================================= */
+
+.reading-layout {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 65fr)
+    minmax(300px, 35fr);
+
+  gap: 18px;
+  align-items: start;
+}
+
+.reading-main {
+  display: grid;
+  gap: 18px;
+}
+
+.reading-sidebar {
+  min-width: 0;
+}
+
+
+/* =========================================================
+   공통 패널
+   ========================================================= */
+
+.reading-panel {
+  padding: 18px;
+
+  border: 1px solid #bbb;
+  border-radius: 4px;
+
+  background: #fff;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 14px;
+  padding-bottom: 9px;
+
+  border-bottom: 1px solid #ddd;
+}
+
+.panel-header h2 {
+  margin: 0;
+
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.panel-count {
+  color: #777;
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   도서 목록
+   ========================================================= */
+
+.book-list {
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+  padding-right: 4px;
+}
+
+.completed-list {
+  height: 124px;
+  min-height: 124px;
+  max-height: 124px;
+}
+
+.reading-list {
+  height: 80px;
+  min-height: 80px;
+  max-height: 80px;
+}
+
+.book-item {
+  display: block;
+
+  width: 100%;
+  margin: 0 0 5px;
+  padding: 6px 9px;
+
+  border: 1px solid #ccc;
+  border-radius: 3px;
+
+  background: #fafafa;
+  color: #222;
+
+  text-align: left;
+  cursor: pointer;
+}
+
+.book-item:last-child {
+  margin-bottom: 0;
+}
+
+.book-item:hover {
+  background: #f0f0f0;
+}
+
+.book-item.selected {
+  border-color: #666;
+  background: #e9e9e9;
+}
+
+.book-item-date {
+  display: inline-block;
+  margin-right: 9px;
+
+  color: #777;
+  font-size: 13px;
+}
+
+.book-item-title {
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   상세 정보
+   ========================================================= */
+
+.detail-panel {
+  min-height: 320px;
+}
+
+.book-detail {
+  line-height: 1.3;
+}
+
+.book-meta {
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  gap: 7px 12px;
+}
+
+.book-meta dt {
+  font-weight: 600;
+}
+
+.book-meta dd {
+  margin: 0;
+}
+
+.book-section {
+  margin-top: 14px;
+  padding-top: 10px;
+
+  border-top: 1px solid #ddd;
+}
+
+.book-section h3 {
+  margin: 0 0 5px;
+  font-size: 16px;
+}
+
+.book-section p {
+  margin: 0 0 3px;
+}
+
+.book-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.book-keyword {
+  padding: 3px 8px;
+
+  border: 1px solid #ccc;
+  border-radius: 12px;
+
+  background: #f7f7f7;
+  font-size: 12px;
+}
+
+.book-media-link {
+  display: inline-block;
+  margin-top: 5px;
+}
+
+
+/* =========================================================
+   검색 영역
+   ========================================================= */
+
+.search-panel {
+  min-height: 620px;
+}
+
+.search-form {
+  display: grid;
+  gap: 12px;
+}
+
+.search-field {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  gap: 9px;
+  align-items: center;
+}
+
+.search-field label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.search-field input {
+  width: 100%;
+  min-width: 0;
+  padding: 9px 10px;
+
+  border: 1px solid #aaa;
+  border-radius: 3px;
+
+  font: inherit;
+  font-size: 14px;
+}
+
+.search-field input:focus {
+  outline: 1px solid #777;
+}
+
+.search-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+
+  margin-top: 3px;
+}
+
+.search-buttons button {
+  padding: 8px 15px;
+
+  border: 1px solid #aaa;
+  border-radius: 3px;
+
+  background: #eee;
+  color: #222;
+
+  cursor: pointer;
+}
+
+.search-buttons button:hover {
+  background: #e2e2e2;
+}
+
+.search-summary {
+  display: flex;
+  justify-content: space-between;
+
+  margin: 20px 0 10px;
+  padding-top: 14px;
+
+  border-top: 1px solid #ddd;
+
+  color: #666;
+  font-size: 13px;
+}
+
+.search-results {
+  max-height: 450px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.search-result-item {
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 11px 12px;
+
+  border: 1px solid #ccc;
+  border-radius: 3px;
+
+  background: #fafafa;
+  color: #222;
+
+  text-align: left;
+  cursor: pointer;
+}
+
+.search-result-item:hover {
+  background: #f0f0f0;
+}
+
+.search-result-date {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #777;
+  font-size: 12px;
+}
+
+.search-result-title {
+  display: block;
+
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.search-result-author {
+  display: block;
+
+  margin-top: 3px;
+
+  color: #666;
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   공통 메시지
+   ========================================================= */
+
+.empty-message {
+  margin: 0;
+  padding: 12px 4px;
+
+  color: #888;
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   반응형
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+  body {
+    padding: 14px;
+  }
+
+  .reading-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .reading-sidebar {
+    order: 2;
+  }
+
+  .search-panel {
+    min-height: auto;
+  }
+
+  .search-results {
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 650px) {
+
+  .reading-tabs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .reading-tab:nth-child(2) {
+    border-right: 0;
+  }
+
+  .reading-tab:nth-child(-n + 2) {
+    border-bottom: 1px solid #ccc;
+  }
+}

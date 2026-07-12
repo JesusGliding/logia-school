@@ -8,7 +8,7 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>과학 서적 | LOGIA School</title>
+  <title>독서와 사색 | LOGIA School</title>
 
   <link
     rel="stylesheet"
@@ -20,29 +20,89 @@
 
   <main class="reading-page">
 
-    <!-- 페이지 제목 -->
-    <header class="reading-header">
-      <h1>과학 서적</h1>
+  <header class="reading-category-header">
 
-      <p>
+    <button
+      type="button"
+      class="reading-category active"
+      data-category="science"
+      aria-selected="true"
+    >
+      <span class="category-title">
+        과학 서적
+      </span>
+
+      <span class="category-subtitle">
         Science Reading & Reflection
-      </p>
-    </header>
+      </span>
+    </button>
 
+
+    <button
+      type="button"
+      class="reading-category"
+      data-category="philosophy"
+      aria-selected="false"
+    >
+      <span class="category-title">
+        철학 서적
+      </span>
+
+      <span class="category-subtitle">
+        Philosophy Reading & Reflection
+      </span>
+    </button>
+
+
+    <button
+      type="button"
+      class="reading-category"
+      data-category="fiction"
+      aria-selected="false"
+    >
+      <span class="category-title">
+        소설과 에세이
+      </span>
+
+      <span class="category-subtitle">
+        Fiction and Essays Reading
+      </span>
+    </button>
+
+
+    <button
+      type="button"
+      class="reading-category"
+      data-category="humanities"
+      aria-selected="false"
+    >
+      <span class="category-title">
+        인문·교양
+      </span>
+
+      <span class="category-subtitle">
+        Humanities & Reflection
+      </span>
+    </button>
+
+  </header>
 
     <!-- 전체 2단 구조 -->
     <section class="reading-layout">
 
 
-      <!-- 왼쪽: 목록과 상세 정보 -->
+      <!-- 왼쪽: 분야별 목록 및 상세 정보 -->
       <div class="reading-main">
 
 
-        <!-- 날짜별 읽은 목록 -->
+        <!-- 날짜별 완독 목록 -->
         <section class="reading-panel completed-panel">
 
           <header class="panel-header">
-            <h2>날짜별 읽은 목록</h2>
+
+            <h2>
+              날짜별 읽은 목록
+            </h2>
 
             <span
               id="completed-count"
@@ -50,6 +110,7 @@
             >
               0권
             </span>
+
           </header>
 
           <div
@@ -68,7 +129,10 @@
         <section class="reading-panel current-panel">
 
           <header class="panel-header">
-            <h2>읽고 있는 책</h2>
+
+            <h2>
+              읽고 있는 책
+            </h2>
 
             <span
               id="reading-count"
@@ -76,6 +140,7 @@
             >
               0권
             </span>
+
           </header>
 
           <div
@@ -94,18 +159,25 @@
         <section class="reading-panel detail-panel">
 
           <header class="panel-header">
-            <h2>선택한 도서 정보</h2>
+
+            <h2>
+              선택한 도서 정보
+            </h2>
+
+            <span
+              id="selected-category"
+              class="panel-count"
+            ></span>
+
           </header>
 
           <article
             id="book-detail"
             class="book-detail"
           >
-
             <p class="empty-message">
               목록 또는 검색 결과에서 도서를 선택해 주세요.
             </p>
-
           </article>
 
         </section>
@@ -113,23 +185,27 @@
       </div>
 
 
-      <!-- 오른쪽: 검색 -->
+      <!-- 오른쪽: 전체 도서 검색 -->
       <aside class="reading-sidebar">
 
         <section class="reading-panel search-panel">
 
           <header class="panel-header">
-            <h2>도서 자료 검색</h2>
+
+            <h2>
+              전체 도서 자료 검색
+            </h2>
+
           </header>
 
 
-          <!-- 검색 입력 -->
           <form
             id="search-form"
             class="search-form"
           >
 
             <div class="search-field">
+
               <label for="search-title">
                 제목
               </label>
@@ -140,10 +216,12 @@
                 type="search"
                 autocomplete="off"
               >
+
             </div>
 
 
             <div class="search-field">
+
               <label for="search-author">
                 저자
               </label>
@@ -154,10 +232,12 @@
                 type="search"
                 autocomplete="off"
               >
+
             </div>
 
 
             <div class="search-field">
+
               <label for="search-date">
                 날짜
               </label>
@@ -169,10 +249,12 @@
                 placeholder="예: 2026-06"
                 autocomplete="off"
               >
+
             </div>
 
 
             <div class="search-field">
+
               <label for="search-word">
                 단어
               </label>
@@ -184,10 +266,12 @@
                 placeholder="키워드, 내용, 감상"
                 autocomplete="off"
               >
+
             </div>
 
 
             <div class="search-buttons">
+
               <button type="submit">
                 검색
               </button>
@@ -198,12 +282,12 @@
               >
                 초기화
               </button>
+
             </div>
 
           </form>
 
 
-          <!-- 검색 결과 요약 -->
           <div class="search-summary">
 
             <span id="search-status">
@@ -217,7 +301,6 @@
           </div>
 
 
-          <!-- 검색 결과 -->
           <div
             id="search-results"
             class="search-results"
@@ -236,13 +319,41 @@
   </main>
 
 
-  <!-- Reading 페이지 설정 -->
+  <!-- Reading 시스템 설정 -->
+
   <script>
     const READING_CONFIG = {
-      category: "science",
-      title: "과학 서적",
-      dataFile: "science-index.json",
-      mediaPath: "media/"
+      defaultCategory: "science",
+
+      /* 기존 단일 페이지 JS가 읽을 임시 설정 */
+      dataFile: "science/science-index.json",
+      mediaPath: "science/media/",
+
+      categories: {
+        science: {
+          title: "과학 서적",
+          dataFile: "science/science-index.json",
+          mediaPath: "science/media/"
+        },
+
+        philosophy: {
+          title: "철학 서적",
+          dataFile: "philosophy/philosophy-index.json",
+          mediaPath: "philosophy/media/"
+        },
+
+        fiction: {
+          title: "소설과 에세이",
+          dataFile: "fiction/fiction-index.json",
+          mediaPath: "fiction/media/"
+        },
+
+        humanities: {
+          title: "인문·교양",
+          dataFile: "humanities/humanities-index.json",
+          mediaPath: "humanities/media/"
+        }
+      }
     };
   </script>
 
