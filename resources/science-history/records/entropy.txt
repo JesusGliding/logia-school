@@ -1,0 +1,23 @@
+id: entropy
+type: concept
+
+name: Entropy
+korean: 엔트로피
+
+field: 물리학, 정보이론
+
+keywords: 열역학, 무질서, 정보
+
+summary:
+열역학적 상태의 가능성과 에너지 분산을 설명하는 핵심 개념이다.
+
+achievements: 
+유효하게 이용할 수 있는 에너지의 감소 정도나 무효 에너지의 증가 정도.
+정보이론에선 정보를 내보내는 근원의 불확실도를 나타내는 양, 또는 정보량의 기대치.
+열역학 제2법칙, 고립된 시스템은 엔트로피가 가장 높은 열역학적 평형을 향해 진화한다.
+
+
+related: thermodynamics, second-law
+
+files:
+entropy.pdf | 엔트로피 정리 자료

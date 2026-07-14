@@ -1,0 +1,12 @@
+-624|thales|탈레스|Thales|자연철학의 출발점, 만물의 근원은 물
+-570|pythagoras|피타고라스|Pythagoras|수와 자연의 조화를 탐구
+-384|aristotle|아리스토텔레스|Aristotle|자연학과 논리학을 체계화
+83|ptolemy|프톨레마이오스|Claudius Ptolemy|지구 중심의 천동설 주장
+965|alhaytham|이븐 알하이삼|Ibn al-Haytham|광학 이론에 큰 공헌
+1564|galileo|갈릴레이|Galileo Galilei|근대 관측과 실험 과학의 발전
+1643|newton|아이작 뉴턴|Isaac Newton|운동법칙과 만유인력
+1743|lavoisier|라부아지에|Antoine-Laurent de Lavoisier|화학을 독립학문으로 분리해냄
+1879|einstein|알베르트 아인슈타인|Albert Einstein|상대성이론과 현대물리학
+1885|nielsbohr|닐스 보어|Niels Henrik David Bohr|원자 구조의 이해와 양자역학에 기여
+
+

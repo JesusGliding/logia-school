@@ -1,0 +1,24 @@
+title:
+Cosmos (코스모스)
+
+author:
+Carl Sagan (칼 세이건)
+
+date: 
+2026-06-14/
+
+category:
+천문학
+
+keywords:
+우주, 천문학, 과학사, 생명
+
+summary:
+원서에 도전해 보았다. 첫 원서 도전엔 다소 어려운 책이었다. 
+번역기 돌리며 읽고 있는 중이다. 
+
+reflection:
+
+files:
+
+

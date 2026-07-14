@@ -1,8 +1,8 @@
 title:
-사피엔스
+사피엔스 (Sapiens)
 
 author:
-유발 하라리
+유발 하라리 (Yuval Noah Harari)
 
 date: 
 2026-07-07/

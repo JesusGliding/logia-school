@@ -1,0 +1,26 @@
+id: relativity
+type: theory
+
+name: Theory of Relativity
+korean: 상대성이론
+years: 1905-1915
+
+field: 물리학
+
+keywords: 시공간, 빛, 중력
+
+summary:
+공간과 시간, 운동과 중력의 관계를 설명하는 현대물리학의 핵심 이론이다.
+
+achievements:
+아인슈타인의 주도로 정립된 시간과 공간에 대한 물리 이론이다.
+특수 상대성 이론과 일반 상대성 이론으로 나뉜다.
+동시성의 상대성과 질량-에너지 동등성을 제시함.(E=mc²)
+시공간은 4차원, 즉 시간과 공간이 결합된 형태의 연속체임을 규명.
+극도로 밀집된 질량이 시공간을 심각하게 왜곡, 블랙홀 예측.
+
+related: einstein, spacetime, gravity
+
+files:
+relativity.pdf | 상대성이론 정리 자료
+tensor.pdf | 텐서계산 수학 자료

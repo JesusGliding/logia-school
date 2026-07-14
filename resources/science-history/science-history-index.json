@@ -1,0 +1,288 @@
+{
+  "cacheVersion": 1784013179,
+  "historyCategory": "science-history",
+  "timelineSource": "science_timeline.txt",
+  "timelineCount": 10,
+  "archiveCount": 4,
+  "mediaCount": 6,
+  "linkedTimelineCount": 2,
+  "unlinkedTimelineIds": [
+    "alhaytham",
+    "aristotle",
+    "einstein",
+    "lavoisier",
+    "nielsbohr",
+    "ptolemy",
+    "pythagoras",
+    "thales"
+  ],
+  "archivesWithoutTimeline": [
+    "entropy",
+    "relativity"
+  ],
+  "typeCounts": {
+    "concept": 1,
+    "person": 2,
+    "theory": 1
+  },
+  "fields": [
+    "물리학",
+    "수학",
+    "정보이론",
+    "천문학"
+  ],
+  "keywords": [
+    "고전역학",
+    "관성",
+    "낙하운동",
+    "만유인력",
+    "망원경",
+    "무질서",
+    "미적분",
+    "빛",
+    "시공간",
+    "열역학",
+    "정보",
+    "중력"
+  ],
+  "timeline": [
+    {
+      "year": -624,
+      "id": "thales",
+      "korean": "탈레스",
+      "name": "Thales",
+      "description": "자연철학의 출발점, 만물의 근원은 물"
+    },
+    {
+      "year": -570,
+      "id": "pythagoras",
+      "korean": "피타고라스",
+      "name": "Pythagoras",
+      "description": "수와 자연의 조화를 탐구"
+    },
+    {
+      "year": -384,
+      "id": "aristotle",
+      "korean": "아리스토텔레스",
+      "name": "Aristotle",
+      "description": "자연학과 논리학을 체계화"
+    },
+    {
+      "year": 83,
+      "id": "ptolemy",
+      "korean": "프톨레마이오스",
+      "name": "Claudius Ptolemy",
+      "description": "지구 중심의 천동설 주장"
+    },
+    {
+      "year": 965,
+      "id": "alhaytham",
+      "korean": "이븐 알하이삼",
+      "name": "Ibn al-Haytham",
+      "description": "광학 이론에 큰 공헌"
+    },
+    {
+      "year": 1564,
+      "id": "galileo",
+      "korean": "갈릴레이",
+      "name": "Galileo Galilei",
+      "description": "근대 관측과 실험 과학의 발전"
+    },
+    {
+      "year": 1643,
+      "id": "newton",
+      "korean": "아이작 뉴턴",
+      "name": "Isaac Newton",
+      "description": "운동법칙과 만유인력"
+    },
+    {
+      "year": 1743,
+      "id": "lavoisier",
+      "korean": "라부아지에",
+      "name": "Antoine-Laurent de Lavoisier",
+      "description": "화학을 독립학문으로 분리해냄"
+    },
+    {
+      "year": 1879,
+      "id": "einstein",
+      "korean": "알베르트 아인슈타인",
+      "name": "Albert Einstein",
+      "description": "상대성이론과 현대물리학"
+    },
+    {
+      "year": 1885,
+      "id": "nielsbohr",
+      "korean": "닐스 보어",
+      "name": "Niels Henrik David Bohr",
+      "description": "원자 구조의 이해와 양자역학에 기여"
+    }
+  ],
+  "archives": [
+    {
+      "id": "galileo",
+      "file": "galileo.txt",
+      "type": "person",
+      "name": "Galileo Galilei",
+      "korean": "갈릴레오 갈릴레이",
+      "years": "1564-1642",
+      "country": "Italy",
+      "fields": [
+        "물리학",
+        "천문학"
+      ],
+      "keywords": [
+        "관성",
+        "망원경",
+        "낙하운동"
+      ],
+      "summary": [
+        "관측과 실험을 통해 근대 과학의 방법을 발전시킨 이탈리아의 과학자이다."
+      ],
+      "achievements": [
+        "과학 혁명의 주도자로 요하네스 케플러와 동시대 인물이다.",
+        "망원경을 개량하여 목성의 위성, 태양의 흑점등을 발견.",
+        "전체 관측사항을 이용하여 코페르니쿠스의 지동설 입증.",
+        "<두 가지 새로운 과학에 관한 논술> 집필",
+        "낙하운동 연구, 속도와 가속도의 개념을 확립."
+      ],
+      "related": [
+        "newton",
+        "kepler"
+      ],
+      "media": []
+    },
+    {
+      "id": "relativity",
+      "file": "relativity.txt",
+      "type": "theory",
+      "name": "Theory of Relativity",
+      "korean": "상대성이론",
+      "years": "1905-1915",
+      "country": "",
+      "fields": [
+        "물리학"
+      ],
+      "keywords": [
+        "시공간",
+        "빛",
+        "중력"
+      ],
+      "summary": [
+        "공간과 시간, 운동과 중력의 관계를 설명하는 현대물리학의 핵심 이론이다."
+      ],
+      "achievements": [
+        "아인슈타인의 주도로 정립된 시간과 공간에 대한 물리 이론이다.",
+        "특수 상대성 이론과 일반 상대성 이론으로 나뉜다.",
+        "동시성의 상대성과 질량-에너지 동등성을 제시함.(E=mc²)",
+        "시공간은 4차원, 즉 시간과 공간이 결합된 형태의 연속체임을 규명.",
+        "극도로 밀집된 질량이 시공간을 심각하게 왜곡, 블랙홀 예측."
+      ],
+      "related": [
+        "einstein",
+        "spacetime",
+        "gravity"
+      ],
+      "media": [
+        {
+          "file": "relativity.pdf",
+          "title": "상대성이론 정리 자료",
+          "exists": true
+        },
+        {
+          "file": "tensor.pdf",
+          "title": "텐서계산 수학 자료",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "id": "newton",
+      "file": "newton.txt",
+      "type": "person",
+      "name": "Isaac Newton",
+      "korean": "아이작 뉴턴",
+      "years": "1643-1727",
+      "country": "England",
+      "fields": [
+        "물리학",
+        "수학",
+        "천문학"
+      ],
+      "keywords": [
+        "고전역학",
+        "만유인력",
+        "미적분"
+      ],
+      "summary": [
+        "고전역학의 체계를 확립하고 만유인력 법칙을 제시한 영국의 과학자이다."
+      ],
+      "achievements": [
+        "<자연철학의 수학적 원리>, \"프린키피아\" 출간",
+        "만유인력과 3가지 뉴턴 운동 법칙 저술",
+        "프리즘을 이용한 빛의 분산 실험과 반사 망원경 발견",
+        "라이프니츠와 별개로 미적분법 창시"
+      ],
+      "related": [
+        "galileo",
+        "kepler",
+        "leibniz",
+        "gravity"
+      ],
+      "media": [
+        {
+          "file": "gravity.pdf",
+          "title": "만유인력법칙 설명",
+          "exists": true
+        },
+        {
+          "file": "principia.pdf",
+          "title": "프린키피아 자료",
+          "exists": true
+        },
+        {
+          "file": "newton.jpg",
+          "title": "뉴턴 초상화",
+          "exists": true
+        }
+      ]
+    },
+    {
+      "id": "entropy",
+      "file": "entropy.txt",
+      "type": "concept",
+      "name": "Entropy",
+      "korean": "엔트로피",
+      "years": "",
+      "country": "",
+      "fields": [
+        "물리학",
+        "정보이론"
+      ],
+      "keywords": [
+        "열역학",
+        "무질서",
+        "정보"
+      ],
+      "summary": [
+        "열역학적 상태의 가능성과 에너지 분산을 설명하는 핵심 개념이다."
+      ],
+      "achievements": [
+        "유효하게 이용할 수 있는 에너지의 감소 정도나 무효 에너지의 증가 정도.",
+        "정보이론에선 정보를 내보내는 근원의 불확실도를 나타내는 양, 또는 정보량의 기대치.",
+        "열역학 제2법칙, 고립된 시스템은 엔트로피가 가장 높은 열역학적 평형을 향해 진화한다."
+      ],
+      "related": [
+        "thermodynamics",
+        "second-law"
+      ],
+      "media": [
+        {
+          "file": "entropy.pdf",
+          "title": "엔트로피 정리 자료",
+          "exists": true
+        }
+      ]
+    }
+  ],
+  "updated": "2026-07-14T16:12:59"
+}

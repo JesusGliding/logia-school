@@ -1,0 +1,27 @@
+id: newton
+type: person
+
+name: Isaac Newton
+korean: 아이작 뉴턴
+years: 1643-1727
+country: England
+
+field: 물리학, 수학, 천문학
+
+keywords: 고전역학, 만유인력, 미적분
+
+summary:
+고전역학의 체계를 확립하고 만유인력 법칙을 제시한 영국의 과학자이다.
+
+achievements: 
+<자연철학의 수학적 원리>, "프린키피아" 출간
+만유인력과 3가지 뉴턴 운동 법칙 저술
+프리즘을 이용한 빛의 분산 실험과 반사 망원경 발견 
+라이프니츠와 별개로 미적분법 창시
+
+related: galileo, kepler, leibniz, gravity
+
+files:
+gravity.pdf | 만유인력법칙 설명
+principia.pdf | 프린키피아 자료
+newton.jpg | 뉴턴 초상화

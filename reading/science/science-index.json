@@ -1,16 +1,17 @@
 {
-  "cacheVersion": 1783842850,
+  "cacheVersion": 1784013179,
   "readingCategory": "science",
-  "bookCount": 2,
+  "bookCount": 3,
   "completedCount": 1,
-  "readingCount": 1,
+  "readingCount": 2,
   "mediaCount": 1,
-  "firstStarted": "2026-06-18",
-  "latestStarted": "2026-07-02",
+  "firstStarted": "2026-06-14",
+  "latestStarted": "2026-07-13",
   "latestCompleted": "2026-06-24",
   "authors": [
-    "벤 올린",
-    "칼 세이건"
+    "Carl Sagan (칼 세이건)",
+    "김민형",
+    "벤 올린"
   ],
   "categories": [
     "수학",
@@ -18,6 +19,7 @@
   ],
   "keywords": [
     "과학사",
+    "교육",
     "생명",
     "수학",
     "시각화",
@@ -28,23 +30,24 @@
   ],
   "books": [
     {
-      "id": "science_2026-07-02_코스모스",
-      "file": "science_2026-07-02_코스모스.txt",
-      "title": "코스모스",
-      "author": "칼 세이건",
-      "date": "2026-07-02/",
-      "startDate": "2026-07-02",
+      "id": "science_2026-07-13_수학이필요한순간",
+      "file": "science_2026-07-13_수학이필요한순간.txt",
+      "title": "수학이 필요한 순간",
+      "author": "김민형",
+      "date": "2026-07-13/",
+      "startDate": "2026-07-13",
       "finishDate": null,
       "status": "reading",
-      "category": "천문학",
+      "category": "수학",
       "keywords": [
-        "우주",
-        "천문학",
-        "과학사",
-        "생명"
+        "수학",
+        "교육"
       ],
       "summary": [
-        "우주와 인류의 관계를 과학사와 함께 설명하는 책이다."
+        "두번째 보는 책이다. 나는 보통 책을 두번 보진 않는데 다시 생각나서 또 읽게 되었다.",
+        "지난번 뒷부분을 자세히 못읽어서 이기도 하고 나의 인지적 사고능력을 일깨우는데 더할나위 없이 좋은 책이다. 수학을 어떻게 시작해야 하는지 알려주는 한국의 명저이다. 내가 좀더 일찍, 고등학교때라던가 수학이 어떤 학문인지를 알았으면 수학을 제대로 공부하거나 시작을 하지 않았을 것이다. ^^; 청소년기에 나는 따지는 것을 그리 좋아하진 않는 성격이었기 때문이다. 하지만 그것이 지성의 출발임을 철학과 수학을 접하면서 알게 되었다. ",
+        "또한 요즘 독서 모임을 방문하면서 책을 여러번 읽는것도 괜찮을것 같다는 생각이 든다.",
+        "아무쪼록 수많은 학생들이 이런 좋은 책들을 일찍이 접했으면 하는 바램이다. "
       ],
       "reflection": [],
       "media": []
@@ -78,7 +81,30 @@
           "exists": true
         }
       ]
+    },
+    {
+      "id": "science_2026-06-15_Cosmos",
+      "file": "science_2026-06-15_Cosmos.txt",
+      "title": "Cosmos (코스모스)",
+      "author": "Carl Sagan (칼 세이건)",
+      "date": "2026-06-14/",
+      "startDate": "2026-06-14",
+      "finishDate": null,
+      "status": "reading",
+      "category": "천문학",
+      "keywords": [
+        "우주",
+        "천문학",
+        "과학사",
+        "생명"
+      ],
+      "summary": [
+        "원서에 도전해 보았다. 첫 원서 도전엔 다소 어려운 책이었다. ",
+        "번역기 돌리며 읽고 있는 중이다. "
+      ],
+      "reflection": [],
+      "media": []
     }
   ],
-  "updated": "2026-07-12T16:54:10"
+  "updated": "2026-07-14T16:12:59"
 }

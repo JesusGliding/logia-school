@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>자료실 | LOGIA School</title>
+
+  <link
+    rel="stylesheet"
+    href="/assets/css/library.css"
+  >
+</head>
+
+<body>
+
+  <main class="library-page">
+
+    <header class="library-category-header">
+
+      <button
+        type="button"
+        class="library-category active"
+        data-category="science-history"
+        aria-selected="true"
+      >
+        <span class="category-title">
+          과학사
+        </span>
+
+        <span class="category-subtitle">
+          History of Science
+        </span>
+      </button>
+
+
+      <button
+        type="button"
+        class="library-category"
+        data-category="math-history"
+        aria-selected="false"
+      >
+        <span class="category-title">
+          수학사
+        </span>
+
+        <span class="category-subtitle">
+          History of Mathematics
+        </span>
+      </button>
+
+
+      <button
+        type="button"
+        class="library-category"
+        data-category="philosophy-history"
+        aria-selected="false"
+      >
+        <span class="category-title">
+          철학사
+        </span>
+
+        <span class="category-subtitle">
+          History of Philosophy
+        </span>
+      </button>
+
+
+      <button
+        type="button"
+        class="library-category"
+        data-category="computer"
+        aria-selected="false"
+      >
+        <span class="category-title">
+          컴퓨터
+        </span>
+
+        <span class="category-subtitle">
+          Computer Science & Technology
+        </span>
+      </button>
+
+
+      <button
+        type="button"
+        class="library-category"
+        data-category="notes"
+        aria-selected="false"
+      >
+        <span class="category-title">
+          노트
+        </span>
+
+        <span class="category-subtitle">
+          Personal Knowledge Notes
+        </span>
+      </button>
+
+    </header>
+
+
+    <section class="library-layout">
+
+      <div class="library-main">
+
+        <section class="library-panel timeline-panel">
+
+          <header class="panel-header">
+
+            <h2 id="timeline-title">
+              과학사 연대기
+            </h2>
+
+            <span
+              id="timeline-count"
+              class="panel-count"
+            >
+              0항목
+            </span>
+
+          </header>
+
+          <div
+            id="timeline-list"
+            class="timeline-list"
+          >
+            <p class="empty-message">
+              연대기 자료가 없습니다.
+            </p>
+          </div>
+
+        </section>
+
+
+        <section class="library-panel archive-panel">
+
+          <header class="panel-header">
+
+            <h2>
+              선택한 자료
+            </h2>
+
+            <span
+              id="selected-category"
+              class="panel-count"
+            >
+              (과학사)
+            </span>
+
+          </header>
+
+          <article
+            id="archive-detail"
+            class="archive-detail"
+          >
+            <p class="empty-message">
+              연대기 또는 검색 결과에서 자료를 선택해 주세요.
+            </p>
+          </article>
+
+        </section>
+
+      </div>
+
+
+      <aside class="library-sidebar">
+
+        <section class="library-panel timeline-search-panel">
+
+          <header class="panel-header">
+
+            <h2>
+              연대기 검색
+            </h2>
+
+          </header>
+
+          <form
+            id="timeline-search-form"
+            class="search-form"
+          >
+
+            <div class="search-field">
+
+              <label for="timeline-search-word">
+                검색
+              </label>
+
+              <input
+                id="timeline-search-word"
+                name="timeline"
+                type="search"
+                placeholder="이름 또는 연도"
+                autocomplete="off"
+              >
+
+            </div>
+
+            <div class="search-buttons">
+
+              <button type="submit">
+                검색
+              </button>
+
+              <button
+                id="timeline-search-reset"
+                type="button"
+              >
+                초기화
+              </button>
+
+            </div>
+
+          </form>
+
+          <p
+            id="timeline-search-message"
+            class="search-message"
+          >
+            인물·사건의 이름이나 연도를 입력해 주세요.
+          </p>
+
+        </section>
+
+
+        <section class="library-panel archive-search-panel">
+
+          <header class="panel-header">
+
+            <h2 id="archive-search-title">
+              과학사 자료 검색
+            </h2>
+
+          </header>
+
+          <form
+            id="archive-search-form"
+            class="search-form"
+          >
+
+            <div class="search-field">
+
+              <label for="archive-search-name">
+                명칭
+              </label>
+
+              <input
+                id="archive-search-name"
+                name="name"
+                type="search"
+                autocomplete="off"
+              >
+
+            </div>
+
+
+            <div class="search-field">
+
+              <label for="archive-search-type">
+                유형
+              </label>
+
+              <select
+                id="archive-search-type"
+                name="type"
+              >
+                <option value="">전체</option>
+                <option value="person">인물</option>
+                <option value="theory">이론</option>
+                <option value="concept">개념</option>
+              </select>
+
+            </div>
+
+
+            <div class="search-field">
+
+              <label for="archive-search-field">
+                분야
+              </label>
+
+              <input
+                id="archive-search-field"
+                name="field"
+                type="search"
+                autocomplete="off"
+              >
+
+            </div>
+
+
+            <div class="search-field">
+
+              <label for="archive-search-word">
+                단어
+              </label>
+
+              <input
+                id="archive-search-word"
+                name="word"
+                type="search"
+                placeholder="키워드, 내용, 관련 자료"
+                autocomplete="off"
+              >
+
+            </div>
+
+
+            <div class="search-buttons">
+
+              <button type="submit">
+                검색
+              </button>
+
+              <button
+                id="archive-search-reset"
+                type="button"
+              >
+                초기화
+              </button>
+
+            </div>
+
+          </form>
+
+
+          <div class="search-summary">
+
+            <span id="archive-search-status">
+              전체 자료
+            </span>
+
+            <span id="archive-search-count">
+              0건
+            </span>
+
+          </div>
+
+
+          <div
+            id="archive-search-results"
+            class="search-results"
+          >
+            <p class="empty-message">
+              검색 결과가 여기에 표시됩니다.
+            </p>
+          </div>
+
+        </section>
+
+      </aside>
+
+    </section>
+
+  </main>
+
+
+  <script>
+    const LIBRARY_CONFIG = {
+      defaultCategory: "science-history",
+
+      categories: {
+        "science-history": {
+          title: "과학사",
+          timelineTitle: "과학사 연대기",
+          archiveSearchTitle: "과학사 자료 검색",
+          dataFile: "science-history/science-history-index.json",
+          mediaPath: "science-history/media/"
+        },
+
+        "math-history": {
+          title: "수학사",
+          timelineTitle: "수학사 연대기",
+          archiveSearchTitle: "수학사 자료 검색",
+          dataFile: "math-history/math-history-index.json",
+          mediaPath: "math-history/media/"
+        },
+
+        "philosophy-history": {
+          title: "철학사",
+          timelineTitle: "철학사 연대기",
+          archiveSearchTitle: "철학사 자료 검색",
+          dataFile: "philosophy-history/philosophy-history-index.json",
+          mediaPath: "philosophy-history/media/"
+        },
+
+        computer: {
+          title: "컴퓨터",
+          timelineTitle: "컴퓨터 연대기",
+          archiveSearchTitle: "컴퓨터 자료 검색",
+          dataFile: "computer/computer-index.json",
+          mediaPath: "computer/media/"
+        },
+
+        notes: {
+          title: "노트",
+          timelineTitle: "최근 노트",
+          archiveSearchTitle: "노트 검색",
+          dataFile: "notes/notes-index.json",
+          mediaPath: "notes/media/"
+        }
+      }
+    };
+  </script>
+
+  <script src="/assets/js/library-board.js"></script>
+
+</body>
+</html>
