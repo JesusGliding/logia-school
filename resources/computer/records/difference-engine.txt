@@ -1,0 +1,25 @@
+id:difference-engine
+title:차분기관
+english:Difference Engine
+type:machine
+years:1786
+
+field:수학, 계산기계, 컴퓨터과학
+keywords:찰스 배비지, 해석기관, 뮐러, 다항함수, 계산기
+
+summary:
+뮐러가 최초제안, 배비지가 다시 발명한 기계식 디지털 계산기이다.
+
+content:
+"매우 큰 수학적 표를 계산하는 기계적인 방법"이란 제목으로 발표.
+톱니바퀴와 기어를 이용하여 기억과 계산을 수행하며, 핸들을 돌려 동력을 얻었다.
+다항함수를 계산할 수 있었으며 7개의 숫자를 31자리까지 기억시킬 수 있었다.
+
+related:charles-babbage, analytical-engine, 
+
+source:Wikipedia, 나무위키
+
+files:
+difference_engine.jpg | 차분기관 제작 사진
+babbage_papers.pdf | 배비지 논문들
+

@@ -1,0 +1,25 @@
+id: c-language
+title: C 언어
+type: language
+
+field: 컴퓨터과학, 언어, 프로그래밍
+keywords: 운영 체제, 벨 연구소, 프로그래밍
+years: 1972
+
+summary: 
+벨 연구소(Bell Labs)의 연구원 데니스 리치가 만든 범용(general-purpose) 프로그래밍 언어
+
+content:
+C는 프로그래머에게 일반적인 CPU 아키텍처의 기능에 상대적으로 직접 접근할 수 있게 하며, 대상 명령어 집합에 맞게 조정된다.
+C는 운영체제(특히 커널[10]), 장치 드라이버, 프로토콜 스택을 구현하는 데 사용되어 왔고, 응용 소프트웨어에서의 사용은 점차 감소하고 있다.
+C는 명령형 절차적 언어로, 구조적 프로그래밍, 어휘적 변수 범위, 재귀를 지원하며 정적 자료형 체계를 갖추고 있다.
+
+related: bell-labs, unix, object-oriented-programmin
+
+files:
+clanguage_historymap.jpg | C언어의 역사 모식화 그림
+
+sources: Wikipedia, 나무위키
+
+
+

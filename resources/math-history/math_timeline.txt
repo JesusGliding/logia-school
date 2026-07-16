@@ -1,0 +1,15 @@
+-624|thales|탈레스|Thales|자연철학의 출발점, 만물의 근원은 물
+-580|pythagoras|피타고라스|Pythagoras|수와 자연의 조화를 탐구
+-300|euclid|유클리드|Euclid|<기하학 원론> 저자, 공리 체계 기원
+-287|archimedes|아르키메데스|Archimedes of Syracuse|부력의 원리, 원주율 계산, 고대 최고의 수학자
+220|liuhui|유휘|Liu Hui|중국 삼국시대 수학자, 구장산술 주석
+780|alkhwarizmi|알콰리즈미|Muhammad ibn Musa al-Khwarizmi|대수학 체계화, 알고리즘(Algorithm)의 어원
+1596|descartes|데카르트|René Descartes|해석기하학 창시, 근대 수학의 전환점
+1601|fermat|페르마|Pierre de Fermat|근대 정수론과 확률론의 창시자 
+1623|pascal|파스칼|Blaise Pascal|확률론의 기초, 파스칼의 삼각형
+1637|coordinate|좌표기하학|Analytic Geometry|해석기하학의 시작
+1642|newton|아이작 뉴턴|Isaac Newton|미적분학 창시, 고전역학의 수학적 기초 확립
+1665|calculus|미적분학|Calculus|현대 수학의 탄생
+1707|euler|오일러|Leonhard Euler|현대 수학 표기법 정립, 오일러 공식, 그래프 이론 창시
+1777|gauss|가우스|Johann Carl Friedrich Gauss|근대 수학의 왕, 정수론과 해석학 발전
+1874|set|집합론|Set Theory|현대 수학의 기초

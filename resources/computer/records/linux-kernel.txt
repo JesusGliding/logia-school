@@ -1,0 +1,26 @@
+id: linux-kernel
+title: 리눅스 커널
+type: software
+
+field: 컴퓨터과학, 운영체제
+keywords: 운영 체제, 유닉스
+years: 1991
+
+summary: 
+리누스 토르발스가 자신의 개인용 컴퓨터를 위해 고안되어 개발 되었다.
+
+
+content:
+그 이후로 다른 운영 체제나 커널 대비 더 다양한 컴퓨터 아키텍처를 지원하도록 확장되었다.
+GNU 운영 체제로 이 커널이 채택되며 개발자들과 사용자들을 매혹시켰다.
+현재 다양한 배포판이 존재한다.(Debian, Red Hat, openSUSE, Android)
+
+related: linus-torvalds, unix, linux, c-language
+
+files:
+linux_history.pdf | 리눅스 발전 과정
+
+sources: Wikipedia, 나무위키
+
+
+

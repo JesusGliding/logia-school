@@ -1,0 +1,26 @@
+id: gauss
+type: person
+
+name: Johann Carl Friedrich Gauss
+korean: 프리드리히 가우스
+years: 1777-1855
+country: German
+
+field: 수학, 천문학, 축지학, 물리학
+
+keywords: 산술연구, 17각형, 소수정리, 세레스
+
+summary:
+근대 수학의 방향을 바꾼 '수학의 왕(Prince of Mathematics)'
+
+achievements:
+1799년 박사 학위 논문으로, "대수방정식의 근의 존재 증명"을 저술하였다.
+24세 때 최소제곱법으로 소행성 세레스의 궤도를 예측하여 천문학계를 넘어 과학계 전체에서 유명해졌다.
+이차상호법칙을 증명하며 본격적인 정수론의 시대를 열고, 정수론을 체계화하기 시작하였다
+
+
+related: euler, fermat, riemann
+
+files:
+
+sources: Wikipedia, 나무위키

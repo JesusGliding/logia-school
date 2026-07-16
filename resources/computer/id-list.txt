@@ -1,0 +1,24 @@
+abstraction | 추상화
+ada-lovelace | 에이다 러브레이스 
+alan-turing | 앨런 튜링
+analytical-engine | 해석기관
+automata-theory | 오토마타 이론
+bell-labs | 벨 연구소
+c-language | C 언어
+charles-babbage | 찰스 베비지
+colossus | 콜로서스
+difference-engine | 차분 기관
+havard-mark-i | 마크 I
+john-von-neumann | 폰 노이만
+linux | 리눅스
+linux-kernel | 리눅스 커널
+lorenz | 로렌즈 암호
+moores-law | 무어의 법칙
+object-oriented-programming | 객체 지향 프로그래밍
+turing-machine | 튜링 머신
+transistor | 트랜지스터 
+unix | 유닉스
+
+
+
+// 에이다 러브레이스; 세계 최초의 컴퓨터 프로그래머로 인정받는 영국의 수학자

@@ -1,0 +1,25 @@
+id: turing-machine
+title: 튜링 머신
+english: Turing machine
+
+type: machine
+field: 수학, 계산기계, 컴퓨터과학
+years: 1936
+
+keywords: 앨런 튜링, 수학적 모형, 테이프 기반, 범용 튜링 기계
+
+summary:
+긴 테이프에 쓰여있는 여러 가지 기호들을 일정한 규칙에 따라 바꾸는 기계이다.
+
+content:
+적당한 규칙과 기호를 입력한다면 일반적인 컴퓨터의 알고리즘을 수행할 수 있다.
+엘런 튜링이 제시한 개념이며 오토마타의 일종이다.
+테이프, 헤드, 상태 기록기, 행동 표로 구성되어 있다.
+
+related: alan-turing, automata-theory, john-von-neumann
+
+files:
+turingmachine.png | 현대적으로 재구성한 튜링 기계 사진
+alanturing_papers.pdf | 앨런튜링 논문 한글 번역 자료
+
+sources: Wikipedia, 나무위키

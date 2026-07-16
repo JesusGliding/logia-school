@@ -1,0 +1,37 @@
+//필수 입력사항 자료
+
+id:
+title:
+
+keywords:키워드
+summary:요약
+content:내용
+
+related:연관 id
+files:
+
+
+// 선택사항 자료
+
+english:영문명(공식명)
+aliases:검색기능 보완목적(예,"www")
+type:자료형식
+field:
+years:연도(출생,설립,발명,공개,발표,완성,발생)
+sources:참고문헌
+
+
+
+alias는 검색기능을 보완해 줄수 있다.(예를 들면 "www", 주제가 월드와이드웹 이랄경우 www 검색에서 제외될수도 있는 이런 부분을 미연에 방지하기 위해서 이다. 또한 선택 사항이라서 기본적으로 입력하지 않아도 된다.)
+
+
+<type 예시>
+person          인물(출생연도)
+organization    기관(설립연도)
+machine         기계·하드웨어(완성·공개·발명 연도)
+theory          이론·법칙(발표 연도)
+language        언어(공개 연도)
+software        소프트웨어(공개 연도)
+concept         개념(발표 연도)
+event           사건(발생 연도)
+document        문헌·논문(발표 연도)

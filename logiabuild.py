@@ -1813,12 +1813,541 @@ def build_history_index(category, build_cache):
 # Computer Library Index
 # ============================================================
 
+COMPUTER_SECTION_NAMES = {
+    "id", "title", "english", "aliases", "type", "field",
+    "years", "keywords", "summary", "content", "related",
+    "files", "sources"
+}
+
+COMPUTER_LIST_FIELDS = {
+    "aliases", "field", "keywords", "related", "sources"
+}
+
+COMPUTER_VALID_TYPES = {
+    "person", "organization", "machine", "theory", "language",
+    "software", "concept", "event", "document"
+}
+
+COMPUTER_REQUIRED_FIELDS = {
+    "id", "title", "keywords", "summary", "content"
+}
+
+
+def create_empty_computer_record():
+    return {
+        "id": "",
+        "title": "",
+        "english": "",
+        "aliases": [],
+        "type": "",
+        "fields": [],
+        "years": "",
+        "keywords": [],
+        "summary": [],
+        "content": [],
+        "related": [],
+        "media": [],
+        "sources": []
+    }
+
+
+def add_computer_media_item(data, line, media_dir):
+    parts = line.split("|", 1)
+    filename = parts[0].strip()
+    title = parts[1].strip() if len(parts) > 1 else ""
+
+    if not filename:
+        return
+
+    data["media"].append({
+        "file": filename,
+        "title": title,
+        "exists": (media_dir / filename).exists()
+    })
+
+
+def read_computer_record(record_path, media_dir):
+    data = create_empty_computer_record()
+
+    try:
+        lines = record_path.read_text(
+            encoding="utf-8"
+        ).splitlines()
+    except Exception:
+        return data
+
+    current_section = None
+
+    for raw_line in lines:
+        trimmed = raw_line.strip()
+
+        if not trimmed or trimmed.startswith("#"):
+            continue
+
+        field_match = re.match(
+            r"^([A-Za-z][A-Za-z0-9_-]*)\s*:\s*(.*)$",
+            trimmed
+        )
+
+        if field_match:
+            section_name = field_match.group(1).lower()
+            inline_value = field_match.group(2).strip()
+
+            if section_name in COMPUTER_SECTION_NAMES:
+                current_section = section_name
+
+                if inline_value:
+                    if section_name in COMPUTER_LIST_FIELDS:
+                        target_name = (
+                            "fields"
+                            if section_name == "field"
+                            else section_name
+                        )
+                        append_unique(
+                            data[target_name],
+                            split_comma_values(inline_value)
+                        )
+
+                    elif section_name == "files":
+                        add_computer_media_item(
+                            data,
+                            inline_value,
+                            media_dir
+                        )
+
+                    elif section_name in {"summary", "content"}:
+                        data[section_name].append(inline_value)
+
+                    elif not data[section_name]:
+                        data[section_name] = inline_value
+
+                continue
+
+        if current_section is None:
+            continue
+
+        if current_section in COMPUTER_LIST_FIELDS:
+            target_name = (
+                "fields"
+                if current_section == "field"
+                else current_section
+            )
+            append_unique(
+                data[target_name],
+                split_comma_values(trimmed)
+            )
+
+        elif current_section == "files":
+            add_computer_media_item(
+                data,
+                trimmed,
+                media_dir
+            )
+
+        elif current_section in {"summary", "content"}:
+            data[current_section].append(trimmed)
+
+        elif not data[current_section]:
+            data[current_section] = trimmed
+
+    return data
+
+
+def read_computer_timeline(timeline_path):
+    timeline = []
+    warnings = []
+    seen_ids = set()
+
+    try:
+        lines = timeline_path.read_text(
+            encoding="utf-8"
+        ).splitlines()
+    except Exception:
+        return timeline, warnings
+
+    for line_number, raw_line in enumerate(lines, start=1):
+        line = raw_line.strip()
+
+        if not line or line.startswith("#"):
+            continue
+
+        parts = [part.strip() for part in line.split("|", 4)]
+
+        if len(parts) != 5:
+            warnings.append((
+                line_number,
+                "항목 수가 5개가 아닙니다.",
+                raw_line
+            ))
+            continue
+
+        year_text, item_id, title, english, description = parts
+
+        try:
+            year = int(year_text)
+        except ValueError:
+            warnings.append((
+                line_number,
+                f"연도가 정수가 아닙니다: {year_text}",
+                raw_line
+            ))
+            continue
+
+        if not item_id:
+            warnings.append((
+                line_number,
+                "id가 비어 있습니다.",
+                raw_line
+            ))
+            continue
+
+        if item_id in seen_ids:
+            warnings.append((
+                line_number,
+                f"중복 id입니다: {item_id}",
+                raw_line
+            ))
+            continue
+
+        seen_ids.add(item_id)
+
+        timeline.append({
+            "year": year,
+            "id": item_id,
+            "title": title,
+            "english": english,
+            "description": description
+        })
+
+    timeline.sort(
+        key=lambda item: (
+            item["year"],
+            item["title"],
+            item["id"]
+        )
+    )
+
+    return timeline, warnings
+
+
+def print_computer_record_warning(record_file, message):
+    print("[WARNING]")
+    print("  Computer Archive")
+    print(f"  Record  : {record_file}")
+    print(f"  Problem : {message}")
+    print()
+    return 1
+
+
+def print_computer_media_warning(record_file, media_items):
+    missing = [
+        item for item in media_items
+        if not item["exists"]
+    ]
+
+    if not missing:
+        return 0
+
+    print("[WARNING]")
+    print("  Computer Archive")
+    print(f"  Record  : {record_file}")
+    print("  Missing media:")
+
+    for item in missing:
+        print(f"    - {item['file']}")
+
+    print()
+    return len(missing)
+
+
+def print_computer_timeline_warnings(timeline_file, warnings):
+    if not warnings:
+        return 0
+
+    print("[WARNING]")
+    print("  Computer Archive")
+    print(f"  Timeline : {timeline_file}")
+    print("  Problems:")
+
+    for line_number, message, raw_line in warnings:
+        print(f"    - line {line_number}: {message}")
+        print(f"      {raw_line}")
+
+    print()
+    return len(warnings)
+
+
+def validate_computer_required_fields(record_path, parsed):
+    warning_count = 0
+
+    for field_name in sorted(COMPUTER_REQUIRED_FIELDS):
+        value = parsed.get(field_name)
+
+        if not value:
+            warning_count += print_computer_record_warning(
+                record_path.name,
+                f"필수 항목이 비어 있습니다: {field_name}"
+            )
+
+    return warning_count
+
+
+def validate_computer_related_ids(records):
+    record_ids = {
+        record["id"]
+        for record in records
+        if record.get("id")
+    }
+
+    warnings = []
+
+    for record in records:
+        source_id = record.get("id") or record.get("file")
+
+        for related_id in record.get("related", []):
+            if related_id not in record_ids:
+                warnings.append({
+                    "sourceId": source_id,
+                    "relatedId": related_id
+                })
+
+    return warnings
+
+
 def build_computer_index(build_cache):
-    """
-    Computer 자료 형식이 확정된 뒤 구현한다.
-    History 자료와 구조가 다르므로 독립 Builder로 유지한다.
-    """
-    return 0
+    computer_dir = RESOURCES_DIR / "computer"
+    records_dir = computer_dir / "records"
+    media_dir = computer_dir / "media"
+    timeline_path = computer_dir / "computer_timeline.txt"
+    index_path = computer_dir / "computer-index.json"
+
+    if not computer_dir.exists():
+        print(
+            "[SKIP] Computer Index : "
+            "resources/computer 폴더 없음"
+        )
+        print()
+        return 0
+
+    warning_count = 0
+    timeline = []
+
+    if timeline_path.exists():
+        timeline, timeline_warnings = read_computer_timeline(
+            timeline_path
+        )
+        warning_count += print_computer_timeline_warnings(
+            timeline_path.name,
+            timeline_warnings
+        )
+    else:
+        print(
+            "[SKIP] Computer Timeline : "
+            "computer_timeline.txt 없음"
+        )
+        print()
+
+    record_files = (
+        sorted(records_dir.glob("*.txt"))
+        if records_dir.exists()
+        else []
+    )
+
+    media_files = (
+        {
+            file.name
+            for file in media_dir.iterdir()
+            if file.is_file()
+        }
+        if media_dir.exists()
+        else set()
+    )
+
+    records = []
+    record_ids = set()
+    used_media = set()
+
+    for record_path in record_files:
+        parsed = read_computer_record(
+            record_path,
+            media_dir
+        )
+
+        warning_count += validate_computer_required_fields(
+            record_path,
+            parsed
+        )
+
+        record_id = parsed["id"] or record_path.stem
+
+        if not parsed["id"]:
+            warning_count += print_computer_record_warning(
+                record_path.name,
+                "id가 비어 있어 파일명을 임시 id로 사용합니다."
+            )
+
+        if record_id in record_ids:
+            warning_count += print_computer_record_warning(
+                record_path.name,
+                f"중복 id입니다: {record_id}"
+            )
+            continue
+
+        record_ids.add(record_id)
+
+        record_type = parsed["type"]
+
+        if (
+            record_type
+            and record_type not in COMPUTER_VALID_TYPES
+        ):
+            warning_count += print_computer_record_warning(
+                record_path.name,
+                f"지원하지 않는 type입니다: {record_type}"
+            )
+
+        for media in parsed["media"]:
+            used_media.add(media["file"])
+
+        warning_count += print_computer_media_warning(
+            record_path.name,
+            parsed["media"]
+        )
+
+        records.append({
+            "id": record_id,
+            "file": record_path.name,
+            "title": parsed["title"],
+            "english": parsed["english"],
+            "aliases": parsed["aliases"],
+            "type": parsed["type"],
+            "fields": parsed["fields"],
+            "years": parsed["years"],
+            "keywords": parsed["keywords"],
+            "summary": parsed["summary"],
+            "content": parsed["content"],
+            "related": parsed["related"],
+            "media": parsed["media"],
+            "sources": parsed["sources"]
+        })
+
+    records.sort(
+        key=lambda item: (
+            item.get("title")
+            or item.get("english")
+            or item.get("id")
+            or ""
+        )
+    )
+
+    related_warnings = validate_computer_related_ids(records)
+
+    if related_warnings:
+        print("[WARNING]")
+        print("  Computer Archive")
+        print("  Missing related IDs:")
+
+        for item in related_warnings:
+            print(
+                f"    - {item['sourceId']} "
+                f"-> {item['relatedId']}"
+            )
+
+        print()
+        warning_count += len(related_warnings)
+
+    timeline_ids = {item["id"] for item in timeline}
+    linked_timeline_ids = timeline_ids & record_ids
+    timeline_without_record = sorted(timeline_ids - record_ids)
+    records_without_timeline = sorted(record_ids - timeline_ids)
+    unused_media = sorted(media_files - used_media)
+
+    index_data = {
+        "cacheVersion": build_cache,
+        "archiveType": "knowledge-link",
+        "archiveCategory": "computer",
+        "timelineSource": (
+            timeline_path.name
+            if timeline_path.exists()
+            else None
+        ),
+        "timelineCount": len(timeline),
+        "recordCount": len(records),
+        "mediaCount": sum(
+            len(item["media"])
+            for item in records
+        ),
+        "linkedTimelineCount": len(linked_timeline_ids),
+        "timelineWithoutRecord": timeline_without_record,
+        "recordsWithoutTimeline": records_without_timeline,
+        "missingRelated": related_warnings,
+        "typeCounts": {
+            record_type: sum(
+                1 for item in records
+                if item.get("type") == record_type
+            )
+            for record_type in sorted(COMPUTER_VALID_TYPES)
+        },
+        "types": sorted({
+            item["type"]
+            for item in records
+            if item.get("type")
+        }),
+        "fields": sorted({
+            field
+            for item in records
+            for field in item.get("fields", [])
+        }),
+        "keywords": sorted({
+            keyword
+            for item in records
+            for keyword in item.get("keywords", [])
+        }),
+        "timeline": timeline,
+        "records": records,
+        "updated": datetime.now().isoformat(
+            timespec="seconds"
+        )
+    }
+
+    index_path.write_text(
+        json.dumps(
+            index_data,
+            ensure_ascii=False,
+            indent=2
+        ),
+        encoding="utf-8"
+    )
+
+    print("[OK] Computer Knowledge Archive")
+    print(f"  timeline : {len(timeline)}")
+    print(f"  records  : {len(records)}")
+    print(f"  linked   : {len(linked_timeline_ids)}")
+    print(f"  related  : {len(related_warnings)} missing")
+    print(f"  media    : {index_data['mediaCount']}")
+    print(f"  unused   : {len(unused_media)}")
+    print(f"  -> {index_path}")
+
+    if timeline_without_record:
+        print()
+        print("  Timeline Without Record")
+        for item_id in timeline_without_record:
+            print(f"    - {item_id}")
+
+    if records_without_timeline:
+        print()
+        print("  Record Without Timeline")
+        for item_id in records_without_timeline:
+            print(f"    - {item_id}")
+
+    if unused_media:
+        print()
+        print("  Unused Media")
+        for filename in unused_media:
+            print(f"    - {filename}")
+
+    print()
+    return warning_count
 
 
 # ============================================================
@@ -1841,7 +2370,7 @@ def main():
     build_cache = int(time.time())
 
     print("===================================")
-    print("LOGIA Build v1.3")
+    print("LOGIA Build v1.4")
     print("===================================")
     print()
 

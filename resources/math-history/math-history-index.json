@@ -1,21 +1,194 @@
 {
-  "cacheVersion": 1784013867,
+  "cacheVersion": 1784203496,
   "historyCategory": "math-history",
-  "timelineSource": null,
-  "timelineCount": 0,
-  "archiveCount": 0,
-  "mediaCount": 0,
-  "linkedTimelineCount": 0,
-  "unlinkedTimelineIds": [],
+  "timelineSource": "math_timeline.txt",
+  "timelineCount": 15,
+  "archiveCount": 1,
+  "mediaCount": 1,
+  "linkedTimelineCount": 1,
+  "unlinkedTimelineIds": [
+    "alkhwarizmi",
+    "archimedes",
+    "calculus",
+    "coordinate",
+    "descartes",
+    "euclid",
+    "euler",
+    "fermat",
+    "liuhui",
+    "newton",
+    "pascal",
+    "pythagoras",
+    "set",
+    "thales"
+  ],
   "archivesWithoutTimeline": [],
   "typeCounts": {
     "concept": 0,
-    "person": 0,
+    "person": 1,
     "theory": 0
   },
-  "fields": [],
-  "keywords": [],
-  "timeline": [],
-  "archives": [],
-  "updated": "2026-07-14T16:24:27"
+  "fields": [
+    "물리학",
+    "수학",
+    "천문학",
+    "축지학"
+  ],
+  "keywords": [
+    "17각형",
+    "산술연구",
+    "세레스",
+    "소수정리"
+  ],
+  "timeline": [
+    {
+      "year": -624,
+      "id": "thales",
+      "korean": "탈레스",
+      "name": "Thales",
+      "description": "자연철학의 출발점, 만물의 근원은 물"
+    },
+    {
+      "year": -580,
+      "id": "pythagoras",
+      "korean": "피타고라스",
+      "name": "Pythagoras",
+      "description": "수와 자연의 조화를 탐구"
+    },
+    {
+      "year": -300,
+      "id": "euclid",
+      "korean": "유클리드",
+      "name": "Euclid",
+      "description": "<기하학 원론> 저자, 공리 체계 기원"
+    },
+    {
+      "year": -287,
+      "id": "archimedes",
+      "korean": "아르키메데스",
+      "name": "Archimedes of Syracuse",
+      "description": "부력의 원리, 원주율 계산, 고대 최고의 수학자"
+    },
+    {
+      "year": 220,
+      "id": "liuhui",
+      "korean": "유휘",
+      "name": "Liu Hui",
+      "description": "중국 삼국시대 수학자, 구장산술 주석"
+    },
+    {
+      "year": 780,
+      "id": "alkhwarizmi",
+      "korean": "알콰리즈미",
+      "name": "Muhammad ibn Musa al-Khwarizmi",
+      "description": "대수학 체계화, 알고리즘(Algorithm)의 어원"
+    },
+    {
+      "year": 1596,
+      "id": "descartes",
+      "korean": "데카르트",
+      "name": "René Descartes",
+      "description": "해석기하학 창시, 근대 수학의 전환점"
+    },
+    {
+      "year": 1601,
+      "id": "fermat",
+      "korean": "페르마",
+      "name": "Pierre de Fermat",
+      "description": "근대 정수론과 확률론의 창시자"
+    },
+    {
+      "year": 1623,
+      "id": "pascal",
+      "korean": "파스칼",
+      "name": "Blaise Pascal",
+      "description": "확률론의 기초, 파스칼의 삼각형"
+    },
+    {
+      "year": 1637,
+      "id": "coordinate",
+      "korean": "좌표기하학",
+      "name": "Analytic Geometry",
+      "description": "해석기하학의 시작"
+    },
+    {
+      "year": 1642,
+      "id": "newton",
+      "korean": "아이작 뉴턴",
+      "name": "Isaac Newton",
+      "description": "미적분학 창시, 고전역학의 수학적 기초 확립"
+    },
+    {
+      "year": 1665,
+      "id": "calculus",
+      "korean": "미적분학",
+      "name": "Calculus",
+      "description": "현대 수학의 탄생"
+    },
+    {
+      "year": 1707,
+      "id": "euler",
+      "korean": "오일러",
+      "name": "Leonhard Euler",
+      "description": "현대 수학 표기법 정립, 오일러 공식, 그래프 이론 창시"
+    },
+    {
+      "year": 1777,
+      "id": "gauss",
+      "korean": "가우스",
+      "name": "Johann Carl Friedrich Gauss",
+      "description": "근대 수학의 왕, 정수론과 해석학 발전"
+    },
+    {
+      "year": 1874,
+      "id": "set",
+      "korean": "집합론",
+      "name": "Set Theory",
+      "description": "현대 수학의 기초"
+    }
+  ],
+  "archives": [
+    {
+      "id": "gauss",
+      "file": "gauss.txt",
+      "type": "person",
+      "name": "Johann Carl Friedrich Gauss",
+      "korean": "프리드리히 가우스",
+      "years": "1777-1855",
+      "country": "German",
+      "fields": [
+        "수학",
+        "천문학",
+        "축지학",
+        "물리학"
+      ],
+      "keywords": [
+        "산술연구",
+        "17각형",
+        "소수정리",
+        "세레스"
+      ],
+      "summary": [
+        "근대 수학의 방향을 바꾼 '수학의 왕(Prince of Mathematics)'"
+      ],
+      "achievements": [
+        "1799년 박사 학위 논문으로, \"대수방정식의 근의 존재 증명\"을 저술하였다.",
+        "24세 때 최소제곱법으로 소행성 세레스의 궤도를 예측하여 천문학계를 넘어 과학계 전체에서 유명해졌다.",
+        "이차상호법칙을 증명하며 본격적인 정수론의 시대를 열고, 정수론을 체계화하기 시작하였다"
+      ],
+      "related": [
+        "euler",
+        "fermat",
+        "riemann"
+      ],
+      "media": [
+        {
+          "file": "sources: Wikipedia, 나무위키",
+          "title": "",
+          "exists": false
+        }
+      ]
+    }
+  ],
+  "updated": "2026-07-16T21:04:56"
 }

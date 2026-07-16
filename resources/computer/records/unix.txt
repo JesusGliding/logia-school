@@ -1,0 +1,26 @@
+id: unix
+title: 유닉스
+type: software
+
+field: 컴퓨터과학, 언어, 프로그래밍
+keywords: 운영 체제, 리눅스, macOS, 벨 연구소, 솔라리스
+
+summary: 
+벨 연구소에서 개발한 다중 사용자용 서버 운영체제
+
+
+content:
+교육 및 연구 기관에서 주로 사용되는 범용 및 다중 사용자 방식의 대화형 시분할처리 시스템 운영 체제이다.
+벨 연구소 직원인 켄 톰슨, 데니스 리치 등이 소형 컴퓨터용으로 처음 개발하였다.
+BSD, Linux, Darwin(macOS) 등 다양한 현대적 컴퓨터 운영체제의 원형이 되었다.
+초기 유닉스와 유사한 형태로 동작하며 POSIX 표준을 거의 준수하면 기능적 유닉스로 분류한다.(Linux)
+
+related: bell-labs, c-language, linux
+
+files:
+Unixhistorymap.jpg | 유닉스 계열의 히스토리 맵
+
+sources: Wikipedia, 나무위키
+
+
+

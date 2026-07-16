@@ -1,0 +1,25 @@
+id: bell-labs
+title: 벨 연구소
+english: Nokia Bell Labs
+
+type: organization
+field: 컴퓨터과학, 공학, 수학, 물리학
+years: 1925
+
+keywords: AT&T, 노키아, 연구, Unix, 통신, 컴퓨터 프로그래밍
+
+summary:
+알렌산더 그레이엄 벨이 설립한 연구소
+
+content:
+전화에 관련된 것을 연구하면서 전기전자, 통신, 컴퓨터에 관련된 연구 업적도 쌓음.
+트랜지스터, C 언어, 정보 엔트로피 개념, Unix 개발
+노밸상 수상자 13명, 튜링 어워드 수상자 4명 
+
+related: alexander-graham-bell, transistor, c-languge
+
+files:
+babbage.pdf | 찰스 배비지와 계산기계
+analytical-engine.png | 해석기관 구조도
+
+sources: Wikipedia, 나무위키

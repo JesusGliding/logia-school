@@ -1,0 +1,28 @@
+id: charles-babbage
+title: 찰스 배비지
+english: Charles Babbage
+
+type: person
+field: 수학, 계산기계, 컴퓨터과학
+years: 1791-1871
+
+aliases: 배비지
+
+keywords: 해석기관, 차분기관, 계산기계, 프로그래밍, 알고리즘
+
+summary:
+현대적인 범용 계산기의 기본 구조를 기계적으로 구상한 영국의 수학자이다.
+
+content:
+찰스 배비지는 수학 계산을 자동화하기 위한 차분기관을 설계했다.
+이후 기억장치와 연산장치, 입력과 출력, 명령 실행 개념을 포함한 해석기관을 구상했다.
+해석기관은 실제 완성되지 않았지만 현대 컴퓨터 구조의 선구적 개념으로 평가된다.
+
+related: difference-engine, analytical-engine, ada-lovelace
+
+files:
+babbage.pdf | 찰스 배비지와 계산기계
+analytical-engine.png | 해석기관 구조도
+
+sources:
+

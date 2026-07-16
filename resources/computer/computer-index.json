@@ -1,0 +1,741 @@
+{
+  "cacheVersion": 1784203496,
+  "archiveType": "knowledge-link",
+  "archiveCategory": "computer",
+  "timelineSource": "computer_timeline.txt",
+  "timelineCount": 12,
+  "recordCount": 11,
+  "mediaCount": 16,
+  "linkedTimelineCount": 5,
+  "timelineWithoutRecord": [
+    "colossus",
+    "eniac",
+    "harvard-mark-i",
+    "john-von-neumann",
+    "linus-torvalds",
+    "lorenz",
+    "moores-law"
+  ],
+  "recordsWithoutTimeline": [
+    "abstraction",
+    "analytical-engine",
+    "c-language",
+    "difference-engine",
+    "turing-machine",
+    "unix"
+  ],
+  "missingRelated": [
+    {
+      "sourceId": "c-language",
+      "relatedId": "object-oriented-programmin"
+    },
+    {
+      "sourceId": "linux-kernel",
+      "relatedId": "linus-torvalds"
+    },
+    {
+      "sourceId": "linux-kernel",
+      "relatedId": "linux"
+    },
+    {
+      "sourceId": "bell-labs",
+      "relatedId": "alexander-graham-bell"
+    },
+    {
+      "sourceId": "bell-labs",
+      "relatedId": "c-languge"
+    },
+    {
+      "sourceId": "alan-turing",
+      "relatedId": "ada-lovelace"
+    },
+    {
+      "sourceId": "unix",
+      "relatedId": "linux"
+    },
+    {
+      "sourceId": "difference-engine",
+      "relatedId": "source:Wikipedia"
+    },
+    {
+      "sourceId": "difference-engine",
+      "relatedId": "나무위키"
+    },
+    {
+      "sourceId": "charles-babbage",
+      "relatedId": "ada-lovelace"
+    },
+    {
+      "sourceId": "abstraction",
+      "relatedId": "object-oriented-programming"
+    },
+    {
+      "sourceId": "turing-machine",
+      "relatedId": "automata-theory"
+    },
+    {
+      "sourceId": "turing-machine",
+      "relatedId": "john-von-neumann"
+    },
+    {
+      "sourceId": "analytical-engine",
+      "relatedId": "havard-mark-i"
+    }
+  ],
+  "typeCounts": {
+    "concept": 1,
+    "document": 0,
+    "event": 0,
+    "language": 1,
+    "machine": 4,
+    "organization": 1,
+    "person": 2,
+    "software": 2,
+    "theory": 0
+  },
+  "types": [
+    "concept",
+    "language",
+    "machine",
+    "organization",
+    "person",
+    "software"
+  ],
+  "fields": [
+    "계산기계",
+    "공학",
+    "물리학",
+    "수학",
+    "언어",
+    "운영체제",
+    "전기공학",
+    "컴퓨터과학",
+    "프로그래밍"
+  ],
+  "keywords": [
+    "AT&T",
+    "RAM",
+    "Unix",
+    "macOS",
+    "객체 지향 언어",
+    "계산가능성",
+    "계산기",
+    "계산기계",
+    "노키아",
+    "다항함수",
+    "데이터 추상화",
+    "리눅스",
+    "뮐러",
+    "반도체",
+    "범용 컴퓨터",
+    "범용 튜링 기계",
+    "벨 연구소",
+    "솔라리스",
+    "수학적 모형",
+    "알고리즘",
+    "앨런 튜링",
+    "어셈블리어",
+    "연구",
+    "오토마타",
+    "운영 체제",
+    "유닉스",
+    "집적회로",
+    "차분기관",
+    "찰스 배비지",
+    "추상화 계층",
+    "컴퓨터 프로그래밍",
+    "컴퓨터과학",
+    "테이프 기반",
+    "통신",
+    "튜링머신",
+    "프로그래밍",
+    "해석기관"
+  ],
+  "timeline": [
+    {
+      "year": 1791,
+      "id": "charles-babbage",
+      "title": "찰스 배비지",
+      "english": "Charles Babbage",
+      "description": "프로그램이 가능한 컴퓨터 개념의 시초"
+    },
+    {
+      "year": 1903,
+      "id": "john-von-neumann",
+      "title": "폰 노이만",
+      "english": "John von Neumann",
+      "description": "게임이론, 연산자 이론, 폰 노이만 구조"
+    },
+    {
+      "year": 1912,
+      "id": "alan-turing",
+      "title": "앨런 튜링",
+      "english": "Alan Turing",
+      "description": "알고리즘과 계산 개념을 튜링 기계라는 추상 모델을 통해 형식화함"
+    },
+    {
+      "year": 1925,
+      "id": "bell-labs",
+      "title": "벨 연구소",
+      "english": "Nokia Bell Labs",
+      "description": "트랜지스터 발명,유닉스와 C언어 개발"
+    },
+    {
+      "year": 1941,
+      "id": "lorenz",
+      "title": "로렌츠 암호",
+      "english": "Lorenz",
+      "description": "제2차 세계대전 중 독일 육군이 사용한 회전자 스트림 암호 기계"
+    },
+    {
+      "year": 1943,
+      "id": "colossus",
+      "title": "콜로서스",
+      "english": "Colossus",
+      "description": "로렌츠 암호 해독을 위해 개발한 컴퓨터"
+    },
+    {
+      "year": 1944,
+      "id": "harvard-mark-i",
+      "title": "마크 I",
+      "english": "Harvard Mark I",
+      "description": "복잡한 계산 실행을 자동화한 최초의 기계"
+    },
+    {
+      "year": 1946,
+      "id": "eniac",
+      "title": "에니악",
+      "english": "ENIAC",
+      "description": "펜실베니아 대학의 모클리와 에커트가 제작한 전자 컴퓨터"
+    },
+    {
+      "year": 1947,
+      "id": "transistor",
+      "title": "트랜지스터",
+      "english": "transistor",
+      "description": "반도체 물질을 이용해서 전기의 흐름을 제어하고 정보를 처리한다"
+    },
+    {
+      "year": 1965,
+      "id": "moores-law",
+      "title": "무어의 법칙",
+      "english": "Moore's law",
+      "description": "집적회로의 트렌지스터 수가 약 2년마다 두 배로 증가"
+    },
+    {
+      "year": 1969,
+      "id": "linus-torvalds",
+      "title": "리누스 토르발스",
+      "english": "Linus Benedict Torvalds",
+      "description": "리눅스 커널과 깃을 개발"
+    },
+    {
+      "year": 1991,
+      "id": "linux-kernel",
+      "title": "리눅스 커널",
+      "english": "Linux Kernel",
+      "description": "리누스 토르발스가 공개한 자유 운영체제 커널"
+    }
+  ],
+  "records": [
+    {
+      "id": "c-language",
+      "file": "c-language.txt",
+      "title": "C 언어",
+      "english": "",
+      "aliases": [],
+      "type": "language",
+      "fields": [
+        "컴퓨터과학",
+        "언어",
+        "프로그래밍"
+      ],
+      "years": "1972",
+      "keywords": [
+        "운영 체제",
+        "벨 연구소",
+        "프로그래밍"
+      ],
+      "summary": [
+        "벨 연구소(Bell Labs)의 연구원 데니스 리치가 만든 범용(general-purpose) 프로그래밍 언어"
+      ],
+      "content": [
+        "C는 프로그래머에게 일반적인 CPU 아키텍처의 기능에 상대적으로 직접 접근할 수 있게 하며, 대상 명령어 집합에 맞게 조정된다.",
+        "C는 운영체제(특히 커널[10]), 장치 드라이버, 프로토콜 스택을 구현하는 데 사용되어 왔고, 응용 소프트웨어에서의 사용은 점차 감소하고 있다.",
+        "C는 명령형 절차적 언어로, 구조적 프로그래밍, 어휘적 변수 범위, 재귀를 지원하며 정적 자료형 체계를 갖추고 있다."
+      ],
+      "related": [
+        "bell-labs",
+        "unix",
+        "object-oriented-programmin"
+      ],
+      "media": [
+        {
+          "file": "clanguage_historymap.jpg",
+          "title": "C언어의 역사 모식화 그림",
+          "exists": true
+        }
+      ],
+      "sources": [
+        "Wikipedia",
+        "나무위키"
+      ]
+    },
+    {
+      "id": "linux-kernel",
+      "file": "linux-kernel.txt",
+      "title": "리눅스 커널",
+      "english": "",
+      "aliases": [],
+      "type": "software",
+      "fields": [
+        "컴퓨터과학",
+        "운영체제"
+      ],
+      "years": "1991",
+      "keywords": [
+        "운영 체제",
+        "유닉스"
+      ],
+      "summary": [
+        "리누스 토르발스가 자신의 개인용 컴퓨터를 위해 고안되어 개발 되었다."
+      ],
+      "content": [
+        "그 이후로 다른 운영 체제나 커널 대비 더 다양한 컴퓨터 아키텍처를 지원하도록 확장되었다.",
+        "GNU 운영 체제로 이 커널이 채택되며 개발자들과 사용자들을 매혹시켰다.",
+        "현재 다양한 배포판이 존재한다.(Debian, Red Hat, openSUSE, Android)"
+      ],
+      "related": [
+        "linus-torvalds",
+        "unix",
+        "linux",
+        "c-language"
+      ],
+      "media": [
+        {
+          "file": "linux_history.pdf",
+          "title": "리눅스 발전 과정",
+          "exists": true
+        }
+      ],
+      "sources": [
+        "Wikipedia",
+        "나무위키"
+      ]
+    },
+    {
+      "id": "bell-labs",
+      "file": "bell-labs.txt",
+      "title": "벨 연구소",
+      "english": "Nokia Bell Labs",
+      "aliases": [],
+      "type": "organization",
+      "fields": [
+        "컴퓨터과학",
+        "공학",
+        "수학",
+        "물리학"
+      ],
+      "years": "1925",
+      "keywords": [
+        "AT&T",
+        "노키아",
+        "연구",
+        "Unix",
+        "통신",
+        "컴퓨터 프로그래밍"
+      ],
+      "summary": [
+        "알렌산더 그레이엄 벨이 설립한 연구소"
+      ],
+      "content": [
+        "전화에 관련된 것을 연구하면서 전기전자, 통신, 컴퓨터에 관련된 연구 업적도 쌓음.",
+        "트랜지스터, C 언어, 정보 엔트로피 개념, Unix 개발",
+        "노밸상 수상자 13명, 튜링 어워드 수상자 4명"
+      ],
+      "related": [
+        "alexander-graham-bell",
+        "transistor",
+        "c-languge"
+      ],
+      "media": [
+        {
+          "file": "babbage.pdf",
+          "title": "찰스 배비지와 계산기계",
+          "exists": true
+        },
+        {
+          "file": "analytical-engine.png",
+          "title": "해석기관 구조도",
+          "exists": true
+        }
+      ],
+      "sources": [
+        "Wikipedia",
+        "나무위키"
+      ]
+    },
+    {
+      "id": "alan-turing",
+      "file": "alan-turing.txt",
+      "title": "앨런 튜링",
+      "english": "Alan Mathison Turing",
+      "aliases": [],
+      "type": "person",
+      "fields": [
+        "수학",
+        "계산기계",
+        "컴퓨터과학"
+      ],
+      "years": "1912-1954",
+      "keywords": [
+        "튜링머신",
+        "계산가능성",
+        "오토마타",
+        "컴퓨터과학"
+      ],
+      "summary": [
+        "컴퓨터 과학의 선구자, 초보적 형태의 컴퓨터인 튜링 머신 고안."
+      ],
+      "content": [
+        "알고리즘과 계산 개념을 튜링 기계라는 추상 모델을 통해 형식화함.",
+        "복잡한 계산과 논리 문제를 처리할 수 있었다.",
+        "캐임브리지 대학교에서 수학을 전공, 수치핵석과 확률론등에 관심을 가짐."
+      ],
+      "related": [
+        "difference-engine",
+        "analytical-engine",
+        "ada-lovelace"
+      ],
+      "media": [
+        {
+          "file": "turingmachine.png",
+          "title": "현대적으로 재구성한 튜링 기계 사진",
+          "exists": true
+        },
+        {
+          "file": "alanturing_papers.pdf",
+          "title": "앨런튜링 논문 한글 번역 자료",
+          "exists": true
+        }
+      ],
+      "sources": [
+        "Wikipedia"
+      ]
+    },
+    {
+      "id": "unix",
+      "file": "unix.txt",
+      "title": "유닉스",
+      "english": "",
+      "aliases": [],
+      "type": "software",
+      "fields": [
+        "컴퓨터과학",
+        "언어",
+        "프로그래밍"
+      ],
+      "years": "",
+      "keywords": [
+        "운영 체제",
+        "리눅스",
+        "macOS",
+        "벨 연구소",
+        "솔라리스"
+      ],
+      "summary": [
+        "벨 연구소에서 개발한 다중 사용자용 서버 운영체제"
+      ],
+      "content": [
+        "교육 및 연구 기관에서 주로 사용되는 범용 및 다중 사용자 방식의 대화형 시분할처리 시스템 운영 체제이다.",
+        "벨 연구소 직원인 켄 톰슨, 데니스 리치 등이 소형 컴퓨터용으로 처음 개발하였다.",
+        "BSD, Linux, Darwin(macOS) 등 다양한 현대적 컴퓨터 운영체제의 원형이 되었다.",
+        "초기 유닉스와 유사한 형태로 동작하며 POSIX 표준을 거의 준수하면 기능적 유닉스로 분류한다.(Linux)"
+      ],
+      "related": [
+        "bell-labs",
+        "c-language",
+        "linux"
+      ],
+      "media": [
+        {
+          "file": "Unixhistorymap.jpg",
+          "title": "유닉스 계열의 히스토리 맵",
+          "exists": true
+        }
+      ],
+      "sources": [
+        "Wikipedia",
+        "나무위키"
+      ]
+    },
+    {
+      "id": "difference-engine",
+      "file": "difference-engine.txt",
+      "title": "차분기관",
+      "english": "Difference Engine",
+      "aliases": [],
+      "type": "machine",
+      "fields": [
+        "수학",
+        "계산기계",
+        "컴퓨터과학"
+      ],
+      "years": "1786",
+      "keywords": [
+        "찰스 배비지",
+        "해석기관",
+        "뮐러",
+        "다항함수",
+        "계산기"
+      ],
+      "summary": [
+        "뮐러가 최초제안, 배비지가 다시 발명한 기계식 디지털 계산기이다."
+      ],
+      "content": [
+        "\"매우 큰 수학적 표를 계산하는 기계적인 방법\"이란 제목으로 발표.",
+        "톱니바퀴와 기어를 이용하여 기억과 계산을 수행하며, 핸들을 돌려 동력을 얻었다.",
+        "다항함수를 계산할 수 있었으며 7개의 숫자를 31자리까지 기억시킬 수 있었다."
+      ],
+      "related": [
+        "charles-babbage",
+        "analytical-engine",
+        "source:Wikipedia",
+        "나무위키"
+      ],
+      "media": [
+        {
+          "file": "difference_engine.jpg",
+          "title": "차분기관 제작 사진",
+          "exists": true
+        },
+        {
+          "file": "babbage_papers.pdf",
+          "title": "배비지 논문들",
+          "exists": true
+        }
+      ],
+      "sources": []
+    },
+    {
+      "id": "charles-babbage",
+      "file": "charles-babbage.txt",
+      "title": "찰스 배비지",
+      "english": "Charles Babbage",
+      "aliases": [
+        "배비지"
+      ],
+      "type": "person",
+      "fields": [
+        "수학",
+        "계산기계",
+        "컴퓨터과학"
+      ],
+      "years": "1791-1871",
+      "keywords": [
+        "해석기관",
+        "차분기관",
+        "계산기계",
+        "프로그래밍",
+        "알고리즘"
+      ],
+      "summary": [
+        "현대적인 범용 계산기의 기본 구조를 기계적으로 구상한 영국의 수학자이다."
+      ],
+      "content": [
+        "찰스 배비지는 수학 계산을 자동화하기 위한 차분기관을 설계했다.",
+        "이후 기억장치와 연산장치, 입력과 출력, 명령 실행 개념을 포함한 해석기관을 구상했다.",
+        "해석기관은 실제 완성되지 않았지만 현대 컴퓨터 구조의 선구적 개념으로 평가된다."
+      ],
+      "related": [
+        "difference-engine",
+        "analytical-engine",
+        "ada-lovelace"
+      ],
+      "media": [
+        {
+          "file": "babbage.pdf",
+          "title": "찰스 배비지와 계산기계",
+          "exists": true
+        },
+        {
+          "file": "analytical-engine.png",
+          "title": "해석기관 구조도",
+          "exists": true
+        }
+      ],
+      "sources": []
+    },
+    {
+      "id": "abstraction",
+      "file": "abstraction.txt",
+      "title": "추상화",
+      "english": "",
+      "aliases": [],
+      "type": "concept",
+      "fields": [
+        "수학",
+        "컴퓨터과학",
+        "프로그래밍"
+      ],
+      "years": "",
+      "keywords": [
+        "객체 지향 언어",
+        "데이터 추상화",
+        "추상화 계층"
+      ],
+      "summary": [
+        "접근을 어렵게 만들 수 있는 세부 사항을 숨기면서도 접근 권한을 제공하는 것"
+      ],
+      "content": [
+        "수학에서 말하는 추상화란 구체적이고 복잡한 대상들에서 개별적인 특징을 지우고, 핵심적인 구조나 공통적인 속성만 추출하여 일반화하는 과정이다.",
+        "컴퓨터에서는 복잡한 세부 사항은 숨기고, 가장 핵심적이고 공통된 특징이나 기능만 간추려 표현하는 것이다.",
+        "예로서 기능 추상화는 복잡한 연산 과정을 하나의 함수(메서드)로 묶고 이름만 붙여 사용하는 것이다."
+      ],
+      "related": [
+        "alan-turing",
+        "c-language",
+        "object-oriented-programming"
+      ],
+      "media": [
+        {
+          "file": "abstractionConcepts.pdf",
+          "title": "추상화 개념정리 자료",
+          "exists": true
+        }
+      ],
+      "sources": [
+        "Wikipedia"
+      ]
+    },
+    {
+      "id": "turing-machine",
+      "file": "turing-machine.txt",
+      "title": "튜링 머신",
+      "english": "Turing machine",
+      "aliases": [],
+      "type": "machine",
+      "fields": [
+        "수학",
+        "계산기계",
+        "컴퓨터과학"
+      ],
+      "years": "1936",
+      "keywords": [
+        "앨런 튜링",
+        "수학적 모형",
+        "테이프 기반",
+        "범용 튜링 기계"
+      ],
+      "summary": [
+        "긴 테이프에 쓰여있는 여러 가지 기호들을 일정한 규칙에 따라 바꾸는 기계이다."
+      ],
+      "content": [
+        "적당한 규칙과 기호를 입력한다면 일반적인 컴퓨터의 알고리즘을 수행할 수 있다.",
+        "엘런 튜링이 제시한 개념이며 오토마타의 일종이다.",
+        "테이프, 헤드, 상태 기록기, 행동 표로 구성되어 있다."
+      ],
+      "related": [
+        "alan-turing",
+        "automata-theory",
+        "john-von-neumann"
+      ],
+      "media": [
+        {
+          "file": "turingmachine.png",
+          "title": "현대적으로 재구성한 튜링 기계 사진",
+          "exists": true
+        },
+        {
+          "file": "alanturing_papers.pdf",
+          "title": "앨런튜링 논문 한글 번역 자료",
+          "exists": true
+        }
+      ],
+      "sources": [
+        "Wikipedia",
+        "나무위키"
+      ]
+    },
+    {
+      "id": "transistor",
+      "file": "transistor.txt",
+      "title": "트랜지스터",
+      "english": "transistor",
+      "aliases": [],
+      "type": "machine",
+      "fields": [
+        "컴퓨터과학",
+        "전기공학"
+      ],
+      "years": "1947",
+      "keywords": [
+        "반도체",
+        "RAM",
+        "집적회로"
+      ],
+      "summary": [
+        "전류의 크기를 조절하는 장치로서 반도체 소자이다."
+      ],
+      "content": [
+        "반도체 물질을 적극 이용해서 전기의 흐름을 제어하고, 정보를 처리한다.",
+        "보통 트랜지스터는 발이 3개 달려있는데, 가운데에 있는 발이 스위치 역할을 해서 이곳에 전기신호를 보내 양 옆에 달린 발이 연결되기도 끊기기도 한다."
+      ],
+      "related": [
+        "bell-labs"
+      ],
+      "media": [],
+      "sources": [
+        "Wikipedia",
+        "나무위키"
+      ]
+    },
+    {
+      "id": "analytical-engine",
+      "file": "analytical-engine.txt",
+      "title": "해석기관",
+      "english": "Analytical Engine",
+      "aliases": [],
+      "type": "machine",
+      "fields": [
+        "수학",
+        "계산기계",
+        "컴퓨터과학"
+      ],
+      "years": "1837",
+      "keywords": [
+        "찰스 배비지",
+        "차분기관",
+        "어셈블리어",
+        "범용 컴퓨터"
+      ],
+      "summary": [
+        "영국의 수학 교수 찰스 배비지가 고안한 기계적 범용 컴퓨터의 설계이다."
+      ],
+      "content": [
+        "프로그램과 데이터를 천공 카드로 입력받았고 프린터와 곡선 플로터, 종으로 출력했다.",
+        "해석기관은 컴퓨터 역사에서 중요한 발전의 하나이다.",
+        "훗날, 벨 연구소와 하버드 대학교에서 해석기관과 밀접한 전기기계식 컴퓨터가 만들어진다."
+      ],
+      "related": [
+        "charles-babbage",
+        "bell-labs",
+        "havard-mark-i"
+      ],
+      "media": [
+        {
+          "file": "babbage_structure.jpg",
+          "title": "해석기관 구조도",
+          "exists": true
+        },
+        {
+          "file": "babbage_papers.pdf",
+          "title": "배비지 논문들",
+          "exists": true
+        }
+      ],
+      "sources": []
+    }
+  ],
+  "updated": "2026-07-16T21:04:56"
+}
