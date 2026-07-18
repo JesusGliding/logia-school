@@ -1,0 +1,15 @@
+-470|socrates|소크라테스|Socrates|문답법으로 진리 탐구
+-427|plato|플라톤|Plato|이데아론과 동굴의 비유
+-384|aristoteles|아리스토텔레스|Aristoteles|논리학과 목적론 체계화
+354|augustinus|아우구스티누스|Aurelius Augustinus|기독교 철학의 기초 확립
+1224|thomas-aquinas|토마스 아퀴나스|Thomas Aquinas|이성과 신앙의 조화
+1596|descartes|데카르트|René Descartes|방법적 회의와 근대철학
+1632|john-locke|존 로크|John Locke|경험주의와 백지설
+1724|immanuel-kant|임마누엘 칸트|Immanuel Kant|비판철학과 인식론 혁신
+1770|hegel|헤겔|Georg Wilhelm Friedrich Hegel|변증법과 독일 관념론
+1818|karl-marx|마르크스|Karl Marx|역사유물론과 자본 비판
+1844|nietzsche|니체|Friedrich Wilhelm Nietzsche|권력의지와 도덕 비판
+1889|heidegger|하이데거|Martin Heidegger|존재의 의미를 탐구
+1889|wittgenstein|비트겐슈타인|Ludwig Josef Johann Wittgenstein|언어철학의 새로운 전개
+1905|sartre|장폴 사르트르|Jean-Paul Sartre|자유와 책임의 실존주의
+1926|foucault|미셀 푸코|Paul-Michel Foucault|권력과 지식의 분석

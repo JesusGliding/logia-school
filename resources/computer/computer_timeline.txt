@@ -1,12 +1,12 @@
-1791|charles-babbage|찰스 배비지|Charles Babbage|프로그램이 가능한 컴퓨터 개념의 시초
-1903|john-von-neumann|폰 노이만|John von Neumann|게임이론, 연산자 이론, 폰 노이만 구조
-1912|alan-turing|앨런 튜링|Alan Turing|알고리즘과 계산 개념을 튜링 기계라는 추상 모델을 통해 형식화함
-1925|bell-labs|벨 연구소|Nokia Bell Labs|트랜지스터 발명,유닉스와 C언어 개발 
-1941|lorenz|로렌츠 암호|Lorenz|제2차 세계대전 중 독일 육군이 사용한 회전자 스트림 암호 기계
-1943|colossus|콜로서스|Colossus|로렌츠 암호 해독을 위해 개발한 컴퓨터
-1944|harvard-mark-i|마크 I|Harvard Mark I|복잡한 계산 실행을 자동화한 최초의 기계
-1946|eniac|에니악|ENIAC|펜실베니아 대학의 모클리와 에커트가 제작한 전자 컴퓨터
-1947|transistor|트랜지스터|transistor|반도체 물질을 이용해서 전기의 흐름을 제어하고 정보를 처리한다
-1965|moores-law|무어의 법칙|Moore's law|집적회로의 트렌지스터 수가 약 2년마다 두 배로 증가
-1969|linus-torvalds|리누스 토르발스|Linus Benedict Torvalds|리눅스 커널과 깃을 개발
-1991|linux-kernel|리눅스 커널|Linux Kernel|리누스 토르발스가 공개한 자유 운영체제 커널
+1791|charles-babbage|찰스 배비지|Charles Babbage|프로그램 가능한 컴퓨터 개념 제시
+1903|john-von-neumann|폰 노이만|John von Neumann|현대 컴퓨터 구조의 기초 확립
+1912|alan-turing|앨런 튜링|Alan Turing|계산이론과 튜링 기계 제안
+1925|bell-labs|벨 연구소|Nokia Bell Labs|트랜지스터·유닉스·C언어 개발 
+1941|lorenz|로렌츠 암호|Lorenz|2차 대전 독일군의 회전자 스트림 암호
+1943|colossus|콜로서스|Colossus|로렌츠 암호 해독용 컴퓨터
+1944|harvard-mark-i|하버드 마크 I|Harvard Mark I|자동 계산을 수행한 초기 컴퓨터
+1946|eniac|에니악|ENIAC|범용 전자식 컴퓨터의 시작
+1947|transistor|트랜지스터|transistor|전자 회로의 핵심 반도체 소자
+1965|moores-law|무어의 법칙|Moore's law|집적도는 약 2년마다 두 배 증가
+1969|linus-torvalds|리누스 토르발스|Linus Benedict Torvalds|리눅스 커널과 Git 개발
+1991|linux-kernel|리눅스 커널|Linux Kernel|자유·오픈소스 운영체제 커널

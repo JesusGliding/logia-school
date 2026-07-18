@@ -24,3 +24,5 @@ related: newton, kepler
 
 files:
 
+sources: Wikipedia, 나무위키
+

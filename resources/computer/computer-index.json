@@ -1,11 +1,11 @@
 {
-  "cacheVersion": 1784402923,
+  "cacheVersion": 1784413356,
   "archiveType": "knowledge-link",
   "archiveCategory": "computer",
   "timelineSource": "computer_timeline.txt",
   "timelineCount": 12,
   "recordCount": 11,
-  "mediaCount": 17,
+  "mediaCount": 16,
   "linkedTimelineCount": 5,
   "timelineWithoutRecord": [
     "colossus",
@@ -149,84 +149,84 @@
       "id": "charles-babbage",
       "title": "찰스 배비지",
       "english": "Charles Babbage",
-      "description": "프로그램이 가능한 컴퓨터 개념의 시초"
+      "description": "프로그램 가능한 컴퓨터 개념 제시"
     },
     {
       "year": 1903,
       "id": "john-von-neumann",
       "title": "폰 노이만",
       "english": "John von Neumann",
-      "description": "게임이론, 연산자 이론, 폰 노이만 구조"
+      "description": "현대 컴퓨터 구조의 기초 확립"
     },
     {
       "year": 1912,
       "id": "alan-turing",
       "title": "앨런 튜링",
       "english": "Alan Turing",
-      "description": "알고리즘과 계산 개념을 튜링 기계라는 추상 모델을 통해 형식화함"
+      "description": "계산이론과 튜링 기계 제안"
     },
     {
       "year": 1925,
       "id": "bell-labs",
       "title": "벨 연구소",
       "english": "Nokia Bell Labs",
-      "description": "트랜지스터 발명,유닉스와 C언어 개발"
+      "description": "트랜지스터·유닉스·C언어 개발"
     },
     {
       "year": 1941,
       "id": "lorenz",
       "title": "로렌츠 암호",
       "english": "Lorenz",
-      "description": "제2차 세계대전 중 독일 육군이 사용한 회전자 스트림 암호 기계"
+      "description": "2차 대전 독일군의 회전자 스트림 암호"
     },
     {
       "year": 1943,
       "id": "colossus",
       "title": "콜로서스",
       "english": "Colossus",
-      "description": "로렌츠 암호 해독을 위해 개발한 컴퓨터"
+      "description": "로렌츠 암호 해독용 컴퓨터"
     },
     {
       "year": 1944,
       "id": "harvard-mark-i",
-      "title": "마크 I",
+      "title": "하버드 마크 I",
       "english": "Harvard Mark I",
-      "description": "복잡한 계산 실행을 자동화한 최초의 기계"
+      "description": "자동 계산을 수행한 초기 컴퓨터"
     },
     {
       "year": 1946,
       "id": "eniac",
       "title": "에니악",
       "english": "ENIAC",
-      "description": "펜실베니아 대학의 모클리와 에커트가 제작한 전자 컴퓨터"
+      "description": "범용 전자식 컴퓨터의 시작"
     },
     {
       "year": 1947,
       "id": "transistor",
       "title": "트랜지스터",
       "english": "transistor",
-      "description": "반도체 물질을 이용해서 전기의 흐름을 제어하고 정보를 처리한다"
+      "description": "전자 회로의 핵심 반도체 소자"
     },
     {
       "year": 1965,
       "id": "moores-law",
       "title": "무어의 법칙",
       "english": "Moore's law",
-      "description": "집적회로의 트렌지스터 수가 약 2년마다 두 배로 증가"
+      "description": "집적도는 약 2년마다 두 배 증가"
     },
     {
       "year": 1969,
       "id": "linus-torvalds",
       "title": "리누스 토르발스",
       "english": "Linus Benedict Torvalds",
-      "description": "리눅스 커널과 깃을 개발"
+      "description": "리눅스 커널과 Git 개발"
     },
     {
       "year": 1991,
       "id": "linux-kernel",
       "title": "리눅스 커널",
       "english": "Linux Kernel",
-      "description": "리누스 토르발스가 공개한 자유 운영체제 커널"
+      "description": "자유·오픈소스 운영체제 커널"
     }
   ],
   "records": [
@@ -725,15 +725,13 @@
           "file": "babbage_papers.pdf",
           "title": "배비지 논문들",
           "exists": true
-        },
-        {
-          "file": "resources:Wikipedia, 나무위키",
-          "title": "",
-          "exists": false
         }
       ],
-      "sources": []
+      "sources": [
+        "Wikipedia",
+        "나무위키"
+      ]
     }
   ],
-  "updated": "2026-07-19T04:28:43"
+  "updated": "2026-07-19T07:22:36"
 }

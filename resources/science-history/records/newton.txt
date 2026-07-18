@@ -25,3 +25,5 @@ files:
 gravity.pdf | 만유인력법칙 설명
 principia.pdf | 프린키피아 자료
 newton.jpg | 뉴턴 초상화
+
+sources: Wikipedia, 나무위키

@@ -21,3 +21,5 @@ related: thermodynamics, second-law
 
 files:
 entropy.pdf | 엔트로피 정리 자료
+
+sources: Wikipedia, 나무위키

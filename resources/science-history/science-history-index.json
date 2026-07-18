@@ -1,5 +1,5 @@
 {
-  "cacheVersion": 1784402923,
+  "cacheVersion": 1784413356,
   "historyCategory": "science-history",
   "timelineSource": "science_timeline.txt",
   "timelineCount": 10,
@@ -149,7 +149,10 @@
         "newton",
         "kepler"
       ],
-      "sources": [],
+      "sources": [
+        "Wikipedia",
+        "나무위키"
+      ],
       "media": []
     },
     {
@@ -183,7 +186,10 @@
         "spacetime",
         "gravity"
       ],
-      "sources": [],
+      "sources": [
+        "Wikipedia",
+        "나무위키"
+      ],
       "media": [
         {
           "file": "relativity.pdf",
@@ -230,7 +236,10 @@
         "leibniz",
         "gravity"
       ],
-      "sources": [],
+      "sources": [
+        "Wikipedia",
+        "나무위키"
+      ],
       "media": [
         {
           "file": "gravity.pdf",
@@ -278,7 +287,10 @@
         "thermodynamics",
         "second-law"
       ],
-      "sources": [],
+      "sources": [
+        "Wikipedia",
+        "나무위키"
+      ],
       "media": [
         {
           "file": "entropy.pdf",
@@ -288,5 +300,5 @@
       ]
     }
   ],
-  "updated": "2026-07-19T04:28:43"
+  "updated": "2026-07-19T07:22:36"
 }

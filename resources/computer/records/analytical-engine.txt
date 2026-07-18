@@ -21,4 +21,4 @@ files:
 babbage_structure.jpg | 해석기관 구조도
 babbage_papers.pdf | 배비지 논문들
 
-resources:Wikipedia, 나무위키
+sources:Wikipedia, 나무위키

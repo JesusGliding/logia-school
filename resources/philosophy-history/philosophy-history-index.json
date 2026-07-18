@@ -1,12 +1,28 @@
 {
-  "cacheVersion": 1784402923,
+  "cacheVersion": 1784413356,
   "historyCategory": "philosophy-history",
-  "timelineSource": null,
-  "timelineCount": 0,
+  "timelineSource": "philosophy_timeline.txt",
+  "timelineCount": 15,
   "archiveCount": 0,
   "mediaCount": 0,
   "linkedTimelineCount": 0,
-  "unlinkedTimelineIds": [],
+  "unlinkedTimelineIds": [
+    "aristoteles",
+    "augustinus",
+    "descartes",
+    "foucault",
+    "hegel",
+    "heidegger",
+    "immanuel-kant",
+    "john-locke",
+    "karl-marx",
+    "nietzsche",
+    "plato",
+    "sartre",
+    "socrates",
+    "thomas-aquinas",
+    "wittgenstein"
+  ],
   "archivesWithoutTimeline": [],
   "typeCounts": {
     "concept": 0,
@@ -15,7 +31,113 @@
   },
   "fields": [],
   "keywords": [],
-  "timeline": [],
+  "timeline": [
+    {
+      "year": -470,
+      "id": "socrates",
+      "korean": "소크라테스",
+      "name": "Socrates",
+      "description": "문답법으로 진리 탐구"
+    },
+    {
+      "year": -427,
+      "id": "plato",
+      "korean": "플라톤",
+      "name": "Plato",
+      "description": "이데아론과 동굴의 비유"
+    },
+    {
+      "year": -384,
+      "id": "aristoteles",
+      "korean": "아리스토텔레스",
+      "name": "Aristoteles",
+      "description": "논리학과 목적론 체계화"
+    },
+    {
+      "year": 354,
+      "id": "augustinus",
+      "korean": "아우구스티누스",
+      "name": "Aurelius Augustinus",
+      "description": "기독교 철학의 기초 확립"
+    },
+    {
+      "year": 1224,
+      "id": "thomas-aquinas",
+      "korean": "토마스 아퀴나스",
+      "name": "Thomas Aquinas",
+      "description": "이성과 신앙의 조화"
+    },
+    {
+      "year": 1596,
+      "id": "descartes",
+      "korean": "데카르트",
+      "name": "René Descartes",
+      "description": "방법적 회의와 근대철학"
+    },
+    {
+      "year": 1632,
+      "id": "john-locke",
+      "korean": "존 로크",
+      "name": "John Locke",
+      "description": "경험주의와 백지설"
+    },
+    {
+      "year": 1724,
+      "id": "immanuel-kant",
+      "korean": "임마누엘 칸트",
+      "name": "Immanuel Kant",
+      "description": "비판철학과 인식론 혁신"
+    },
+    {
+      "year": 1770,
+      "id": "hegel",
+      "korean": "헤겔",
+      "name": "Georg Wilhelm Friedrich Hegel",
+      "description": "변증법과 독일 관념론"
+    },
+    {
+      "year": 1818,
+      "id": "karl-marx",
+      "korean": "마르크스",
+      "name": "Karl Marx",
+      "description": "역사유물론과 자본 비판"
+    },
+    {
+      "year": 1844,
+      "id": "nietzsche",
+      "korean": "니체",
+      "name": "Friedrich Wilhelm Nietzsche",
+      "description": "권력의지와 도덕 비판"
+    },
+    {
+      "year": 1889,
+      "id": "wittgenstein",
+      "korean": "비트겐슈타인",
+      "name": "Ludwig Josef Johann Wittgenstein",
+      "description": "언어철학의 새로운 전개"
+    },
+    {
+      "year": 1889,
+      "id": "heidegger",
+      "korean": "하이데거",
+      "name": "Martin Heidegger",
+      "description": "존재의 의미를 탐구"
+    },
+    {
+      "year": 1905,
+      "id": "sartre",
+      "korean": "장폴 사르트르",
+      "name": "Jean-Paul Sartre",
+      "description": "자유와 책임의 실존주의"
+    },
+    {
+      "year": 1926,
+      "id": "foucault",
+      "korean": "미셀 푸코",
+      "name": "Paul-Michel Foucault",
+      "description": "권력과 지식의 분석"
+    }
+  ],
   "archives": [],
-  "updated": "2026-07-19T04:28:43"
+  "updated": "2026-07-19T07:22:36"
 }
