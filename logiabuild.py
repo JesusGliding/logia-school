@@ -1293,10 +1293,13 @@ def build_reading_index(category, build_cache):
 HISTORY_SECTION_NAMES = {
     "id", "type", "name", "korean", "years",
     "country", "field", "keywords", "summary",
-    "achievements", "related", "files"
+    "achievements", "related", "files", "sources"
 }
 
-HISTORY_LIST_FIELDS = {"field", "keywords", "related"}
+HISTORY_LIST_FIELDS = {
+    "field", "keywords", "related", "sources"
+}
+
 HISTORY_MULTILINE_FIELDS = {"summary", "achievements", "files"}
 HISTORY_VALID_TYPES = {"person", "theory", "concept"}
 
@@ -1314,6 +1317,7 @@ def create_empty_history_record():
         "summary": [],
         "achievements": [],
         "related": [],
+        "sources": [],
         "media": []
     }
 
@@ -1709,6 +1713,7 @@ def build_history_index(category, build_cache):
             "summary": parsed["summary"],
             "achievements": parsed["achievements"],
             "related": parsed["related"],
+            "sources": parsed["sources"],
             "media": parsed["media"]
         })
 

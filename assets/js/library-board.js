@@ -12,6 +12,16 @@ const LibraryBoard = (() => {
 
   let timeline = [];
   let archives = [];
+
+  let recommendationPool = [];
+  let recommendationPoolLoaded = false; 
+  const RECOMMENDATION_CATEGORIES = [
+    "science-history",
+    "math-history",
+    "philosophy-history",
+    "computer"
+  ];
+
   let selectedTimelineIndex = 0;
   let selectedArchiveId = null;
   let currentMediaPath = "";
@@ -135,12 +145,36 @@ const LibraryBoard = (() => {
   function getTypeLabel(type) {
     const labels = {
       person: "인물",
+      organization: "조직",
+      machine: "기계",
       theory: "이론",
+      language: "언어",
+      software: "소프트웨어",
       concept: "개념",
+      event: "사건",
+      document: "문서",
       note: "노트"
     };
 
     return labels[type] || type || "-";
+  }
+
+
+  function isComputerCategory() {
+    return currentCategory === "computer";
+  }
+
+
+  function isComputerItem(item) {
+    return Boolean(
+      item
+      && (
+        isComputerCategory()
+        || Object.prototype.hasOwnProperty.call(item, "title")
+        || Object.prototype.hasOwnProperty.call(item, "english")
+        || Object.prototype.hasOwnProperty.call(item, "aliases")
+      )
+    );
   }
 
 
@@ -154,6 +188,397 @@ const LibraryBoard = (() => {
     
   }
 
+  function getRecordsFromIndex(category, data) {
+    const sourceItems =
+      category === "computer"
+        ? data.records
+        : data.archives;
+
+    if (!Array.isArray(sourceItems)) {
+      return [];
+    }
+
+    return sourceItems.map(item => ({
+      ...item,
+      libraryCategory: category
+    }));
+  }
+
+
+  async function loadRecommendationPool() {
+    if (recommendationPoolLoaded) {
+      return;
+    }
+
+    const results = await Promise.allSettled(
+      RECOMMENDATION_CATEGORIES.map(
+        async category => {
+          const dataUrl =
+            `${getIndexFile(category)}?v=${Date.now()}`;
+
+          const response = await fetch(dataUrl, {
+            cache: "no-store"
+          });
+
+          if (!response.ok) {
+            throw new Error(
+              `${category} 추천 데이터 로딩 실패: `
+              + `HTTP ${response.status}`
+            );
+          }
+
+          const data = await response.json();
+
+          return getRecordsFromIndex(
+            category,
+            data
+          );
+        }
+      )
+    );
+
+    recommendationPool = results
+      .filter(result =>
+        result.status === "fulfilled"
+      )
+      .flatMap(result =>
+        result.value
+      );
+
+    recommendationPoolLoaded = true;
+
+    const failedResults = results.filter(
+      result => result.status === "rejected"
+    );
+
+    failedResults.forEach(result => {
+      console.warn(result.reason);
+    });
+  }
+
+  function getItemTitle(item) {
+    return (
+      item.title
+      || item.korean
+      || item.name
+      || item.english
+      || item.id
+      || "이름 없는 자료"
+    );
+  }
+
+
+  function normalizeValueArray(value) {
+    return toArray(value)
+      .map(item => normalizeText(item))
+      .filter(Boolean);
+  }
+
+
+  function getCommonValues(firstValues, secondValues) {
+    const firstSet =
+      new Set(normalizeValueArray(firstValues));
+
+    return normalizeValueArray(secondValues)
+      .filter(value => firstSet.has(value));
+  }
+
+
+  function getItemBodyText(item) {
+    return normalizeText([
+      item.id,
+      item.title,
+      item.korean,
+      item.name,
+      item.english,
+      item.country,
+      item.years,
+
+      ...toArray(item.aliases),
+      ...toArray(item.fields),
+      ...toArray(item.keywords),
+      ...toArray(item.summary),
+      ...toArray(item.achievements),
+      ...toArray(item.content)
+    ].join(" "));
+  }
+
+  function calculateRecommendationScore(
+    currentItem,
+    candidateItem
+  ) {
+    let score = 0;
+    const reasons = [];
+
+    const currentRelated =
+      normalizeValueArray(currentItem.related);
+
+    const candidateRelated =
+      normalizeValueArray(candidateItem.related);
+
+    const currentId =
+      normalizeText(currentItem.id);
+
+    const candidateId =
+      normalizeText(candidateItem.id);
+
+    /*
+    * 명시적인 related 연결
+    */
+    if (currentRelated.includes(candidateId)) {
+      score += 100;
+      reasons.push("직접 관련 자료");
+    }
+
+    if (candidateRelated.includes(currentId)) {
+      score += 80;
+      reasons.push("상호 연관 자료");
+    }
+
+    /*
+    * 키워드 일치
+    */
+    const commonKeywords =
+      getCommonValues(
+        currentItem.keywords,
+        candidateItem.keywords
+      );
+
+    if (commonKeywords.length) {
+      score += commonKeywords.length * 24;
+
+      reasons.push(
+        `공통 키워드 ${commonKeywords
+          .slice(0, 3)
+          .join(" · ")}`
+      );
+    }
+
+    /*
+    * 분야 일치
+    */
+    const commonFields =
+      getCommonValues(
+        currentItem.fields,
+        candidateItem.fields
+      );
+
+    if (commonFields.length) {
+      score += commonFields.length * 14;
+
+      reasons.push(
+        `공통 분야 ${commonFields
+          .slice(0, 2)
+          .join(" · ")}`
+      );
+    }
+
+    /*
+    * 자료 유형 일치
+    */
+    if (
+      currentItem.type
+      && candidateItem.type
+      && normalizeText(currentItem.type)
+        === normalizeText(candidateItem.type)
+    ) {
+      score += 5;
+    }
+
+    /*
+    * 같은 Library 카테고리
+    */
+    if (
+      currentItem.libraryCategory
+      === candidateItem.libraryCategory
+    ) {
+      score += 3;
+    }
+
+    /*
+    * 현재 자료 키워드가 상대 자료 본문에 등장
+    */
+    const candidateBody =
+      getItemBodyText(candidateItem);
+
+    const bodyMatches =
+      normalizeValueArray(currentItem.keywords)
+        .filter(keyword =>
+          keyword.length >= 2
+          && candidateBody.includes(keyword)
+        );
+
+    if (bodyMatches.length) {
+      score += bodyMatches.length * 4;
+
+      if (
+        !commonKeywords.length
+        && bodyMatches.length
+      ) {
+        reasons.push(
+          `내용 연관 ${bodyMatches
+            .slice(0, 2)
+            .join(" · ")}`
+        );
+      }
+    }
+
+    return {
+      score,
+      reasons
+    };
+  }
+
+  function getRecommendedItems(
+    currentItem,
+    limit = 10
+  ) {
+    const itemCategory =
+      currentItem.libraryCategory
+      || currentCategory;
+
+    const normalizedCurrentItem = {
+      ...currentItem,
+      libraryCategory: itemCategory
+    };
+
+    return recommendationPool
+      .filter(candidate => {
+        const sameItem =
+          candidate.id === normalizedCurrentItem.id
+          && candidate.libraryCategory
+            === normalizedCurrentItem.libraryCategory;
+
+        return !sameItem;
+      })
+      .map(candidate => {
+        const result =
+          calculateRecommendationScore(
+            normalizedCurrentItem,
+            candidate
+          );
+
+        return {
+          ...candidate,
+          recommendationScore: result.score,
+          recommendationReasons: result.reasons
+        };
+      })
+      .filter(item =>
+        item.recommendationScore > 0
+      )
+      .sort((a, b) => {
+        if (
+          b.recommendationScore
+          !== a.recommendationScore
+        ) {
+          return (
+            b.recommendationScore
+            - a.recommendationScore
+          );
+        }
+
+        return getItemTitle(a)
+          .localeCompare(
+            getItemTitle(b),
+            "ko"
+          );
+      })
+      .slice(0, limit);
+  }
+
+  function getCategoryTitle(category) {
+    return (
+      LIBRARY_CONFIG.categories[category]?.title
+      || category
+    );
+  }
+
+
+  function createRecommendationMarkup(item) {
+    if (!recommendationPoolLoaded) {
+      return `
+        <p class="empty-message">
+          추천 자료를 불러오는 중입니다.
+        </p>
+      `;
+    }
+
+    const recommendedItems =
+      getRecommendedItems(item, 10);
+
+    if (!recommendedItems.length) {
+      return `
+        <p class="empty-message">
+          연관 자료를 아직 찾지 못했습니다.
+        </p>
+      `;
+    }
+
+    return `
+      <div class="archive-recommendation-list">
+        ${recommendedItems
+          .map((recommended, index) => {
+            const reasons =
+              recommended.recommendationReasons
+                .slice(0, 2)
+                .join(" · ");
+
+            return `
+              <button
+                type="button"
+                class="archive-recommendation-item"
+                data-recommend-id="${escapeHtml(
+                  recommended.id
+                )}"
+                data-recommend-category="${escapeHtml(
+                  recommended.libraryCategory
+                )}"
+              >
+                <span class="archive-recommendation-rank">
+                  ${index + 1}
+                </span>
+
+                <span class="archive-recommendation-content">
+                  <span class="archive-recommendation-header">
+                    <span class="archive-recommendation-title">
+                      ${escapeHtml(
+                        getItemTitle(recommended)
+                      )}
+                    </span>
+
+                    <span class="archive-recommendation-meta">
+                      ${escapeHtml(
+                        getCategoryTitle(
+                          recommended.libraryCategory
+                        )
+                      )}
+                      ·
+                      ${escapeHtml(
+                        getTypeLabel(recommended.type)
+                      )}
+                    </span>
+                  </span>
+
+                  ${
+                    reasons
+                      ? `
+                        <span class="archive-recommendation-reason">
+                          ${escapeHtml(reasons)}
+                        </span>
+                      `
+                      : ""
+                  }
+                </span>
+              </button>
+            `;
+          })
+          .join("")}
+      </div>
+    `;
+  }
+
+  
 
   /* ---------------------------------------------------------
      카테고리
@@ -257,9 +682,17 @@ const LibraryBoard = (() => {
           )
         : [];
 
-      archives = Array.isArray(data.archives)
-        ? data.archives
-        : [];
+      archives = isComputerCategory()
+        ? (
+            Array.isArray(data.records)
+              ? data.records
+              : []
+          )
+        : (
+            Array.isArray(data.archives)
+              ? data.archives
+              : []
+          );
 
       selectedTimelineIndex = 0;
       selectedArchiveId = null;
@@ -365,7 +798,7 @@ const LibraryBoard = (() => {
               </span>
 
               <span class="timeline-name">
-                ${escapeHtml(item.korean || item.name || item.id)}
+                ${escapeHtml(item.korean || item.title || item.name || item.id)}
               </span>
 
               <span class="timeline-description">
@@ -433,6 +866,8 @@ const LibraryBoard = (() => {
         const searchable = normalizeText([
           item.id,
           item.korean,
+          item.title,
+          item.english,
           item.name,
           item.description
         ].join(" "));
@@ -456,7 +891,7 @@ const LibraryBoard = (() => {
     renderTimeline();
 
     timelineSearchMessage.textContent =
-      `${formatYear(item.year)} · ${item.korean || item.name}`;
+      `${formatYear(item.year)} · ${item.korean || item.title || item.name || item.id}`;
 
     if (getArchiveById(item.id)) {
       selectArchive(item.id);
@@ -524,55 +959,45 @@ const LibraryBoard = (() => {
 
 
   function renderArchiveDetail(item) {
-    const fields =
-      toArray(item.fields);
+    if (isComputerItem(item)) {
+      renderComputerDetail(item);
+      return;
+    }
 
-    const keywords =
-      toArray(item.keywords);
+    renderHistoryDetail(item);
+  }
+
+
+  function renderHistoryDetail(item) {
+    const fields = toArray(item.fields);
+    const keywords = toArray(item.keywords);
 
     archiveDetail.innerHTML = `
       <dl class="archive-meta">
-
         <dt>한글 명칭</dt>
-        <dd>
-          ${escapeHtml(item.korean || "-")}
-        </dd>
+        <dd>${escapeHtml(item.korean || "-")}</dd>
 
         <dt>원문 명칭</dt>
-        <dd>
-          ${escapeHtml(item.name || "-")}
-        </dd>
+        <dd>${escapeHtml(item.name || "-")}</dd>
 
         <dt>자료 유형</dt>
-        <dd>
-          ${escapeHtml(getTypeLabel(item.type))}
-        </dd>
+        <dd>${escapeHtml(getTypeLabel(item.type))}</dd>
 
         <dt>시대·생애</dt>
-        <dd>
-          ${escapeHtml(item.years || "-")}
-        </dd>
+        <dd>${escapeHtml(item.years || "-")}</dd>
 
         <dt>국가·지역</dt>
-        <dd>
-          ${escapeHtml(item.country || "-")}
-        </dd>
+        <dd>${escapeHtml(item.country || "-")}</dd>
 
         <dt>분야</dt>
-        <dd>
-          ${createTagMarkup(fields)}
-        </dd>
+        <dd>${createTagMarkup(fields)}</dd>
 
         <dt>키워드</dt>
-        <dd>
-          ${createTagMarkup(keywords)}
-        </dd>
-
+        <dd>${createTagMarkup(keywords)}</dd>
       </dl>
 
       <section class="archive-section">
         <h3>개요</h3>
-
         ${createParagraphMarkup(
           item.summary,
           "등록된 개요가 없습니다."
@@ -581,7 +1006,6 @@ const LibraryBoard = (() => {
 
       <section class="archive-section">
         <h3>주요 내용</h3>
-
         ${createParagraphMarkup(
           item.achievements,
           "등록된 주요 내용이 없습니다."
@@ -589,15 +1013,101 @@ const LibraryBoard = (() => {
       </section>
 
       <section class="archive-section">
-        <h3>관련 자료</h3>
+        <h3>참고 자료</h3>
+        ${createTagMarkup(toArray(item.sources))}
+      </section>
 
-        ${createRelatedMarkup(item.related)}
+      <div
+        class="archive-resource-grid"
+        style="display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:24px; align-items:start;"
+      >
+        <section class="archive-section archive-resource-section">
+          <h3>첨부 자료</h3>
+          ${createMediaMarkup(item.media)}
+        </section>
+
+        <section class="archive-section archive-resource-section">
+          <h3>관련 자료</h3>
+          ${createRelatedMarkup(item.related)}
+        </section>
+      </div>
+
+      <section class="archive-section archive-recommendation-section">
+        <h3>함께 보면 좋은 자료</h3>
+        ${createRecommendationMarkup(item)}
+      </section>
+    `;
+  }
+
+
+  function renderComputerDetail(item) {
+    const fields = toArray(item.fields);
+    const aliases = toArray(item.aliases);
+    const keywords = toArray(item.keywords);
+
+    archiveDetail.innerHTML = `
+      <dl class="archive-meta">
+        <dt>자료명</dt>
+        <dd>${escapeHtml(item.title || item.id || "-")}</dd>
+
+        <dt>영문명</dt>
+        <dd>${escapeHtml(item.english || "-")}</dd>
+
+        <dt>자료 유형</dt>
+        <dd>${escapeHtml(getTypeLabel(item.type))}</dd>
+
+        <dt>시대·연도</dt>
+        <dd>${escapeHtml(item.years || "-")}</dd>
+
+        <dt>분야</dt>
+        <dd>${createTagMarkup(fields)}</dd>
+
+        <dt>별칭</dt>
+        <dd>${createTagMarkup(aliases)}</dd>
+
+        <dt>키워드</dt>
+        <dd>${createTagMarkup(keywords)}</dd>
+      </dl>
+
+      <section class="archive-section">
+        <h3>요약</h3>
+        ${createParagraphMarkup(
+          item.summary,
+          "등록된 요약이 없습니다."
+        )}
       </section>
 
       <section class="archive-section">
-        <h3>첨부 자료</h3>
+        <h3>내용</h3>
+        ${createParagraphMarkup(
+          item.content,
+          "등록된 내용이 없습니다."
+        )}
+      </section>
 
-        ${createMediaMarkup(item.media)}
+      <section class="archive-section">
+        <h3>참고 자료</h3>
+        ${createTagMarkup(toArray(item.sources))}
+      </section>
+
+      <div
+        class="archive-resource-grid"
+        style="display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:24px; align-items:start;"
+      >
+        <section class="archive-section archive-resource-section">
+          <h3>첨부 자료</h3>
+          ${createMediaMarkup(item.media)}
+        </section>
+
+        <section class="archive-section archive-resource-section">
+          <h3>관련 자료</h3>
+          ${createRelatedMarkup(item.related)}
+        </section>
+      </div>
+
+      <section class="archive-section archive-recommendation-section">
+        <h3>함께 보면 좋은 자료</h3>
+        ${createRecommendationMarkup(item)}
       </section>
     `;
   }
@@ -700,7 +1210,13 @@ const LibraryBoard = (() => {
               class="related-link"
               data-related-id="${escapeHtml(id)}"
             >
-              ${escapeHtml(linked.korean || linked.name || id)}
+              ${escapeHtml(
+                linked.title ||
+                linked.korean ||
+                linked.name ||
+                linked.english ||
+                id
+              )}
             </button>
           </p>
         `;
@@ -780,6 +1296,47 @@ const LibraryBoard = (() => {
 
     const matched =
       archives.filter(item => {
+        if (isComputerCategory()) {
+          const nameText = normalizeText([
+            item.id,
+            item.title,
+            item.english,
+            ...toArray(item.aliases)
+          ].join(" "));
+
+          const fieldText =
+            normalizeText(
+              toArray(item.fields).join(" ")
+            );
+
+          const wordText =
+            normalizeText([
+              item.id,
+              item.title,
+              item.english,
+              item.type,
+              item.years,
+              ...toArray(item.aliases),
+              ...toArray(item.fields),
+              ...toArray(item.keywords),
+              ...toArray(item.summary),
+              ...toArray(item.content),
+              ...toArray(item.related),
+              ...toArray(item.sources),
+              ...toArray(item.media).flatMap(media => [
+                media.file,
+                media.title
+              ])
+            ].join(" "));
+
+          return (
+            nameText.includes(nameQuery)
+            && normalizeText(item.type).includes(typeQuery)
+            && fieldText.includes(fieldQuery)
+            && wordText.includes(wordQuery)
+          );
+        }
+
         const nameText = normalizeText([
           item.id,
           item.korean,
@@ -852,47 +1409,99 @@ const LibraryBoard = (() => {
       return;
     }
 
+    const useCompactComputerResults =
+      items.every(item => isComputerItem(item))
+      && items.length > 4;
+
     archiveSearchResults.innerHTML =
       items
         .map(item => {
+          if (isComputerItem(item)) {
+            const keywords =
+              toArray(item.keywords)
+                .filter(Boolean)
+                .slice(0, 3)
+                .join(" · ");
+
+            const englishTitle =
+              item.english || "";
+
+            return `
+              <button
+                type="button"
+                class="search-result-item computer-search-result${
+                  useCompactComputerResults
+                    ? " compact"
+                    : " expanded"
+                }${
+                  item.id === selectedArchiveId
+                    ? " selected"
+                    : ""
+                }"
+                data-archive-id="${escapeHtml(item.id)}"
+              >
+                <span class="search-result-meta">
+                  <span>
+                    ${escapeHtml(getTypeLabel(item.type))}
+                  </span>
+
+                  <span class="search-result-top-keywords">
+                    ${escapeHtml(keywords || "-")}
+                  </span>
+                </span>
+
+                <span class="search-result-title">
+                  ${escapeHtml(item.title || item.id)}
+                </span>
+
+                ${
+                  useCompactComputerResults
+                    ? ""
+                    : `
+                      <span class="search-result-english">
+                        ${escapeHtml(englishTitle || "-")}
+                      </span>
+                    `
+                }
+              </button>
+            `;
+          }
 
           const keywords =
             toArray(item.keywords)
               .filter(Boolean)
               .join(" · ");
 
-        return `
-          <button
-            type="button"
-            class="search-result-item${
-              item.id === selectedArchiveId
-                ? " selected"
-                : ""
-            }"
-            data-archive-id="${escapeHtml(item.id)}"
-          >
-            <span class="search-result-meta">
+          return `
+            <button
+              type="button"
+              class="search-result-item${
+                item.id === selectedArchiveId
+                  ? " selected"
+                  : ""
+              }"
+              data-archive-id="${escapeHtml(item.id)}"
+            >
+              <span class="search-result-meta">
+                <span>
+                  ${escapeHtml(getTypeLabel(item.type))}
+                </span>
 
-              <span>
-                ${escapeHtml(getTypeLabel(item.type))}
+                <span>
+                  ${escapeHtml(toArray(item.fields).join(" · "))}
+                </span>
               </span>
 
-              <span>
-                ${escapeHtml(toArray(item.fields).join(" · "))}
+              <span class="search-result-title">
+                ${escapeHtml(item.korean || item.name || item.id)}
               </span>
 
-            </span>
-
-            <span class="search-result-title">
-              ${escapeHtml(item.korean || item.name || item.id)}
-            </span>
-
-            <span class="search-result-keywords">
-              ${escapeHtml(keywords || "등록된 설명이 없습니다.")}
-            </span>
-          </button>
-        `;
-          })
+              <span class="search-result-keywords">
+                ${escapeHtml(keywords || "등록된 설명이 없습니다.")}
+              </span>
+            </button>
+          `;
+        })
         .join("");
 
     archiveSearchResults
@@ -954,17 +1563,62 @@ const LibraryBoard = (() => {
 
     archiveDetail.addEventListener(
       "click",
-      event => {
-        const button =
+      async event => {
+        const relatedButton =
           event.target.closest("[data-related-id]");
 
-        if (!button) {
+        if (relatedButton) {
+          selectArchive(
+            relatedButton.dataset.relatedId
+          );
+
           return;
         }
 
-        selectArchive(
-          button.dataset.relatedId
+        const recommendationButton =
+          event.target.closest("[data-recommend-id]");
+
+        if (!recommendationButton) {
+          return;
+        }
+
+        const id =
+          recommendationButton.dataset.recommendId;
+
+        const category =
+          recommendationButton.dataset
+            .recommendCategory;
+
+        if (!id || !category) {
+          return;
+        }
+
+        /*
+        * 같은 카테고리의 자료
+        */
+        if (category === currentCategory) {
+          selectArchive(id);
+          return;
+        }
+
+        /*
+        * 다른 카테고리의 자료
+        */
+        const newUrl =
+          `${window.location.pathname}`
+          + `?category=${encodeURIComponent(category)}`;
+
+        window.history.replaceState(
+          null,
+          "",
+          newUrl
         );
+
+        await loadCategory(category);
+
+        if (getArchiveById(id)) {
+          selectArchive(id);
+        }
       }
     );
   }
@@ -989,6 +1643,7 @@ const LibraryBoard = (() => {
     }
 
     bindEvents();
+    await loadRecommendationPool();
     await loadCategory(currentCategory);
   }
 

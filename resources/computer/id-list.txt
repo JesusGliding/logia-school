@@ -8,7 +8,7 @@ c-language | C 언어
 charles-babbage | 찰스 베비지
 colossus | 콜로서스
 difference-engine | 차분 기관
-havard-mark-i | 마크 I
+harvard-mark-i | 마크 I
 john-von-neumann | 폰 노이만
 linux | 리눅스
 linux-kernel | 리눅스 커널

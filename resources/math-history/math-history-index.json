@@ -1,10 +1,10 @@
 {
-  "cacheVersion": 1784203496,
+  "cacheVersion": 1784402923,
   "historyCategory": "math-history",
   "timelineSource": "math_timeline.txt",
   "timelineCount": 15,
   "archiveCount": 1,
-  "mediaCount": 1,
+  "mediaCount": 0,
   "linkedTimelineCount": 1,
   "unlinkedTimelineIds": [
     "alkhwarizmi",
@@ -181,14 +181,12 @@
         "fermat",
         "riemann"
       ],
-      "media": [
-        {
-          "file": "sources: Wikipedia, 나무위키",
-          "title": "",
-          "exists": false
-        }
-      ]
+      "sources": [
+        "Wikipedia",
+        "나무위키"
+      ],
+      "media": []
     }
   ],
-  "updated": "2026-07-16T21:04:56"
+  "updated": "2026-07-19T04:28:43"
 }

@@ -1,11 +1,11 @@
 {
-  "cacheVersion": 1784203496,
+  "cacheVersion": 1784402923,
   "archiveType": "knowledge-link",
   "archiveCategory": "computer",
   "timelineSource": "computer_timeline.txt",
   "timelineCount": 12,
   "recordCount": 11,
-  "mediaCount": 16,
+  "mediaCount": 17,
   "linkedTimelineCount": 5,
   "timelineWithoutRecord": [
     "colossus",
@@ -54,14 +54,6 @@
       "relatedId": "linux"
     },
     {
-      "sourceId": "difference-engine",
-      "relatedId": "source:Wikipedia"
-    },
-    {
-      "sourceId": "difference-engine",
-      "relatedId": "나무위키"
-    },
-    {
       "sourceId": "charles-babbage",
       "relatedId": "ada-lovelace"
     },
@@ -79,7 +71,7 @@
     },
     {
       "sourceId": "analytical-engine",
-      "relatedId": "havard-mark-i"
+      "relatedId": "harvard-mark-i"
     }
   ],
   "typeCounts": {
@@ -499,9 +491,7 @@
       ],
       "related": [
         "charles-babbage",
-        "analytical-engine",
-        "source:Wikipedia",
-        "나무위키"
+        "analytical-engine"
       ],
       "media": [
         {
@@ -515,7 +505,10 @@
           "exists": true
         }
       ],
-      "sources": []
+      "sources": [
+        "Wikipedia",
+        "나무위키"
+      ]
     },
     {
       "id": "charles-babbage",
@@ -720,7 +713,7 @@
       "related": [
         "charles-babbage",
         "bell-labs",
-        "havard-mark-i"
+        "harvard-mark-i"
       ],
       "media": [
         {
@@ -732,10 +725,15 @@
           "file": "babbage_papers.pdf",
           "title": "배비지 논문들",
           "exists": true
+        },
+        {
+          "file": "resources:Wikipedia, 나무위키",
+          "title": "",
+          "exists": false
         }
       ],
       "sources": []
     }
   ],
-  "updated": "2026-07-16T21:04:56"
+  "updated": "2026-07-19T04:28:43"
 }

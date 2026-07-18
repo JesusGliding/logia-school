@@ -1,5 +1,5 @@
 {
-  "cacheVersion": 1784203496,
+  "cacheVersion": 1784402923,
   "historyCategory": "science-history",
   "timelineSource": "science_timeline.txt",
   "timelineCount": 10,
@@ -149,6 +149,7 @@
         "newton",
         "kepler"
       ],
+      "sources": [],
       "media": []
     },
     {
@@ -182,6 +183,7 @@
         "spacetime",
         "gravity"
       ],
+      "sources": [],
       "media": [
         {
           "file": "relativity.pdf",
@@ -228,6 +230,7 @@
         "leibniz",
         "gravity"
       ],
+      "sources": [],
       "media": [
         {
           "file": "gravity.pdf",
@@ -275,6 +278,7 @@
         "thermodynamics",
         "second-law"
       ],
+      "sources": [],
       "media": [
         {
           "file": "entropy.pdf",
@@ -284,5 +288,5 @@
       ]
     }
   ],
-  "updated": "2026-07-16T21:04:56"
+  "updated": "2026-07-19T04:28:43"
 }

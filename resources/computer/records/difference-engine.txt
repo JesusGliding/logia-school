@@ -17,7 +17,7 @@ content:
 
 related:charles-babbage, analytical-engine, 
 
-source:Wikipedia, 나무위키
+sources:Wikipedia, 나무위키
 
 files:
 difference_engine.jpg | 차분기관 제작 사진
