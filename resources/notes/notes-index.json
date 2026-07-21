@@ -1,0 +1,377 @@
+{
+  "cacheVersion": 1784592158,
+  "archiveType": "notes",
+  "sections": [
+    "archive",
+    "books",
+    "media",
+    "papers",
+    "reference",
+    "theory",
+    "treasure"
+  ],
+  "recordCount": 7,
+  "fileCount": 13,
+  "existingFileCount": 13,
+  "missingFileCount": 0,
+  "sectionCounts": {
+    "archive": 3,
+    "books": 0,
+    "media": 0,
+    "papers": 0,
+    "reference": 0,
+    "theory": 0,
+    "treasure": 4
+  },
+  "sectionFileCounts": {
+    "archive": 0,
+    "books": 0,
+    "media": 0,
+    "papers": 0,
+    "reference": 0,
+    "theory": 0,
+    "treasure": 13
+  },
+  "typeCounts": {
+    "개인연구": 3,
+    "기고문": 1
+  },
+  "types": [
+    "개인연구",
+    "기고문"
+  ],
+  "authors": [],
+  "fields": [
+    "기계공학",
+    "디자인",
+    "물리학",
+    "생명과학",
+    "수학",
+    "인문학",
+    "자동차공학",
+    "천문학",
+    "천체물리학",
+    "철학",
+    "화학"
+  ],
+  "keywords": [
+    "M이론",
+    "개인 연구",
+    "기고",
+    "디자인",
+    "미",
+    "설계",
+    "아름다움",
+    "연구",
+    "우주",
+    "우주의 구조",
+    "자동차",
+    "자동차 공학",
+    "자연선택",
+    "제작",
+    "진화",
+    "창조",
+    "취미 연구",
+    "프로잭트"
+  ],
+  "rootTxtFilesIgnored": [
+    "sample.txt"
+  ],
+  "unusedDataFiles": {
+    "archive": [
+      "cartheory.pdf",
+      "etc_archive.pdf",
+      "imaginaryofriding.pdf"
+    ],
+    "books": [],
+    "media": [],
+    "papers": [],
+    "reference": [],
+    "theory": [],
+    "treasure": []
+  },
+  "filesOutsideDataFolder": {
+    "archive": [],
+    "books": [
+      "Linux.pdf",
+      "TLCL.pdf",
+      "chemistry.pdf",
+      "engineering-math.pdf",
+      "python.pdf",
+      "science.pdf"
+    ],
+    "media": [
+      "car.jpg",
+      "mobile_sample.png",
+      "research_design.pdf"
+    ],
+    "papers": [],
+    "reference": [],
+    "theory": [],
+    "treasure": []
+  },
+  "records": [
+    {
+      "id": "about-my-project",
+      "section": "treasure",
+      "file": "aboutmyproject.txt",
+      "title": "나의 프로젝트 취지, 의의",
+      "date": "2026-07-26",
+      "type": "개인연구",
+      "author": "",
+      "published": "",
+      "fields": [
+        "기계공학",
+        "물리학",
+        "화학",
+        "수학",
+        "천체물리학"
+      ],
+      "keywords": [
+        "프로잭트",
+        "연구",
+        "개인 연구",
+        "취미 연구"
+      ],
+      "summary": "현재 진행 중인 프로젝트들과 각 프로젝트의 취지와 연구적 의의를 정리한 자료이다.",
+      "files": [
+        {
+          "file": "aboutmyproject.pdf",
+          "title": "나의 프로젝트와 연구 내용",
+          "format": "pdf",
+          "path": "notes/treasure/data/aboutmyproject.pdf",
+          "exists": true
+        }
+      ],
+      "source": [
+        "LOGIA School"
+      ],
+      "related": []
+    },
+    {
+      "id": "evolution-of-beautiful",
+      "section": "treasure",
+      "file": "beautiful_text.txt",
+      "title": "진화가 아름다움을 창조할 수 있는가?",
+      "date": "2026-07-20",
+      "type": "기고문",
+      "author": "",
+      "published": "",
+      "fields": [
+        "생명과학",
+        "철학",
+        "인문학"
+      ],
+      "keywords": [
+        "진화",
+        "미",
+        "아름다움",
+        "창조",
+        "자연선택",
+        "기고"
+      ],
+      "summary": "진화적 관점에서 아름다움의 발생과 창조 가능성을 탐구한 철학·과학 기고문이다.",
+      "files": [
+        {
+          "file": "evolution-of-beautiful.pdf",
+          "title": "진화와 아름다움 기고문(AI)",
+          "format": "pdf",
+          "path": "notes/treasure/data/evolution-of-beautiful.pdf",
+          "exists": true
+        }
+      ],
+      "source": [
+        "LOGIA School"
+      ],
+      "related": [
+        "darwin"
+      ]
+    },
+    {
+      "id": "automobile-design",
+      "section": "treasure",
+      "file": "mobile_design.txt",
+      "title": "자동차 설계와 디자인 자료",
+      "date": "2026-07-19",
+      "type": "개인연구",
+      "author": "",
+      "published": "",
+      "fields": [
+        "자동차공학",
+        "기계공학",
+        "물리학",
+        "디자인"
+      ],
+      "keywords": [
+        "자동차",
+        "디자인",
+        "설계",
+        "자동차 공학",
+        "제작"
+      ],
+      "summary": "자동차의 설계, 구조, 디자인과 제작에 관한 자료를 종합적으로 정리한 개인 연구 자료이다.",
+      "files": [
+        {
+          "file": "automobile.zip",
+          "title": "자동차 사진들",
+          "format": "zip",
+          "path": "notes/treasure/data/automobile.zip",
+          "exists": true
+        },
+        {
+          "file": "automobile_structure.jpg",
+          "title": "자동차 구조도",
+          "format": "jpg",
+          "path": "notes/treasure/data/automobile_structure.jpg",
+          "exists": true
+        },
+        {
+          "file": "automobile_design.pdf",
+          "title": "자동차 설계 디자인 자료",
+          "format": "pdf",
+          "path": "notes/treasure/data/automobile_design.pdf",
+          "exists": true
+        }
+      ],
+      "source": [
+        "LOGIA School"
+      ],
+      "related": []
+    },
+    {
+      "id": "universe-structure",
+      "section": "treasure",
+      "file": "universe_structure.txt",
+      "title": "우주의 구조 자료 정리",
+      "date": "2026-07-17",
+      "type": "개인연구",
+      "author": "",
+      "published": "",
+      "fields": [
+        "천문학",
+        "물리학",
+        "천체물리학"
+      ],
+      "keywords": [
+        "우주",
+        "우주의 구조",
+        "M이론"
+      ],
+      "summary": "우주의 구조와 현대 우주론에 관한 이미지와 문서를 종합적으로 정리한 자료 모음이다.",
+      "files": [
+        {
+          "file": "universe-picture1.jpg",
+          "title": "NASA 우주 사진 1",
+          "format": "jpg",
+          "path": "notes/treasure/data/universe-picture1.jpg",
+          "exists": true
+        },
+        {
+          "file": "universe-picture2.jpg",
+          "title": "NASA 우주 사진 2",
+          "format": "jpg",
+          "path": "notes/treasure/data/universe-picture2.jpg",
+          "exists": true
+        },
+        {
+          "file": "universe-picture3.jpg",
+          "title": "NASA 우주 사진 3",
+          "format": "jpg",
+          "path": "notes/treasure/data/universe-picture3.jpg",
+          "exists": true
+        },
+        {
+          "file": "universe-structure1.jpg",
+          "title": "우주 구조 참고 이미지 1",
+          "format": "jpg",
+          "path": "notes/treasure/data/universe-structure1.jpg",
+          "exists": true
+        },
+        {
+          "file": "universe-structure2.jpg",
+          "title": "우주 구조 참고 이미지 2",
+          "format": "jpg",
+          "path": "notes/treasure/data/universe-structure2.jpg",
+          "exists": true
+        },
+        {
+          "file": "universe-structure3.jpg",
+          "title": "우주 구조 참고 이미지 3",
+          "format": "jpg",
+          "path": "notes/treasure/data/universe-structure3.jpg",
+          "exists": true
+        },
+        {
+          "file": "universe-structure4.jpg",
+          "title": "우주 구조 참고 이미지 4",
+          "format": "jpg",
+          "path": "notes/treasure/data/universe-structure4.jpg",
+          "exists": true
+        },
+        {
+          "file": "universe-structure.pdf",
+          "title": "우주 구조 요약 자료",
+          "format": "pdf",
+          "path": "notes/treasure/data/universe-structure.pdf",
+          "exists": true
+        }
+      ],
+      "source": [
+        "LOGIA School"
+      ],
+      "related": [
+        "hubble",
+        "einstein"
+      ]
+    },
+    {
+      "id": "imainaryofride",
+      "section": "archive",
+      "file": "imainaryofride.txt",
+      "title": "",
+      "date": "",
+      "type": "",
+      "author": "",
+      "published": "",
+      "fields": [],
+      "keywords": [],
+      "summary": "",
+      "files": [],
+      "source": [],
+      "related": []
+    },
+    {
+      "id": "etc_archive",
+      "section": "archive",
+      "file": "etc_archive.txt",
+      "title": "",
+      "date": "",
+      "type": "",
+      "author": "",
+      "published": "",
+      "fields": [],
+      "keywords": [],
+      "summary": "",
+      "files": [],
+      "source": [],
+      "related": []
+    },
+    {
+      "id": "cartheory",
+      "section": "archive",
+      "file": "cartheory.txt",
+      "title": "",
+      "date": "",
+      "type": "",
+      "author": "",
+      "published": "",
+      "fields": [],
+      "keywords": [],
+      "summary": "",
+      "files": [],
+      "source": [],
+      "related": []
+    }
+  ],
+  "updated": "2026-07-21T09:02:38"
+}

@@ -1,0 +1,23 @@
+id:automobile-design
+
+title:자동차 설계와 디자인 자료
+
+date: 2026-07-19
+
+type: 개인연구
+
+field: 자동차공학, 기계공학, 물리학, 디자인
+
+summary:
+자동차의 설계, 구조, 디자인과 제작에 관한 자료를 
+종합적으로 정리한 개인 연구 자료이다.
+
+keywords: 자동차, 디자인, 설계, 자동차 공학, 제작
+
+files:
+automobile.zip | 자동차 사진들
+automobile_structure.jpg | 자동차 구조도
+automobile_design.pdf | 자동차 설계 디자인 자료
+
+source: LOGIA School
+

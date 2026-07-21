@@ -27,6 +27,16 @@ const LibraryBoard = (() => {
   let currentMediaPath = "";
 
 
+  let noteCurrentSection = "archive";
+  let noteRecords = [];
+  let visibleNoteRecords = [];
+  let selectedNoteRecordId = null;
+  let notesDataLoaded = false;
+
+  let integratedRecords = [];
+  let integratedDataLoaded = false;
+
+
   /* ---------------------------------------------------------
      DOM
      --------------------------------------------------------- */
@@ -91,6 +101,71 @@ const LibraryBoard = (() => {
 
   const archiveSearchResults =
     document.getElementById("archive-search-results");
+
+
+  const standardLibraryView =
+    document.getElementById("standard-library-view");
+
+  const notesLibraryView =
+    document.getElementById("notes-library-view");
+
+  const noteSectionButtons = document.querySelectorAll(
+    ".notes-section-tab[data-note-section]"
+  );
+
+  const noteListCount =
+    document.getElementById("note-list-count");
+
+  const noteRecordList =
+    document.getElementById("note-record-list");
+
+  const selectedNoteSection =
+    document.getElementById("selected-note-section");
+
+  const noteDetail =
+    document.getElementById("note-detail");
+
+  const noteSearchForm =
+    document.getElementById("note-search-form");
+
+  const noteSearchName =
+    document.getElementById("note-search-name");
+
+  const noteSearchType =
+    document.getElementById("note-search-type");
+
+  const noteSearchField =
+    document.getElementById("note-search-field");
+
+  const noteSearchWord =
+    document.getElementById("note-search-word");
+
+  const noteSearchReset =
+    document.getElementById("note-search-reset");
+
+  const noteSearchStatus =
+    document.getElementById("note-search-status");
+
+  const noteSearchCount =
+    document.getElementById("note-search-count");
+
+  const noteSearchMessage =
+    document.getElementById("note-search-message");
+
+  const integratedSearchForm =
+    document.getElementById("integrated-search-form");
+
+  const integratedSearchWord =
+    document.getElementById("integrated-search-word");
+
+  const integratedSearchReset =
+    document.getElementById("integrated-search-reset");
+
+  const integratedSearchCount =
+    document.getElementById("integrated-search-count");
+
+  const integratedSearchResults =
+    document.getElementById("integrated-search-results");
 
 
   /* ---------------------------------------------------------
@@ -162,6 +237,11 @@ const LibraryBoard = (() => {
 
   function isComputerCategory() {
     return currentCategory === "computer";
+  }
+
+
+  function isNotesCategory() {
+    return currentCategory === "notes";
   }
 
 
@@ -580,11 +660,716 @@ const LibraryBoard = (() => {
 
   
 
+
+  /* ---------------------------------------------------------
+     Notes 전용 화면과 데이터
+     --------------------------------------------------------- */
+
+  function updateLibraryViewMode() {
+    const notesActive = isNotesCategory();
+
+    standardLibraryView.hidden = notesActive;
+    notesLibraryView.hidden = !notesActive;
+  }
+
+
+  function getNotesConfig() {
+    return LIBRARY_CONFIG.categories.notes || {};
+  }
+
+
+  function getNoteSections() {
+    const sections = getNotesConfig().sections;
+
+    return Array.isArray(sections)
+      ? sections
+      : [
+          "archive",
+          "books",
+          "media",
+          "papers",
+          "reference",
+          "theory",
+          "treasure"
+        ];
+  }
+
+
+  function parseNoteRecords(data, fallbackSection = "") {
+    const source = Array.isArray(data)
+      ? data
+      : (
+          data?.records
+          || data?.notes
+          || data?.archives
+          || data?.items
+          || []
+        );
+
+    if (!Array.isArray(source)) {
+      return [];
+    }
+
+    return source.map((item, index) => ({
+      ...item,
+      id: String(
+        item.id
+        || `${fallbackSection || "note"}-${index + 1}`
+      ),
+      section: String(
+        item.section
+        || item.category
+        || fallbackSection
+        || "archive"
+      )
+    }));
+  }
+
+
+  function getNoteTitle(item) {
+    return (
+      item.title
+      || item.name
+      || item.korean
+      || item.id
+      || "제목 없는 자료"
+    );
+  }
+
+
+  function getNoteDate(item) {
+    return String(
+      item.date
+      || item.created
+      || item.updated
+      || item.years
+      || "-"
+    );
+  }
+
+
+  function getNoteType(item) {
+    return String(
+      item.resourceType
+      || item.type
+      || item.format
+      || "자료"
+    );
+  }
+
+
+  function getNoteFields(item) {
+    return toArray(
+      item.fields
+      || item.field
+      || item.subjects
+    );
+  }
+
+
+  function getNoteFiles(item) {
+    const files =
+      item.files
+      || item.media
+      || item.attachments
+      || [];
+
+    return Array.isArray(files)
+      ? files
+      : [];
+  }
+
+
+  function compareNoteDateDescending(first, second) {
+    return getNoteDate(second)
+      .localeCompare(getNoteDate(first));
+  }
+
+
+  function resolveNoteFileHref(record, file) {
+    const direct =
+      file.href
+      || file.url
+      || file.path
+      || "";
+
+    if (direct) {
+      return direct;
+    }
+
+    const filename =
+      file.file
+      || file.filename
+      || "";
+
+    if (!filename) {
+      return "";
+    }
+
+    if (
+      filename.startsWith("/")
+      || filename.includes("/")
+      || /^[a-z][a-z0-9+.-]*:/i.test(filename)
+    ) {
+      return filename;
+    }
+
+    return (
+      `notes/${encodeURIComponent(record.section)}/`
+      + encodeURIComponent(filename)
+    );
+  }
+
+
+  async function fetchJsonNoCache(url) {
+    const separator = url.includes("?") ? "&" : "?";
+
+    const response = await fetch(
+      `${url}${separator}v=${Date.now()}`,
+      { cache: "no-store" }
+    );
+
+    if (!response.ok) {
+      throw new Error(`${url}: HTTP ${response.status}`);
+    }
+
+    return response.json();
+  }
+
+
+  async function loadNotesData() {
+    if (notesDataLoaded) {
+      return;
+    }
+
+    const config = getNotesConfig();
+
+    try {
+      const data = await fetchJsonNoCache(
+        config.dataFile || "notes/notes-index.json"
+      );
+
+      noteRecords = parseNoteRecords(data);
+      notesDataLoaded = true;
+      return;
+
+    } catch (centralError) {
+      console.info(
+        "통합 notes-index.json을 찾지 못해 섹션별 인덱스를 확인합니다.",
+        centralError
+      );
+    }
+
+    const results = await Promise.allSettled(
+      getNoteSections().map(async section => {
+        const data = await fetchJsonNoCache(
+          `notes/${section}/${section}-index.json`
+        );
+
+        return parseNoteRecords(data, section);
+      })
+    );
+
+    noteRecords = results
+      .filter(result => result.status === "fulfilled")
+      .flatMap(result => result.value);
+
+    results
+      .filter(result => result.status === "rejected")
+      .forEach(result => console.info(result.reason));
+
+    notesDataLoaded = true;
+  }
+
+
+  async function loadIntegratedData() {
+    if (integratedDataLoaded) {
+      return;
+    }
+
+    const dataFile = getNotesConfig().integratedDataFile;
+
+    if (!dataFile) {
+      integratedRecords = [];
+      integratedDataLoaded = true;
+      return;
+    }
+
+    try {
+      const data = await fetchJsonNoCache(dataFile);
+
+      integratedRecords = Array.isArray(data)
+        ? data
+        : (
+            data?.records
+            || data?.items
+            || data?.results
+            || []
+          );
+
+    } catch (error) {
+      integratedRecords = [];
+      console.info(
+        "종합 검색 인덱스는 아직 연결되지 않았습니다.",
+        error
+      );
+    }
+
+    integratedDataLoaded = true;
+  }
+
+
+  function updateNoteSectionButtons() {
+    noteSectionButtons.forEach(button => {
+      const active =
+        button.dataset.noteSection === noteCurrentSection;
+
+      button.classList.toggle("active", active);
+      button.setAttribute("aria-selected", String(active));
+    });
+
+    if (selectedNoteSection) {
+      selectedNoteSection.textContent =
+        `(${noteCurrentSection})`;
+    }
+  }
+
+
+  function getCurrentSectionNoteRecords() {
+    return noteRecords
+      .filter(item => item.section === noteCurrentSection)
+      .sort(compareNoteDateDescending);
+  }
+
+
+  function showCurrentNoteSection() {
+    visibleNoteRecords = getCurrentSectionNoteRecords();
+
+    noteSearchStatus.textContent =
+      `${noteCurrentSection} 자료`;
+
+    noteSearchCount.textContent =
+      `${visibleNoteRecords.length}건`;
+
+    renderNoteList(visibleNoteRecords);
+    selectFirstVisibleNote();
+  }
+
+
+  function renderNoteList(items) {
+    if (noteListCount) {
+      noteListCount.textContent = `${items.length}항목`;
+    }
+
+    if (!items.length) {
+      noteRecordList.innerHTML = `
+        <p class="empty-message">
+          이 섹션의 자료는 아직 없습니다.
+        </p>
+      `;
+
+      return;
+    }
+
+    noteRecordList.innerHTML = items
+      .map(item => `
+        <button
+          type="button"
+          class="note-record-item${
+            item.id === selectedNoteRecordId
+              ? " selected"
+              : ""
+          }"
+          data-note-id="${escapeHtml(item.id)}"
+        >
+          <span class="note-record-section">
+            ${escapeHtml(item.section)}
+          </span>
+
+          <span class="note-record-date">
+            ${escapeHtml(getNoteDate(item))}
+          </span>
+
+          <span class="note-record-title">
+            ${escapeHtml(getNoteTitle(item))}
+          </span>
+        </button>
+      `)
+      .join("");
+
+    noteRecordList
+      .querySelectorAll("[data-note-id]")
+      .forEach(button => {
+        button.addEventListener("click", () => {
+          selectNoteRecord(button.dataset.noteId);
+        });
+      });
+  }
+
+
+  function selectFirstVisibleNote() {
+    if (!visibleNoteRecords.length) {
+      selectedNoteRecordId = null;
+      renderEmptyNoteDetail();
+      return;
+    }
+
+    selectNoteRecord(visibleNoteRecords[0].id);
+  }
+
+
+  function selectNoteRecord(id) {
+    const item = noteRecords.find(record => record.id === id);
+
+    if (!item) {
+      return;
+    }
+
+    selectedNoteRecordId = id;
+    renderNoteList(visibleNoteRecords);
+    renderNoteDetail(item);
+  }
+
+
+  function renderEmptyNoteDetail() {
+    noteDetail.innerHTML = `
+      <p class="empty-message">
+        선택할 자료가 없습니다.
+      </p>
+    `;
+  }
+
+
+  function renderNoteDetail(item) {
+    const summary =
+      item.summary
+      || item.description
+      || item.content
+      || "등록된 자료 설명이 없습니다.";
+
+    const files = getNoteFiles(item);
+
+    noteDetail.innerHTML = `
+      <div class="note-detail-meta">
+        <span>${escapeHtml(item.section)}</span>
+        <span>${escapeHtml(getNoteDate(item))}</span>
+        <span class="note-detail-title">
+          ${escapeHtml(getNoteTitle(item))}
+        </span>
+        <span>${escapeHtml(getNoteType(item))}</span>
+      </div>
+
+      <p class="note-detail-summary">
+        ${escapeHtml(summary)}
+      </p>
+
+      <div class="note-file-links">
+        ${createNoteFileMarkup(item, files)}
+      </div>
+    `;
+  }
+
+
+  function createNoteFileMarkup(record, files) {
+    if (!files.length) {
+      return `
+        <span class="note-file-missing">
+          연결된 첨부 자료가 없습니다.
+        </span>
+      `;
+    }
+
+    return files
+      .map(file => {
+        const title =
+          file.title
+          || file.description
+          || file.label
+          || file.file
+          || file.filename
+          || "첨부 자료";
+
+        const href = resolveNoteFileHref(record, file);
+        const exists = file.exists !== false;
+
+        if (!href || !exists) {
+          return `
+            <span class="note-file-missing">
+              ${escapeHtml(title)}
+            </span>
+          `;
+        }
+
+        return `
+          <a
+            class="note-file-link"
+            href="${escapeHtml(href)}"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ${escapeHtml(title)}
+          </a>
+        `;
+      })
+      .join("");
+  }
+
+
+  function handleNoteSearch(event) {
+    event.preventDefault();
+
+    const nameQuery =
+      normalizeText(noteSearchName.value);
+
+    const typeQuery =
+      normalizeText(noteSearchType.value);
+
+    const fieldQuery =
+      normalizeText(noteSearchField.value);
+
+    const wordQuery =
+      normalizeText(noteSearchWord.value);
+
+    const matched = noteRecords.filter(item => {
+      const nameText = normalizeText([
+        item.id,
+        getNoteTitle(item),
+        item.name,
+        item.korean,
+        item.english
+      ].join(" "));
+
+      const typeText =
+        normalizeText(getNoteType(item));
+
+      const fieldText =
+        normalizeText(getNoteFields(item).join(" "));
+
+      const wordText = normalizeText([
+        item.id,
+        item.section,
+        getNoteTitle(item),
+        getNoteDate(item),
+        getNoteType(item),
+        ...getNoteFields(item),
+        ...toArray(item.keywords),
+        ...toArray(item.summary),
+        ...toArray(item.description),
+        ...getNoteFiles(item).flatMap(file => [
+          file.title,
+          file.description,
+          file.label,
+          file.file,
+          file.filename
+        ])
+      ].join(" "));
+
+      return (
+        nameText.includes(nameQuery)
+        && typeText.includes(typeQuery)
+        && fieldText.includes(fieldQuery)
+        && wordText.includes(wordQuery)
+      );
+    });
+
+    visibleNoteRecords = matched.sort((first, second) => {
+      const firstPriority =
+        first.section === noteCurrentSection ? 0 : 1;
+
+      const secondPriority =
+        second.section === noteCurrentSection ? 0 : 1;
+
+      if (firstPriority !== secondPriority) {
+        return firstPriority - secondPriority;
+      }
+
+      return compareNoteDateDescending(first, second);
+    });
+
+    noteSearchStatus.textContent =
+      "노트 전체 검색 결과";
+
+    noteSearchCount.textContent =
+      `${visibleNoteRecords.length}건`;
+
+    noteSearchMessage.textContent =
+      visibleNoteRecords.length
+        ? `${noteCurrentSection} 섹션의 일치 자료를 먼저 표시합니다.`
+        : "조건에 맞는 노트 자료가 없습니다.";
+
+    renderNoteList(visibleNoteRecords);
+    selectFirstVisibleNote();
+  }
+
+
+  function resetNoteSearch() {
+    noteSearchForm.reset();
+
+    noteSearchMessage.textContent =
+      "노트 전체를 검색하며, 현재 섹션의 자료를 먼저 표시합니다.";
+
+    showCurrentNoteSection();
+    noteSearchName.focus();
+  }
+
+
+  function getIntegratedCategory(item) {
+    return String(
+      item.category
+      || item.section
+      || item.sourceType
+      || "자료"
+    );
+  }
+
+
+  function getIntegratedLocation(item) {
+    return String(
+      item.location
+      || item.subject
+      || item.group
+      || item.subcategory
+      || "-"
+    );
+  }
+
+
+  function getIntegratedTitle(item) {
+    return String(
+      item.title
+      || item.name
+      || item.korean
+      || item.id
+      || "제목 없는 자료"
+    );
+  }
+
+
+  function handleIntegratedSearch(event) {
+    event.preventDefault();
+
+    const query =
+      normalizeText(integratedSearchWord.value);
+
+    if (!query) {
+      integratedSearchCount.textContent = "0건";
+      integratedSearchResults.innerHTML = `
+        <p class="empty-message">
+          검색어를 입력해 주세요.
+        </p>
+      `;
+      return;
+    }
+
+    const matched = integratedRecords.filter(item => {
+      const searchable = normalizeText([
+        item.id,
+        getIntegratedCategory(item),
+        getIntegratedLocation(item),
+        getIntegratedTitle(item),
+        ...toArray(item.keywords),
+        ...toArray(item.summary),
+        ...toArray(item.content)
+      ].join(" "));
+
+      return searchable.includes(query);
+    });
+
+    renderIntegratedResults(matched);
+  }
+
+
+  function renderIntegratedResults(items) {
+    integratedSearchCount.textContent = `${items.length}건`;
+
+    if (!items.length) {
+      integratedSearchResults.innerHTML = `
+        <p class="empty-message">
+          조건에 맞는 종합 검색 자료가 없습니다.
+        </p>
+      `;
+      return;
+    }
+
+    integratedSearchResults.innerHTML = items
+      .map((item, index) => `
+        <button
+          type="button"
+          class="integrated-result-item"
+          data-integrated-index="${index}"
+        >
+          <span class="integrated-result-category">
+            ${escapeHtml(getIntegratedCategory(item))}
+          </span>
+
+          <span class="integrated-result-location">
+            ${escapeHtml(getIntegratedLocation(item))}
+          </span>
+
+          <span class="integrated-result-title">
+            ${escapeHtml(getIntegratedTitle(item))}
+          </span>
+        </button>
+      `)
+      .join("");
+
+    integratedSearchResults
+      .querySelectorAll("[data-integrated-index]")
+      .forEach(button => {
+        button.addEventListener("click", () => {
+          const item =
+            items[Number(button.dataset.integratedIndex)];
+
+          const href =
+            item?.href
+            || item?.url
+            || item?.path;
+
+          if (href) {
+            window.location.href = href;
+          }
+        });
+      });
+  }
+
+
+  function resetIntegratedSearch() {
+    integratedSearchForm.reset();
+    integratedSearchCount.textContent = "0건";
+
+    integratedSearchResults.innerHTML = `
+      <p class="empty-message">
+        검색어를 입력하면 교과목·독서·자료실·프로젝트의 결과가 표시됩니다.
+      </p>
+    `;
+
+    integratedSearchWord.focus();
+  }
+
+
+  async function loadNotesCategory() {
+    noteCurrentSection = getNoteSections().includes(noteCurrentSection)
+      ? noteCurrentSection
+      : getNoteSections()[0];
+
+    updateNoteSectionButtons();
+
+    await Promise.all([
+      loadNotesData(),
+      loadIntegratedData()
+    ]);
+
+    showCurrentNoteSection();
+  }
+
+
   /* ---------------------------------------------------------
      카테고리
      --------------------------------------------------------- */
 
   function updateCategoryButtons() {
+    updateLibraryViewMode();
+
     categoryButtons.forEach(button => {
       const active =
         button.dataset.category === currentCategory;
@@ -659,6 +1444,11 @@ const LibraryBoard = (() => {
     currentMediaPath = config.mediaPath || "";
 
     updateCategoryButtons();
+
+    if (isNotesCategory()) {
+      await loadNotesCategory();
+      return;
+    }
 
     try {
       const dataUrl =
@@ -1620,6 +2410,41 @@ const LibraryBoard = (() => {
           selectArchive(id);
         }
       }
+    );
+
+    noteSectionButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        noteCurrentSection =
+          button.dataset.noteSection;
+
+        updateNoteSectionButtons();
+        noteSearchForm.reset();
+
+        noteSearchMessage.textContent =
+          "노트 전체를 검색하며, 현재 섹션의 자료를 먼저 표시합니다.";
+
+        showCurrentNoteSection();
+      });
+    });
+
+    noteSearchForm.addEventListener(
+      "submit",
+      handleNoteSearch
+    );
+
+    noteSearchReset.addEventListener(
+      "click",
+      resetNoteSearch
+    );
+
+    integratedSearchForm.addEventListener(
+      "submit",
+      handleIntegratedSearch
+    );
+
+    integratedSearchReset.addEventListener(
+      "click",
+      resetIntegratedSearch
     );
   }
 

@@ -1,0 +1,31 @@
+id:universe-structure
+
+title:우주의 구조 자료 정리
+
+date: 2026-07-17
+
+type: 개인연구
+
+field: 천문학, 물리학, 천체물리학
+
+summary:
+우주의 구조와 현대 우주론에 관한 이미지와 문서를
+종합적으로 정리한 자료 모음이다.
+
+keywords: 우주, 우주의 구조, M이론
+
+files:
+universe-picture1.jpg | NASA 우주 사진 1
+universe-picture2.jpg | NASA 우주 사진 2
+universe-picture3.jpg | NASA 우주 사진 3
+universe-structure1.jpg | 우주 구조 참고 이미지 1
+universe-structure2.jpg | 우주 구조 참고 이미지 2
+universe-structure3.jpg | 우주 구조 참고 이미지 3
+universe-structure4.jpg | 우주 구조 참고 이미지 4
+universe-structure.pdf | 우주 구조 요약 자료
+
+related: hubble, einstein
+
+source: LOGIA School
+
+

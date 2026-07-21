@@ -1,0 +1,20 @@
+id:about-my-project
+
+title:나의 프로젝트 취지, 의의
+
+date: 2026-07-26
+
+type: 개인연구
+
+field: 기계공학, 물리학, 화학, 수학, 천체물리학
+
+summary:
+현재 진행 중인 프로젝트들과 각 프로젝트의 취지와 연구적 의의를 정리한 자료이다.
+
+keywords: 프로잭트, 연구, 개인 연구, 취미 연구
+
+files:
+aboutmyproject.pdf | 나의 프로젝트와 연구 내용
+
+source: LOGIA School
+

@@ -2359,12 +2359,673 @@ def build_computer_index(build_cache):
 # Notes Library Index
 # ============================================================
 
+NOTES_SECTIONS = [
+    "archive",
+    "books",
+    "media",
+    "papers",
+    "reference",
+    "theory",
+    "treasure"
+]
+
+NOTES_SECTION_NAMES = {
+    "id", "title", "date", "type", "author", "published",
+    "field", "fields", "keywords", "summary", "files",
+    "source", "sources", "related"
+}
+
+NOTES_SINGLE_FIELDS = {
+    "id", "title", "date", "type", "author", "published"
+}
+
+NOTES_LIST_FIELDS = {
+    "field", "fields", "keywords", "related"
+}
+
+NOTES_REQUIRED_FIELDS = {
+    "id", "title", "date", "type", "field", "summary", "keywords"
+}
+
+NOTES_ID_PATTERN = re.compile(r"^[a-z0-9][a-z0-9-]*$")
+NOTES_EXTERNAL_FILE_PATTERN = re.compile(
+    r"^[a-z][a-z0-9+.-]*://",
+    re.IGNORECASE
+)
+
+
+def create_empty_note_record():
+    return {
+        "id": "",
+        "title": "",
+        "date": "",
+        "type": "",
+        "author": "",
+        "published": "",
+        "fields": [],
+        "keywords": [],
+        "summary": [],
+        "files": [],
+        "sources": [],
+        "related": []
+    }
+
+
+def normalize_note_section_name(section_name):
+    if section_name == "fields":
+        return "field"
+
+    if section_name == "sources":
+        return "source"
+
+    return section_name
+
+
+def get_note_file_format(filename):
+    if NOTES_EXTERNAL_FILE_PATTERN.match(filename):
+        return "link"
+
+    suffix = Path(filename).suffix.lower().lstrip(".")
+    return suffix or "unknown"
+
+
+def add_note_file_item(
+    data,
+    line,
+    section,
+    data_dir
+):
+    parts = line.split("|", 1)
+    filename = parts[0].strip()
+    title = parts[1].strip() if len(parts) > 1 else ""
+
+    if not filename:
+        return
+
+    is_external = bool(
+        NOTES_EXTERNAL_FILE_PATTERN.match(filename)
+    )
+
+    if is_external:
+        exists = True
+        href = filename
+        flat_name = True
+    else:
+        exists = (data_dir / filename).is_file()
+        href = f"notes/{section}/data/{filename}"
+        flat_name = Path(filename).name == filename
+
+    data["files"].append({
+        "file": filename,
+        "title": title,
+        "format": get_note_file_format(filename),
+        "path": href,
+        "exists": exists,
+        "external": is_external,
+        "flatName": flat_name
+    })
+
+
+def read_note_record(
+    record_path,
+    section,
+    data_dir
+):
+    """
+    Notes TXT 레코드 하나를 읽는다.
+
+    공백 사용은 자유롭다.
+
+      id:test
+      id: test
+      id :test
+      id : test
+
+    위 네 형식을 모두 동일하게 처리한다.
+
+    한 줄 값:
+      id, title, date, type, author, published
+
+    쉼표 구분:
+      field, keywords, related
+
+    여러 줄:
+      summary, files, source
+    """
+
+    data = create_empty_note_record()
+
+    try:
+        lines = record_path.read_text(
+            encoding="utf-8"
+        ).splitlines()
+    except Exception:
+        return data
+
+    current_section = None
+
+    for raw_line in lines:
+        trimmed = raw_line.strip()
+
+        if not trimmed or trimmed.startswith("#"):
+            continue
+
+        field_match = re.match(
+            r"^([A-Za-z][A-Za-z0-9_-]*)\s*:\s*(.*)$",
+            trimmed
+        )
+
+        if field_match:
+            section_name = field_match.group(1).lower()
+            inline_value = field_match.group(2).strip()
+
+            if section_name in NOTES_SECTION_NAMES:
+                current_section = normalize_note_section_name(
+                    section_name
+                )
+
+                if inline_value:
+                    if current_section in {"field", "keywords", "related"}:
+                        target_name = (
+                            "fields"
+                            if current_section == "field"
+                            else current_section
+                        )
+
+                        append_unique(
+                            data[target_name],
+                            split_comma_values(inline_value)
+                        )
+
+                    elif current_section == "files":
+                        add_note_file_item(
+                            data,
+                            inline_value,
+                            section,
+                            data_dir
+                        )
+
+                    elif current_section == "summary":
+                        data["summary"].append(inline_value)
+
+                    elif current_section == "source":
+                        data["sources"].append(inline_value)
+
+                    elif not data[current_section]:
+                        data[current_section] = inline_value
+
+                continue
+
+        if current_section is None:
+            continue
+
+        if current_section in {"field", "keywords", "related"}:
+            target_name = (
+                "fields"
+                if current_section == "field"
+                else current_section
+            )
+
+            append_unique(
+                data[target_name],
+                split_comma_values(trimmed)
+            )
+
+        elif current_section == "files":
+            add_note_file_item(
+                data,
+                trimmed,
+                section,
+                data_dir
+            )
+
+        elif current_section == "summary":
+            data["summary"].append(trimmed)
+
+        elif current_section == "source":
+            data["sources"].append(trimmed)
+
+        elif not data[current_section]:
+            data[current_section] = trimmed
+
+    data["fields"] = list(dict.fromkeys(data["fields"]))
+    data["keywords"] = list(dict.fromkeys(data["keywords"]))
+    data["sources"] = list(dict.fromkeys(data["sources"]))
+    data["related"] = list(dict.fromkeys(data["related"]))
+
+    return data
+
+
+def print_note_record_warning(
+    section,
+    record_file,
+    message
+):
+    print("[WARNING]")
+    print(f"  Notes   : {section}")
+    print(f"  Record  : {record_file}")
+    print(f"  Problem : {message}")
+    print()
+    return 1
+
+
+def print_note_file_warning(
+    section,
+    record_file,
+    files
+):
+    missing = [
+        item
+        for item in files
+        if not item["exists"]
+    ]
+
+    invalid_paths = [
+        item
+        for item in files
+        if not item["external"]
+        and not item["flatName"]
+    ]
+
+    warning_count = 0
+
+    if missing:
+        print("[WARNING]")
+        print(f"  Notes   : {section}")
+        print(f"  Record  : {record_file}")
+        print("  Missing files:")
+
+        for item in missing:
+            print(f"    - {item['file']}")
+
+        print()
+        warning_count += len(missing)
+
+    if invalid_paths:
+        print("[WARNING]")
+        print(f"  Notes   : {section}")
+        print(f"  Record  : {record_file}")
+        print("  files에는 data 폴더 안의 파일명만 적습니다:")
+
+        for item in invalid_paths:
+            print(f"    - {item['file']}")
+
+        print()
+        warning_count += len(invalid_paths)
+
+    return warning_count
+
+
+def print_note_loose_file_warning(
+    section,
+    filenames
+):
+    if not filenames:
+        return 0
+
+    print("[WARNING]")
+    print(f"  Notes   : {section}")
+    print("  Files outside data folder:")
+
+    for filename in filenames:
+        print(f"    - {filename}")
+
+    print("  Move these files into the section/data folder.")
+    print()
+
+    return len(filenames)
+
+
+def validate_note_required_fields(
+    section,
+    record_path,
+    parsed
+):
+    warning_count = 0
+
+    field_values = {
+        "id": parsed["id"],
+        "title": parsed["title"],
+        "date": parsed["date"],
+        "type": parsed["type"],
+        "field": parsed["fields"],
+        "summary": parsed["summary"],
+        "keywords": parsed["keywords"]
+    }
+
+    for field_name in sorted(NOTES_REQUIRED_FIELDS):
+        if not field_values[field_name]:
+            warning_count += print_note_record_warning(
+                section,
+                record_path.name,
+                f"필수 항목이 비어 있습니다: {field_name}"
+            )
+
+    if parsed["date"] and not is_valid_iso_date(parsed["date"]):
+        warning_count += print_note_record_warning(
+            section,
+            record_path.name,
+            f"날짜 형식이 올바르지 않습니다: {parsed['date']}"
+        )
+
+    if (
+        parsed["id"]
+        and not NOTES_ID_PATTERN.fullmatch(parsed["id"])
+    ):
+        warning_count += print_note_record_warning(
+            section,
+            record_path.name,
+            (
+                "id는 영문 소문자, 숫자, 하이픈 사용을 권장합니다: "
+                f"{parsed['id']}"
+            )
+        )
+
+    return warning_count
+
+
+def collect_note_data_files(data_dir):
+    if not data_dir.exists():
+        return set()
+
+    return {
+        path.name
+        for path in data_dir.iterdir()
+        if path.is_file()
+    }
+
+
+def collect_note_loose_files(section_dir):
+    return sorted(
+        path.name
+        for path in section_dir.iterdir()
+        if path.is_file()
+        and path.suffix.lower() != ".txt"
+    )
+
+
 def build_notes_index(build_cache):
-    """
-    Notes 자료 형식이 확정된 뒤 구현한다.
-    History 및 Computer 자료와 독립 Builder로 유지한다.
-    """
-    return 0
+    notes_dir = RESOURCES_DIR / "notes"
+    index_path = notes_dir / "notes-index.json"
+
+    if not notes_dir.exists():
+        print(
+            "[SKIP] Notes Index : "
+            "resources/notes 폴더 없음"
+        )
+        print()
+        return 0
+
+    records = []
+    record_ids = set()
+    warning_count = 0
+
+    section_counts = {
+        section: 0
+        for section in NOTES_SECTIONS
+    }
+
+    section_file_counts = {
+        section: 0
+        for section in NOTES_SECTIONS
+    }
+
+    section_unused_files = {
+        section: []
+        for section in NOTES_SECTIONS
+    }
+
+    section_loose_files = {
+        section: []
+        for section in NOTES_SECTIONS
+    }
+
+    for section in NOTES_SECTIONS:
+        section_dir = notes_dir / section
+        data_dir = section_dir / "data"
+
+        if not section_dir.exists():
+            print(
+                f"[SKIP] Notes Section : "
+                f"{section} 폴더 없음"
+            )
+            print()
+            continue
+
+        # 섹션 바로 아래의 TXT만 읽는다.
+        # data 폴더 내부는 재귀적으로 탐색하지 않는다.
+        record_files = sorted(
+            section_dir.glob("*.txt")
+        )
+
+        data_files = collect_note_data_files(data_dir)
+        used_files = set()
+
+        loose_files = collect_note_loose_files(section_dir)
+        section_loose_files[section] = loose_files
+        warning_count += print_note_loose_file_warning(
+            section,
+            loose_files
+        )
+
+        for record_path in record_files:
+            parsed = read_note_record(
+                record_path,
+                section,
+                data_dir
+            )
+
+            warning_count += validate_note_required_fields(
+                section,
+                record_path,
+                parsed
+            )
+
+            record_id = parsed["id"] or record_path.stem
+
+            if not parsed["id"]:
+                warning_count += print_note_record_warning(
+                    section,
+                    record_path.name,
+                    (
+                        "id가 비어 있어 파일명을 "
+                        "임시 id로 사용합니다."
+                    )
+                )
+
+            if record_id in record_ids:
+                warning_count += print_note_record_warning(
+                    section,
+                    record_path.name,
+                    f"중복 id입니다: {record_id}"
+                )
+                continue
+
+            record_ids.add(record_id)
+
+            warning_count += print_note_file_warning(
+                section,
+                record_path.name,
+                parsed["files"]
+            )
+
+            for item in parsed["files"]:
+                if not item["external"]:
+                    used_files.add(item["file"])
+
+            summary_text = " ".join(
+                line.strip()
+                for line in parsed["summary"]
+                if line.strip()
+            )
+
+            records.append({
+                "id": record_id,
+                "section": section,
+                "file": record_path.name,
+                "title": parsed["title"],
+                "date": parsed["date"],
+                "type": parsed["type"],
+                "author": parsed["author"],
+                "published": parsed["published"],
+                "fields": parsed["fields"],
+                "keywords": parsed["keywords"],
+                "summary": summary_text,
+                "files": [
+                    {
+                        "file": item["file"],
+                        "title": item["title"],
+                        "format": item["format"],
+                        "path": item["path"],
+                        "exists": item["exists"]
+                    }
+                    for item in parsed["files"]
+                ],
+                "source": parsed["sources"],
+                "related": parsed["related"]
+            })
+
+        section_counts[section] = len(record_files)
+        section_file_counts[section] = sum(
+            len(record["files"])
+            for record in records
+            if record["section"] == section
+        )
+
+        unused_files = sorted(data_files - used_files)
+        section_unused_files[section] = unused_files
+
+    records.sort(
+        key=lambda item: (
+            item.get("date") or "",
+            item.get("title") or "",
+            item.get("id") or ""
+        ),
+        reverse=True
+    )
+
+    all_files = [
+        item
+        for record in records
+        for item in record["files"]
+    ]
+
+    existing_file_count = sum(
+        1
+        for item in all_files
+        if item["exists"]
+    )
+
+    missing_file_count = sum(
+        1
+        for item in all_files
+        if not item["exists"]
+    )
+
+    type_counts = {
+        record_type: sum(
+            1
+            for record in records
+            if record.get("type") == record_type
+        )
+        for record_type in sorted({
+            record["type"]
+            for record in records
+            if record.get("type")
+        })
+    }
+
+    root_txt_files = sorted(
+        path.name
+        for path in notes_dir.glob("*.txt")
+    )
+
+    index_data = {
+        "cacheVersion": build_cache,
+        "archiveType": "notes",
+        "sections": NOTES_SECTIONS,
+        "recordCount": len(records),
+        "fileCount": len(all_files),
+        "existingFileCount": existing_file_count,
+        "missingFileCount": missing_file_count,
+        "sectionCounts": section_counts,
+        "sectionFileCounts": section_file_counts,
+        "typeCounts": type_counts,
+        "types": sorted({
+            record["type"]
+            for record in records
+            if record.get("type")
+        }),
+        "authors": sorted({
+            record["author"]
+            for record in records
+            if record.get("author")
+        }),
+        "fields": sorted({
+            field
+            for record in records
+            for field in record.get("fields", [])
+        }),
+        "keywords": sorted({
+            keyword
+            for record in records
+            for keyword in record.get("keywords", [])
+        }),
+        "rootTxtFilesIgnored": root_txt_files,
+        "unusedDataFiles": section_unused_files,
+        "filesOutsideDataFolder": section_loose_files,
+        "records": records,
+        "updated": datetime.now().isoformat(
+            timespec="seconds"
+        )
+    }
+
+    index_path.write_text(
+        json.dumps(
+            index_data,
+            ensure_ascii=False,
+            indent=2
+        ),
+        encoding="utf-8"
+    )
+
+    print("[OK] Notes Knowledge Archive")
+    print(f"  records  : {len(records)}")
+    print(f"  files    : {len(all_files)}")
+    print(f"  existing : {existing_file_count}")
+    print(f"  missing  : {missing_file_count}")
+    print(f"  -> {index_path}")
+
+    print()
+    print("  Section Records")
+    for section in NOTES_SECTIONS:
+        print(
+            f"    - {section:<9}: "
+            f"{section_counts[section]}"
+        )
+
+    unused_total = sum(
+        len(files)
+        for files in section_unused_files.values()
+    )
+
+    if unused_total:
+        print()
+        print("  Unused Data Files")
+
+        for section in NOTES_SECTIONS:
+            for filename in section_unused_files[section]:
+                print(f"    - {section}/data/{filename}")
+
+    if root_txt_files:
+        print()
+        print("  Root TXT Files Ignored")
+
+        for filename in root_txt_files:
+            print(f"    - {filename}")
+
+    print()
+    return warning_count
 
 
 # ============================================================

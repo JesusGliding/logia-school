@@ -1,0 +1,29 @@
+id: evolution-of-beautiful
+
+title:진화가 아름다움을 창조할 수 있는가?
+
+date: 2026-07-20
+
+type: 기고문
+
+field: 생명과학, 철학, 인문학
+
+summary:
+진화적 관점에서 아름다움의 발생과 창조 가능성을 탐구한 철학·과학 기고문이다.
+
+keywords: 진화, 미, 아름다움, 창조, 자연선택, 기고
+
+------------- 필수 항목 --------------
+
+
+files:
+evolution-of-beautiful.pdf | 진화와 아름다움 기고문(AI)
+
+source:LOGIA School
+
+related:darwin
+
+published:
+author:
+source:
+
