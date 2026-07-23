@@ -1,0 +1,2248 @@
+{
+  "cacheVersion": 1784825559,
+  "indexType": "integrated-search",
+  "recordCount": 75,
+  "sourceCounts": {
+    "science-history": 12,
+    "math-history": 15,
+    "philosophy-history": 15,
+    "computer": 18,
+    "notes": 6,
+    "reading-science": 3,
+    "reading-philosophy": 1,
+    "reading-fiction": 2,
+    "reading-humanities": 3
+  },
+  "records": [
+    {
+      "id": "reading-the-moment-math",
+      "source": "reading",
+      "category": "science",
+      "categoryTitle": "과학 서적",
+      "location": "수학",
+      "kind": "reading",
+      "type": "reading",
+      "title": "수학이 필요한 순간",
+      "subtitle": "김민형",
+      "aliases": [
+        "김민형"
+      ],
+      "date": "2026-07-13",
+      "fields": [
+        "수학"
+      ],
+      "keywords": [
+        "수학",
+        "교육"
+      ],
+      "summary": [
+        "두 번째 보는 책이다. 나는 보통 책을 두번 보진 않는데 다시 생각나서 또 읽게 되었다.",
+        "지난번 뒷부분을 자세히 못 읽어서 이기도 하고 나의 인지적 사고 능력을 일깨우는데 더할 나위 없이 좋은 책이다. 수학을 어떻게 시작해야 하는지 알려주는 한국의 명저이다. 내가 좀더 일찍, 고등학교 때 이던, 수학이 어떤 학문인지를 깊게 알았더라면 수학을 제대로 공부해 보거나 아니면 애초에 시작을 하지 않았을 것이다. ^^; 청소년기에 나는 따지는 것을 그리 좋아하진 않는 성격이었기 때문이다. 하지만 그것이 지성의 출발점임을 근래에 철학과 수학을 접하면서 알게 되었다.",
+        "또한 요즘 독서 모임을 방문하면서 책을 여러 번 읽는 것도 괜찮을것 같다는 생각이 든다.",
+        "아무쪼록 수많은 학생들이 이런 좋은 책들을 일찍이 접했으면 하는 바램이다."
+      ],
+      "content": [],
+      "related": [],
+      "href": "/reading/reading.html?category=science&id=reading-the-moment-math"
+    },
+    {
+      "id": "reading-math-bad-drawings",
+      "source": "reading",
+      "category": "science",
+      "categoryTitle": "과학 서적",
+      "location": "수학",
+      "kind": "reading",
+      "type": "completed",
+      "title": "이상한 수학책 (Math with Bad Drawings)",
+      "subtitle": "벤 올린 (Ben Orlin)",
+      "aliases": [
+        "벤 올린 (Ben Orlin)"
+      ],
+      "date": "2026-06-24",
+      "fields": [
+        "수학"
+      ],
+      "keywords": [
+        "수학",
+        "확률",
+        "통계",
+        "시각화"
+      ],
+      "summary": [
+        "수학의 여러 개념을 그림과 유머를 이용해 설명하는 책이다."
+      ],
+      "content": [
+        "수학은 단순한 계산 기술이 아니라 세상을 바라보는 방식이라는 생각이 들었다."
+      ],
+      "related": [],
+      "href": "/reading/reading.html?category=science&id=reading-math-bad-drawings"
+    },
+    {
+      "id": "reading-cosmos",
+      "source": "reading",
+      "category": "science",
+      "categoryTitle": "과학 서적",
+      "location": "천문학",
+      "kind": "reading",
+      "type": "reading",
+      "title": "Cosmos (코스모스)",
+      "subtitle": "Carl Sagan (칼 세이건)",
+      "aliases": [
+        "Carl Sagan (칼 세이건)"
+      ],
+      "date": "2026-06-14",
+      "fields": [
+        "천문학"
+      ],
+      "keywords": [
+        "우주",
+        "천문학",
+        "과학사",
+        "생명"
+      ],
+      "summary": [
+        "원서 읽기에 도전해 보았다. 첫 원서 도전으론 다소 어려운 책이었다.",
+        "번역기를 활용하며 읽고 있는 중이다."
+      ],
+      "content": [],
+      "related": [],
+      "href": "/reading/reading.html?category=science&id=reading-cosmos"
+    },
+    {
+      "id": "relativity",
+      "source": "library",
+      "category": "science-history",
+      "categoryTitle": "과학사",
+      "location": "상세 자료",
+      "kind": "history",
+      "type": "theory",
+      "title": "상대성이론",
+      "subtitle": "Theory of Relativity",
+      "aliases": [
+        "상대성이론",
+        "Theory of Relativity"
+      ],
+      "date": "1905-1915",
+      "fields": [
+        "물리학"
+      ],
+      "keywords": [
+        "시공간",
+        "빛",
+        "중력"
+      ],
+      "summary": [
+        "공간과 시간, 운동과 중력의 관계를 설명하는 현대물리학의 핵심 이론이다."
+      ],
+      "content": [
+        "아인슈타인의 주도로 정립된 시간과 공간에 대한 물리 이론이다.",
+        "특수 상대성 이론과 일반 상대성 이론으로 나뉜다.",
+        "동시성의 상대성과 질량-에너지 동등성을 제시함.(E=mc²)",
+        "시공간은 4차원, 즉 시간과 공간이 결합된 형태의 연속체임을 규명.",
+        "극도로 밀집된 질량이 시공간을 심각하게 왜곡, 블랙홀 예측."
+      ],
+      "related": [
+        "einstein",
+        "spacetime",
+        "gravity"
+      ],
+      "href": "/resources/library.html?category=science-history&id=relativity"
+    },
+    {
+      "id": "entropy",
+      "source": "library",
+      "category": "science-history",
+      "categoryTitle": "과학사",
+      "location": "상세 자료",
+      "kind": "history",
+      "type": "concept",
+      "title": "엔트로피",
+      "subtitle": "Entropy",
+      "aliases": [
+        "엔트로피",
+        "Entropy"
+      ],
+      "date": "",
+      "fields": [
+        "물리학",
+        "정보이론"
+      ],
+      "keywords": [
+        "열역학",
+        "무질서",
+        "정보"
+      ],
+      "summary": [
+        "열역학적 상태의 가능성과 에너지 분산을 설명하는 핵심 개념이다."
+      ],
+      "content": [
+        "유효하게 이용할 수 있는 에너지의 감소 정도나 무효 에너지의 증가 정도.",
+        "정보이론에선 정보를 내보내는 근원의 불확실도를 나타내는 양, 또는 정보량의 기대치.",
+        "열역학 제2법칙, 고립된 시스템은 엔트로피가 가장 높은 열역학적 평형을 향해 진화한다."
+      ],
+      "related": [
+        "thermodynamics",
+        "second-law"
+      ],
+      "href": "/resources/library.html?category=science-history&id=entropy"
+    },
+    {
+      "id": "nielsbohr",
+      "source": "library",
+      "category": "science-history",
+      "categoryTitle": "과학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "닐스 보어",
+      "subtitle": "Niels Henrik David Bohr",
+      "aliases": [
+        "닐스 보어",
+        "Niels Henrik David Bohr"
+      ],
+      "date": "1885",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "원자 구조의 이해와 양자역학에 기여"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=science-history&id=nielsbohr"
+    },
+    {
+      "id": "lavoisier",
+      "source": "library",
+      "category": "science-history",
+      "categoryTitle": "과학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "라부아지에",
+      "subtitle": "Antoine-Laurent de Lavoisier",
+      "aliases": [
+        "라부아지에",
+        "Antoine-Laurent de Lavoisier"
+      ],
+      "date": "1743",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "화학을 독립학문으로 분리해냄"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=science-history&id=lavoisier"
+    },
+    {
+      "id": "aristotle",
+      "source": "library",
+      "category": "science-history",
+      "categoryTitle": "과학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "아리스토텔레스",
+      "subtitle": "Aristotle",
+      "aliases": [
+        "아리스토텔레스",
+        "Aristotle"
+      ],
+      "date": "-384",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "자연학과 논리학을 체계화"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=science-history&id=aristotle"
+    },
+    {
+      "id": "einstein",
+      "source": "library",
+      "category": "science-history",
+      "categoryTitle": "과학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "알베르트 아인슈타인",
+      "subtitle": "Albert Einstein",
+      "aliases": [
+        "알베르트 아인슈타인",
+        "Albert Einstein"
+      ],
+      "date": "1879",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "상대성이론과 현대물리학"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=science-history&id=einstein"
+    },
+    {
+      "id": "alhaytham",
+      "source": "library",
+      "category": "science-history",
+      "categoryTitle": "과학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "이븐 알하이삼",
+      "subtitle": "Ibn al-Haytham",
+      "aliases": [
+        "이븐 알하이삼",
+        "Ibn al-Haytham"
+      ],
+      "date": "965",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "광학 이론에 큰 공헌"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=science-history&id=alhaytham"
+    },
+    {
+      "id": "thales",
+      "source": "library",
+      "category": "science-history",
+      "categoryTitle": "과학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "탈레스",
+      "subtitle": "Thales",
+      "aliases": [
+        "탈레스",
+        "Thales"
+      ],
+      "date": "-624",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "자연철학의 출발점, 만물의 근원은 물"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=science-history&id=thales"
+    },
+    {
+      "id": "ptolemy",
+      "source": "library",
+      "category": "science-history",
+      "categoryTitle": "과학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "프톨레마이오스",
+      "subtitle": "Claudius Ptolemy",
+      "aliases": [
+        "프톨레마이오스",
+        "Claudius Ptolemy"
+      ],
+      "date": "83",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "지구 중심의 천동설 주장"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=science-history&id=ptolemy"
+    },
+    {
+      "id": "pythagoras",
+      "source": "library",
+      "category": "science-history",
+      "categoryTitle": "과학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "피타고라스",
+      "subtitle": "Pythagoras",
+      "aliases": [
+        "피타고라스",
+        "Pythagoras"
+      ],
+      "date": "-570",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "수와 자연의 조화를 탐구"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=science-history&id=pythagoras"
+    },
+    {
+      "id": "galileo",
+      "source": "library",
+      "category": "science-history",
+      "categoryTitle": "과학사",
+      "location": "연대기 · 상세 자료",
+      "kind": "history",
+      "type": "person",
+      "title": "갈릴레오 갈릴레이",
+      "subtitle": "Galileo Galilei",
+      "aliases": [
+        "갈릴레오 갈릴레이",
+        "Galileo Galilei"
+      ],
+      "date": "1564-1642",
+      "fields": [
+        "물리학",
+        "천문학"
+      ],
+      "keywords": [
+        "관성",
+        "망원경",
+        "낙하운동"
+      ],
+      "summary": [
+        "근대 관측과 실험 과학의 발전",
+        "관측과 실험을 통해 근대 과학의 방법을 발전시킨 이탈리아의 과학자이다."
+      ],
+      "content": [
+        "과학 혁명의 주도자로 요하네스 케플러와 동시대 인물이다.",
+        "망원경을 개량하여 목성의 위성, 태양의 흑점등을 발견.",
+        "전체 관측사항을 이용하여 코페르니쿠스의 지동설 입증.",
+        "<두 가지 새로운 과학에 관한 논술> 집필",
+        "낙하운동 연구, 속도와 가속도의 개념을 확립."
+      ],
+      "related": [
+        "newton",
+        "kepler"
+      ],
+      "href": "/resources/library.html?category=science-history&id=galileo"
+    },
+    {
+      "id": "newton",
+      "source": "library",
+      "category": "science-history",
+      "categoryTitle": "과학사",
+      "location": "연대기 · 상세 자료",
+      "kind": "history",
+      "type": "person",
+      "title": "아이작 뉴턴",
+      "subtitle": "Isaac Newton",
+      "aliases": [
+        "아이작 뉴턴",
+        "Isaac Newton"
+      ],
+      "date": "1643-1727",
+      "fields": [
+        "물리학",
+        "수학",
+        "천문학"
+      ],
+      "keywords": [
+        "고전역학",
+        "만유인력",
+        "미적분"
+      ],
+      "summary": [
+        "운동법칙과 만유인력",
+        "고전역학의 체계를 확립하고 만유인력 법칙을 제시한 영국의 과학자이다."
+      ],
+      "content": [
+        "<자연철학의 수학적 원리>, \"프린키피아\" 출간",
+        "만유인력과 3가지 뉴턴 운동 법칙 저술",
+        "프리즘을 이용한 빛의 분산 실험과 반사 망원경 발견",
+        "라이프니츠와 별개로 미적분법 창시"
+      ],
+      "related": [
+        "galileo",
+        "kepler",
+        "leibniz",
+        "gravity"
+      ],
+      "href": "/resources/library.html?category=science-history&id=newton"
+    },
+    {
+      "id": "linux-book",
+      "source": "notes",
+      "category": "notes",
+      "categoryTitle": "노트",
+      "location": "books",
+      "kind": "note",
+      "type": "자료",
+      "title": "리눅스 관련 책",
+      "subtitle": "자료",
+      "aliases": [],
+      "date": "2026-07-22",
+      "fields": [
+        "컴퓨터",
+        "운영체제"
+      ],
+      "keywords": [
+        "리눅스",
+        "운영체제",
+        "pdf",
+        "책"
+      ],
+      "summary": [
+        "리눅스 관련 무료 자료들 모음"
+      ],
+      "content": [
+        "자동차 사진들",
+        "linux.pdf",
+        "pdf"
+      ],
+      "related": [],
+      "href": "/resources/library.html?category=notes&section=books&id=linux-book"
+    },
+    {
+      "id": "car-jpg",
+      "source": "notes",
+      "category": "notes",
+      "categoryTitle": "노트",
+      "location": "media",
+      "kind": "note",
+      "type": "종합자료",
+      "title": "자동차 사진 모음들",
+      "subtitle": "종합자료",
+      "aliases": [],
+      "date": "2026-07-22",
+      "fields": [
+        "자동차공학",
+        "기계공학",
+        "디자인"
+      ],
+      "keywords": [
+        "자동차",
+        "디자인",
+        "자동차 공학",
+        "사진",
+        "자동차 기종"
+      ],
+      "summary": [
+        "수만은 자동차의 종류별, 기종별, 회사별 사진들을 모아 놓은 것이다."
+      ],
+      "content": [
+        "자동차 사진들",
+        "car.jpg",
+        "jpg"
+      ],
+      "related": [],
+      "href": "/resources/library.html?category=notes&section=media&id=car-jpg"
+    },
+    {
+      "id": "about-my-project",
+      "source": "notes",
+      "category": "notes",
+      "categoryTitle": "노트",
+      "location": "treasure",
+      "kind": "note",
+      "type": "개인연구",
+      "title": "나의 프로젝트 취지, 의의",
+      "subtitle": "개인연구",
+      "aliases": [],
+      "date": "2026-07-26",
+      "fields": [
+        "기계공학",
+        "물리학",
+        "화학",
+        "수학",
+        "천체물리학"
+      ],
+      "keywords": [
+        "프로잭트",
+        "연구",
+        "개인 연구",
+        "취미 연구"
+      ],
+      "summary": [
+        "현재 진행 중인 프로젝트들과 각 프로젝트의 취지와 연구적 의의를 정리한 자료이다."
+      ],
+      "content": [
+        "나의 프로젝트와 연구 내용",
+        "aboutmyproject.pdf",
+        "pdf"
+      ],
+      "related": [],
+      "href": "/resources/library.html?category=notes&section=treasure&id=about-my-project"
+    },
+    {
+      "id": "universe-structure",
+      "source": "notes",
+      "category": "notes",
+      "categoryTitle": "노트",
+      "location": "treasure",
+      "kind": "note",
+      "type": "개인연구",
+      "title": "우주의 구조 자료 정리",
+      "subtitle": "개인연구",
+      "aliases": [],
+      "date": "2026-07-17",
+      "fields": [
+        "천문학",
+        "물리학",
+        "천체물리학"
+      ],
+      "keywords": [
+        "우주",
+        "우주의 구조",
+        "M이론"
+      ],
+      "summary": [
+        "우주의 구조와 현대 우주론에 관한 이미지와 문서를 종합적으로 정리한 자료 모음이다."
+      ],
+      "content": [
+        "NASA 우주 사진 1",
+        "universe-picture1.jpg",
+        "jpg",
+        "NASA 우주 사진 2",
+        "universe-picture2.jpg",
+        "NASA 우주 사진 3",
+        "universe-picture3.jpg",
+        "우주 구조 참고 이미지 1",
+        "universe-structure1.jpg",
+        "우주 구조 참고 이미지 2",
+        "universe-structure2.jpg",
+        "우주 구조 참고 이미지 3",
+        "universe-structure3.jpg",
+        "우주 구조 참고 이미지 4",
+        "universe-structure4.jpg",
+        "우주 구조 요약 자료",
+        "universe-structure.pdf",
+        "pdf"
+      ],
+      "related": [
+        "hubble",
+        "einstein"
+      ],
+      "href": "/resources/library.html?category=notes&section=treasure&id=universe-structure"
+    },
+    {
+      "id": "automobile-design",
+      "source": "notes",
+      "category": "notes",
+      "categoryTitle": "노트",
+      "location": "treasure",
+      "kind": "note",
+      "type": "개인연구",
+      "title": "자동차 설계와 디자인 자료",
+      "subtitle": "개인연구",
+      "aliases": [],
+      "date": "2026-07-19",
+      "fields": [
+        "자동차공학",
+        "기계공학",
+        "물리학",
+        "디자인"
+      ],
+      "keywords": [
+        "자동차",
+        "디자인",
+        "설계",
+        "자동차 공학",
+        "제작"
+      ],
+      "summary": [
+        "자동차의 설계, 구조, 디자인과 제작에 관한 자료를 종합적으로 정리한 개인 연구 자료이다."
+      ],
+      "content": [
+        "자동차 사진들",
+        "automobile.zip",
+        "zip",
+        "자동차 구조도",
+        "automobile_structure.jpg",
+        "jpg",
+        "자동차 설계 디자인 자료",
+        "automobile_design.pdf",
+        "pdf"
+      ],
+      "related": [],
+      "href": "/resources/library.html?category=notes&section=treasure&id=automobile-design"
+    },
+    {
+      "id": "evolution-of-beautiful",
+      "source": "notes",
+      "category": "notes",
+      "categoryTitle": "노트",
+      "location": "treasure",
+      "kind": "note",
+      "type": "기고문",
+      "title": "진화가 아름다움을 창조할 수 있는가?",
+      "subtitle": "기고문",
+      "aliases": [],
+      "date": "2026-07-20",
+      "fields": [
+        "생명과학",
+        "철학",
+        "인문학"
+      ],
+      "keywords": [
+        "진화",
+        "미",
+        "아름다움",
+        "창조",
+        "자연선택",
+        "기고"
+      ],
+      "summary": [
+        "진화적 관점에서 아름다움의 발생과 창조 가능성을 탐구한 철학·과학 기고문이다."
+      ],
+      "content": [
+        "진화와 아름다움 기고문(AI)",
+        "evolution-of-beautiful.pdf",
+        "pdf"
+      ],
+      "related": [
+        "darwin"
+      ],
+      "href": "/resources/library.html?category=notes&section=treasure&id=evolution-of-beautiful"
+    },
+    {
+      "id": "reading-simon-sort-of-says",
+      "source": "reading",
+      "category": "fiction",
+      "categoryTitle": "소설과 에세이",
+      "location": "소설",
+      "kind": "reading",
+      "type": "reading",
+      "title": "사이먼 가라사대, 우리는 모두 별이다 (Simon Sort of Says)",
+      "subtitle": "Erin Bow (에린 보우)",
+      "aliases": [
+        "Erin Bow (에린 보우)"
+      ],
+      "date": "2026-06-01",
+      "fields": [
+        "소설"
+      ],
+      "keywords": [
+        "우주",
+        "천문학",
+        "전파망원경",
+        "성장",
+        "우정"
+      ],
+      "summary": [
+        "\"생존자들에게, 당신들은 모두 별입니다.\" 첫 장의 에피그래프(Epigraph)이다.",
+        "이 문구 하나가 이 책의 전반적인 내용을 모두 설명하는 것 같다. PTSD로 고통받는 분들에게 깊은 위로의 마음을 전한다.",
+        "주인공 사이먼의 성장기 내용을 다룬 소설이다. 배경이 특이하다. 영화《컨택트》를 연상 시키는 거대 전파망원경 지역을(웨스트버지니아주 그린뱅크) 소재로 한다.",
+        "과학 관련 내용이 많기도 하다. 그래서 내가 좋아한다."
+      ],
+      "content": [],
+      "related": [],
+      "href": "/reading/reading.html?category=fiction&id=reading-simon-sort-of-says"
+    },
+    {
+      "id": "reading-on-the-road",
+      "source": "reading",
+      "category": "fiction",
+      "categoryTitle": "소설과 에세이",
+      "location": "여행",
+      "kind": "reading",
+      "type": "reading",
+      "title": "On The Road 카오산 로드에서 만난 사람들",
+      "subtitle": "박준",
+      "aliases": [
+        "박준"
+      ],
+      "date": "2026-05-01",
+      "fields": [
+        "여행"
+      ],
+      "keywords": [
+        "여행",
+        "배낭여행",
+        "여행에세이",
+        "인터뷰",
+        "태국",
+        "세계여행",
+        "다큐멘터리"
+      ],
+      "summary": [
+        "태국의 카오산 로드에서 만난 다양한 배낭여행자들의 삶과 여행을 인터뷰 형식으로 담은 여행 에세이이다. 여행 좋아하는 독자라면 여행 충동을 느낄 정도로 생동감이 넘치는 다큐멘터리 구성 방식이 인상적이다."
+      ],
+      "content": [],
+      "related": [],
+      "href": "/reading/reading.html?category=fiction&id=reading-on-the-road"
+    },
+    {
+      "id": "descartes",
+      "source": "library",
+      "category": "math-history",
+      "categoryTitle": "수학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "데카르트",
+      "subtitle": "René Descartes",
+      "aliases": [
+        "데카르트",
+        "René Descartes"
+      ],
+      "date": "1596",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "해석기하학 창시, 근대 수학의 전환점"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=math-history&id=descartes"
+    },
+    {
+      "id": "calculus",
+      "source": "library",
+      "category": "math-history",
+      "categoryTitle": "수학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "미적분학",
+      "subtitle": "Calculus",
+      "aliases": [
+        "미적분학",
+        "Calculus"
+      ],
+      "date": "1665",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "현대 수학의 탄생"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=math-history&id=calculus"
+    },
+    {
+      "id": "archimedes",
+      "source": "library",
+      "category": "math-history",
+      "categoryTitle": "수학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "아르키메데스",
+      "subtitle": "Archimedes of Syracuse",
+      "aliases": [
+        "아르키메데스",
+        "Archimedes of Syracuse"
+      ],
+      "date": "-287",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "부력의 원리, 원주율 계산, 고대 최고의 수학자"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=math-history&id=archimedes"
+    },
+    {
+      "id": "newton",
+      "source": "library",
+      "category": "math-history",
+      "categoryTitle": "수학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "아이작 뉴턴",
+      "subtitle": "Isaac Newton",
+      "aliases": [
+        "아이작 뉴턴",
+        "Isaac Newton"
+      ],
+      "date": "1642",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "미적분학 창시, 고전역학의 수학적 기초 확립"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=math-history&id=newton"
+    },
+    {
+      "id": "alkhwarizmi",
+      "source": "library",
+      "category": "math-history",
+      "categoryTitle": "수학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "알콰리즈미",
+      "subtitle": "Muhammad ibn Musa al-Khwarizmi",
+      "aliases": [
+        "알콰리즈미",
+        "Muhammad ibn Musa al-Khwarizmi"
+      ],
+      "date": "780",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "대수학 체계화, 알고리즘(Algorithm)의 어원"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=math-history&id=alkhwarizmi"
+    },
+    {
+      "id": "euler",
+      "source": "library",
+      "category": "math-history",
+      "categoryTitle": "수학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "오일러",
+      "subtitle": "Leonhard Euler",
+      "aliases": [
+        "오일러",
+        "Leonhard Euler"
+      ],
+      "date": "1707",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "현대 수학 표기법 정립, 오일러 공식, 그래프 이론 창시"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=math-history&id=euler"
+    },
+    {
+      "id": "euclid",
+      "source": "library",
+      "category": "math-history",
+      "categoryTitle": "수학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "유클리드",
+      "subtitle": "Euclid",
+      "aliases": [
+        "유클리드",
+        "Euclid"
+      ],
+      "date": "-300",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "<기하학 원론> 저자, 공리 체계 기원"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=math-history&id=euclid"
+    },
+    {
+      "id": "liuhui",
+      "source": "library",
+      "category": "math-history",
+      "categoryTitle": "수학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "유휘",
+      "subtitle": "Liu Hui",
+      "aliases": [
+        "유휘",
+        "Liu Hui"
+      ],
+      "date": "220",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "중국 삼국시대 수학자, 구장산술 주석"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=math-history&id=liuhui"
+    },
+    {
+      "id": "coordinate",
+      "source": "library",
+      "category": "math-history",
+      "categoryTitle": "수학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "좌표기하학",
+      "subtitle": "Analytic Geometry",
+      "aliases": [
+        "좌표기하학",
+        "Analytic Geometry"
+      ],
+      "date": "1637",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "해석기하학의 시작"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=math-history&id=coordinate"
+    },
+    {
+      "id": "set",
+      "source": "library",
+      "category": "math-history",
+      "categoryTitle": "수학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "집합론",
+      "subtitle": "Set Theory",
+      "aliases": [
+        "집합론",
+        "Set Theory"
+      ],
+      "date": "1874",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "현대 수학의 기초"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=math-history&id=set"
+    },
+    {
+      "id": "thales",
+      "source": "library",
+      "category": "math-history",
+      "categoryTitle": "수학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "탈레스",
+      "subtitle": "Thales",
+      "aliases": [
+        "탈레스",
+        "Thales"
+      ],
+      "date": "-624",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "자연철학의 출발점, 만물의 근원은 물"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=math-history&id=thales"
+    },
+    {
+      "id": "pascal",
+      "source": "library",
+      "category": "math-history",
+      "categoryTitle": "수학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "파스칼",
+      "subtitle": "Blaise Pascal",
+      "aliases": [
+        "파스칼",
+        "Blaise Pascal"
+      ],
+      "date": "1623",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "확률론의 기초, 파스칼의 삼각형"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=math-history&id=pascal"
+    },
+    {
+      "id": "fermat",
+      "source": "library",
+      "category": "math-history",
+      "categoryTitle": "수학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "페르마",
+      "subtitle": "Pierre de Fermat",
+      "aliases": [
+        "페르마",
+        "Pierre de Fermat"
+      ],
+      "date": "1601",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "근대 정수론과 확률론의 창시자"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=math-history&id=fermat"
+    },
+    {
+      "id": "pythagoras",
+      "source": "library",
+      "category": "math-history",
+      "categoryTitle": "수학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "피타고라스",
+      "subtitle": "Pythagoras",
+      "aliases": [
+        "피타고라스",
+        "Pythagoras"
+      ],
+      "date": "-580",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "수와 자연의 조화를 탐구"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=math-history&id=pythagoras"
+    },
+    {
+      "id": "gauss",
+      "source": "library",
+      "category": "math-history",
+      "categoryTitle": "수학사",
+      "location": "연대기 · 상세 자료",
+      "kind": "history",
+      "type": "person",
+      "title": "프리드리히 가우스",
+      "subtitle": "Johann Carl Friedrich Gauss",
+      "aliases": [
+        "프리드리히 가우스",
+        "Johann Carl Friedrich Gauss"
+      ],
+      "date": "1777-1855",
+      "fields": [
+        "수학",
+        "천문학",
+        "축지학",
+        "물리학"
+      ],
+      "keywords": [
+        "산술연구",
+        "17각형",
+        "소수정리",
+        "세레스"
+      ],
+      "summary": [
+        "근대 수학의 왕, 정수론과 해석학 발전",
+        "근대 수학의 방향을 바꾼 '수학의 왕(Prince of Mathematics)'"
+      ],
+      "content": [
+        "1799년 박사 학위 논문으로, \"대수방정식의 근의 존재 증명\"을 저술하였다.",
+        "24세 때 최소제곱법으로 소행성 세레스의 궤도를 예측하여 천문학계를 넘어 과학계 전체에서 유명해졌다.",
+        "이차상호법칙을 증명하며 본격적인 정수론의 시대를 열고, 정수론을 체계화하기 시작하였다"
+      ],
+      "related": [
+        "euler",
+        "fermat",
+        "riemann"
+      ],
+      "href": "/resources/library.html?category=math-history&id=gauss"
+    },
+    {
+      "id": "reading-back-to-reading-writing",
+      "source": "reading",
+      "category": "humanities",
+      "categoryTitle": "인문·교양",
+      "location": "문학",
+      "kind": "reading",
+      "type": "completed",
+      "title": "다시 읽기와 쓰기로",
+      "subtitle": "아름다운서재 편집부",
+      "aliases": [
+        "아름다운서재 편집부"
+      ],
+      "date": "2026-06-22",
+      "fields": [
+        "문학"
+      ],
+      "keywords": [
+        "독서",
+        "정기간행물",
+        "교양",
+        "토론"
+      ],
+      "summary": [
+        "아름다운 서재 통권 22호이다.",
+        "리터러시(문해력)가 시민들의 힘이라고 말하고 있으며,",
+        "AI 시대에 인지 퇴보를 막기 위해서도 독서가 중요하다고 이야기 한다.",
+        "그리고 책의 대다수 페이지는 추천 도서 소개로 채워져 있다."
+      ],
+      "content": [],
+      "related": [],
+      "href": "/reading/reading.html?category=humanities&id=reading-back-to-reading-writing"
+    },
+    {
+      "id": "reading-how-to-draw-easily",
+      "source": "reading",
+      "category": "humanities",
+      "categoryTitle": "인문·교양",
+      "location": "미술",
+      "kind": "reading",
+      "type": "reading",
+      "title": "그림 그리기가 이토록 쉬울 줄이야",
+      "subtitle": "이기주",
+      "aliases": [
+        "이기주"
+      ],
+      "date": "2026-07-01",
+      "fields": [
+        "미술"
+      ],
+      "keywords": [
+        "기초미술",
+        "스케치",
+        "드로잉",
+        "그림",
+        "펜드로잉"
+      ],
+      "summary": [
+        "스케치하는 법을 배워보려고 구매한 책이다.",
+        "마음 트레이닝 부터 기초 드로잉 연습까지 대중적으로 유명한 미술 입문서이다.\\n",
+        "책보다 저자가 운영하는 유튜브가 훨씬 더 유명한가 보다.",
+        "어제 하루 책의 그림을 따라 그려 보았다. 나름 그려진다. ^^",
+        "여유 시간에 한 번씩 그려보려 한다.",
+        "그림은 재미있게 그려야 한다는 작가의 말에 공감하며,",
+        "작가의 미술에 대한 열정도 느껴진다."
+      ],
+      "content": [],
+      "related": [],
+      "href": "/reading/reading.html?category=humanities&id=reading-how-to-draw-easily"
+    },
+    {
+      "id": "reading-sapiens",
+      "source": "reading",
+      "category": "humanities",
+      "categoryTitle": "인문·교양",
+      "location": "인문학",
+      "kind": "reading",
+      "type": "reading",
+      "title": "사피엔스 (Sapiens)",
+      "subtitle": "유발 하라리 (Yuval Noah Harari)",
+      "aliases": [
+        "유발 하라리 (Yuval Noah Harari)"
+      ],
+      "date": "2026-07-07",
+      "fields": [
+        "인문학"
+      ],
+      "keywords": [
+        "인류",
+        "진화",
+        "문명"
+      ],
+      "summary": [
+        "유발 하라리의 세계적으로도 유명한 명저, 이제서야 읽어 본다."
+      ],
+      "content": [],
+      "related": [],
+      "href": "/reading/reading.html?category=humanities&id=reading-sapiens"
+    },
+    {
+      "id": "reading-adventures-in-philosophy",
+      "source": "reading",
+      "category": "philosophy",
+      "categoryTitle": "철학 서적",
+      "location": "철학",
+      "kind": "reading",
+      "type": "reading",
+      "title": "철학의 숲 (Adventures in Philosophy)",
+      "subtitle": "브렌던 오도너휴 (Brendan O'Donoghue)",
+      "aliases": [
+        "브렌던 오도너휴 (Brendan O'Donoghue)"
+      ],
+      "date": "2026-07-13",
+      "fields": [
+        "철학"
+      ],
+      "keywords": [
+        "철학",
+        "어린이 도서"
+      ],
+      "summary": [
+        "홈페이지 독서란을 개설하면서 처음 고른 철학서이다. 난해하지 않은 책을 찾으려고 애써 고른 책이다. 집에 와서 읽어 보니 어린이용 도서에 가까웠다. 청소년 도서거나 일반도서라고 생각했지만 학생 도서였다. 좀더 자세히 보고 책을 빌려 와야겠다. 늘 도서관에 가면 쫓기듯이 빌려 오는 버릇이 있다. ㅡ.ㅡ;",
+        "아이들과의 공감 능력도 기를 겸 마저 읽기로 했다. 난 어릴 적 독서를 많이 못한 편이다. 그래서 어린이 도서도 읽어보면 꽤 나름 의미도 있을것 같다. 요즘 학원가는 어떨지 모르겠지만 사교육보다는 독서를 권장했으면 하는 바람이다. 사교육도 어느 정도 도움이 되겠지만, 대다수 학생에게는 깊이 있는 독서 습관이 더 중요하지 않을까 생각한다. 무식한 발언인지는 모르겠으나, 독서를 많이 한 학생들은 학국의 중위권 대학 정도는 충분히 갈 수 있을거란 생각이 든다. 열심히 공부하면 적어도 인문학 전공자는 될 수 있으리라.",
+        "나의 글쓰기가 많은 사람들의 용기를 북돋워 준다고 한다. ㅡ.ㅡ;;;",
+        "표현력이 부족하든 열심히 몇 년 글을 올리다 보면 나도 인문학 전공자 못지 않은 글 실력이 발휘되지 않을까 희망해 본다."
+      ],
+      "content": [],
+      "related": [],
+      "href": "/reading/reading.html?category=philosophy&id=reading-adventures-in-philosophy"
+    },
+    {
+      "id": "nietzsche",
+      "source": "library",
+      "category": "philosophy-history",
+      "categoryTitle": "철학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "니체",
+      "subtitle": "Friedrich Wilhelm Nietzsche",
+      "aliases": [
+        "니체",
+        "Friedrich Wilhelm Nietzsche"
+      ],
+      "date": "1844",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "권력의지와 도덕 비판"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=philosophy-history&id=nietzsche"
+    },
+    {
+      "id": "descartes",
+      "source": "library",
+      "category": "philosophy-history",
+      "categoryTitle": "철학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "데카르트",
+      "subtitle": "René Descartes",
+      "aliases": [
+        "데카르트",
+        "René Descartes"
+      ],
+      "date": "1596",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "방법적 회의와 근대철학"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=philosophy-history&id=descartes"
+    },
+    {
+      "id": "karl-marx",
+      "source": "library",
+      "category": "philosophy-history",
+      "categoryTitle": "철학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "마르크스",
+      "subtitle": "Karl Marx",
+      "aliases": [
+        "마르크스",
+        "Karl Marx"
+      ],
+      "date": "1818",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "역사유물론과 자본 비판"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=philosophy-history&id=karl-marx"
+    },
+    {
+      "id": "foucault",
+      "source": "library",
+      "category": "philosophy-history",
+      "categoryTitle": "철학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "미셀 푸코",
+      "subtitle": "Paul-Michel Foucault",
+      "aliases": [
+        "미셀 푸코",
+        "Paul-Michel Foucault"
+      ],
+      "date": "1926",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "권력과 지식의 분석"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=philosophy-history&id=foucault"
+    },
+    {
+      "id": "wittgenstein",
+      "source": "library",
+      "category": "philosophy-history",
+      "categoryTitle": "철학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "비트겐슈타인",
+      "subtitle": "Ludwig Josef Johann Wittgenstein",
+      "aliases": [
+        "비트겐슈타인",
+        "Ludwig Josef Johann Wittgenstein"
+      ],
+      "date": "1889",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "언어철학의 새로운 전개"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=philosophy-history&id=wittgenstein"
+    },
+    {
+      "id": "socrates",
+      "source": "library",
+      "category": "philosophy-history",
+      "categoryTitle": "철학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "소크라테스",
+      "subtitle": "Socrates",
+      "aliases": [
+        "소크라테스",
+        "Socrates"
+      ],
+      "date": "-470",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "문답법으로 진리 탐구"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=philosophy-history&id=socrates"
+    },
+    {
+      "id": "aristoteles",
+      "source": "library",
+      "category": "philosophy-history",
+      "categoryTitle": "철학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "아리스토텔레스",
+      "subtitle": "Aristoteles",
+      "aliases": [
+        "아리스토텔레스",
+        "Aristoteles"
+      ],
+      "date": "-384",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "논리학과 목적론 체계화"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=philosophy-history&id=aristoteles"
+    },
+    {
+      "id": "augustinus",
+      "source": "library",
+      "category": "philosophy-history",
+      "categoryTitle": "철학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "아우구스티누스",
+      "subtitle": "Aurelius Augustinus",
+      "aliases": [
+        "아우구스티누스",
+        "Aurelius Augustinus"
+      ],
+      "date": "354",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "기독교 철학의 기초 확립"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=philosophy-history&id=augustinus"
+    },
+    {
+      "id": "immanuel-kant",
+      "source": "library",
+      "category": "philosophy-history",
+      "categoryTitle": "철학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "임마누엘 칸트",
+      "subtitle": "Immanuel Kant",
+      "aliases": [
+        "임마누엘 칸트",
+        "Immanuel Kant"
+      ],
+      "date": "1724",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "비판철학과 인식론 혁신"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=philosophy-history&id=immanuel-kant"
+    },
+    {
+      "id": "sartre",
+      "source": "library",
+      "category": "philosophy-history",
+      "categoryTitle": "철학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "장폴 사르트르",
+      "subtitle": "Jean-Paul Sartre",
+      "aliases": [
+        "장폴 사르트르",
+        "Jean-Paul Sartre"
+      ],
+      "date": "1905",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "자유와 책임의 실존주의"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=philosophy-history&id=sartre"
+    },
+    {
+      "id": "john-locke",
+      "source": "library",
+      "category": "philosophy-history",
+      "categoryTitle": "철학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "존 로크",
+      "subtitle": "John Locke",
+      "aliases": [
+        "존 로크",
+        "John Locke"
+      ],
+      "date": "1632",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "경험주의와 백지설"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=philosophy-history&id=john-locke"
+    },
+    {
+      "id": "thomas-aquinas",
+      "source": "library",
+      "category": "philosophy-history",
+      "categoryTitle": "철학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "토마스 아퀴나스",
+      "subtitle": "Thomas Aquinas",
+      "aliases": [
+        "토마스 아퀴나스",
+        "Thomas Aquinas"
+      ],
+      "date": "1224",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "이성과 신앙의 조화"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=philosophy-history&id=thomas-aquinas"
+    },
+    {
+      "id": "plato",
+      "source": "library",
+      "category": "philosophy-history",
+      "categoryTitle": "철학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "플라톤",
+      "subtitle": "Plato",
+      "aliases": [
+        "플라톤",
+        "Plato"
+      ],
+      "date": "-427",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "이데아론과 동굴의 비유"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=philosophy-history&id=plato"
+    },
+    {
+      "id": "heidegger",
+      "source": "library",
+      "category": "philosophy-history",
+      "categoryTitle": "철학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "하이데거",
+      "subtitle": "Martin Heidegger",
+      "aliases": [
+        "하이데거",
+        "Martin Heidegger"
+      ],
+      "date": "1889",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "존재의 의미를 탐구"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=philosophy-history&id=heidegger"
+    },
+    {
+      "id": "hegel",
+      "source": "library",
+      "category": "philosophy-history",
+      "categoryTitle": "철학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "헤겔",
+      "subtitle": "Georg Wilhelm Friedrich Hegel",
+      "aliases": [
+        "헤겔",
+        "Georg Wilhelm Friedrich Hegel"
+      ],
+      "date": "1770",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "변증법과 독일 관념론"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=philosophy-history&id=hegel"
+    },
+    {
+      "id": "c-language",
+      "source": "library",
+      "category": "computer",
+      "categoryTitle": "컴퓨터",
+      "location": "상세 자료",
+      "kind": "computer",
+      "type": "language",
+      "title": "C 언어",
+      "subtitle": "",
+      "aliases": [],
+      "date": "1972",
+      "fields": [
+        "컴퓨터과학",
+        "언어",
+        "프로그래밍"
+      ],
+      "keywords": [
+        "운영 체제",
+        "벨 연구소",
+        "프로그래밍"
+      ],
+      "summary": [
+        "벨 연구소(Bell Labs)의 연구원 데니스 리치가 만든 범용(general-purpose) 프로그래밍 언어"
+      ],
+      "content": [
+        "C는 프로그래머에게 일반적인 CPU 아키텍처의 기능에 상대적으로 직접 접근할 수 있게 하며, 대상 명령어 집합에 맞게 조정된다.",
+        "C는 운영체제(특히 커널[10]), 장치 드라이버, 프로토콜 스택을 구현하는 데 사용되어 왔고, 응용 소프트웨어에서의 사용은 점차 감소하고 있다.",
+        "C는 명령형 절차적 언어로, 구조적 프로그래밍, 어휘적 변수 범위, 재귀를 지원하며 정적 자료형 체계를 갖추고 있다."
+      ],
+      "related": [
+        "bell-labs",
+        "unix",
+        "object-oriented-programming"
+      ],
+      "href": "/resources/library.html?category=computer&id=c-language"
+    },
+    {
+      "id": "unix",
+      "source": "library",
+      "category": "computer",
+      "categoryTitle": "컴퓨터",
+      "location": "상세 자료",
+      "kind": "computer",
+      "type": "software",
+      "title": "유닉스",
+      "subtitle": "",
+      "aliases": [],
+      "date": "",
+      "fields": [
+        "컴퓨터과학",
+        "언어",
+        "프로그래밍"
+      ],
+      "keywords": [
+        "운영 체제",
+        "리눅스",
+        "macOS",
+        "벨 연구소",
+        "솔라리스"
+      ],
+      "summary": [
+        "벨 연구소에서 개발한 다중 사용자용 서버 운영체제"
+      ],
+      "content": [
+        "교육 및 연구 기관에서 주로 사용되는 범용 및 다중 사용자 방식의 대화형 시분할처리 시스템 운영 체제이다.",
+        "벨 연구소 직원인 켄 톰슨, 데니스 리치 등이 소형 컴퓨터용으로 처음 개발하였다.",
+        "BSD, Linux, Darwin(macOS) 등 다양한 현대적 컴퓨터 운영체제의 원형이 되었다.",
+        "초기 유닉스와 유사한 형태로 동작하며 POSIX 표준을 거의 준수하면 기능적 유닉스로 분류한다.(Linux)"
+      ],
+      "related": [
+        "bell-labs",
+        "c-language",
+        "linux"
+      ],
+      "href": "/resources/library.html?category=computer&id=unix"
+    },
+    {
+      "id": "difference-engine",
+      "source": "library",
+      "category": "computer",
+      "categoryTitle": "컴퓨터",
+      "location": "상세 자료",
+      "kind": "computer",
+      "type": "machine",
+      "title": "차분기관",
+      "subtitle": "Difference Engine",
+      "aliases": [
+        "Difference Engine"
+      ],
+      "date": "1786",
+      "fields": [
+        "수학",
+        "계산기계",
+        "컴퓨터과학"
+      ],
+      "keywords": [
+        "찰스 배비지",
+        "해석기관",
+        "뮐러",
+        "다항함수",
+        "계산기"
+      ],
+      "summary": [
+        "뮐러가 최초제안, 배비지가 다시 발명한 기계식 디지털 계산기이다."
+      ],
+      "content": [
+        "\"매우 큰 수학적 표를 계산하는 기계적인 방법\"이란 제목으로 발표.",
+        "톱니바퀴와 기어를 이용하여 기억과 계산을 수행하며, 핸들을 돌려 동력을 얻었다.",
+        "다항함수를 계산할 수 있었으며 7개의 숫자를 31자리까지 기억시킬 수 있었다."
+      ],
+      "related": [
+        "charles-babbage",
+        "analytical-engine"
+      ],
+      "href": "/resources/library.html?category=computer&id=difference-engine"
+    },
+    {
+      "id": "abstraction",
+      "source": "library",
+      "category": "computer",
+      "categoryTitle": "컴퓨터",
+      "location": "상세 자료",
+      "kind": "computer",
+      "type": "concept",
+      "title": "추상화",
+      "subtitle": "",
+      "aliases": [],
+      "date": "",
+      "fields": [
+        "수학",
+        "컴퓨터과학",
+        "프로그래밍"
+      ],
+      "keywords": [
+        "객체 지향 언어",
+        "데이터 추상화",
+        "추상화 계층"
+      ],
+      "summary": [
+        "접근을 어렵게 만들 수 있는 세부 사항을 숨기면서도 접근 권한을 제공하는 것"
+      ],
+      "content": [
+        "수학에서 말하는 추상화란 구체적이고 복잡한 대상들에서 개별적인 특징을 지우고, 핵심적인 구조나 공통적인 속성만 추출하여 일반화하는 과정이다.",
+        "컴퓨터에서는 복잡한 세부 사항은 숨기고, 가장 핵심적이고 공통된 특징이나 기능만 간추려 표현하는 것이다.",
+        "예로서 기능 추상화는 복잡한 연산 과정을 하나의 함수(메서드)로 묶고 이름만 붙여 사용하는 것이다."
+      ],
+      "related": [
+        "alan-turing",
+        "c-language",
+        "object-oriented-programming"
+      ],
+      "href": "/resources/library.html?category=computer&id=abstraction"
+    },
+    {
+      "id": "turing-machine",
+      "source": "library",
+      "category": "computer",
+      "categoryTitle": "컴퓨터",
+      "location": "상세 자료",
+      "kind": "computer",
+      "type": "machine",
+      "title": "튜링 머신",
+      "subtitle": "Turing machine",
+      "aliases": [
+        "Turing machine"
+      ],
+      "date": "1936",
+      "fields": [
+        "수학",
+        "계산기계",
+        "컴퓨터과학"
+      ],
+      "keywords": [
+        "앨런 튜링",
+        "수학적 모형",
+        "테이프 기반",
+        "범용 튜링 기계"
+      ],
+      "summary": [
+        "긴 테이프에 쓰여있는 여러 가지 기호들을 일정한 규칙에 따라 바꾸는 기계이다."
+      ],
+      "content": [
+        "적당한 규칙과 기호를 입력한다면 일반적인 컴퓨터의 알고리즘을 수행할 수 있다.",
+        "엘런 튜링이 제시한 개념이며 오토마타의 일종이다.",
+        "테이프, 헤드, 상태 기록기, 행동 표로 구성되어 있다."
+      ],
+      "related": [
+        "alan-turing",
+        "automata-theory",
+        "john-von-neumann"
+      ],
+      "href": "/resources/library.html?category=computer&id=turing-machine"
+    },
+    {
+      "id": "analytical-engine",
+      "source": "library",
+      "category": "computer",
+      "categoryTitle": "컴퓨터",
+      "location": "상세 자료",
+      "kind": "computer",
+      "type": "machine",
+      "title": "해석기관",
+      "subtitle": "Analytical Engine",
+      "aliases": [
+        "Analytical Engine"
+      ],
+      "date": "1837",
+      "fields": [
+        "수학",
+        "계산기계",
+        "컴퓨터과학"
+      ],
+      "keywords": [
+        "찰스 배비지",
+        "차분기관",
+        "어셈블리어",
+        "범용 컴퓨터"
+      ],
+      "summary": [
+        "영국의 수학 교수 찰스 배비지가 고안한 기계적 범용 컴퓨터의 설계이다."
+      ],
+      "content": [
+        "프로그램과 데이터를 천공 카드로 입력받았고 프린터와 곡선 플로터, 종으로 출력했다.",
+        "해석기관은 컴퓨터 역사에서 중요한 발전의 하나이다.",
+        "훗날, 벨 연구소와 하버드 대학교에서 해석기관과 밀접한 전기기계식 컴퓨터가 만들어진다."
+      ],
+      "related": [
+        "charles-babbage",
+        "bell-labs",
+        "harvard-mark-i"
+      ],
+      "href": "/resources/library.html?category=computer&id=analytical-engine"
+    },
+    {
+      "id": "lorenz",
+      "source": "library",
+      "category": "computer",
+      "categoryTitle": "컴퓨터",
+      "location": "연대기",
+      "kind": "computer",
+      "type": "timeline",
+      "title": "로렌츠 암호",
+      "subtitle": "Lorenz",
+      "aliases": [
+        "Lorenz",
+        "로렌츠 암호"
+      ],
+      "date": "1941",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "2차 대전 독일군의 회전자 스트림 암호"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=computer&id=lorenz"
+    },
+    {
+      "id": "linus-torvalds",
+      "source": "library",
+      "category": "computer",
+      "categoryTitle": "컴퓨터",
+      "location": "연대기",
+      "kind": "computer",
+      "type": "timeline",
+      "title": "리누스 토르발스",
+      "subtitle": "Linus Benedict Torvalds",
+      "aliases": [
+        "Linus Benedict Torvalds",
+        "리누스 토르발스"
+      ],
+      "date": "1969",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "리눅스 커널과 Git 개발"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=computer&id=linus-torvalds"
+    },
+    {
+      "id": "moores-law",
+      "source": "library",
+      "category": "computer",
+      "categoryTitle": "컴퓨터",
+      "location": "연대기",
+      "kind": "computer",
+      "type": "timeline",
+      "title": "무어의 법칙",
+      "subtitle": "Moore's law",
+      "aliases": [
+        "Moore's law",
+        "무어의 법칙"
+      ],
+      "date": "1965",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "집적도는 약 2년마다 두 배 증가"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=computer&id=moores-law"
+    },
+    {
+      "id": "eniac",
+      "source": "library",
+      "category": "computer",
+      "categoryTitle": "컴퓨터",
+      "location": "연대기",
+      "kind": "computer",
+      "type": "timeline",
+      "title": "에니악",
+      "subtitle": "ENIAC",
+      "aliases": [
+        "ENIAC",
+        "에니악"
+      ],
+      "date": "1946",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "범용 전자식 컴퓨터의 시작"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=computer&id=eniac"
+    },
+    {
+      "id": "colossus",
+      "source": "library",
+      "category": "computer",
+      "categoryTitle": "컴퓨터",
+      "location": "연대기",
+      "kind": "computer",
+      "type": "timeline",
+      "title": "콜로서스",
+      "subtitle": "Colossus",
+      "aliases": [
+        "Colossus",
+        "콜로서스"
+      ],
+      "date": "1943",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "로렌츠 암호 해독용 컴퓨터"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=computer&id=colossus"
+    },
+    {
+      "id": "john-von-neumann",
+      "source": "library",
+      "category": "computer",
+      "categoryTitle": "컴퓨터",
+      "location": "연대기",
+      "kind": "computer",
+      "type": "timeline",
+      "title": "폰 노이만",
+      "subtitle": "John von Neumann",
+      "aliases": [
+        "John von Neumann",
+        "폰 노이만"
+      ],
+      "date": "1903",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "현대 컴퓨터 구조의 기초 확립"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=computer&id=john-von-neumann"
+    },
+    {
+      "id": "harvard-mark-i",
+      "source": "library",
+      "category": "computer",
+      "categoryTitle": "컴퓨터",
+      "location": "연대기",
+      "kind": "computer",
+      "type": "timeline",
+      "title": "하버드 마크 I",
+      "subtitle": "Harvard Mark I",
+      "aliases": [
+        "Harvard Mark I",
+        "하버드 마크 I"
+      ],
+      "date": "1944",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "자동 계산을 수행한 초기 컴퓨터"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=computer&id=harvard-mark-i"
+    },
+    {
+      "id": "linux-kernel",
+      "source": "library",
+      "category": "computer",
+      "categoryTitle": "컴퓨터",
+      "location": "연대기 · 상세 자료",
+      "kind": "computer",
+      "type": "software",
+      "title": "리눅스 커널",
+      "subtitle": "Linux Kernel",
+      "aliases": [
+        "Linux Kernel",
+        "리눅스 커널"
+      ],
+      "date": "1991",
+      "fields": [
+        "컴퓨터과학",
+        "운영체제"
+      ],
+      "keywords": [
+        "운영 체제",
+        "유닉스"
+      ],
+      "summary": [
+        "자유·오픈소스 운영체제 커널",
+        "리누스 토르발스가 자신의 개인용 컴퓨터를 위해 고안되어 개발 되었다."
+      ],
+      "content": [
+        "그 이후로 다른 운영 체제나 커널 대비 더 다양한 컴퓨터 아키텍처를 지원하도록 확장되었다.",
+        "GNU 운영 체제로 이 커널이 채택되며 개발자들과 사용자들을 매혹시켰다.",
+        "현재 다양한 배포판이 존재한다.(Debian, Red Hat, openSUSE, Android)"
+      ],
+      "related": [
+        "linus-torvalds",
+        "unix",
+        "linux",
+        "c-language"
+      ],
+      "href": "/resources/library.html?category=computer&id=linux-kernel"
+    },
+    {
+      "id": "bell-labs",
+      "source": "library",
+      "category": "computer",
+      "categoryTitle": "컴퓨터",
+      "location": "연대기 · 상세 자료",
+      "kind": "computer",
+      "type": "organization",
+      "title": "벨 연구소",
+      "subtitle": "Nokia Bell Labs",
+      "aliases": [
+        "Nokia Bell Labs",
+        "벨 연구소"
+      ],
+      "date": "1925",
+      "fields": [
+        "컴퓨터과학",
+        "공학",
+        "수학",
+        "물리학"
+      ],
+      "keywords": [
+        "AT&T",
+        "노키아",
+        "연구",
+        "Unix",
+        "통신",
+        "컴퓨터 프로그래밍"
+      ],
+      "summary": [
+        "트랜지스터·유닉스·C언어 개발",
+        "알렌산더 그레이엄 벨이 설립한 연구소"
+      ],
+      "content": [
+        "전화에 관련된 것을 연구하면서 전기전자, 통신, 컴퓨터에 관련된 연구 업적도 쌓음.",
+        "트랜지스터, C 언어, 정보 엔트로피 개념, Unix 개발",
+        "노밸상 수상자 13명, 튜링 어워드 수상자 4명"
+      ],
+      "related": [
+        "alexander-graham-bell",
+        "transistor",
+        "c-languge"
+      ],
+      "href": "/resources/library.html?category=computer&id=bell-labs"
+    },
+    {
+      "id": "alan-turing",
+      "source": "library",
+      "category": "computer",
+      "categoryTitle": "컴퓨터",
+      "location": "연대기 · 상세 자료",
+      "kind": "computer",
+      "type": "person",
+      "title": "앨런 튜링",
+      "subtitle": "Alan Mathison Turing",
+      "aliases": [
+        "Alan Mathison Turing",
+        "앨런 튜링"
+      ],
+      "date": "1912-1954",
+      "fields": [
+        "수학",
+        "계산기계",
+        "컴퓨터과학"
+      ],
+      "keywords": [
+        "튜링머신",
+        "계산가능성",
+        "오토마타",
+        "컴퓨터과학"
+      ],
+      "summary": [
+        "계산이론과 튜링 기계 제안",
+        "컴퓨터 과학의 선구자, 초보적 형태의 컴퓨터인 튜링 머신 고안."
+      ],
+      "content": [
+        "알고리즘과 계산 개념을 튜링 기계라는 추상 모델을 통해 형식화함.",
+        "복잡한 계산과 논리 문제를 처리할 수 있었다.",
+        "캐임브리지 대학교에서 수학을 전공, 수치핵석과 확률론등에 관심을 가짐."
+      ],
+      "related": [
+        "difference-engine",
+        "analytical-engine",
+        "ada-lovelace"
+      ],
+      "href": "/resources/library.html?category=computer&id=alan-turing"
+    },
+    {
+      "id": "charles-babbage",
+      "source": "library",
+      "category": "computer",
+      "categoryTitle": "컴퓨터",
+      "location": "연대기 · 상세 자료",
+      "kind": "computer",
+      "type": "person",
+      "title": "찰스 배비지",
+      "subtitle": "Charles Babbage",
+      "aliases": [
+        "배비지",
+        "Charles Babbage",
+        "찰스 배비지"
+      ],
+      "date": "1791-1871",
+      "fields": [
+        "수학",
+        "계산기계",
+        "컴퓨터과학"
+      ],
+      "keywords": [
+        "해석기관",
+        "차분기관",
+        "계산기계",
+        "프로그래밍",
+        "알고리즘"
+      ],
+      "summary": [
+        "프로그램 가능한 컴퓨터 개념 제시",
+        "현대적인 범용 계산기의 기본 구조를 기계적으로 구상한 영국의 수학자이다."
+      ],
+      "content": [
+        "찰스 배비지는 수학 계산을 자동화하기 위한 차분기관을 설계했다.",
+        "이후 기억장치와 연산장치, 입력과 출력, 명령 실행 개념을 포함한 해석기관을 구상했다.",
+        "해석기관은 실제 완성되지 않았지만 현대 컴퓨터 구조의 선구적 개념으로 평가된다."
+      ],
+      "related": [
+        "difference-engine",
+        "analytical-engine",
+        "ada-lovelace"
+      ],
+      "href": "/resources/library.html?category=computer&id=charles-babbage"
+    },
+    {
+      "id": "transistor",
+      "source": "library",
+      "category": "computer",
+      "categoryTitle": "컴퓨터",
+      "location": "연대기 · 상세 자료",
+      "kind": "computer",
+      "type": "machine",
+      "title": "트랜지스터",
+      "subtitle": "transistor",
+      "aliases": [
+        "transistor",
+        "트랜지스터"
+      ],
+      "date": "1947",
+      "fields": [
+        "컴퓨터과학",
+        "전기공학"
+      ],
+      "keywords": [
+        "반도체",
+        "RAM",
+        "집적회로"
+      ],
+      "summary": [
+        "전자 회로의 핵심 반도체 소자",
+        "전류의 크기를 조절하는 장치로서 반도체 소자이다."
+      ],
+      "content": [
+        "반도체 물질을 적극 이용해서 전기의 흐름을 제어하고, 정보를 처리한다.",
+        "보통 트랜지스터는 발이 3개 달려있는데, 가운데에 있는 발이 스위치 역할을 해서 이곳에 전기신호를 보내 양 옆에 달린 발이 연결되기도 끊기기도 한다."
+      ],
+      "related": [
+        "bell-labs"
+      ],
+      "href": "/resources/library.html?category=computer&id=transistor"
+    }
+  ],
+  "updated": "2026-07-24T01:52:39"
+}

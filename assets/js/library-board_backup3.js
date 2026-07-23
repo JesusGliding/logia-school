@@ -1425,132 +1425,6 @@ const LibraryBoard = (() => {
   }
 
 
-  function createIntegratedSearchReturnUrl(query) {
-    const params = new URLSearchParams();
-
-    params.set("category", "notes");
-    params.set(
-      "section",
-      noteCurrentSection || "archive"
-    );
-
-    const trimmedQuery = String(query || "").trim();
-
-    if (trimmedQuery) {
-      params.set("search", trimmedQuery);
-    }
-
-    return `${window.location.pathname}?${params.toString()}`;
-  }
-
-
-  function saveIntegratedSearchState(query) {
-    const trimmedQuery = String(query || "").trim();
-
-    const currentState =
-      window.history.state
-      && typeof window.history.state === "object"
-        ? window.history.state
-        : {};
-
-    window.history.replaceState(
-      {
-        ...currentState,
-        view: "integrated-search",
-        integratedQuery: trimmedQuery,
-        integratedScrollTop:
-          integratedSearchResults?.scrollTop || 0,
-        noteSection: noteCurrentSection
-      },
-      "",
-      createIntegratedSearchReturnUrl(trimmedQuery)
-    );
-  }
-
-
-  function getIntegratedMatches(query) {
-    const tokens = normalizeText(query)
-      .split(/\s+/)
-      .filter(Boolean);
-
-    if (!tokens.length) {
-      return null;
-    }
-
-    return integratedRecords
-      .map(item => ({
-        item,
-        score: calculateIntegratedSearchScore(
-          item,
-          tokens
-        )
-      }))
-      .filter(result => result.score >= 0)
-      .sort((first, second) => {
-        if (second.score !== first.score) {
-          return second.score - first.score;
-        }
-
-        return getIntegratedTitle(first.item)
-          .localeCompare(
-            getIntegratedTitle(second.item),
-            "ko"
-          );
-      })
-      .map(result => result.item);
-  }
-
-
-  function runIntegratedSearch(
-    query,
-    {
-      updateHistory = true,
-      restoreScrollTop = null
-    } = {}
-  ) {
-    const rawQuery = String(query || "").trim();
-    const matched = getIntegratedMatches(rawQuery);
-
-    integratedSearchWord.value = rawQuery;
-
-    if (matched === null) {
-      integratedSearchCount.textContent = "0건";
-      integratedSearchResults.innerHTML = `
-        <p class="empty-message">
-          검색어를 입력해 주세요.
-        </p>
-      `;
-    } else {
-      renderIntegratedResults(matched);
-    }
-
-    if (updateHistory) {
-      saveIntegratedSearchState(rawQuery);
-    }
-
-    if (Number.isFinite(Number(restoreScrollTop))) {
-      window.requestAnimationFrame(() => {
-        integratedSearchResults.scrollTop =
-          Number(restoreScrollTop);
-      });
-    }
-
-    return matched || [];
-  }
-
-
-  function renderIntegratedSearchStartMessage() {
-    integratedSearchForm.reset();
-    integratedSearchCount.textContent = "0건";
-
-    integratedSearchResults.innerHTML = `
-      <p class="empty-message">
-        검색어를 입력하면 역사·컴퓨터·노트·독서 자료가 표시됩니다.
-      </p>
-    `;
-  }
-
-
   async function openIntegratedResult(item) {
     if (!item) {
       return;
@@ -1565,16 +1439,7 @@ const LibraryBoard = (() => {
       || item.kind === "reading";
 
     /*
-    * 현재 검색어와 결과 스크롤 위치를 먼저 현재 History 항목에 저장한다.
-    * 그 다음 목적지를 새 History 항목으로 열어야 뒤로 가기가 검색 결과로 돌아온다.
-    */
-    saveIntegratedSearchState(
-      integratedSearchWord.value
-    );
-
-    /*
     * Reading은 다른 페이지이므로 id를 포함한 주소로 이동한다.
-    * 이전 검색 상태는 URL의 search 값으로도 남아 있어 뒤로 가기 후 복원된다.
     */
     if (readingTarget) {
       if (targetUrl) {
@@ -1585,8 +1450,9 @@ const LibraryBoard = (() => {
     }
 
     /*
-    * Library 안의 자료는 새 History 항목을 만든 뒤,
-    * 페이지를 다시 읽지 않고 해당 카테고리와 id를 직접 연다.
+    * Library 안의 자료는 페이지를 다시 읽지 않고 직접 연다.
+    * search-index.json의 예전 href에 id가 빠져 있어도
+    * item.category와 item.id를 기준으로 정확히 선택한다.
     */
     if (
       itemId
@@ -1596,13 +1462,8 @@ const LibraryBoard = (() => {
       const targetSection =
         getIntegratedTargetSection(item) || null;
 
-      window.history.pushState(
-        {
-          view: "integrated-target",
-          category,
-          id: itemId,
-          section: targetSection
-        },
+      window.history.replaceState(
+        null,
         "",
         targetUrl
       );
@@ -1627,10 +1488,46 @@ const LibraryBoard = (() => {
   function handleIntegratedSearch(event) {
     event.preventDefault();
 
-    runIntegratedSearch(
-      integratedSearchWord.value,
-      { updateHistory: true }
-    );
+    const query =
+      normalizeText(integratedSearchWord.value);
+
+    const tokens = query
+      .split(/\s+/)
+      .filter(Boolean);
+
+    if (!tokens.length) {
+      integratedSearchCount.textContent = "0건";
+      integratedSearchResults.innerHTML = `
+        <p class="empty-message">
+          검색어를 입력해 주세요.
+        </p>
+      `;
+      return;
+    }
+
+    const matched = integratedRecords
+      .map(item => ({
+        item,
+        score: calculateIntegratedSearchScore(
+          item,
+          tokens
+        )
+      }))
+      .filter(result => result.score >= 0)
+      .sort((first, second) => {
+        if (second.score !== first.score) {
+          return second.score - first.score;
+        }
+
+        return getIntegratedTitle(first.item)
+          .localeCompare(
+            getIntegratedTitle(second.item),
+            "ko"
+          );
+      })
+      .map(result => result.item);
+
+    renderIntegratedResults(matched);
   }
 
 
@@ -1682,8 +1579,15 @@ const LibraryBoard = (() => {
 
 
   function resetIntegratedSearch() {
-    renderIntegratedSearchStartMessage();
-    saveIntegratedSearchState("");
+    integratedSearchForm.reset();
+    integratedSearchCount.textContent = "0건";
+
+    integratedSearchResults.innerHTML = `
+      <p class="empty-message">
+        검색어를 입력하면 역사·컴퓨터·노트·독서 자료가 표시됩니다.
+      </p>
+    `;
+
     integratedSearchWord.focus();
   }
 
@@ -2699,58 +2603,6 @@ const LibraryBoard = (() => {
   }
 
 
-  async function restoreViewFromLocation(historyState = null) {
-    const params =
-      new URLSearchParams(window.location.search);
-
-    const requestedCategory =
-      params.get("category");
-
-    const category =
-      requestedCategory
-      && LIBRARY_CONFIG.categories[requestedCategory]
-        ? requestedCategory
-        : LIBRARY_CONFIG.defaultCategory || "science-history";
-
-    const targetId = params.get("id");
-    const targetNoteSection =
-      params.get("section")
-      || historyState?.noteSection
-      || null;
-
-    const integratedQuery =
-      params.get("search")
-      ?? historyState?.integratedQuery
-      ?? "";
-
-    await loadCategory(
-      category,
-      targetId,
-      targetNoteSection
-    );
-
-    if (category === "notes") {
-      if (integratedQuery) {
-        runIntegratedSearch(
-          integratedQuery,
-          {
-            updateHistory: false,
-            restoreScrollTop:
-              historyState?.integratedScrollTop
-          }
-        );
-      } else {
-        renderIntegratedSearchStartMessage();
-      }
-    }
-  }
-
-
-  async function handleHistoryNavigation(event) {
-    await restoreViewFromLocation(event.state);
-  }
-
-
   /* ---------------------------------------------------------
      이벤트
      --------------------------------------------------------- */
@@ -2878,11 +2730,6 @@ const LibraryBoard = (() => {
       "click",
       resetIntegratedSearch
     );
-
-    window.addEventListener(
-      "popstate",
-      handleHistoryNavigation
-    );
   }
 
 
@@ -2891,10 +2738,31 @@ const LibraryBoard = (() => {
      --------------------------------------------------------- */
 
   async function init() {
+    const params =
+      new URLSearchParams(window.location.search);
+
+    const category =
+      params.get("category");
+
+    const targetId =
+      params.get("id");
+
+    const targetNoteSection =
+      params.get("section");
+
+    if (
+      category &&
+      LIBRARY_CONFIG.categories[category]
+    ) {
+      currentCategory = category;
+    }
+
     bindEvents();
     await loadRecommendationPool();
-    await restoreViewFromLocation(
-      window.history.state
+    await loadCategory(
+      currentCategory,
+      targetId,
+      targetNoteSection
     );
   }
 

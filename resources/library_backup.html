@@ -104,7 +104,7 @@
     </header>
 
 
-    <section class="library-layout">
+    <section id="standard-library-view" class="library-layout">
 
       <div class="library-main">
 
@@ -357,6 +357,200 @@
 
     </section>
 
+    <section
+      id="notes-library-view"
+      class="notes-library-view"
+      hidden
+    >
+
+      <nav
+        class="notes-section-nav"
+        aria-label="노트 자료 분류"
+      >
+        <button type="button" class="notes-section-tab active" data-note-section="archive" aria-selected="true">archive</button>
+        <button type="button" class="notes-section-tab" data-note-section="books" aria-selected="false">books</button>
+        <button type="button" class="notes-section-tab" data-note-section="media" aria-selected="false">media</button>
+        <button type="button" class="notes-section-tab" data-note-section="papers" aria-selected="false">papers</button>
+        <button type="button" class="notes-section-tab" data-note-section="reference" aria-selected="false">reference</button>
+        <button type="button" class="notes-section-tab" data-note-section="theory" aria-selected="false">theory</button>
+        <button type="button" class="notes-section-tab" data-note-section="treasure" aria-selected="false">treasure</button>
+      </nav>
+
+
+      <section class="notes-workspace">
+
+        <div class="notes-workspace-main">
+
+          <section class="notes-list-section">
+
+            <div
+              id="note-record-list"
+              class="note-record-list"
+            >
+              <p class="empty-message">
+                노트 자료를 불러오는 중입니다.
+              </p>
+            </div>
+
+          </section>
+
+
+          <section class="notes-detail-section">
+
+            <article
+              id="note-detail"
+              class="note-detail"
+            >
+              <p class="empty-message">
+                자료 목록에서 항목을 선택해 주세요.
+              </p>
+            </article>
+
+          </section>
+
+        </div>
+
+
+        <aside class="notes-search-section">
+
+          <header class="panel-header notes-panel-header">
+            <h2>노트 검색</h2>
+          </header>
+
+          <form
+            id="note-search-form"
+            class="search-form"
+          >
+
+            <div class="search-field">
+              <label for="note-search-name">명칭</label>
+
+              <input
+                id="note-search-name"
+                name="name"
+                type="search"
+                autocomplete="off"
+              >
+            </div>
+
+            <div class="search-field">
+              <label for="note-search-type">유형</label>
+
+              <select
+                id="note-search-type"
+                name="type"
+              >
+                <option value="">전체</option>
+                <option value="document">문서</option>
+                <option value="pdf">PDF</option>
+                <option value="image">이미지</option>
+                <option value="audio">오디오</option>
+                <option value="video">영상</option>
+                <option value="web">웹 자료</option>
+                <option value="mixed">복합 자료</option>
+              </select>
+            </div>
+
+            <div class="search-field">
+              <label for="note-search-field">분야</label>
+
+              <input
+                id="note-search-field"
+                name="field"
+                type="search"
+                autocomplete="off"
+              >
+            </div>
+
+            <div class="search-field">
+              <label for="note-search-word">단어</label>
+
+              <input
+                id="note-search-word"
+                name="word"
+                type="search"
+                placeholder="키워드, 설명, 첨부 자료"
+                autocomplete="off"
+              >
+            </div>
+
+            <div class="search-buttons">
+              <button type="submit">검색</button>
+
+              <button
+                id="note-search-reset"
+                type="button"
+              >초기화</button>
+            </div>
+
+          </form>
+
+          <div class="search-summary notes-search-summary">
+            <span id="note-search-status">archive 자료</span>
+            <span id="note-search-count">0건</span>
+          </div>
+
+          <p
+            id="note-search-message"
+            class="search-message notes-search-message"
+          >
+            노트 전체를 검색하며, 현재 섹션의 자료를 먼저 표시합니다.
+          </p>
+
+        </aside>
+
+      </section>
+
+
+      <section class="integrated-search-panel library-panel">
+
+        <header class="panel-header">
+          <h2>종합 검색</h2>
+
+          <span
+            id="integrated-search-count"
+            class="panel-count"
+          >0건</span>
+        </header>
+
+        <form
+          id="integrated-search-form"
+          class="integrated-search-form"
+        >
+          <label
+            class="visually-hidden"
+            for="integrated-search-word"
+          >LOGIA 전체 자료 검색</label>
+
+          <input
+            id="integrated-search-word"
+            name="word"
+            type="search"
+            placeholder="LOGIA 전체 자료에서 검색"
+            autocomplete="off"
+          >
+
+          <button type="submit">검색</button>
+
+          <button
+            id="integrated-search-reset"
+            type="button"
+          >초기화</button>
+        </form>
+
+        <div
+          id="integrated-search-results"
+          class="integrated-search-results"
+        >
+          <p class="empty-message">
+            검색어를 입력하면 교과목·독서·자료실·프로젝트의 결과가 표시됩니다.
+          </p>
+        </div>
+
+      </section>
+
+    </section>
+
   </main>
 
 
@@ -402,7 +596,17 @@
           timelineTitle: "최근 노트",
           archiveSearchTitle: "노트 검색",
           dataFile: "notes/notes-index.json",
-          mediaPath: "notes/media/"
+          integratedDataFile: "search-index.json",
+          mediaPath: "notes/media/",
+          sections: [
+            "archive",
+            "books",
+            "media",
+            "papers",
+            "reference",
+            "theory",
+            "treasure"
+          ]
         }
       }
     };

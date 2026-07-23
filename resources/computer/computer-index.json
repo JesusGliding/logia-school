@@ -1,5 +1,5 @@
 {
-  "cacheVersion": 1784593165,
+  "cacheVersion": 1784825559,
   "archiveType": "knowledge-link",
   "archiveCategory": "computer",
   "timelineSource": "computer_timeline.txt",
@@ -24,56 +24,7 @@
     "turing-machine",
     "unix"
   ],
-  "missingRelated": [
-    {
-      "sourceId": "c-language",
-      "relatedId": "object-oriented-programmin"
-    },
-    {
-      "sourceId": "linux-kernel",
-      "relatedId": "linus-torvalds"
-    },
-    {
-      "sourceId": "linux-kernel",
-      "relatedId": "linux"
-    },
-    {
-      "sourceId": "bell-labs",
-      "relatedId": "alexander-graham-bell"
-    },
-    {
-      "sourceId": "bell-labs",
-      "relatedId": "c-languge"
-    },
-    {
-      "sourceId": "alan-turing",
-      "relatedId": "ada-lovelace"
-    },
-    {
-      "sourceId": "unix",
-      "relatedId": "linux"
-    },
-    {
-      "sourceId": "charles-babbage",
-      "relatedId": "ada-lovelace"
-    },
-    {
-      "sourceId": "abstraction",
-      "relatedId": "object-oriented-programming"
-    },
-    {
-      "sourceId": "turing-machine",
-      "relatedId": "automata-theory"
-    },
-    {
-      "sourceId": "turing-machine",
-      "relatedId": "john-von-neumann"
-    },
-    {
-      "sourceId": "analytical-engine",
-      "relatedId": "harvard-mark-i"
-    }
-  ],
+  "missingRelated": [],
   "typeCounts": {
     "concept": 1,
     "document": 0,
@@ -259,7 +210,7 @@
       "related": [
         "bell-labs",
         "unix",
-        "object-oriented-programmin"
+        "object-oriented-programming"
       ],
       "media": [
         {
@@ -733,5 +684,5 @@
       ]
     }
   ],
-  "updated": "2026-07-21T09:19:25"
+  "updated": "2026-07-24T01:52:39"
 }

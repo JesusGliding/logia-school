@@ -1,0 +1,18 @@
+id:linux-book
+
+title: 리눅스 관련 책
+
+date: 2026-07-22
+
+type: 자료
+
+field: 컴퓨터, 운영체제
+
+summary:
+리눅스 관련 무료 자료들 모음
+
+keywords: 리눅스, 운영체제, pdf, 책
+
+files:
+linux.pdf | 자동차 사진들
+

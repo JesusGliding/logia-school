@@ -1,5 +1,5 @@
 {
-  "cacheVersion": 1784593165,
+  "cacheVersion": 1784825559,
   "archiveType": "notes",
   "sections": [
     "archive",
@@ -10,14 +10,14 @@
     "theory",
     "treasure"
   ],
-  "recordCount": 7,
-  "fileCount": 13,
-  "existingFileCount": 13,
+  "recordCount": 6,
+  "fileCount": 15,
+  "existingFileCount": 15,
   "missingFileCount": 0,
   "sectionCounts": {
-    "archive": 3,
-    "books": 0,
-    "media": 0,
+    "archive": 0,
+    "books": 1,
+    "media": 1,
     "papers": 0,
     "reference": 0,
     "theory": 0,
@@ -25,8 +25,8 @@
   },
   "sectionFileCounts": {
     "archive": 0,
-    "books": 0,
-    "media": 0,
+    "books": 1,
+    "media": 1,
     "papers": 0,
     "reference": 0,
     "theory": 0,
@@ -34,11 +34,15 @@
   },
   "typeCounts": {
     "개인연구": 3,
-    "기고문": 1
+    "기고문": 1,
+    "자료": 1,
+    "종합자료": 1
   },
   "types": [
     "개인연구",
-    "기고문"
+    "기고문",
+    "자료",
+    "종합자료"
   ],
   "authors": [],
   "fields": [
@@ -47,30 +51,38 @@
     "물리학",
     "생명과학",
     "수학",
+    "운영체제",
     "인문학",
     "자동차공학",
     "천문학",
     "천체물리학",
     "철학",
+    "컴퓨터",
     "화학"
   ],
   "keywords": [
     "M이론",
+    "pdf",
     "개인 연구",
     "기고",
     "디자인",
+    "리눅스",
     "미",
+    "사진",
     "설계",
     "아름다움",
     "연구",
     "우주",
     "우주의 구조",
+    "운영체제",
     "자동차",
     "자동차 공학",
+    "자동차 기종",
     "자연선택",
     "제작",
     "진화",
     "창조",
+    "책",
     "취미 연구",
     "프로잭트"
   ],
@@ -83,17 +95,7 @@
       "etc_archive.pdf",
       "imaginaryofriding.pdf"
     ],
-    "books": [],
-    "media": [],
-    "papers": [],
-    "reference": [],
-    "theory": [],
-    "treasure": []
-  },
-  "filesOutsideDataFolder": {
-    "archive": [],
     "books": [
-      "Linux.pdf",
       "TLCL.pdf",
       "chemistry.pdf",
       "engineering-math.pdf",
@@ -101,10 +103,18 @@
       "science.pdf"
     ],
     "media": [
-      "car.jpg",
       "mobile_sample.png",
       "research_design.pdf"
     ],
+    "papers": [],
+    "reference": [],
+    "theory": [],
+    "treasure": []
+  },
+  "filesOutsideDataFolder": {
+    "archive": [],
+    "books": [],
+    "media": [],
     "papers": [],
     "reference": [],
     "theory": [],
@@ -146,6 +156,72 @@
       "source": [
         "LOGIA School"
       ],
+      "related": []
+    },
+    {
+      "id": "car-jpg",
+      "section": "media",
+      "file": "car_jpg.txt",
+      "title": "자동차 사진 모음들",
+      "date": "2026-07-22",
+      "type": "종합자료",
+      "author": "",
+      "published": "",
+      "fields": [
+        "자동차공학",
+        "기계공학",
+        "디자인"
+      ],
+      "keywords": [
+        "자동차",
+        "디자인",
+        "자동차 공학",
+        "사진",
+        "자동차 기종"
+      ],
+      "summary": "수만은 자동차의 종류별, 기종별, 회사별 사진들을 모아 놓은 것이다.",
+      "files": [
+        {
+          "file": "car.jpg",
+          "title": "자동차 사진들",
+          "format": "jpg",
+          "path": "notes/media/data/car.jpg",
+          "exists": true
+        }
+      ],
+      "source": [],
+      "related": []
+    },
+    {
+      "id": "linux-book",
+      "section": "books",
+      "file": "linux_book.txt",
+      "title": "리눅스 관련 책",
+      "date": "2026-07-22",
+      "type": "자료",
+      "author": "",
+      "published": "",
+      "fields": [
+        "컴퓨터",
+        "운영체제"
+      ],
+      "keywords": [
+        "리눅스",
+        "운영체제",
+        "pdf",
+        "책"
+      ],
+      "summary": "리눅스 관련 무료 자료들 모음",
+      "files": [
+        {
+          "file": "linux.pdf",
+          "title": "자동차 사진들",
+          "format": "pdf",
+          "path": "notes/books/data/linux.pdf",
+          "exists": true
+        }
+      ],
+      "source": [],
       "related": []
     },
     {
@@ -323,55 +399,7 @@
         "hubble",
         "einstein"
       ]
-    },
-    {
-      "id": "imainaryofride",
-      "section": "archive",
-      "file": "imainaryofride.txt",
-      "title": "",
-      "date": "",
-      "type": "",
-      "author": "",
-      "published": "",
-      "fields": [],
-      "keywords": [],
-      "summary": "",
-      "files": [],
-      "source": [],
-      "related": []
-    },
-    {
-      "id": "etc_archive",
-      "section": "archive",
-      "file": "etc_archive.txt",
-      "title": "",
-      "date": "",
-      "type": "",
-      "author": "",
-      "published": "",
-      "fields": [],
-      "keywords": [],
-      "summary": "",
-      "files": [],
-      "source": [],
-      "related": []
-    },
-    {
-      "id": "cartheory",
-      "section": "archive",
-      "file": "cartheory.txt",
-      "title": "",
-      "date": "",
-      "type": "",
-      "author": "",
-      "published": "",
-      "fields": [],
-      "keywords": [],
-      "summary": "",
-      "files": [],
-      "source": [],
-      "related": []
     }
   ],
-  "updated": "2026-07-21T09:19:25"
+  "updated": "2026-07-24T01:52:39"
 }

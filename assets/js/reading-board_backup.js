@@ -19,9 +19,6 @@ const ReadingBoard = (() => {
   const requestedCategory =
     urlParams.get("category");
 
-  const requestedBookId =
-    urlParams.get("id");
-
   let currentCategory =
     READING_CONFIG.categories?.[requestedCategory]
       ? requestedCategory
@@ -954,10 +951,7 @@ const ReadingBoard = (() => {
       /*
       * URL 또는 기본 설정으로 결정된 카테고리를 화면에 표시한다.
       */
-      await loadReadingData(
-        currentCategory,
-        requestedBookId
-      );
+      await loadReadingData(currentCategory);
 
     } catch (error) {
       console.error(error);

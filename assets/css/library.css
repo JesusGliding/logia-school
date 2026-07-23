@@ -114,16 +114,27 @@ body {
   align-items: stretch;
 }
 
-.library-main,
-.library-sidebar {
+.library-main {
   display: grid;
   grid-template-rows:
     278px
-    minmax(420px, 1fr);
+    minmax(520px, auto);
 
   gap: 18px;
   min-width: 0;
-  align-content: stretch;
+}
+
+/*
+  오른쪽은 높이 결정에 참여하지 않고,
+  왼쪽이 만든 전체 높이에 맞춰 늘어난다.
+*/
+.library-sidebar {
+  position: relative;
+
+  min-width: 0;
+  min-height: 0;
+
+  overflow: hidden;
 }
 
 
@@ -316,9 +327,33 @@ body {
   min-height: 278px;
 }
 
-.archive-search-panel {
-  height: 100%;
+/* 오른쪽 상단 검색 패널 */
+.library-sidebar > .timeline-search-panel {
+  position: absolute;
+
+  top: 0;
+  right: 0;
+  left: 0;
+
+  height: 278px;
+}
+
+/* 오른쪽 하단 검색 패널 */
+.library-sidebar > .archive-search-panel {
+  position: absolute;
+
+  top: 296px; /* 278px + 패널 간격 18px */
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  height: auto;
   min-height: 0;
+
+  overflow: hidden;
 }
 
 .search-form {
@@ -406,9 +441,16 @@ body {
 }
 
 .search-results {
-  max-height: 291px;
+  min-height: 0;
   overflow-y: auto;
   padding-right: 4px;
+}
+
+.archive-search-panel .search-results {
+  flex: 1 1 0;
+
+  min-height: 0;
+  max-height: none;
 }
 
 .search-result-item {
@@ -1086,6 +1128,42 @@ body {
   .notes-search-section {
     min-height: 310px;
   }
+
+  .library-sidebar {
+      position: static;
+
+      display: grid;
+      grid-template-rows:
+        278px
+        minmax(420px, auto);
+
+      gap: 18px;
+
+      overflow: visible;
+    }
+
+    .library-sidebar > .timeline-search-panel,
+    .library-sidebar > .archive-search-panel {
+      position: static;
+      inset: auto;
+
+      height: auto;
+    }
+
+    .library-sidebar > .timeline-search-panel {
+      min-height: 278px;
+    }
+
+    .library-sidebar > .archive-search-panel {
+      min-height: 420px;
+      overflow: visible;
+    }
+
+    .archive-search-panel .search-results {
+      flex: none;
+      max-height: 300px;
+    }
+
 }
 
 @media (max-width: 620px) {

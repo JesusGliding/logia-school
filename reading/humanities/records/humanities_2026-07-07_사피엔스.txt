@@ -1,3 +1,5 @@
+id:reading-sapiens
+
 title:
 사피엔스 (Sapiens)
 
@@ -14,7 +16,7 @@ keywords:
 인류, 진화, 문명
 
 summary:
-유발 하라리의 유명한 세계적인 명저, 이제서야 읽어 본다.
+유발 하라리의 세계적으로도 유명한 명저, 이제서야 읽어 본다.
 
 reflection:
 

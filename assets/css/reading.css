@@ -168,9 +168,17 @@ body {
   gap: 18px;
 }
 
+/*
+  오른쪽 검색 결과가 전체 높이를 늘리지 않도록 한다.
+  왼쪽 reading-main의 높이가 기준이 된다.
+*/
 .reading-sidebar {
+  position: relative;
+
   min-width: 0;
-  display: flex;
+  min-height: 0;
+
+  overflow: hidden;
 }
 
 
@@ -345,9 +353,17 @@ body {
    ========================================================= */
 
 .search-panel {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+
   width: 100%;
+  height: auto;
   min-height: 0;
-  height: 100%;
+
+  overflow: hidden;
 }
 
 .search-form {
@@ -421,7 +437,10 @@ body {
 }
 
 .search-results {
-  max-height: 496px;
+  flex: 1 1 0;
+
+  min-height: 0;
+  max-height: none;
   overflow-y: auto;
   padding-right: 4px;
 }
@@ -512,14 +531,20 @@ body {
   }
 
   .reading-sidebar {
-    order: 2;
+    position: static;
+    overflow: visible;
   }
 
   .search-panel {
+    position: static;
+    height: auto;
     min-height: auto;
+
+    overflow: visible;
   }
 
   .search-results {
+    flex: none;
     max-height: 300px;
   }
 }

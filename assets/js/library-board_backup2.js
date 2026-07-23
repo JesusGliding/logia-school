@@ -928,8 +928,10 @@ const LibraryBoard = (() => {
       button.setAttribute("aria-selected", String(active));
     });
 
-    selectedNoteSection.textContent =
-      `(${noteCurrentSection})`;
+    if (selectedNoteSection) {
+      selectedNoteSection.textContent =
+        `(${noteCurrentSection})`;
+    }
   }
 
 
@@ -940,7 +942,7 @@ const LibraryBoard = (() => {
   }
 
 
-  function showCurrentNoteSection() {
+  function showCurrentNoteSection(targetId = null) {
     visibleNoteRecords = getCurrentSectionNoteRecords();
 
     noteSearchStatus.textContent =
@@ -950,12 +952,22 @@ const LibraryBoard = (() => {
       `${visibleNoteRecords.length}건`;
 
     renderNoteList(visibleNoteRecords);
-    selectFirstVisibleNote();
+
+    const targetExists = targetId
+      && visibleNoteRecords.some(item => item.id === targetId);
+
+    if (targetExists) {
+      selectNoteRecord(targetId);
+    } else {
+      selectFirstVisibleNote();
+    }
   }
 
 
   function renderNoteList(items) {
-    noteListCount.textContent = `${items.length}항목`;
+    if (noteListCount) {
+      noteListCount.textContent = `${items.length}항목`;
+    }
 
     if (!items.length) {
       noteRecordList.innerHTML = `
@@ -1211,7 +1223,8 @@ const LibraryBoard = (() => {
 
   function getIntegratedCategory(item) {
     return String(
-      item.category
+      item.categoryTitle
+      || item.category
       || item.section
       || item.sourceType
       || "자료"
@@ -1241,13 +1254,101 @@ const LibraryBoard = (() => {
   }
 
 
+  function getIntegratedSearchText(item) {
+    return normalizeText([
+      item.id,
+      item.source,
+      item.category,
+      item.categoryTitle,
+      item.location,
+      item.kind,
+      item.type,
+      item.title,
+      item.subtitle,
+      item.date,
+      ...toArray(item.aliases),
+      ...toArray(item.fields),
+      ...toArray(item.keywords),
+      ...toArray(item.summary),
+      ...toArray(item.content),
+      ...toArray(item.related)
+    ].join(" "));
+  }
+
+
+  function calculateIntegratedSearchScore(item, tokens) {
+    const itemId = normalizeText(item.id);
+    const title = normalizeText(getIntegratedTitle(item));
+    const subtitle = normalizeText(item.subtitle);
+    const category = normalizeText(getIntegratedCategory(item));
+    const location = normalizeText(getIntegratedLocation(item));
+    const aliases = normalizeValueArray(item.aliases);
+    const keywords = normalizeValueArray(item.keywords);
+    const searchable = getIntegratedSearchText(item);
+
+    if (!tokens.every(token => searchable.includes(token))) {
+      return -1;
+    }
+
+    let score = 0;
+
+    tokens.forEach(token => {
+      if (itemId === token) {
+        score += 160;
+      } else if (itemId.includes(token)) {
+        score += 55;
+      }
+
+      if (title === token) {
+        score += 140;
+      } else if (title.startsWith(token)) {
+        score += 95;
+      } else if (title.includes(token)) {
+        score += 70;
+      }
+
+      if (subtitle.includes(token)) {
+        score += 35;
+      }
+
+      if (aliases.some(alias => alias === token)) {
+        score += 45;
+      } else if (aliases.some(alias => alias.includes(token))) {
+        score += 30;
+      }
+
+      if (keywords.some(keyword => keyword === token)) {
+        score += 40;
+      } else if (keywords.some(keyword => keyword.includes(token))) {
+        score += 26;
+      }
+
+      if (category.includes(token)) {
+        score += 12;
+      }
+
+      if (location.includes(token)) {
+        score += 10;
+      }
+
+      score += 3;
+    });
+
+    return score;
+  }
+
+
   function handleIntegratedSearch(event) {
     event.preventDefault();
 
     const query =
       normalizeText(integratedSearchWord.value);
 
-    if (!query) {
+    const tokens = query
+      .split(/\s+/)
+      .filter(Boolean);
+
+    if (!tokens.length) {
       integratedSearchCount.textContent = "0건";
       integratedSearchResults.innerHTML = `
         <p class="empty-message">
@@ -1257,19 +1358,27 @@ const LibraryBoard = (() => {
       return;
     }
 
-    const matched = integratedRecords.filter(item => {
-      const searchable = normalizeText([
-        item.id,
-        getIntegratedCategory(item),
-        getIntegratedLocation(item),
-        getIntegratedTitle(item),
-        ...toArray(item.keywords),
-        ...toArray(item.summary),
-        ...toArray(item.content)
-      ].join(" "));
+    const matched = integratedRecords
+      .map(item => ({
+        item,
+        score: calculateIntegratedSearchScore(
+          item,
+          tokens
+        )
+      }))
+      .filter(result => result.score >= 0)
+      .sort((first, second) => {
+        if (second.score !== first.score) {
+          return second.score - first.score;
+        }
 
-      return searchable.includes(query);
-    });
+        return getIntegratedTitle(first.item)
+          .localeCompare(
+            getIntegratedTitle(second.item),
+            "ko"
+          );
+      })
+      .map(result => result.item);
 
     renderIntegratedResults(matched);
   }
@@ -1335,7 +1444,7 @@ const LibraryBoard = (() => {
 
     integratedSearchResults.innerHTML = `
       <p class="empty-message">
-        검색어를 입력하면 교과목·독서·자료실·프로젝트의 결과가 표시됩니다.
+        검색어를 입력하면 역사·컴퓨터·노트·독서 자료가 표시됩니다.
       </p>
     `;
 
@@ -1343,19 +1452,30 @@ const LibraryBoard = (() => {
   }
 
 
-  async function loadNotesCategory() {
-    noteCurrentSection = getNoteSections().includes(noteCurrentSection)
-      ? noteCurrentSection
-      : getNoteSections()[0];
-
-    updateNoteSectionButtons();
-
+  async function loadNotesCategory(
+    targetId = null,
+    targetSection = null
+  ) {
     await Promise.all([
       loadNotesData(),
       loadIntegratedData()
     ]);
 
-    showCurrentNoteSection();
+    const targetRecord = targetId
+      ? noteRecords.find(item => item.id === targetId)
+      : null;
+
+    const requestedSection =
+      targetSection
+      || targetRecord?.section
+      || noteCurrentSection;
+
+    noteCurrentSection = getNoteSections().includes(requestedSection)
+      ? requestedSection
+      : getNoteSections()[0];
+
+    updateNoteSectionButtons();
+    showCurrentNoteSection(targetId);
   }
 
 
@@ -1424,7 +1544,11 @@ const LibraryBoard = (() => {
   }
 
 
-  async function loadCategory(category) {
+  async function loadCategory(
+    category,
+    targetId = null,
+    targetNoteSection = null
+  ) {
     const config =
       LIBRARY_CONFIG.categories[category];
 
@@ -1442,7 +1566,10 @@ const LibraryBoard = (() => {
     updateCategoryButtons();
 
     if (isNotesCategory()) {
-      await loadNotesCategory();
+      await loadNotesCategory(
+        targetId,
+        targetNoteSection
+      );
       return;
     }
 
@@ -1490,25 +1617,46 @@ const LibraryBoard = (() => {
         "전체 자료"
       );
 
-      const firstLinkedItem =
-        timeline.find(item =>
-          getArchiveById(item.id)
-        );
+      const targetArchive = targetId
+        ? getArchiveById(targetId)
+        : null;
 
-      if (firstLinkedItem) {
-        selectedTimelineIndex =
-          timeline.findIndex(item =>
-            item.id === firstLinkedItem.id
-          );
+      const targetTimelineIndex = targetId
+        ? timeline.findIndex(item => item.id === targetId)
+        : -1;
 
-        selectArchive(firstLinkedItem.id);
+      if (targetTimelineIndex >= 0) {
+        selectedTimelineIndex = targetTimelineIndex;
         renderTimeline();
+      }
 
-      } else if (archives[0]) {
-        selectArchive(archives[0].id);
+      if (targetArchive) {
+        selectArchive(targetId);
+
+      } else if (targetTimelineIndex >= 0) {
+        renderMissingLinkedArchive(targetId);
 
       } else {
-        renderEmptyArchive();
+        const firstLinkedItem =
+          timeline.find(item =>
+            getArchiveById(item.id)
+          );
+
+        if (firstLinkedItem) {
+          selectedTimelineIndex =
+            timeline.findIndex(item =>
+              item.id === firstLinkedItem.id
+            );
+
+          selectArchive(firstLinkedItem.id);
+          renderTimeline();
+
+        } else if (archives[0]) {
+          selectArchive(archives[0].id);
+
+        } else {
+          renderEmptyArchive();
+        }
       }
 
     } catch (error) {
@@ -2456,6 +2604,12 @@ const LibraryBoard = (() => {
     const category =
       params.get("category");
 
+    const targetId =
+      params.get("id");
+
+    const targetNoteSection =
+      params.get("section");
+
     if (
       category &&
       LIBRARY_CONFIG.categories[category]
@@ -2465,7 +2619,11 @@ const LibraryBoard = (() => {
 
     bindEvents();
     await loadRecommendationPool();
-    await loadCategory(currentCategory);
+    await loadCategory(
+      currentCategory,
+      targetId,
+      targetNoteSection
+    );
   }
 
 

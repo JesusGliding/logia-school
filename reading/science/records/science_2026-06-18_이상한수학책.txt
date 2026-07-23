@@ -1,8 +1,10 @@
+id: reading-math-bad-drawings
+
 title:
-이상한 수학책
+이상한 수학책 (Math with Bad Drawings)
 
 author:
-벤 올린
+벤 올린 (Ben Orlin)
 
 date: 
 2026-06-18/2026-06-24
