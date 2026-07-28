@@ -1,9 +1,9 @@
 {
-  "cacheVersion": 1785244900,
+  "cacheVersion": 1785248921,
   "subject": "calculus",
   "subjectInfo": {
     "id": "calculus-subject",
-    "title": "미적분학 I·II",
+    "title": "미분적분학 I·II",
     "englishTitle": "Calculus I·II",
     "displayOrder": 1,
     "level": "university-basic",
@@ -128,5 +128,5 @@
       ]
     }
   ],
-  "updated": "2026-07-28T22:21:40"
+  "updated": "2026-07-28T23:28:41"
 }

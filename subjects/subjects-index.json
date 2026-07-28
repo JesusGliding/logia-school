@@ -1,12 +1,12 @@
 {
-  "cacheVersion": 1785244900,
+  "cacheVersion": 1785248921,
   "indexType": "subject-catalog",
   "subjectCount": 8,
   "subjects": [
     {
       "subject": "calculus",
       "id": "calculus-subject",
-      "title": "미적분학 I·II",
+      "title": "미분적분학 I·II",
       "englishTitle": "Calculus I·II",
       "displayOrder": 1,
       "level": "university-basic",
@@ -16,7 +16,7 @@
       "legacy": false,
       "subjectInfo": {
         "id": "calculus-subject",
-        "title": "미적분학 I·II",
+        "title": "미분적분학 I·II",
         "englishTitle": "Calculus I·II",
         "displayOrder": 1,
         "level": "university-basic",
@@ -75,8 +75,8 @@
     {
       "subject": "chemistry",
       "id": "chemistry-subject",
-      "title": "일반화학 I",
-      "englishTitle": "Chemistry I",
+      "title": "일반화학 I·II",
+      "englishTitle": "Chemistry I·II",
       "displayOrder": 2,
       "level": "university-basic",
       "startDate": "2026-07-07",
@@ -85,8 +85,8 @@
       "legacy": false,
       "subjectInfo": {
         "id": "chemistry-subject",
-        "title": "일반화학 I",
-        "englishTitle": "Chemistry I",
+        "title": "일반화학 I·II",
+        "englishTitle": "Chemistry I·II",
         "displayOrder": 2,
         "level": "university-basic",
         "startDate": "2026-07-07",
@@ -587,5 +587,5 @@
       }
     }
   ],
-  "updated": "2026-07-28T22:21:40"
+  "updated": "2026-07-28T23:28:41"
 }

@@ -1,0 +1,38 @@
+id: engineering-math-subject
+title: 공업수학
+englishTitle: Engineering Mathematics 
+displayOrder: 5
+level: university-basic
+startDate: 
+status:
+
+description:
+공업수학은 과학과 공학 분야에서 필요한 수학적 개념과 기법을 다루는 과목이다.
+미분방정식, 선형대수, 벡터해석, 푸리에 해석, 복소해석 등을 통해 공학 문제를 해결한다.
+
+field: 공학
+keyTopics: 미분방정식, 선형대수, 복소해석, 수치해석
+goal: 공학 문제를 해결하는 데 필요한 수학적 지식과 기술을 습득
+textbook: Advanced Engineering Mathematics | Erwin Kreyszig | 10th Edition
+
+
+objectives:
+미적분의 개념과 응용을 이해한다.
+선형대수의 원리와 응용을 이해한다.
+미분방정식을 이해하고 응용한다.
+복소해석과 푸리에 해석을 배운다.
+공학 문제 해결을 위한 수학적 모델링 능력을 키운다.
+수학적 사고력을 바탕으로 공학적 판단을 내린다.
+
+resources:
+https://ocw.mit.edu/courses/18-03-differential-equations-spring-2010/ | MIT OpenCourseWare - Differential Equations
+https://openstax.org/subjects/math | OpenStax - Mathematics
+https://www.khanacademy.org/science/math/linear-algebra | Khan Academy - Linear Algebra
+https://www.3blue1brown.com/topics/differential-equations | 3Blue1Brown - Differential Equations
+
+bibliography:
+Kreyszig, Advanced Engineering Mathematics
+Stewart, Calculus
+Strang, Introduction to Linear Algebra
+Boyce & DiPrima, Elementary Differential Equations
+

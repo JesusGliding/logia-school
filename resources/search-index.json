@@ -1,5 +1,5 @@
 {
-  "cacheVersion": 1785244900,
+  "cacheVersion": 1785248921,
   "indexType": "integrated-search",
   "recordCount": 90,
   "sourceCounts": {
@@ -709,7 +709,7 @@
       "location": "대학수학 / 공학수학 기초",
       "kind": "subject",
       "type": "studying",
-      "title": "미적분학 I·II",
+      "title": "미분적분학 I·II",
       "subtitle": "Calculus I·II",
       "aliases": [
         "calculus",
@@ -879,11 +879,11 @@
       "location": "자연과학",
       "kind": "subject",
       "type": "studying",
-      "title": "일반화학 I",
-      "subtitle": "Chemistry I",
+      "title": "일반화학 I·II",
+      "subtitle": "Chemistry I·II",
       "aliases": [
         "chemistry",
-        "Chemistry I"
+        "Chemistry I·II"
       ],
       "date": "2026-07-07",
       "fields": [
@@ -2880,5 +2880,5 @@
       "href": "/resources/library.html?category=computer&id=transistor"
     }
   ],
-  "updated": "2026-07-28T22:21:40"
+  "updated": "2026-07-28T23:28:41"
 }

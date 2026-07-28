@@ -1,6 +1,6 @@
 id: chemistry-subject
-title: 일반화학 I
-englishTitle: Chemistry I
+title: 일반화학 I·II
+englishTitle: Chemistry I·II
 displayOrder: 2
 level: university-basic
 startDate: 2026-07-07

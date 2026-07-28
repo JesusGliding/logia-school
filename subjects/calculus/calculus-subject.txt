@@ -1,5 +1,5 @@
 id: calculus-subject
-title: 미적분학 I·II
+title: 미분적분학 I·II
 englishTitle: Calculus I·II
 displayOrder: 1
 level: university-basic
