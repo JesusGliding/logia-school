@@ -1,6 +1,66 @@
 {
-  "cacheVersion": 1784825559,
+  "cacheVersion": 1785243328,
   "subject": "biology",
+  "subjectInfo": {
+    "id": "biology-subject",
+    "title": "캠벨 생명과학",
+    "englishTitle": "Campbell Biology",
+    "displayOrder": 4,
+    "level": "university-basic",
+    "startDate": "2026-07-04",
+    "status": "studying",
+    "description": [
+      "생명과학은 생물의 구조, 기능, 진화, 분포 등을 연구하는 과학이다.",
+      "세포, 유전자, 단백질, 대사 경로 등을 통해 생명 현상을 이해한다."
+    ],
+    "field": "생명과학",
+    "keyTopics": [
+      "진화",
+      "세포",
+      "유전자",
+      "단백질",
+      "대사 경로"
+    ],
+    "goal": "생물학적 현상을 이해하고 연구하는 데 필요한 기초 지식을 습득",
+    "textbook": {
+      "title": "Campbell Bilology",
+      "author": "Lisa A. Urry et al.",
+      "edition": "12th Edition"
+    },
+    "objectives": [
+      "세포의 구조와 기능을 이해한다.",
+      "유전자의 구조와 작용을 이해한다.",
+      "단백질의 구조와 기능을 이해한다.",
+      "대사 경로를 통해 생명 현상을 이해한다.",
+      "진화의 원리와 생물 다양성을 이해한다."
+    ],
+    "resources": [
+      {
+        "url": "https://ocw.mit.edu/courses/biology/",
+        "title": "MIT OpenCourseWare - Biology"
+      },
+      {
+        "url": "https://openstax.org/subjects/science",
+        "title": "OpenStax - Biology"
+      },
+      {
+        "url": "https://phet.colorado.edu/",
+        "title": "PhET Interactive Simulations"
+      },
+      {
+        "url": "https://www.khanacademy.org/science/biology",
+        "title": "Khan Academy - Biology"
+      }
+    ],
+    "bibliography": [
+      "Campbell, Biology",
+      "Essential Cell Biology",
+      "Molecular Biology of the Cell",
+      "Lehninger Principles of Biochemistry",
+      "Molecular Biology of the Gene"
+    ],
+    "sourceFile": "biology-subject.txt"
+  },
   "recordCount": 2,
   "mediaCount": 4,
   "firstRecord": "2026-07-04",
@@ -62,5 +122,5 @@
       "media": []
     }
   ],
-  "updated": "2026-07-24T01:52:39"
+  "updated": "2026-07-28T21:55:28"
 }

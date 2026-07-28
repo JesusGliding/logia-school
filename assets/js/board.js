@@ -1,51 +1,239 @@
-  const SUBJECT = BOARD_CONFIG.subject;  // 과목명 
-  const START_DATE = BOARD_CONFIG.startDate;  // 학습 시작일
-  const INDEX_FILE = `${SUBJECT}-index.json`; // 학습 데이터 (JSON)
-  let studyIndex = null;
-  const CHAPTER_FILE = `${SUBJECT}-chapters.txt`; // 챕터 데이터 (txt)
-  let chapterList = [];  
-  const CHAPTER_FORMAT = BOARD_CONFIG.chapterFormat ?? "general"; // 챕터 형식 (general, campbell, classic, simple)
-  const CHAPTER_SEPARATOR = BOARD_CONFIG.separator ?? " | "; // 챕터 제목 구분자 (기본값: " | ")
-  const CHAPTER_TITLE_LAYOUT = BOARD_CONFIG.chapterTitleLayout ?? "inline";
+"use strict";
 
-  const calendarTitle = document.getElementById("calendar-title");
-  const calendarGrid = document.getElementById("calendar-grid");
-  const prevMonthButton = document.getElementById("prev-month");
-  const nextMonthButton = document.getElementById("next-month");
+
+/* =========================================================
+   LOGIA Study Board
+   ========================================================= */
+
+const StudyBoard = (() => {
+
+  const CONFIG = window.BOARD_CONFIG || {};
+
+  const SUBJECT = String(
+    CONFIG.subject || ""
+  ).trim();
+
+  const BASE_PATH = String(
+    CONFIG.basePath || ""
+  );
+
+  const INDEX_FILE =
+    `${BASE_PATH}${SUBJECT}-index.json`;
+
+  const CHAPTER_FILE =
+    `${BASE_PATH}${SUBJECT}-chapters.json`;
+
+  const CHAPTER_SEPARATOR =
+    CONFIG.separator ?? " | ";
+
+  const CHAPTER_TITLE_LAYOUT =
+    CONFIG.chapterTitleLayout ?? "inline";
+
+  let startDate = String(
+    CONFIG.startDate || ""
+  ).trim();
+
+  let studyIndex = null;
+  let chapterIndex = null;
+
   let calendarYear = null;
   let calendarMonth = null;
 
-  const dateInput = document.getElementById("study-date");
-  const memoText = document.getElementById("memo-text");
-  const progressText = document.getElementById("progress-text");
-  const progressFill = document.getElementById("progress-fill");
-  const filesList = document.getElementById("files-list");
-  const startDateText = document.getElementById("start-date");
-  const elapsedText = document.getElementById("elapsed-text");
-  const studytimeText = document.getElementById("studytime-text");
-  const recentDateText = document.getElementById("recent-date");
-  const studyDaysText = document.getElementById("study-days-text");
-  const chapterText = document.getElementById("chapter-text");
 
-  init();
+  /* ---------------------------------------------------------
+     DOM
+     --------------------------------------------------------- */
+
+  const calendarTitle = document.getElementById(
+    "calendar-title"
+  );
+
+  const calendarGrid = document.getElementById(
+    "calendar-grid"
+  );
+
+  const prevMonthButton = document.getElementById(
+    "prev-month"
+  );
+
+  const nextMonthButton = document.getElementById(
+    "next-month"
+  );
+
+  const dateInput = document.getElementById(
+    "study-date"
+  );
+
+  const memoText = document.getElementById(
+    "memo-text"
+  );
+
+  const progressText = document.getElementById(
+    "progress-text"
+  );
+
+  const progressFill = document.getElementById(
+    "progress-fill"
+  );
+
+  const filesList = document.getElementById(
+    "files-list"
+  );
+
+  const startDateText = document.getElementById(
+    "start-date"
+  );
+
+  const elapsedText = document.getElementById(
+    "elapsed-text"
+  );
+
+  const studytimeText = document.getElementById(
+    "studytime-text"
+  );
+
+  const recentDateText = document.getElementById(
+    "recent-date"
+  );
+
+  const studyDaysText = document.getElementById(
+    "study-days-text"
+  );
+
+  const chapterText = document.getElementById(
+    "chapter-text"
+  );
+
+
+  /* ---------------------------------------------------------
+     Loading
+     --------------------------------------------------------- */
+
+  async function fetchJsonNoCache(url) {
+    const separator = url.includes("?") ? "&" : "?";
+
+    const response = await fetch(
+      `${url}${separator}v=${Date.now()}`,
+      { cache: "no-store" }
+    );
+
+    if (!response.ok) {
+      throw new Error(`${url}: HTTP ${response.status}`);
+    }
+
+    return response.json();
+  }
+
+
+  async function loadStudyIndex() {
+    studyIndex = await fetchJsonNoCache(INDEX_FILE);
+
+    startDate = String(
+      studyIndex?.subjectInfo?.startDate
+      || startDate
+      || studyIndex?.firstRecord
+      || ""
+    ).trim();
+  }
+
+
+  async function loadChapterIndex() {
+    chapterIndex = await fetchJsonNoCache(CHAPTER_FILE);
+  }
+
+
+  /* ---------------------------------------------------------
+     Initialization
+     --------------------------------------------------------- */
+
+  function hasRequiredDom() {
+    return Boolean(
+      calendarTitle
+      && calendarGrid
+      && prevMonthButton
+      && nextMonthButton
+      && dateInput
+      && memoText
+      && progressText
+      && progressFill
+      && filesList
+      && startDateText
+      && elapsedText
+      && studytimeText
+      && recentDateText
+      && studyDaysText
+      && chapterText
+    );
+  }
+
 
   async function init() {
+    if (!hasRequiredDom()) {
+      return;
+    }
 
-    const TODAY = getKoreaToday();
+    if (!SUBJECT || !/^[a-z0-9-]+$/.test(SUBJECT)) {
+      showBoardError("과목 설정을 확인할 수 없습니다.");
+      return;
+    }
 
-    startDateText.textContent = START_DATE;
-    dateInput.value = TODAY;
-    elapsedText.textContent = `(${getElapsedDays(START_DATE, TODAY)}일 경과)`;
+    try {
+      await Promise.all([
+        loadChapterIndex(),
+        loadStudyIndex()
+      ]);
 
-    await loadChapterList();  
-    await loadStudyIndex();
+      initializeStatus();
+      initializeCalendar();
+      bindEvents();
 
-    dateInput.addEventListener("change", function () {
-        loadStudyRecord(dateInput.value);
-        selectCalendarDay(dateInput.value);
+    } catch (error) {
+      console.error(error);
+      showBoardError("학습 데이터를 불러오지 못했습니다.");
+    }
+  }
+
+
+  function initializeStatus() {
+    const today = getKoreaToday();
+
+    startDateText.textContent = startDate || "-";
+
+    elapsedText.textContent = startDate
+      ? `(${getElapsedDays(startDate, today)}일 경과)`
+      : "";
+
+    recentDateText.textContent =
+      studyIndex?.lastRecord || "-";
+
+    studyDaysText.textContent = studyIndex?.studyDays
+      ? `(학습일 ${studyIndex.studyDays}일)`
+      : "";
+  }
+
+
+  function initializeCalendar() {
+    const today = getKoreaToday();
+    const [year, month] = today.split("-").map(Number);
+
+    calendarYear = year;
+    calendarMonth = month - 1;
+    dateInput.value = today;
+
+    buildCalendar();
+    markRecordedDates();
+    loadStudyRecord(today);
+    selectCalendarDay(today);
+  }
+
+
+  function bindEvents() {
+    dateInput.addEventListener("change", () => {
+      loadStudyRecord(dateInput.value);
+      selectCalendarDay(dateInput.value);
     });
 
-    prevMonthButton.addEventListener("click", function () {
+    prevMonthButton.addEventListener("click", () => {
       calendarMonth--;
 
       if (calendarMonth < 0) {
@@ -53,12 +241,10 @@
         calendarYear--;
       }
 
-      buildCalendar();
-      markRecordedDates();
-      selectCalendarDay(dateInput.value);
+      rebuildCalendarState();
     });
 
-    nextMonthButton.addEventListener("click", function () {
+    nextMonthButton.addEventListener("click", () => {
       calendarMonth++;
 
       if (calendarMonth > 11) {
@@ -66,52 +252,41 @@
         calendarYear++;
       }
 
-      buildCalendar();
-      markRecordedDates();
-      selectCalendarDay(dateInput.value);
+      rebuildCalendarState();
     });
   }
 
-  async function loadStudyIndex() {
-    const response = await fetch(INDEX_FILE, {cache: "no-cache"});
 
-    if (!response.ok) {
-      throw new Error("index json not found");
-    }
-
-    studyIndex = await response.json();
-
-    recentDateText.textContent = studyIndex.lastRecord || "-";
-    studyDaysText.textContent = studyIndex.studyDays
-      ? `(학습일 ${studyIndex.studyDays}일)`
-      : "";
-
-    const today = getKoreaToday();
-    const [year, month] = today.split("-").map(Number);
-
-    calendarYear = year;
-    calendarMonth = month - 1;
-
-    dateInput.value = today;
-
+  function rebuildCalendarState() {
     buildCalendar();
     markRecordedDates();
-
-    loadStudyRecord(today);
-    selectCalendarDay(today);
+    selectCalendarDay(dateInput.value);
   }
 
+
+  function showBoardError(message) {
+    memoText.value = message;
+    updateProgress("-");
+    studytimeText.textContent = "-";
+    chapterText.textContent = "-";
+    filesList.innerHTML = "";
+  }
+
+
+  /* ---------------------------------------------------------
+     Study Record
+     --------------------------------------------------------- */
+
   function loadStudyRecord(date) {
-    if (!studyIndex || !studyIndex.records) {
-      memoText.value = "학습 데이터베이스를 불러오지 못했습니다.";
-      updateProgress("-");
-      studytimeText.textContent = "-";
-      chapterText.textContent = "-";
-      filesList.innerHTML = "";
+    if (!Array.isArray(studyIndex?.records)) {
+      showBoardError("학습 데이터베이스를 불러오지 못했습니다.");
       return;
     }
 
-    const record = studyIndex.records.find(item => item.date === date);
+    const record = studyIndex.records.find(
+      item => item.date === date
+    );
+
     const progress = getProgressForDate(date);
 
     updateProgress(progress);
@@ -124,50 +299,162 @@
       return;
     }
 
-    memoText.value = record.memo && record.memo.length > 0
-      ? record.memo.join("\n").replace(/\\n/g, "\n")
-      : "메모가 없습니다.";
-
-    updateProgress(getProgressForDate(date));
-    chapterText.textContent = getChapterTitle(progress);
+    memoText.value = Array.isArray(record.memo)
+      && record.memo.length
+        ? record.memo
+            .join("\n")
+            .replaceAll("\\n", "\n")
+        : "메모가 없습니다.";
 
     studytimeText.textContent = record.studytime || "-";
 
+    renderMedia(record.media);
+  }
+
+
+  function renderMedia(mediaItems) {
     filesList.innerHTML = "";
 
-    if (record.media && record.media.length > 0) {
-      record.media.forEach(media => {
-        const li = document.createElement("li");
-
-        const link = document.createElement("a");
-        link.href = `media/${media.file}`;
-        link.target = "_blank";
-        link.textContent = media.title || media.file;
-
-        li.appendChild(link);
-        filesList.appendChild(li);
-      });
+    if (!Array.isArray(mediaItems) || !mediaItems.length) {
+      return;
     }
+
+    mediaItems.forEach(media => {
+      const listItem = document.createElement("li");
+
+      if (media.exists === false) {
+        listItem.textContent =
+          `${media.title || media.file} (파일 없음)`;
+
+        filesList.appendChild(listItem);
+        return;
+      }
+
+      const link = document.createElement("a");
+
+      link.href =
+        `${BASE_PATH}media/${encodeURIComponent(media.file)}`;
+
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.textContent = media.title || media.file;
+
+      listItem.appendChild(link);
+      filesList.appendChild(listItem);
+    });
   }
 
-  function getKoreaToday() {
-      const now = new Date();
-     
-      return new Intl.DateTimeFormat("en-ca", {
-          timeZone: "Asia/Seoul",
-          year: "numeric",
-          month: "2-digit",
-          day: "2-digit"
-      }).format(now);
+
+  function getProgressForDate(date) {
+    if (!Array.isArray(studyIndex?.records)) {
+      return "-";
+    }
+
+    if (startDate && date < startDate) {
+      return "-";
+    }
+
+    const record = [...studyIndex.records]
+      .filter(item => item.date <= date && item.progress)
+      .sort((first, second) =>
+        second.date.localeCompare(first.date)
+      )[0];
+
+    return record ? record.progress : "-";
   }
 
-  function getElapsedDays(startDate, endDate) {
-      const start = new Date(startDate);
-      const end = new Date(endDate);
-      const diff = end - start;
 
-      return Math.floor(diff / (1000 * 60 * 60 * 24)) + 1;
+  /* ---------------------------------------------------------
+     Progress Calculation
+     --------------------------------------------------------- */
+
+  function getProgressUnit(progress) {
+    return String(progress || "")
+      .split("/")[0]
+      .trim();
   }
+
+
+  function getChapterFormat() {
+    return String(
+      CONFIG.chapterFormat
+      || chapterIndex?.format
+      || "general"
+    );
+  }
+
+
+  function getChapters() {
+    return Array.isArray(chapterIndex?.chapters)
+      ? chapterIndex.chapters
+      : [];
+  }
+
+
+  function getSectionUnits() {
+    return getChapters().flatMap(chapter => {
+      const sections = Array.isArray(chapter.sections)
+        ? chapter.sections
+        : [];
+
+      return sections.map(section => ({
+        ...section,
+        chapter
+      }));
+    });
+  }
+
+
+  function usesSectionProgress() {
+    const format = getChapterFormat();
+    const sections = getSectionUnits();
+
+    if (!sections.length) {
+      return false;
+    }
+
+    return !["classic", "simple"].includes(format);
+  }
+
+
+  function getStudyUnits() {
+    return usesSectionProgress()
+      ? getSectionUnits()
+      : getChapters();
+  }
+
+
+  function getTotalStudyUnitCount() {
+    return getStudyUnits().length;
+  }
+
+
+  function getCurrentStudyUnitCount(progress) {
+    const unit = getProgressUnit(progress);
+
+    if (!unit) {
+      return 0;
+    }
+
+    const studyUnits = getStudyUnits();
+
+    if (usesSectionProgress()) {
+      const index = studyUnits.findIndex(
+        item => String(item.number) === unit
+      );
+
+      return index >= 0 ? index + 1 : 0;
+    }
+
+    const chapterNumber = unit.split(".")[0];
+
+    const index = studyUnits.findIndex(
+      item => String(item.number) === chapterNumber
+    );
+
+    return index >= 0 ? index + 1 : 0;
+  }
+
 
   function updateProgress(progress) {
     const parts = String(progress).split("/");
@@ -178,59 +465,205 @@
       return;
     }
 
-    const currentStudyUnitCount = getCurrentStudyUnitCount(progress);
-    const totalStudyUnitCount = getTotalStudyUnitCount();
+    const currentCount = getCurrentStudyUnitCount(progress);
+    const totalCount = getTotalStudyUnitCount();
 
-    if (
-      currentStudyUnitCount <= 0 ||
-      totalStudyUnitCount <= 0
-    ) {
+    if (currentCount <= 0 || totalCount <= 0) {
       progressText.textContent = "-";
       progressFill.style.width = "0%";
       return;
     }
 
-    const percent =
-      ((currentStudyUnitCount / totalStudyUnitCount) * 100).toFixed(1);
+    const percent = (
+      (currentCount / totalCount) * 100
+    ).toFixed(1);
 
     progressText.textContent = `${percent}% (${progress})`;
-    progressFill.style.width = percent + "%";
+    progressFill.style.width = `${percent}%`;
   }
 
-  function markRecordedDates() {
-    if (!studyIndex || !studyIndex.records) return;
 
-    studyIndex.records.forEach(record => {
-      const cell = document.querySelector(`[data-date="${record.date}"]`);
-      if (cell) {
-        cell.classList.add("has-record");
+  /* ---------------------------------------------------------
+     Chapter Title
+     --------------------------------------------------------- */
+
+  function getChapterByNumber(number) {
+    return getChapters().find(
+      chapter => String(chapter.number) === String(number)
+    ) || null;
+  }
+
+
+  function getSectionByNumber(chapter, number) {
+    if (!chapter || !Array.isArray(chapter.sections)) {
+      return null;
+    }
+
+    return chapter.sections.find(
+      section => String(section.number) === String(number)
+    ) || null;
+  }
+
+
+  function formatChapterTitle(chapter) {
+    if (!chapter) {
+      return "-";
+    }
+
+    const format = getChapterFormat();
+
+    if (format === "classic") {
+      return `제${chapter.number}장 ${chapter.title}`;
+    }
+
+    return `${chapter.number} ${chapter.title}`;
+  }
+
+
+  function formatGroupTitle(group) {
+    if (!group) {
+      return "";
+    }
+
+    if (group.type === "unit") {
+      return `${group.number}단원 ${group.title}`.trim();
+    }
+
+    return `${group.number} ${group.title}`.trim();
+  }
+
+
+  function getChapterTitle(progress) {
+    const unit = getProgressUnit(progress);
+
+    if (!unit || !getChapters().length) {
+      return "-";
+    }
+
+    const chapterNumber = unit.split(".")[0];
+    const chapter = getChapterByNumber(chapterNumber);
+
+    if (!chapter) {
+      return "-";
+    }
+
+    const format = getChapterFormat();
+    const chapterTitle = formatChapterTitle(chapter);
+    const section = getSectionByNumber(chapter, unit);
+
+    if (format === "simple") {
+      return chapterTitle;
+    }
+
+    if (format === "classic") {
+      const groupTitle = formatGroupTitle(chapter.group);
+
+      if (!groupTitle) {
+        return chapterTitle;
       }
-    });
+
+      if (CHAPTER_TITLE_LAYOUT === "newline") {
+        return `${groupTitle}\n${chapterTitle}`;
+      }
+
+      return `${groupTitle}${CHAPTER_SEPARATOR}${chapterTitle}`;
+    }
+
+    if (format === "campbell") {
+      const groupTitle = formatGroupTitle(chapter.group);
+      const sectionTitle = section
+        ? `${section.number} ${section.title}`
+        : "";
+
+      const firstLine = groupTitle
+        ? `${groupTitle}${CHAPTER_SEPARATOR}${chapterTitle}`
+        : chapterTitle;
+
+      return sectionTitle
+        ? `${firstLine}\n(${sectionTitle})`
+        : firstLine;
+    }
+
+    if (!section) {
+      return chapterTitle;
+    }
+
+    return (
+      `${chapterTitle}${CHAPTER_SEPARATOR}`
+      + `${section.number} ${section.title}`
+    );
   }
+
+
+  /* ---------------------------------------------------------
+     Calendar
+     --------------------------------------------------------- */
+
+  function getKoreaToday() {
+    const now = new Date();
+
+    return new Intl.DateTimeFormat("en-ca", {
+      timeZone: "Asia/Seoul",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit"
+    }).format(now);
+  }
+
+
+  function getElapsedDays(firstDate, lastDate) {
+    const start = new Date(`${firstDate}T00:00:00`);
+    const end = new Date(`${lastDate}T00:00:00`);
+    const difference = end - start;
+
+    if (!Number.isFinite(difference)) {
+      return 0;
+    }
+
+    return Math.floor(
+      difference / (1000 * 60 * 60 * 24)
+    ) + 1;
+  }
+
 
   function buildCalendar() {
     calendarGrid.innerHTML = "";
 
-    calendarTitle.textContent = `${calendarYear}년 ${calendarMonth + 1}월`;
+    calendarTitle.textContent =
+      `${calendarYear}년 ${calendarMonth + 1}월`;
 
-    const firstDay = new Date(calendarYear, calendarMonth, 1);
-    const lastDay = new Date(calendarYear, calendarMonth + 1, 0);
+    const firstDay = new Date(
+      calendarYear,
+      calendarMonth,
+      1
+    );
+
+    const lastDay = new Date(
+      calendarYear,
+      calendarMonth + 1,
+      0
+    );
 
     const startWeekday = firstDay.getDay();
     const lastDate = lastDay.getDate();
 
-    for (let i = 0; i < startWeekday; i++) {
-      const empty = document.createElement("div");
-      empty.className = "calendar-day empty";
-      calendarGrid.appendChild(empty);
+    for (let index = 0; index < startWeekday; index++) {
+      const emptyCell = document.createElement("div");
+      emptyCell.className = "calendar-day empty";
+      calendarGrid.appendChild(emptyCell);
     }
 
     const today = getKoreaToday();
 
     for (let day = 1; day <= lastDate; day++) {
-      const date = `${calendarYear}-${String(calendarMonth + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+      const date = [
+        calendarYear,
+        String(calendarMonth + 1).padStart(2, "0"),
+        String(day).padStart(2, "0")
+      ].join("-");
 
       const cell = document.createElement("div");
+
       cell.className = "calendar-day";
       cell.dataset.date = date;
       cell.textContent = day;
@@ -239,7 +672,7 @@
         cell.classList.add("today");
       }
 
-      cell.addEventListener("click", function () {
+      cell.addEventListener("click", () => {
         dateInput.value = date;
         loadStudyRecord(date);
         selectCalendarDay(date);
@@ -249,222 +682,49 @@
     }
   }
 
-  function selectCalendarDay(date) {
-    document.querySelectorAll(".calendar-day.selected").forEach(cell => {
-      cell.classList.remove("selected");
-    });
 
-    const selectedCell = document.querySelector(`[data-date="${date}"]`);
+  function markRecordedDates() {
+    if (!Array.isArray(studyIndex?.records)) {
+      return;
+    }
+
+    studyIndex.records.forEach(record => {
+      const cell = document.querySelector(
+        `[data-date="${record.date}"]`
+      );
+
+      if (cell) {
+        cell.classList.add("has-record");
+      }
+    });
+  }
+
+
+  function selectCalendarDay(date) {
+    document
+      .querySelectorAll(".calendar-day.selected")
+      .forEach(cell => {
+        cell.classList.remove("selected");
+      });
+
+    const selectedCell = document.querySelector(
+      `[data-date="${date}"]`
+    );
 
     if (selectedCell) {
       selectedCell.classList.add("selected");
     }
   }
 
-  async function loadChapterList() {
-    const response = await fetch(CHAPTER_FILE, {cache: "no-cache"});
 
-    if (!response.ok) {
-      chapterList = [];
-      return;
-    }
+  return {
+    init
+  };
 
-    const text = await response.text();
-    
-    chapterList = text
-      .split("\n")
-      .map(line => line.trim())
-      .filter(line => line !== "");
-  }
-
-  function getProgressForDate(date) {
-    if (!studyIndex || !studyIndex.records) return "-";
-    if (date < START_DATE) return "-";
-
-    const record = [...studyIndex.records]
-      .filter(r => r.date <= date && r.progress)
-      .sort((a, b) => b.date.localeCompare(a.date))[0];
-
-    return record ? record.progress : "-";
-  }
-  
-  function getProgressUnit(progress) {
-    return String(progress).split("/")[0].trim();
-  }
-
-  function isStudyUnitLine(line) {
-    if (CHAPTER_FORMAT === "classic") {
-      return /^제\d+장/.test(line);
-    }
-
-    if (CHAPTER_FORMAT === "simple") {
-      return (
-        /^제\d+장/.test(line) ||
-        /^\d+장/.test(line) ||
-        /^Chapter\s+\d+/.test(line)
-      );
-    }
-
-    return /^\d+\.\d+\s+/.test(line);
-  }
+})();
 
 
-  function matchesStudyUnit(line, unit) {
-    const chapterNumber = unit.split(".")[0];
-
-    if (CHAPTER_FORMAT === "classic") {
-      return line.startsWith(`제${chapterNumber}장`);
-    }
-
-    if (CHAPTER_FORMAT === "simple") {
-      return (
-        line.startsWith(`제${chapterNumber}장`) ||
-        line.startsWith(`${chapterNumber}장`) ||
-        line.startsWith(`Chapter ${chapterNumber}`)
-      );
-    }
-
-    return line.startsWith(unit + " ");
-  }
-
-
-  function getTotalStudyUnitCount() {
-    return chapterList.filter(line => isStudyUnitLine(line)).length;
-  }
-
-
-  function getCurrentStudyUnitCount(progress) {
-    const unit = getProgressUnit(progress);
-    let count = 0;
-
-    for (const line of chapterList) {
-      if (!isStudyUnitLine(line)) continue;
-
-      count++;
-
-      if (matchesStudyUnit(line, unit)) {
-        return count;
-      }
-    }
-
-    return 0;
-  }
-
-  function getGeneralChapterTitle(progress) {
-    if (!progress || !chapterList.length) return "-";
-
-    const unit = getProgressUnit(progress);
-    const mainNumber = unit.split(".")[0];
-
-    const mainTitle = chapterList.find(line => 
-      line.startsWith(mainNumber + " ")
-    );
-     
-    const subTitle = chapterList.find(line => 
-      line.startsWith(unit + " ")
-    );
-
-    if (!mainTitle || !subTitle) return "-";
-
-    return `${mainTitle}${CHAPTER_SEPARATOR}${subTitle}`;
-  }
-
-  function getChapterTitle(progress) {
-    if (CHAPTER_FORMAT === "campbell") {
-      return getCampbellChapterTitle(progress);
-    }
-    if (CHAPTER_FORMAT === "classic") {
-      return getClassicChapterTitle(progress);
-    }
-    if (CHAPTER_FORMAT === "simple") {
-      return getSimpleChapterTitle(progress);
-    } 
-    return getGeneralChapterTitle(progress);
-  }
-
-  function getCampbellChapterTitle(progress) {
-    if (!progress || !chapterList.length) return "-";
-
-    const unit = getProgressUnit(progress);
-    const detailIndex = chapterList.findIndex(line =>
-      line.startsWith(unit + " ")
-    );
-
-    if (detailIndex === -1) return "-";
-
-    const detailTitle = chapterList[detailIndex];
-    const mainNumber = unit.split(".")[0];
-
-    let chapterTitle = "";
-    let partTitle = "";
-
-    for (let i = detailIndex - 1; i >= 0; i--) {
-      const line = chapterList[i];
-
-      if (!chapterTitle && line.startsWith(mainNumber + " ")) {
-        chapterTitle = line;
-      }
-
-      if (/^\d+단원\s+/.test(line)) {
-        partTitle = line;
-        break;
-      }
-    }
-
-    if (!chapterTitle) return detailTitle;
-
-    if (!partTitle) {
-      return `${chapterTitle}\n(${detailTitle})`;
-    }
-
-    return `${partTitle} | ${chapterTitle}\n(${detailTitle})`;
-  }
-
-  function getClassicChapterTitle(progress) {
-    if (!progress || !chapterList.length) return "-";
-
-    const unit = getProgressUnit(progress);
-    const chapterNumber = unit.split(".")[0];
-
-    const chapterIndex = chapterList.findIndex(line =>
-      line.startsWith(`제${chapterNumber}장`)
-    );
-
-    if (chapterIndex === -1) return "-";
-
-    const chapterTitle = chapterList[chapterIndex];
-    let partTitle = "";
-
-    for (let i = chapterIndex - 1; i >= 0; i--) {
-      const line = chapterList[i];
-
-      if (/^[IVXLCDM]+\s+/.test(line)) {
-        partTitle = line;
-        break;
-      }
-    }
-
-    if (!partTitle) return chapterTitle;
-
-    if (BOARD_CONFIG.chapterTitleLayout === "newline") {
-      return `${partTitle}\n${chapterTitle}`;
-    }
-
-    return `${partTitle}${CHAPTER_SEPARATOR}${chapterTitle}`;
-  }
-
-
-  function getSimpleChapterTitle(progress) {
-    if (!progress || !chapterList.length) return "-";
-
-    const unit = getProgressUnit(progress);
-    const chapterNumber = unit.split(".")[0];
-
-    const chapterTitle = chapterList.find(line =>
-      line.startsWith(`제${chapterNumber}장`) ||
-      line.startsWith(`${chapterNumber}장`) ||
-      line.startsWith(`Chapter ${chapterNumber}`)
-    );
-
-    return chapterTitle || "-";
-  }
+document.addEventListener(
+  "DOMContentLoaded",
+  StudyBoard.init
+);

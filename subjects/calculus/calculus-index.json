@@ -1,6 +1,63 @@
 {
-  "cacheVersion": 1784825559,
+  "cacheVersion": 1785243328,
   "subject": "calculus",
+  "subjectInfo": {
+    "id": "calculus-subject",
+    "title": "미적분학 I·II",
+    "englishTitle": "Calculus I·II",
+    "displayOrder": 1,
+    "level": "university-basic",
+    "startDate": "2026-06-25",
+    "status": "studying",
+    "description": [
+      "미분적분학은 대학 수학과 공학, 물리학의 기초가 되는 과목이다.",
+      "함수, 극한, 미분, 적분, 급수를 통해 변화와 누적을 수학적으로 이해한다."
+    ],
+    "field": "대학수학 / 공학수학 기초",
+    "keyTopics": [
+      "함수",
+      "극한",
+      "미분",
+      "적분",
+      "급수",
+      "다변수 함수"
+    ],
+    "goal": "물리학, 공학수학, 컴퓨터과학을 위한 수학적 기초 확립",
+    "textbook": {
+      "title": "Calculus",
+      "author": "James Stewart",
+      "edition": "Metric 2nd Edition"
+    },
+    "objectives": [
+      "함수와 그래프를 정확히 이해한다.",
+      "극한과 연속의 개념을 익힌다.",
+      "미분을 통해 변화율과 접선의 의미를 이해한다.",
+      "적분을 통해 넓이, 누적량, 물리량의 계산을 이해한다.",
+      "급수와 테일러 전개를 통해 함수의 근사와 해석을 학습한다.",
+      "다변수 함수와 편미분의 기초를 익힌다."
+    ],
+    "resources": [
+      {
+        "url": "https://ocw.mit.edu/courses/mathematics/18-01sc-single-variable-calculus-fall-2010",
+        "title": "MIT OpenCourseWare - Single Variable Calculus"
+      },
+      {
+        "url": "https://www.khanacademy.org/math/calculus",
+        "title": "Khan Academy - Calculus"
+      },
+      {
+        "url": "http://tutorial.math.lamar.edu/",
+        "title": "Paul's Online Math Notes"
+      }
+    ],
+    "bibliography": [
+      "James Stewart, Calculus",
+      "Thomas, Calculus",
+      "Anton, Calculus",
+      "Gilbert Strang, Calculus"
+    ],
+    "sourceFile": "calculus-subject.txt"
+  },
   "recordCount": 3,
   "mediaCount": 3,
   "firstRecord": "2026-06-30",
@@ -71,5 +128,5 @@
       ]
     }
   ],
-  "updated": "2026-07-24T01:52:39"
+  "updated": "2026-07-28T21:55:28"
 }

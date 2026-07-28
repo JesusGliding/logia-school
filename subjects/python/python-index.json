@@ -1,6 +1,71 @@
 {
-  "cacheVersion": 1784825559,
+  "cacheVersion": 1785243328,
   "subject": "python",
+  "subjectInfo": {
+    "id": "python-subject",
+    "title": "파이썬",
+    "englishTitle": "Python",
+    "displayOrder": 6,
+    "level": "university-basic",
+    "startDate": "",
+    "status": "",
+    "description": [
+      "Python은 고급 프로그래밍 언어로, 간단하고 가독성이 높은 문법을 가지고 있다.",
+      "Python은 다양한 라이브러리와 프레임워크를 제공하여 데이터 분석, 웹 개발, 인공지능 등 다양한 분야에서 활용된다."
+    ],
+    "field": "프로그래밍",
+    "keyTopics": [
+      "문법",
+      "함수",
+      "클래스",
+      "모듈"
+    ],
+    "goal": "Python 프로그래밍 기초를 이해하고 실습한다.",
+    "textbook": {
+      "title": "Learn Python the Right Way",
+      "author": "남재윤",
+      "edition": "개정증보판"
+    },
+    "objectives": [
+      "Python의 기본 문법을 이해한다.",
+      "함수와 클래스를 정의하고 사용한다.",
+      "모듈을 import하고 사용한다.",
+      "파일 입출력을 처리한다."
+    ],
+    "resources": [
+      {
+        "url": "https://python.org",
+        "title": "Python 공식 사이트"
+      },
+      {
+        "url": "https://ocw.mit.edu/courses/6-0001-introduction-to-computer-science-and-programming-in-python-fall-2016/",
+        "title": "MIT OpenCourseWare - Introduction to Computer Science"
+      },
+      {
+        "url": "https://pll.harvard.edu/subject/python",
+        "title": "Harvard University - Python"
+      },
+      {
+        "url": "https://exercism.org/tracks/python/exercises",
+        "title": "Python Exercises"
+      },
+      {
+        "url": "https://www.khanacademy.org/computing/computer-science",
+        "title": "Khan Academy - Computer Science"
+      },
+      {
+        "url": "https://dojang.io/",
+        "title": "파이썬 코딩 도장"
+      }
+    ],
+    "bibliography": [
+      "Python Crash Course",
+      "Automate the Boring Stuff with Python",
+      "Python for Data Analysis",
+      "파이썬 코딩 도장"
+    ],
+    "sourceFile": "python-subject.txt"
+  },
   "recordCount": 0,
   "mediaCount": 0,
   "firstRecord": null,
@@ -9,5 +74,5 @@
   "latestProgress": "0/0",
   "recordDates": [],
   "records": [],
-  "updated": "2026-07-24T01:52:39"
+  "updated": "2026-07-28T21:55:28"
 }

@@ -1364,6 +1364,19 @@ const LibraryBoard = (() => {
     const itemId = String(item?.id || "").trim();
     const category = getIntegratedTargetCategory(item);
 
+    const subjectTarget =
+      item?.source === "subject"
+      || item?.kind === "subject";
+
+    if (subjectTarget) {
+      return String(
+        item?.href
+        || item?.url
+        || item?.path
+        || ""
+      );
+    }
+
     if (!itemId || !category) {
       return String(
         item?.href
@@ -1545,7 +1558,7 @@ const LibraryBoard = (() => {
 
     integratedSearchResults.innerHTML = `
       <p class="empty-message">
-        검색어를 입력하면 역사·컴퓨터·노트·독서 자료가 표시됩니다.
+        검색어를 입력하면 교과목·역사·컴퓨터·노트·독서 자료가 표시됩니다.
       </p>
     `;
   }
@@ -1564,6 +1577,10 @@ const LibraryBoard = (() => {
       item.source === "reading"
       || item.kind === "reading";
 
+    const subjectTarget =
+      item.source === "subject"
+      || item.kind === "subject";
+
     /*
     * 현재 검색어와 결과 스크롤 위치를 먼저 현재 History 항목에 저장한다.
     * 그 다음 목적지를 새 History 항목으로 열어야 뒤로 가기가 검색 결과로 돌아온다.
@@ -1576,7 +1593,7 @@ const LibraryBoard = (() => {
     * Reading은 다른 페이지이므로 id를 포함한 주소로 이동한다.
     * 이전 검색 상태는 URL의 search 값으로도 남아 있어 뒤로 가기 후 복원된다.
     */
-    if (readingTarget) {
+    if (readingTarget || subjectTarget) {
       if (targetUrl) {
         window.location.href = targetUrl;
       }

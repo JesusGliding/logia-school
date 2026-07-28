@@ -942,7 +942,7 @@ const LibraryBoard = (() => {
   }
 
 
-  function showCurrentNoteSection() {
+  function showCurrentNoteSection(targetId = null) {
     visibleNoteRecords = getCurrentSectionNoteRecords();
 
     noteSearchStatus.textContent =
@@ -952,7 +952,15 @@ const LibraryBoard = (() => {
       `${visibleNoteRecords.length}건`;
 
     renderNoteList(visibleNoteRecords);
-    selectFirstVisibleNote();
+
+    const targetExists = targetId
+      && visibleNoteRecords.some(item => item.id === targetId);
+
+    if (targetExists) {
+      selectNoteRecord(targetId);
+    } else {
+      selectFirstVisibleNote();
+    }
   }
 
 
@@ -1215,7 +1223,8 @@ const LibraryBoard = (() => {
 
   function getIntegratedCategory(item) {
     return String(
-      item.category
+      item.categoryTitle
+      || item.category
       || item.section
       || item.sourceType
       || "자료"
@@ -1245,37 +1254,383 @@ const LibraryBoard = (() => {
   }
 
 
-  function handleIntegratedSearch(event) {
-    event.preventDefault();
+  function getIntegratedSearchText(item) {
+    return normalizeText([
+      item.id,
+      item.source,
+      item.category,
+      item.categoryTitle,
+      item.location,
+      item.kind,
+      item.type,
+      item.title,
+      item.subtitle,
+      item.date,
+      ...toArray(item.aliases),
+      ...toArray(item.fields),
+      ...toArray(item.keywords),
+      ...toArray(item.summary),
+      ...toArray(item.content),
+      ...toArray(item.related)
+    ].join(" "));
+  }
 
-    const query =
-      normalizeText(integratedSearchWord.value);
 
-    if (!query) {
+  function calculateIntegratedSearchScore(item, tokens) {
+    const itemId = normalizeText(item.id);
+    const title = normalizeText(getIntegratedTitle(item));
+    const subtitle = normalizeText(item.subtitle);
+    const category = normalizeText(getIntegratedCategory(item));
+    const location = normalizeText(getIntegratedLocation(item));
+    const aliases = normalizeValueArray(item.aliases);
+    const keywords = normalizeValueArray(item.keywords);
+    const searchable = getIntegratedSearchText(item);
+
+    if (!tokens.every(token => searchable.includes(token))) {
+      return -1;
+    }
+
+    let score = 0;
+
+    tokens.forEach(token => {
+      if (itemId === token) {
+        score += 160;
+      } else if (itemId.includes(token)) {
+        score += 55;
+      }
+
+      if (title === token) {
+        score += 140;
+      } else if (title.startsWith(token)) {
+        score += 95;
+      } else if (title.includes(token)) {
+        score += 70;
+      }
+
+      if (subtitle.includes(token)) {
+        score += 35;
+      }
+
+      if (aliases.some(alias => alias === token)) {
+        score += 45;
+      } else if (aliases.some(alias => alias.includes(token))) {
+        score += 30;
+      }
+
+      if (keywords.some(keyword => keyword === token)) {
+        score += 40;
+      } else if (keywords.some(keyword => keyword.includes(token))) {
+        score += 26;
+      }
+
+      if (category.includes(token)) {
+        score += 12;
+      }
+
+      if (location.includes(token)) {
+        score += 10;
+      }
+
+      score += 3;
+    });
+
+    return score;
+  }
+
+
+  function getIntegratedTargetCategory(item) {
+    return String(
+      item?.category
+      || item?.section
+      || ""
+    );
+  }
+
+
+  function getIntegratedTargetSection(item) {
+    if (getIntegratedTargetCategory(item) !== "notes") {
+      return "";
+    }
+
+    return String(
+      item?.location
+      || item?.section
+      || "archive"
+    );
+  }
+
+
+  function createIntegratedTargetUrl(item) {
+    const itemId = String(item?.id || "").trim();
+    const category = getIntegratedTargetCategory(item);
+
+    if (!itemId || !category) {
+      return String(
+        item?.href
+        || item?.url
+        || item?.path
+        || ""
+      );
+    }
+
+    const params = new URLSearchParams({
+      category,
+      id: itemId
+    });
+
+    if (category === "notes") {
+      params.set(
+        "section",
+        getIntegratedTargetSection(item)
+      );
+    }
+
+    const readingTarget =
+      item?.source === "reading"
+      || item?.kind === "reading";
+
+    const pathname = readingTarget
+      ? "/reading/reading.html"
+      : "/resources/library.html";
+
+    return `${pathname}?${params.toString()}`;
+  }
+
+
+  function scrollToIntegratedTarget(item) {
+    window.requestAnimationFrame(() => {
+      const category = getIntegratedTargetCategory(item);
+
+      const targetElement = category === "notes"
+        ? document.querySelector(".notes-detail-section")
+        : archiveDetail?.closest(".archive-panel");
+
+      targetElement?.scrollIntoView({
+        block: "start",
+        behavior: "smooth"
+      });
+
+      const selectedListItem = category === "notes"
+        ? noteRecordList?.querySelector(".note-record-item.selected")
+        : document.querySelector(
+            `[data-timeline-id="${CSS.escape(String(item.id))}"], `
+            + `[data-archive-id="${CSS.escape(String(item.id))}"].selected`
+          );
+
+      selectedListItem?.scrollIntoView({
+        block: "center",
+        behavior: "smooth"
+      });
+    });
+  }
+
+
+  function createIntegratedSearchReturnUrl(query) {
+    const params = new URLSearchParams();
+
+    params.set("category", "notes");
+    params.set(
+      "section",
+      noteCurrentSection || "archive"
+    );
+
+    const trimmedQuery = String(query || "").trim();
+
+    if (trimmedQuery) {
+      params.set("search", trimmedQuery);
+    }
+
+    return `${window.location.pathname}?${params.toString()}`;
+  }
+
+
+  function saveIntegratedSearchState(query) {
+    const trimmedQuery = String(query || "").trim();
+
+    const currentState =
+      window.history.state
+      && typeof window.history.state === "object"
+        ? window.history.state
+        : {};
+
+    window.history.replaceState(
+      {
+        ...currentState,
+        view: "integrated-search",
+        integratedQuery: trimmedQuery,
+        integratedScrollTop:
+          integratedSearchResults?.scrollTop || 0,
+        noteSection: noteCurrentSection
+      },
+      "",
+      createIntegratedSearchReturnUrl(trimmedQuery)
+    );
+  }
+
+
+  function getIntegratedMatches(query) {
+    const tokens = normalizeText(query)
+      .split(/\s+/)
+      .filter(Boolean);
+
+    if (!tokens.length) {
+      return null;
+    }
+
+    return integratedRecords
+      .map(item => ({
+        item,
+        score: calculateIntegratedSearchScore(
+          item,
+          tokens
+        )
+      }))
+      .filter(result => result.score >= 0)
+      .sort((first, second) => {
+        if (second.score !== first.score) {
+          return second.score - first.score;
+        }
+
+        return getIntegratedTitle(first.item)
+          .localeCompare(
+            getIntegratedTitle(second.item),
+            "ko"
+          );
+      })
+      .map(result => result.item);
+  }
+
+
+  function runIntegratedSearch(
+    query,
+    {
+      updateHistory = true,
+      restoreScrollTop = null
+    } = {}
+  ) {
+    const rawQuery = String(query || "").trim();
+    const matched = getIntegratedMatches(rawQuery);
+
+    integratedSearchWord.value = rawQuery;
+
+    if (matched === null) {
       integratedSearchCount.textContent = "0건";
       integratedSearchResults.innerHTML = `
         <p class="empty-message">
           검색어를 입력해 주세요.
         </p>
       `;
+    } else {
+      renderIntegratedResults(matched);
+    }
+
+    if (updateHistory) {
+      saveIntegratedSearchState(rawQuery);
+    }
+
+    if (Number.isFinite(Number(restoreScrollTop))) {
+      window.requestAnimationFrame(() => {
+        integratedSearchResults.scrollTop =
+          Number(restoreScrollTop);
+      });
+    }
+
+    return matched || [];
+  }
+
+
+  function renderIntegratedSearchStartMessage() {
+    integratedSearchForm.reset();
+    integratedSearchCount.textContent = "0건";
+
+    integratedSearchResults.innerHTML = `
+      <p class="empty-message">
+        검색어를 입력하면 역사·컴퓨터·노트·독서 자료가 표시됩니다.
+      </p>
+    `;
+  }
+
+
+  async function openIntegratedResult(item) {
+    if (!item) {
       return;
     }
 
-    const matched = integratedRecords.filter(item => {
-      const searchable = normalizeText([
-        item.id,
-        getIntegratedCategory(item),
-        getIntegratedLocation(item),
-        getIntegratedTitle(item),
-        ...toArray(item.keywords),
-        ...toArray(item.summary),
-        ...toArray(item.content)
-      ].join(" "));
+    const itemId = String(item.id || "").trim();
+    const category = getIntegratedTargetCategory(item);
+    const targetUrl = createIntegratedTargetUrl(item);
 
-      return searchable.includes(query);
-    });
+    const readingTarget =
+      item.source === "reading"
+      || item.kind === "reading";
 
-    renderIntegratedResults(matched);
+    /*
+    * 현재 검색어와 결과 스크롤 위치를 먼저 현재 History 항목에 저장한다.
+    * 그 다음 목적지를 새 History 항목으로 열어야 뒤로 가기가 검색 결과로 돌아온다.
+    */
+    saveIntegratedSearchState(
+      integratedSearchWord.value
+    );
+
+    /*
+    * Reading은 다른 페이지이므로 id를 포함한 주소로 이동한다.
+    * 이전 검색 상태는 URL의 search 값으로도 남아 있어 뒤로 가기 후 복원된다.
+    */
+    if (readingTarget) {
+      if (targetUrl) {
+        window.location.href = targetUrl;
+      }
+
+      return;
+    }
+
+    /*
+    * Library 안의 자료는 새 History 항목을 만든 뒤,
+    * 페이지를 다시 읽지 않고 해당 카테고리와 id를 직접 연다.
+    */
+    if (
+      itemId
+      && category
+      && LIBRARY_CONFIG.categories[category]
+    ) {
+      const targetSection =
+        getIntegratedTargetSection(item) || null;
+
+      window.history.pushState(
+        {
+          view: "integrated-target",
+          category,
+          id: itemId,
+          section: targetSection
+        },
+        "",
+        targetUrl
+      );
+
+      await loadCategory(
+        category,
+        itemId,
+        targetSection
+      );
+
+      scrollToIntegratedTarget(item);
+      return;
+    }
+
+    /* 알 수 없는 외부 자료는 기존 경로를 마지막 수단으로 사용한다. */
+    if (targetUrl) {
+      window.location.href = targetUrl;
+    }
+  }
+
+
+  function handleIntegratedSearch(event) {
+    event.preventDefault();
+
+    runIntegratedSearch(
+      integratedSearchWord.value,
+      { updateHistory: true }
+    );
   }
 
 
@@ -1316,50 +1671,47 @@ const LibraryBoard = (() => {
     integratedSearchResults
       .querySelectorAll("[data-integrated-index]")
       .forEach(button => {
-        button.addEventListener("click", () => {
+        button.addEventListener("click", async () => {
           const item =
             items[Number(button.dataset.integratedIndex)];
 
-          const href =
-            item?.href
-            || item?.url
-            || item?.path;
-
-          if (href) {
-            window.location.href = href;
-          }
+          await openIntegratedResult(item);
         });
       });
   }
 
 
   function resetIntegratedSearch() {
-    integratedSearchForm.reset();
-    integratedSearchCount.textContent = "0건";
-
-    integratedSearchResults.innerHTML = `
-      <p class="empty-message">
-        검색어를 입력하면 교과목·독서·자료실·프로젝트의 결과가 표시됩니다.
-      </p>
-    `;
-
+    renderIntegratedSearchStartMessage();
+    saveIntegratedSearchState("");
     integratedSearchWord.focus();
   }
 
 
-  async function loadNotesCategory() {
-    noteCurrentSection = getNoteSections().includes(noteCurrentSection)
-      ? noteCurrentSection
-      : getNoteSections()[0];
-
-    updateNoteSectionButtons();
-
+  async function loadNotesCategory(
+    targetId = null,
+    targetSection = null
+  ) {
     await Promise.all([
       loadNotesData(),
       loadIntegratedData()
     ]);
 
-    showCurrentNoteSection();
+    const targetRecord = targetId
+      ? noteRecords.find(item => item.id === targetId)
+      : null;
+
+    const requestedSection =
+      targetSection
+      || targetRecord?.section
+      || noteCurrentSection;
+
+    noteCurrentSection = getNoteSections().includes(requestedSection)
+      ? requestedSection
+      : getNoteSections()[0];
+
+    updateNoteSectionButtons();
+    showCurrentNoteSection(targetId);
   }
 
 
@@ -1428,7 +1780,11 @@ const LibraryBoard = (() => {
   }
 
 
-  async function loadCategory(category) {
+  async function loadCategory(
+    category,
+    targetId = null,
+    targetNoteSection = null
+  ) {
     const config =
       LIBRARY_CONFIG.categories[category];
 
@@ -1446,7 +1802,10 @@ const LibraryBoard = (() => {
     updateCategoryButtons();
 
     if (isNotesCategory()) {
-      await loadNotesCategory();
+      await loadNotesCategory(
+        targetId,
+        targetNoteSection
+      );
       return;
     }
 
@@ -1494,25 +1853,46 @@ const LibraryBoard = (() => {
         "전체 자료"
       );
 
-      const firstLinkedItem =
-        timeline.find(item =>
-          getArchiveById(item.id)
-        );
+      const targetArchive = targetId
+        ? getArchiveById(targetId)
+        : null;
 
-      if (firstLinkedItem) {
-        selectedTimelineIndex =
-          timeline.findIndex(item =>
-            item.id === firstLinkedItem.id
-          );
+      const targetTimelineIndex = targetId
+        ? timeline.findIndex(item => item.id === targetId)
+        : -1;
 
-        selectArchive(firstLinkedItem.id);
+      if (targetTimelineIndex >= 0) {
+        selectedTimelineIndex = targetTimelineIndex;
         renderTimeline();
+      }
 
-      } else if (archives[0]) {
-        selectArchive(archives[0].id);
+      if (targetArchive) {
+        selectArchive(targetId);
+
+      } else if (targetTimelineIndex >= 0) {
+        renderMissingLinkedArchive(targetId);
 
       } else {
-        renderEmptyArchive();
+        const firstLinkedItem =
+          timeline.find(item =>
+            getArchiveById(item.id)
+          );
+
+        if (firstLinkedItem) {
+          selectedTimelineIndex =
+            timeline.findIndex(item =>
+              item.id === firstLinkedItem.id
+            );
+
+          selectArchive(firstLinkedItem.id);
+          renderTimeline();
+
+        } else if (archives[0]) {
+          selectArchive(archives[0].id);
+
+        } else {
+          renderEmptyArchive();
+        }
       }
 
     } catch (error) {
@@ -2319,6 +2699,58 @@ const LibraryBoard = (() => {
   }
 
 
+  async function restoreViewFromLocation(historyState = null) {
+    const params =
+      new URLSearchParams(window.location.search);
+
+    const requestedCategory =
+      params.get("category");
+
+    const category =
+      requestedCategory
+      && LIBRARY_CONFIG.categories[requestedCategory]
+        ? requestedCategory
+        : LIBRARY_CONFIG.defaultCategory || "science-history";
+
+    const targetId = params.get("id");
+    const targetNoteSection =
+      params.get("section")
+      || historyState?.noteSection
+      || null;
+
+    const integratedQuery =
+      params.get("search")
+      ?? historyState?.integratedQuery
+      ?? "";
+
+    await loadCategory(
+      category,
+      targetId,
+      targetNoteSection
+    );
+
+    if (category === "notes") {
+      if (integratedQuery) {
+        runIntegratedSearch(
+          integratedQuery,
+          {
+            updateHistory: false,
+            restoreScrollTop:
+              historyState?.integratedScrollTop
+          }
+        );
+      } else {
+        renderIntegratedSearchStartMessage();
+      }
+    }
+  }
+
+
+  async function handleHistoryNavigation(event) {
+    await restoreViewFromLocation(event.state);
+  }
+
+
   /* ---------------------------------------------------------
      이벤트
      --------------------------------------------------------- */
@@ -2446,6 +2878,11 @@ const LibraryBoard = (() => {
       "click",
       resetIntegratedSearch
     );
+
+    window.addEventListener(
+      "popstate",
+      handleHistoryNavigation
+    );
   }
 
 
@@ -2454,22 +2891,11 @@ const LibraryBoard = (() => {
      --------------------------------------------------------- */
 
   async function init() {
-    const params =
-      new URLSearchParams(window.location.search);
-
-    const category =
-      params.get("category");
-
-    if (
-      category &&
-      LIBRARY_CONFIG.categories[category]
-    ) {
-      currentCategory = category;
-    }
-
     bindEvents();
     await loadRecommendationPool();
-    await loadCategory(currentCategory);
+    await restoreViewFromLocation(
+      window.history.state
+    );
   }
 
 

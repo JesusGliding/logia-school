@@ -1,51 +1,108 @@
 {
-  "cacheVersion": 1784825559,
+  "cacheVersion": 1785243328,
   "historyCategory": "science-history",
   "timelineSource": "science_timeline.txt",
-  "timelineCount": 10,
-  "archiveCount": 4,
+  "timelineCount": 16,
+  "archiveCount": 5,
   "mediaCount": 6,
   "linkedTimelineCount": 2,
   "unlinkedTimelineIds": [
     "alhaytham",
     "aristotle",
+    "cuneiform",
+    "egyptian-civilization",
     "einstein",
+    "great-pyramid",
     "lavoisier",
+    "mesopotamian-civilization",
     "nielsbohr",
+    "phoenician-alphabet",
     "ptolemy",
     "pythagoras",
+    "sexagesimal",
     "thales"
   ],
   "archivesWithoutTimeline": [
     "entropy",
-    "relativity"
+    "relativity",
+    "science-history"
   ],
   "typeCounts": {
     "concept": 1,
+    "document": 1,
     "person": 2,
     "theory": 1
   },
   "fields": [
+    "과학사",
     "물리학",
     "수학",
+    "역사학",
     "정보이론",
     "천문학"
   ],
   "keywords": [
     "고전역학",
+    "과학사",
+    "과학철학",
+    "과학혁명",
     "관성",
     "낙하운동",
     "만유인력",
     "망원경",
     "무질서",
+    "문명",
     "미적분",
     "빛",
     "시공간",
+    "역사",
     "열역학",
     "정보",
     "중력"
   ],
   "timeline": [
+    {
+      "year": -3500,
+      "id": "mesopotamian-civilization",
+      "korean": "메소포타미아 문명",
+      "name": "Mesopotamian Civilization",
+      "description": "현재의 이라크를 중심으로 형성된 고대 문명 발상지"
+    },
+    {
+      "year": -3200,
+      "id": "cuneiform",
+      "korean": "쐐기 문자",
+      "name": "Cuneiform",
+      "description": "The earliest known logo-syllabic writing system"
+    },
+    {
+      "year": -3100,
+      "id": "egyptian-civilization",
+      "korean": "이집트 문명",
+      "name": "Egyptian Civilization",
+      "description": "One of the world's oldest civilizations"
+    },
+    {
+      "year": -3000,
+      "id": "sexagesimal",
+      "korean": "60진법",
+      "name": "Sexagesimal System",
+      "description": "A numeral system based on 60"
+    },
+    {
+      "year": -2600,
+      "id": "great-pyramid",
+      "korean": "기자의 대피라미드",
+      "name": "Great Pyramid of Giza",
+      "description": "Oldest surviving wonder"
+    },
+    {
+      "year": -1050,
+      "id": "phoenician-alphabet",
+      "korean": "페니키아 알파벳",
+      "name": "Phoenician Alphabet",
+      "description": "Ancestor of most modern alphabets"
+    },
     {
       "year": -624,
       "id": "thales",
@@ -152,6 +209,40 @@
       "sources": [
         "Wikipedia",
         "나무위키"
+      ],
+      "media": []
+    },
+    {
+      "id": "science-history",
+      "file": "science-history.txt",
+      "type": "document",
+      "name": "science history",
+      "korean": "과학사 개요",
+      "years": "",
+      "country": "",
+      "fields": [
+        "과학사",
+        "역사학"
+      ],
+      "keywords": [
+        "역사",
+        "과학사",
+        "과학혁명",
+        "과학철학",
+        "문명"
+      ],
+      "summary": [
+        "과학사는 인류가 자연을 이해하기 위해 축적해 온 지식과 과학적 사고의 발전 과정을 연구하는 학문이다."
+      ],
+      "achievements": [
+        "과학사는 단순히 과거 지식의 나열이 아닌, 인류가 어떻게 자연을 이해하려 노력해왔는지, 어떤 사회적·문화적 맥락에서 과학적 발견이 이루어졌는지, 그리고 과학적 사고가 어떻게 발전해 왔는지를 이해하는 것이다.",
+        "과학사 연구를 통해 우리는 과학이 결코 선형적으로 발전하지 않았음을 알 수 있다.",
+        "때로는 정체되고, 때로는 퇴보하며, 때로는 급격한 도약을 이루었다.",
+        "과학사는 오늘날의 과학을 이해하는 데 중요한 배경을 제공하며, 미래 과학의 발전 방향을 성찰하는 데에도 중요한 역할을 한다."
+      ],
+      "related": [],
+      "sources": [
+        "LOGIA School"
       ],
       "media": []
     },
@@ -300,5 +391,5 @@
       ]
     }
   ],
-  "updated": "2026-07-24T01:52:39"
+  "updated": "2026-07-28T21:55:28"
 }

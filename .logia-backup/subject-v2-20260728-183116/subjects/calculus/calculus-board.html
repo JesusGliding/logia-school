@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>미분적분학 학습보드</title>
+  <link rel="stylesheet" href="../../assets/css/board.css">
+</head>
+
+<body>
+  <h2>미분적분학 I · II &lt;학습 보드&gt;
+  <a href="calculus.html" class="back-button" title="상위 페이지로 이동">↩️</a>
+  </h2>
+
+  <div class="board-grid">
+
+    <section class="panel calendar-panel">
+      <!-- <h3>날짜 달력</h3> -->
+
+      <div class="calendar-header">
+        <button id="prev-month">◀</button>
+        <strong id="calendar-title">-</strong>
+        <button id="next-month">▶</button>
+      </div>
+
+      <div class="calendar-weekdays">
+        <span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span>
+      </div>
+
+      <div id="calendar-grid" class="calendar-grid"></div>
+
+      <input type="date" id="study-date" hidden>
+    </section>
+
+    <section class="panel status-panel">
+      <h3>학습 상태</h3>
+      
+      <p>
+        <strong>학습시작 :</strong> 
+        <span id="start-date">-</span>
+        <span id="elapsed-text"></span>
+      </p>
+
+      <p>
+        <strong>최근학습 :</strong> 
+        <span id="recent-date">-</span>
+        <span id="study-days-text"></span>
+      </p>
+      
+      <div class="progress-row">
+        <strong>진도율 :</strong> 
+        <div class="progress-bar">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+        <span id="progress-text">-</span>
+      </div>
+
+      <p><strong>학습시간 :</strong> <span id="studytime-text">-</span></p>
+
+      <p id="chapter-text" class="chapter-text">-</p>
+
+    </section>
+
+    <section class="panel memo-panel">
+      <h3>간단한 메모 노트</h3>
+      <textarea id="memo-text"></textarea>
+    </section>
+
+    <section class="panel files-panel">
+      <h3>학습 내용</h3>
+
+      <ul id="files-list">
+      </ul>
+    </section>
+
+
+  </div>
+
+  <script>
+    const BOARD_CONFIG = {
+      subject: "calculus",
+      startDate: "2026-06-30",
+      separator: " - "
+    }
+  </script>
+  <script src="../../assets/js/board.js"></script>
+
+</body>
+</html>

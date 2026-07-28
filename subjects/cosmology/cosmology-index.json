@@ -1,6 +1,64 @@
 {
-  "cacheVersion": 1784825559,
+  "cacheVersion": 1785243328,
   "subject": "cosmology",
+  "subjectInfo": {
+    "id": "cosmology-subject",
+    "title": "우주의 구조",
+    "englishTitle": "Cosmology",
+    "displayOrder": 8,
+    "level": "university-basic",
+    "startDate": "2026-07-09",
+    "status": "studying",
+    "description": [
+      "우주의 구조는 우주를 구성하는 기본구조인 시간과 공간을 이해하는 것이다.",
+      "우주의 구조를 이해하는 것은 현대 물리학과 천체물리학의 핵심 주제이다.",
+      "이책은 본격적인 우주론을 다루기 전에, 현대 우주과학의 전체 지도를 그리는 과목이다.",
+      "복잡하고 다양한 우주의 법칙을 설명하고 이해를 도와줄 것이다."
+    ],
+    "field": "천문학",
+    "keyTopics": [
+      "시공간과 우주론"
+    ],
+    "goal": "우주의 구조를 이해하고 우주의 기원과 본질에 대해 탐구한다.",
+    "textbook": {
+      "title": "The Fabric of the Cosmos",
+      "author": "Brian Greene",
+      "edition": ""
+    },
+    "objectives": [
+      "우주의 구조를 이해한다.",
+      "다양한 이론들을 통해 과학의 페러다임을 이해한다.",
+      "과학의 최전선을 탐방한다."
+    ],
+    "resources": [
+      {
+        "url": "https://esahubble.org/",
+        "title": "Hubble Space Telescope"
+      },
+      {
+        "url": "https://khanacademy.org/science/cosmology-and-astronomy",
+        "title": "Khan Academy Cosmology & Astronomy"
+      },
+      {
+        "url": "https://ocw.mit.edu/search/?d=Physics&q=astronomy",
+        "title": "MIT OpenCourseWare: Astronomy"
+      },
+      {
+        "url": "https://psi-online.perimeterinstitute.ca/",
+        "title": "Perimeter Institute: PSI Online"
+      },
+      {
+        "url": "https://arxiv.org/",
+        "title": "arXiv ;free access to scientific papers"
+      }
+    ],
+    "bibliography": [
+      "Brian Greene - The Fabric of the Cosmos",
+      "Stephen Hawking - A Brief History of Time",
+      "Carl Sagan - Cosmos"
+    ],
+    "sourceFile": "cosmology-subject.txt"
+  },
   "recordCount": 2,
   "mediaCount": 2,
   "firstRecord": "2026-07-08",
@@ -56,5 +114,5 @@
       ]
     }
   ],
-  "updated": "2026-07-24T01:52:39"
+  "updated": "2026-07-28T21:55:28"
 }

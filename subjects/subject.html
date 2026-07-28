@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>교과목 | LOGIA School</title>
+
+  <link
+    rel="stylesheet"
+    href="/assets/css/board.css"
+  >
+  <link
+    rel="stylesheet"
+    href="/assets/css/subject.css"
+  >
+</head>
+
+<body>
+  <main class="subject-page">
+
+    <header class="subject-category-header">
+      <button
+        type="button"
+        class="subject-category active"
+        data-subject-view="introduction"
+        aria-selected="true"
+      >
+        <span
+          id="subject-tab-title"
+          class="category-title"
+        >
+          교과목
+        </span>
+
+        <span
+          id="subject-tab-subtitle"
+          class="category-subtitle"
+        >
+          Subject Introduction
+        </span>
+      </button>
+
+      <button
+        type="button"
+        class="subject-category"
+        data-subject-view="board"
+        aria-selected="false"
+      >
+        <span class="category-title">
+          학습 보드
+        </span>
+
+        <span class="category-subtitle">
+          Study Board
+        </span>
+      </button>
+    </header>
+
+
+    <section
+      id="subject-introduction-view"
+      class="subject-view"
+    >
+      <section class="subject-layout">
+
+        <article class="subject-panel subject-info-panel">
+          <header class="panel-header subject-panel-header">
+            <div>
+              <h2 id="subject-title">
+                교과목 정보를 불러오는 중입니다.
+              </h2>
+
+              <p
+                id="subject-english-title"
+                class="subject-english-title"
+              ></p>
+            </div>
+          </header>
+
+          <div
+            id="subject-description"
+            class="subject-description"
+          ></div>
+
+          <section class="subject-section">
+            <h3>&lt;과목 개요&gt;</h3>
+            <dl
+              id="subject-overview"
+              class="subject-overview"
+            ></dl>
+          </section>
+
+          <section
+            id="subject-objectives-section"
+            class="subject-section"
+          >
+            <h3>&lt;학습 목표&gt;</h3>
+            <ol id="subject-objectives"></ol>
+          </section>
+
+          <section
+            id="subject-resources-section"
+            class="subject-section"
+          >
+            <h3>&lt;참고자료&gt;</h3>
+            <ul id="subject-resources"></ul>
+          </section>
+
+          <section
+            id="subject-bibliography-section"
+            class="subject-section"
+          >
+            <h3>&lt;문헌&gt;</h3>
+            <ul id="subject-bibliography"></ul>
+          </section>
+        </article>
+
+
+        <aside class="subject-sidebar">
+          <section class="subject-panel chapter-panel">
+            <header class="panel-header">
+              <h2>단원 구성</h2>
+
+              <span
+                id="subject-chapter-count"
+                class="panel-count"
+              >
+                0개 단원
+              </span>
+            </header>
+
+            <div
+              id="subject-chapter-list"
+              class="subject-chapter-list"
+            >
+              <p class="empty-message">
+                단원 구성을 불러오는 중입니다.
+              </p>
+            </div>
+          </section>
+        </aside>
+
+      </section>
+    </section>
+
+
+    <section
+      id="subject-board-view"
+      class="subject-view study-board-view"
+      hidden
+    >
+      <h2 id="board-heading">
+        학습 보드
+      </h2>
+
+      <div class="board-grid">
+
+        <section class="panel calendar-panel">
+          <div class="calendar-header">
+            <button id="prev-month" type="button">◀</button>
+            <strong id="calendar-title">-</strong>
+            <button id="next-month" type="button">▶</button>
+          </div>
+
+          <div class="calendar-weekdays">
+            <span>일</span><span>월</span><span>화</span><span>수</span>
+            <span>목</span><span>금</span><span>토</span>
+          </div>
+
+          <div id="calendar-grid" class="calendar-grid"></div>
+          <input type="date" id="study-date" hidden>
+        </section>
+
+
+        <section class="panel status-panel">
+          <h3>학습 상태</h3>
+
+          <p>
+            <strong>학습시작 :</strong>
+            <span id="start-date">-</span>
+            <span id="elapsed-text"></span>
+          </p>
+
+          <p>
+            <strong>최근학습 :</strong>
+            <span id="recent-date">-</span>
+            <span id="study-days-text"></span>
+          </p>
+
+          <div class="progress-row">
+            <strong>진도율 :</strong>
+
+            <div class="progress-bar">
+              <div id="progress-fill" class="progress-fill"></div>
+            </div>
+
+            <span id="progress-text">-</span>
+          </div>
+
+          <p>
+            <strong>학습시간 :</strong>
+            <span id="studytime-text">-</span>
+          </p>
+
+          <p id="chapter-text" class="chapter-text">-</p>
+        </section>
+
+
+        <section class="panel memo-panel">
+          <h3>간단한 메모 노트</h3>
+          <textarea id="memo-text" readonly></textarea>
+        </section>
+
+
+        <section class="panel files-panel">
+          <h3>학습 내용</h3>
+          <ul id="files-list"></ul>
+        </section>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <script>
+    (() => {
+      const params = new URLSearchParams(window.location.search);
+      const subject = params.get("subject") || "";
+
+      window.BOARD_CONFIG = {
+        subject,
+        basePath: subject ? `${subject}/` : "",
+        separator: " - "
+      };
+    })();
+  </script>
+
+  <script src="/assets/js/subject.js"></script>
+  <script src="/assets/js/board.js"></script>
+</body>
+</html>

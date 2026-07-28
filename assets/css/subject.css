@@ -1,14 +1,381 @@
-    .board-link {
-      font-size: 15px;
-      margin-left: 12px;
-      font-weight: normal;
-      color: #0066cc;
-      text-decoration: none;
+* {
+  box-sizing: border-box;
+}
 
-      position: relative;
-      top: -3px;
-    }
-    .board-link:hover {
-      color: #003366;
-      text-decoration: none;
-    }
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  padding: 24px;
+
+  font-family:
+    Arial,
+    "Noto Sans KR",
+    sans-serif;
+
+  background: #f4f4f4;
+  color: #222;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+
+/* =========================================================
+   Subject Page
+   ========================================================= */
+
+.subject-page {
+  width: min(1280px, 100%);
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   Subject Component Header
+   ========================================================= */
+
+.subject-category-header {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+
+  margin-bottom: 18px;
+}
+
+.subject-category {
+  min-width: 0;
+  padding: 0 0 11px;
+
+  border: 0;
+  border-bottom: 2px solid transparent;
+
+  background: transparent;
+  color: #777;
+
+  text-align: left;
+  cursor: pointer;
+}
+
+.subject-category:hover {
+  color: #333;
+}
+
+.subject-category.active {
+  color: #111;
+}
+
+.category-title {
+  display: block;
+
+  font-size: 27px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.subject-category:not(.active) .category-title {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.category-subtitle {
+  display: none;
+
+  margin-top: 2px;
+  color: #777;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.subject-category.active .category-title {
+  display: inline-block;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #555;
+}
+
+.subject-category.active .category-subtitle {
+  display: block;
+
+  margin-top: 4px;
+  font-size: 16px;
+}
+
+.subject-category:focus-visible {
+  outline: 2px solid #777;
+  outline-offset: 4px;
+}
+
+
+/* =========================================================
+   Introduction Layout
+   ========================================================= */
+
+.subject-layout {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 65fr)
+    minmax(300px, 35fr);
+
+  gap: 18px;
+  align-items: stretch;
+}
+
+.subject-sidebar {
+  position: relative;
+
+  min-width: 0;
+  min-height: 0;
+
+  overflow: hidden;
+}
+
+.subject-panel {
+  padding: 18px;
+
+  border: 1px solid #bbb;
+  border-radius: 4px;
+
+  background: #fff;
+}
+
+.chapter-panel {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.panel-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+
+  margin-bottom: 14px;
+  padding-bottom: 9px;
+
+  border-bottom: 1px solid #ddd;
+}
+
+.panel-header h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.subject-panel-header h2 {
+  font-size: 23px;
+}
+
+.subject-english-title {
+  margin: 4px 0 0;
+  color: #777;
+  font-size: 13px;
+}
+
+.panel-count {
+  flex-shrink: 0;
+  color: #777;
+  font-size: 13px;
+}
+
+.subject-description {
+  line-height: 1.7;
+}
+
+.subject-description p {
+  margin: 0;
+  white-space: pre-line;
+}
+
+.subject-section {
+  margin-top: 22px;
+  padding-top: 15px;
+  border-top: 1px solid #ddd;
+}
+
+.subject-section h3 {
+  margin: 0 0 10px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.subject-section ol,
+.subject-section ul {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.subject-section li {
+  margin: 0 0 7px;
+  line-height: 1.55;
+}
+
+.subject-section li:last-child {
+  margin-bottom: 0;
+}
+
+.subject-section a {
+  color: #285f91;
+  text-decoration: none;
+}
+
+.subject-section a:hover {
+  text-decoration: underline;
+}
+
+.subject-overview {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 8px 14px;
+
+  margin: 0;
+  line-height: 1.5;
+}
+
+.subject-overview dt {
+  font-weight: 600;
+}
+
+.subject-overview dd {
+  min-width: 0;
+  margin: 0;
+}
+
+
+/* =========================================================
+   Chapter List
+   ========================================================= */
+
+.subject-chapter-list {
+  flex: 1 1 0;
+
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+  padding-right: 5px;
+}
+
+.chapter-list-items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chapter-list-items li {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: 9px;
+  align-items: start;
+
+  padding: 9px 7px;
+  border-bottom: 1px solid #e5e5e5;
+  line-height: 1.45;
+}
+
+.chapter-list-items li:first-child {
+  padding-top: 2px;
+}
+
+.chapter-list-items li:last-child {
+  border-bottom: 0;
+}
+
+.chapter-number {
+  color: #777;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+.chapter-title {
+  font-size: 14px;
+}
+
+.empty-message {
+  margin: 0;
+  padding: 12px 4px;
+  color: #888;
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   Study Board Component
+   ========================================================= */
+
+.study-board-view > h2 {
+  margin: 0 0 10px;
+  font-size: 22px;
+}
+
+.study-board-view .board-grid {
+  width: 100%;
+}
+
+.study-board-view textarea {
+  white-space: pre-wrap;
+}
+
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+
+@media (max-width: 850px) {
+  body {
+    padding: 14px;
+  }
+
+  .subject-category-header {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 18px;
+  }
+
+  .category-title {
+    font-size: 22px;
+  }
+
+  .subject-category:not(.active) .category-title {
+    font-size: 18px;
+  }
+
+  .subject-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .subject-sidebar {
+    position: static;
+    overflow: visible;
+  }
+
+  .chapter-panel {
+    position: static;
+    max-height: 480px;
+  }
+}
+
+@media (max-width: 650px) {
+  .subject-category-header {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .subject-overview {
+    grid-template-columns: 78px minmax(0, 1fr);
+  }
+
+  .board-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+}

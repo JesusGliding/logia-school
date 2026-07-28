@@ -1,6 +1,72 @@
 {
-  "cacheVersion": 1784825559,
+  "cacheVersion": 1785243328,
   "subject": "chemistry",
+  "subjectInfo": {
+    "id": "chemistry-subject",
+    "title": "일반화학 I",
+    "englishTitle": "Chemistry I",
+    "displayOrder": 2,
+    "level": "university-basic",
+    "startDate": "2026-07-07",
+    "status": "studying",
+    "description": [
+      "일반화학은 물질의 구조와 성질, 화학 반응의 원리를 다루는 자연과학의 기초 과목이다",
+      "원자와 분자, 화학 결합, 열역학, 평형, 산과 염기를 통해 물질 세계를 이해한다."
+    ],
+    "field": "자연과학",
+    "keyTopics": [
+      "원자 구조",
+      "분자 구조",
+      "화학 결합",
+      "열역학",
+      "평형",
+      "산과 염기"
+    ],
+    "goal": "물질의 구조와 성질, 화학 반응의 원리를 이해한다.",
+    "textbook": {
+      "title": "Chemistry",
+      "author": "Zumdahl & Zumdahl",
+      "edition": "11th Edition"
+    },
+    "objectives": [
+      "원자와 분자의 구조를 이해한다.",
+      "화학 결합의 개념과 종류를 익힌다.",
+      "열역학의 기본 법칙을 이해한다.",
+      "화학 평형의 원리를 이해한다.",
+      "산과 염기의 성질과 반응을 이해한다.",
+      "화학 반응 속도와 평형 상수를 계산한다."
+    ],
+    "resources": [
+      {
+        "url": "https://ocw.mit.edu/courses/chemistry/5-111sc-principles-of-chemical-science-fall-2014/",
+        "title": "MIT OpenCourseWare Chemistry"
+      },
+      {
+        "url": "https://www.khanacademy.org/science/chemistry",
+        "title": "Khan Academy Chemistry"
+      },
+      {
+        "url": "https://openstax.org/details/books/chemistry-2e?utm_source",
+        "title": "OpenStax Chemistry"
+      },
+      {
+        "url": "https://phet.colorado.edu/?utm_source",
+        "title": "PhET Interactive Simulations"
+      },
+      {
+        "url": "https://chem.libretexts.org/",
+        "title": "ChemLibreTexts"
+      }
+    ],
+    "bibliography": [
+      "Zumdahl & Zumdahl - Chemistry",
+      "Brown, LeMay, Bursten - Chemistry: The Central Science",
+      "Atkins, de Paula - Physical Chemistry",
+      "Chang & Goldsby - General Chemistry",
+      "OpenStax Chemistry 2e"
+    ],
+    "sourceFile": "chemistry-subject.txt"
+  },
   "recordCount": 2,
   "mediaCount": 4,
   "firstRecord": "2026-07-02",
@@ -61,5 +127,5 @@
       ]
     }
   ],
-  "updated": "2026-07-24T01:52:39"
+  "updated": "2026-07-28T21:55:28"
 }

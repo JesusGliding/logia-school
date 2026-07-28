@@ -47,6 +47,345 @@ CHAPTER_FORMAT_OVERRIDES = {
 }
 
 
+# 기존 과목들이 Subject TXT로 전환되는 동안 사용하는 임시 정보다.
+# 각 폴더에 <subject>-subject.txt가 생기면 해당 TXT가 이 값을 대체한다.
+SUBJECT_FALLBACK_METADATA = {
+    "calculus": {
+        "title": "미분적분학 I·II",
+        "englishTitle": "Calculus I·II",
+        "displayOrder": 1
+    },
+    "chemistry": {
+        "title": "일반화학 I",
+        "englishTitle": "General Chemistry I",
+        "displayOrder": 2
+    },
+    "physics": {
+        "title": "대학물리학",
+        "englishTitle": "University Physics",
+        "displayOrder": 3
+    },
+    "biology": {
+        "title": "캠벨 생명과학",
+        "englishTitle": "Campbell Biology",
+        "displayOrder": 4
+    },
+    "engineering-math": {
+        "title": "공업수학",
+        "englishTitle": "Engineering Mathematics",
+        "displayOrder": 5
+    },
+    "python": {
+        "title": "파이썬",
+        "englishTitle": "Python",
+        "displayOrder": 6
+    },
+    "tlcl": {
+        "title": "TLCL",
+        "englishTitle": "The Linux Command Line",
+        "displayOrder": 7
+    },
+    "cosmology": {
+        "title": "우주의 구조",
+        "englishTitle": "The Structure of the Universe",
+        "displayOrder": 8
+    }
+}
+
+SUBJECT_CATALOG_PATH = SUBJECTS_DIR / "subjects-index.json"
+
+SUBJECT_FIELD_ALIASES = {
+    "id": "id",
+    "title": "title",
+    "englishtitle": "englishTitle",
+    "displayorder": "displayOrder",
+    "level": "level",
+    "startdate": "startDate",
+    "status": "status",
+    "description": "description",
+    "field": "field",
+    "keytopics": "keyTopics",
+    "goal": "goal",
+    "textbook": "textbook",
+    "objectives": "objectives",
+    "resources": "resources",
+    "bibliography": "bibliography"
+}
+
+SUBJECT_SINGLE_FIELDS = {
+    "id", "title", "englishTitle", "displayOrder",
+    "level", "startDate", "status", "field",
+    "keyTopics", "goal", "textbook"
+}
+
+SUBJECT_MULTILINE_FIELDS = {
+    "description", "objectives", "resources", "bibliography"
+}
+
+
+def discover_subjects():
+    """
+    기존 SUBJECTS 순서를 보존하면서 subjects 아래의 새 폴더도 자동 발견한다.
+    따라서 새 과목을 만들 때 Python 목록을 다시 수정할 필요가 없다.
+    """
+
+    discovered = list(SUBJECTS)
+
+    if not SUBJECTS_DIR.exists():
+        return discovered
+
+    for path in sorted(SUBJECTS_DIR.iterdir()):
+        if not path.is_dir():
+            continue
+
+        subject = path.name
+
+        if subject.startswith(".") or subject == "__pycache__":
+            continue
+
+        has_subject_files = any((
+            (path / f"{subject}-subject.txt").exists(),
+            (path / f"{subject}-chapters.txt").exists(),
+            (path / f"{subject}-index.json").exists(),
+            (path / "records").exists()
+        ))
+
+        if has_subject_files and subject not in discovered:
+            discovered.append(subject)
+
+    return discovered
+
+
+def create_empty_subject_info():
+    return {
+        "id": "",
+        "title": "",
+        "englishTitle": "",
+        "displayOrder": None,
+        "level": "",
+        "startDate": "",
+        "status": "",
+        "description": [],
+        "field": "",
+        "keyTopics": [],
+        "goal": "",
+        "textbook": None,
+        "objectives": [],
+        "resources": [],
+        "bibliography": []
+    }
+
+
+def split_subject_values(value):
+    return [
+        item.strip()
+        for item in str(value).split(",")
+        if item.strip()
+    ]
+
+
+def parse_subject_textbook(value):
+    parts = [
+        part.strip()
+        for part in str(value).split("|", 2)
+    ]
+
+    while len(parts) < 3:
+        parts.append("")
+
+    title, author, edition = parts
+
+    if not any(parts):
+        return None
+
+    return {
+        "title": title,
+        "author": author,
+        "edition": edition
+    }
+
+
+def parse_subject_resource(value):
+    parts = str(value).split("|", 1)
+    url = parts[0].strip()
+    title = parts[1].strip() if len(parts) > 1 else url
+
+    if not url:
+        return None
+
+    return {
+        "url": url,
+        "title": title
+    }
+
+
+def set_subject_value(data, field_name, value):
+    value = str(value).strip()
+
+    if field_name == "displayOrder":
+        try:
+            data[field_name] = int(value)
+        except (TypeError, ValueError):
+            data[field_name] = None
+        return
+
+    if field_name == "keyTopics":
+        data[field_name] = split_subject_values(value)
+        return
+
+    if field_name == "textbook":
+        data[field_name] = parse_subject_textbook(value)
+        return
+
+    data[field_name] = value
+
+
+def append_subject_block_value(data, field_name, value):
+    value = str(value).strip()
+
+    if not value:
+        return
+
+    if field_name == "resources":
+        resource = parse_subject_resource(value)
+
+        if resource:
+            data[field_name].append(resource)
+
+        return
+
+    data[field_name].append(value)
+
+
+def read_subject_info(subject_path):
+    data = create_empty_subject_info()
+
+    try:
+        lines = subject_path.read_text(
+            encoding="utf-8"
+        ).splitlines()
+    except Exception:
+        return data
+
+    current_field = None
+
+    for raw_line in lines:
+        trimmed = raw_line.strip()
+
+        if not trimmed:
+            current_field = None
+            continue
+
+        if trimmed.startswith("#"):
+            continue
+
+        field_match = re.match(
+            r"^([A-Za-z][A-Za-z0-9_-]*)\s*:\s*(.*)$",
+            trimmed
+        )
+
+        if field_match:
+            raw_field_name = field_match.group(1).lower()
+            inline_value = field_match.group(2).strip()
+            field_name = SUBJECT_FIELD_ALIASES.get(raw_field_name)
+
+            if field_name:
+                current_field = field_name
+
+                if inline_value:
+                    if field_name in SUBJECT_MULTILINE_FIELDS:
+                        append_subject_block_value(
+                            data,
+                            field_name,
+                            inline_value
+                        )
+                    else:
+                        set_subject_value(
+                            data,
+                            field_name,
+                            inline_value
+                        )
+
+                continue
+
+        if current_field in SUBJECT_MULTILINE_FIELDS:
+            append_subject_block_value(
+                data,
+                current_field,
+                raw_line
+            )
+
+        elif current_field in SUBJECT_SINGLE_FIELDS:
+            current_value = data.get(current_field)
+
+            if current_value in ("", None, []):
+                set_subject_value(
+                    data,
+                    current_field,
+                    raw_line
+                )
+
+    data["sourceFile"] = subject_path.name
+
+    return data
+
+
+def print_subject_info_warning(subject, message):
+    print("[WARNING]")
+    print(f"  Subject : {subject}")
+    print(f"  Problem : {message}")
+    print()
+    return 1
+
+
+def validate_subject_info(subject, subject_info):
+    warning_count = 0
+
+    for field_name in ("id", "title", "displayOrder", "startDate"):
+        if subject_info.get(field_name) in {"", None}:
+            warning_count += print_subject_info_warning(
+                subject,
+                f"필수 항목이 비어 있습니다: {field_name}"
+            )
+
+    display_order = subject_info.get("displayOrder")
+
+    if display_order is not None and display_order < 1:
+        warning_count += print_subject_info_warning(
+            subject,
+            f"displayOrder는 1 이상의 정수여야 합니다: {display_order}"
+        )
+
+    start_date = subject_info.get("startDate")
+
+    if start_date and not is_valid_iso_date(start_date):
+        warning_count += print_subject_info_warning(
+            subject,
+            f"시작일 형식이 올바르지 않습니다: {start_date}"
+        )
+
+    return warning_count
+
+
+def load_subject_info(subject):
+    subject_path = (
+        SUBJECTS_DIR
+        / subject
+        / f"{subject}-subject.txt"
+    )
+
+    if not subject_path.exists():
+        return None, 0
+
+    subject_info = read_subject_info(subject_path)
+    warning_count = validate_subject_info(
+        subject,
+        subject_info
+    )
+
+    return subject_info, warning_count
+
+
 # ============================================================
 # Study Record Index
 # ============================================================
@@ -187,6 +526,10 @@ def build_subject_index(subject, build_cache):
 
     existing_index = read_existing_index(index_path)
 
+    subject_info, subject_warning_count = load_subject_info(
+        subject
+    )
+
     record_files = []
     media_files = set()
 
@@ -204,7 +547,7 @@ def build_subject_index(subject, build_cache):
 
     records = []
     record_dates = []
-    warning_count = 0
+    warning_count = subject_warning_count
     used_media = set()
 
     for record_path in record_files:
@@ -283,6 +626,7 @@ def build_subject_index(subject, build_cache):
     index_data = {
         "cacheVersion": build_cache,
         "subject": subject,
+        "subjectInfo": subject_info,
 
         "recordCount": len(records),
         "mediaCount": media_count,
@@ -318,6 +662,10 @@ def build_subject_index(subject, build_cache):
     print(f"  last    : {last_record}")
     print(f"  days    : {study_days}")
     print(f"  progress: {latest_progress}")
+    print(
+        "  subject : "
+        + (subject_info.get("title") if subject_info else "legacy")
+    )
     print(f"  -> {index_path}")
 
     if unused_media:
@@ -327,6 +675,161 @@ def build_subject_index(subject, build_cache):
         for filename in unused_media:
             print(f"    - {filename}")
 
+    print()
+
+    return warning_count
+
+
+def get_subject_catalog_entry(subject):
+    index_path = (
+        SUBJECTS_DIR
+        / subject
+        / f"{subject}-index.json"
+    )
+
+    index_data = read_existing_index(index_path)
+    subject_info = index_data.get("subjectInfo")
+
+    if isinstance(subject_info, dict) and subject_info.get("title"):
+        display_order = subject_info.get("displayOrder")
+
+        return {
+            "subject": subject,
+            "id": subject_info.get("id") or f"{subject}-subject",
+            "title": subject_info.get("title") or subject,
+            "englishTitle": subject_info.get("englishTitle") or "",
+            "displayOrder": display_order,
+            "level": subject_info.get("level") or "",
+            "startDate": subject_info.get("startDate") or "",
+            "status": subject_info.get("status") or "",
+            "href": f"/subjects/subject.html?subject={subject}",
+            "legacy": False,
+            "subjectInfo": subject_info
+        }
+
+    fallback = SUBJECT_FALLBACK_METADATA.get(subject, {})
+
+    fallback_info = {
+        "id": f"{subject}-subject",
+        "title": fallback.get("title") or subject,
+        "englishTitle": fallback.get("englishTitle") or "",
+        "displayOrder": fallback.get("displayOrder"),
+        "level": "",
+        "startDate": "",
+        "status": "legacy",
+        "description": [],
+        "field": "",
+        "keyTopics": [],
+        "goal": "",
+        "textbook": None,
+        "objectives": [],
+        "resources": [],
+        "bibliography": []
+    }
+
+    return {
+        "subject": subject,
+        "id": fallback_info["id"],
+        "title": fallback_info["title"],
+        "englishTitle": fallback_info["englishTitle"],
+        "displayOrder": fallback_info["displayOrder"],
+        "level": "",
+        "startDate": "",
+        "status": "legacy",
+        "href": f"/subjects/{subject}/{subject}.html",
+        "legacy": True,
+        "subjectInfo": fallback_info
+    }
+
+
+def build_subject_catalog_index(subjects, build_cache):
+    entries = [
+        get_subject_catalog_entry(subject)
+        for subject in subjects
+        if (SUBJECTS_DIR / subject).is_dir()
+    ]
+
+    entries.sort(
+        key=lambda item: (
+            item.get("displayOrder")
+            if isinstance(item.get("displayOrder"), int)
+            else 999999,
+            item.get("title") or item.get("subject") or ""
+        )
+    )
+
+    warning_count = 0
+    order_subjects = {}
+    id_subjects = {}
+
+    for item in entries:
+        order_value = item.get("displayOrder")
+        item_id = item.get("id")
+
+        if order_value is None:
+            warning_count += print_subject_info_warning(
+                item["subject"],
+                "displayOrder가 없어 목록의 마지막에 표시됩니다."
+            )
+        else:
+            order_subjects.setdefault(order_value, []).append(
+                item["subject"]
+            )
+
+        if item_id:
+            id_subjects.setdefault(item_id, []).append(
+                item["subject"]
+            )
+
+    for order_value, matched_subjects in sorted(order_subjects.items()):
+        if len(matched_subjects) > 1:
+            warning_count += print_subject_info_warning(
+                ", ".join(matched_subjects),
+                f"중복 displayOrder입니다: {order_value}"
+            )
+
+    for item_id, matched_subjects in sorted(id_subjects.items()):
+        if len(matched_subjects) > 1:
+            warning_count += print_subject_info_warning(
+                ", ".join(matched_subjects),
+                f"중복 과목 id입니다: {item_id}"
+            )
+
+    catalog_data = {
+        "cacheVersion": build_cache,
+        "indexType": "subject-catalog",
+        "subjectCount": len(entries),
+        "subjects": entries,
+        "updated": datetime.now().isoformat(
+            timespec="seconds"
+        )
+    }
+
+    SUBJECT_CATALOG_PATH.parent.mkdir(
+        parents=True,
+        exist_ok=True
+    )
+
+    SUBJECT_CATALOG_PATH.write_text(
+        json.dumps(
+            catalog_data,
+            ensure_ascii=False,
+            indent=2
+        ),
+        encoding="utf-8"
+    )
+
+    print("[OK] Subject Catalog Index")
+    print(f"  subjects: {len(entries)}")
+    print(
+        "  modern  : "
+        f"{sum(1 for item in entries if not item['legacy'])}"
+    )
+    print(
+        "  legacy  : "
+        f"{sum(1 for item in entries if item['legacy'])}"
+    )
+    print(f"  -> {SUBJECT_CATALOG_PATH}")
     print()
 
     return warning_count
@@ -1352,7 +1855,7 @@ HISTORY_LIST_FIELDS = {
 }
 
 HISTORY_MULTILINE_FIELDS = {"summary", "achievements", "files"}
-HISTORY_VALID_TYPES = {"person", "theory", "concept"}
+HISTORY_VALID_TYPES = {"person", "theory", "concept", "document"}
 
 
 def create_empty_history_record():
@@ -3083,7 +3586,8 @@ SEARCH_CATEGORY_TITLES = {
     "science": "과학 서적",
     "philosophy": "철학 서적",
     "fiction": "소설과 에세이",
-    "humanities": "인문·교양"
+    "humanities": "인문·교양",
+    "subjects": "교과목"
 }
 
 
@@ -3524,6 +4028,129 @@ def build_reading_search_records(category, data):
     return records
 
 
+def build_subject_search_records(data):
+    source_items = (
+        data.get("subjects")
+        if isinstance(data.get("subjects"), list)
+        else []
+    )
+
+    records = []
+
+    for item in source_items:
+        subject_key = str(
+            item.get("subject") or ""
+        ).strip()
+
+        subject_info = item.get("subjectInfo")
+
+        if not isinstance(subject_info, dict):
+            subject_info = {}
+
+        item_id = str(
+            item.get("id")
+            or subject_info.get("id")
+            or f"{subject_key}-subject"
+        ).strip()
+
+        if not item_id or not subject_key:
+            continue
+
+        textbook = subject_info.get("textbook")
+        textbook_text = []
+
+        if isinstance(textbook, dict):
+            textbook_text = [
+                textbook.get("title"),
+                textbook.get("author"),
+                textbook.get("edition")
+            ]
+        elif textbook:
+            textbook_text = [textbook]
+
+        resources = []
+
+        for resource in search_list(
+            subject_info.get("resources")
+        ):
+            resources.append(resource)
+
+        if isinstance(subject_info.get("resources"), list):
+            resources = []
+
+            for resource in subject_info["resources"]:
+                if isinstance(resource, dict):
+                    resources.extend(
+                        merge_search_lists(
+                            resource.get("title"),
+                            resource.get("url")
+                        )
+                    )
+                else:
+                    resources.extend(search_list(resource))
+
+        records.append(
+            make_search_record(
+                record_id=item_id,
+                source="subject",
+                category="subjects",
+                location=(
+                    subject_info.get("field")
+                    or "교과목 소개"
+                ),
+                kind="subject",
+                record_type=(
+                    item.get("status")
+                    or subject_info.get("status")
+                    or "subject"
+                ),
+                title=(
+                    item.get("title")
+                    or subject_info.get("title")
+                    or subject_key
+                ),
+                subtitle=(
+                    item.get("englishTitle")
+                    or subject_info.get("englishTitle")
+                    or ""
+                ),
+                aliases=merge_search_lists(
+                    subject_key,
+                    item.get("englishTitle"),
+                    subject_info.get("englishTitle")
+                ),
+                date=(
+                    item.get("startDate")
+                    or subject_info.get("startDate")
+                    or ""
+                ),
+                fields=merge_search_lists(
+                    item.get("level"),
+                    subject_info.get("field"),
+                    subject_info.get("level")
+                ),
+                keywords=subject_info.get("keyTopics"),
+                summary=merge_search_lists(
+                    subject_info.get("description"),
+                    subject_info.get("goal")
+                ),
+                content=merge_search_lists(
+                    subject_info.get("objectives"),
+                    textbook_text,
+                    subject_info.get("bibliography"),
+                    resources
+                ),
+                related=[],
+                href=(
+                    item.get("href")
+                    or f"/subjects/subject.html?subject={subject_key}"
+                )
+            )
+        )
+
+    return records
+
+
 def print_global_id_warnings(records):
     locations_by_id = {}
 
@@ -3603,6 +4230,17 @@ def build_integrated_search_index(build_cache):
     records = []
     source_counts = {}
     warning_count = 0
+
+    subject_data = read_search_source(
+        SUBJECT_CATALOG_PATH
+    )
+
+    if subject_data is not None:
+        subject_records = build_subject_search_records(
+            subject_data
+        )
+        records.extend(subject_records)
+        source_counts["subjects"] = len(subject_records)
 
     for category in HISTORY_CATEGORIES:
         index_path = (
@@ -3720,29 +4358,40 @@ def main():
     build_cache = int(time.time())
 
     print("===================================")
-    print("LOGIA Build v1.5")
+    print("LOGIA Build v1.6")
     print("===================================")
     print()
 
     total_warnings = 0
+    subjects = discover_subjects()
 
     print("-----------------------------------")
     print("Building Study Indexes")
     print("-----------------------------------")
     print()
 
-    for subject in SUBJECTS:
+    for subject in subjects:
         total_warnings += build_subject_index(
             subject,
             build_cache
         )
 
     print("-----------------------------------")
+    print("Building Subject Catalog")
+    print("-----------------------------------")
+    print()
+
+    total_warnings += build_subject_catalog_index(
+        subjects,
+        build_cache
+    )
+
+    print("-----------------------------------")
     print("Building Chapter Indexes")
     print("-----------------------------------")
     print()
 
-    for subject in SUBJECTS:
+    for subject in subjects:
         total_warnings += build_chapter_index(
             subject,
             build_cache

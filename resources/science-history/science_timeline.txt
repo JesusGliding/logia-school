@@ -1,3 +1,9 @@
+-3500|mesopotamian-civilization|메소포타미아 문명|Mesopotamian Civilization|현재의 이라크를 중심으로 형성된 고대 문명 발상지
+-3200|cuneiform|쐐기 문자|Cuneiform|The earliest known logo-syllabic writing system
+-3100|egyptian-civilization|이집트 문명|Egyptian Civilization|One of the world's oldest civilizations
+-3000|sexagesimal|60진법|Sexagesimal System|A numeral system based on 60
+-2600|great-pyramid|기자의 대피라미드|Great Pyramid of Giza|Oldest surviving wonder
+-1050|phoenician-alphabet|페니키아 알파벳|Phoenician Alphabet|Ancestor of most modern alphabets
 -624|thales|탈레스|Thales|자연철학의 출발점, 만물의 근원은 물
 -570|pythagoras|피타고라스|Pythagoras|수와 자연의 조화를 탐구
 -384|aristotle|아리스토텔레스|Aristotle|자연학과 논리학을 체계화

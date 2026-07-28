@@ -1,0 +1,37 @@
+id: biology-subject
+title: 캠벨 생명과학
+englishTitle: Campbell Biology
+displayOrder: 4
+level: university-basic
+startDate: 2026-07-04
+status: studying
+
+description:
+생명과학은 생물의 구조, 기능, 진화, 분포 등을 연구하는 과학이다.
+세포, 유전자, 단백질, 대사 경로 등을 통해 생명 현상을 이해한다.
+
+field: 생명과학
+keyTopics: 진화, 세포, 유전자, 단백질, 대사 경로
+goal: 생물학적 현상을 이해하고 연구하는 데 필요한 기초 지식을 습득
+textbook: Campbell Bilology | Lisa A. Urry et al. | 12th Edition
+
+
+objectives:
+세포의 구조와 기능을 이해한다.
+유전자의 구조와 작용을 이해한다.
+단백질의 구조와 기능을 이해한다.
+대사 경로를 통해 생명 현상을 이해한다.
+진화의 원리와 생물 다양성을 이해한다.
+
+resources:
+https://ocw.mit.edu/courses/biology/ | MIT OpenCourseWare - Biology
+https://openstax.org/subjects/science | OpenStax - Biology
+https://phet.colorado.edu/ | PhET Interactive Simulations
+https://www.khanacademy.org/science/biology | Khan Academy - Biology
+
+bibliography:
+Campbell, Biology
+Essential Cell Biology
+Molecular Biology of the Cell
+Lehninger Principles of Biochemistry
+Molecular Biology of the Gene

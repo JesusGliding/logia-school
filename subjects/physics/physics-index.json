@@ -1,6 +1,66 @@
 {
-  "cacheVersion": 1784825559,
+  "cacheVersion": 1785243328,
   "subject": "physics",
+  "subjectInfo": {
+    "id": "physics-subject",
+    "title": "대학물리학",
+    "englishTitle": "Physics",
+    "displayOrder": 3,
+    "level": "university-basic",
+    "startDate": "2026-07-29",
+    "status": "studying",
+    "description": [
+      "대학물리학은 물리학의 기초를 다루는 과목으로, 물체의 운동, 힘, 에너지 등 다양한 물리적 현상을 수학적으로 분석한다."
+    ],
+    "field": "물리학 기초",
+    "keyTopics": [
+      "운동",
+      "힘",
+      "에너지",
+      "파동",
+      "전자기학",
+      "광학",
+      "현대 물리학"
+    ],
+    "goal": "물리학의 기본 원리와 법칙을 이해하고 이를 실제 문제에 적용할 수 있도록 한다.",
+    "textbook": {
+      "title": "Physics for Scientists and Engineers",
+      "author": "Raymond A. Serway, John W. Jewett",
+      "edition": "10th Edition"
+    },
+    "objectives": [
+      "물리학의 기본 원리와 법칙을 이해한다.",
+      "물리적 현상을 수학적으로 모델링하고 분석할 수 있다.",
+      "운동, 힘, 에너지 등의 개념을 정확히 이해한다.",
+      "파동과 전자기학의 기본 원리를 익힌다.",
+      "광학과 현대 물리학의 기본 원리를 이해한다.",
+      "실제 물리 문제를 해결할 수 있는 능력을 기른다.",
+      "과학적 사고와 문제 해결 능력을 향상시킨다."
+    ],
+    "resources": [
+      {
+        "url": "https://ocw.mit.edu/courses/physics/8-01sc-classical-mechanics-fall-2016/",
+        "title": "MIT OpenCourseWare - Classical Mechanics"
+      },
+      {
+        "url": "https://www.openstax.org/subjects/science",
+        "title": "OpenStax - Physics"
+      },
+      {
+        "url": "https://phet.colorado.edu/",
+        "title": "PhET Interactive Simulations"
+      },
+      {
+        "url": "http://khanacademy.org/science/ap-college-physics-1",
+        "title": "Khan Academy - CollegePhysics 1"
+      }
+    ],
+    "bibliography": [
+      "Serway, Physics for Scientists and Engineers with Mordern Physics",
+      "Halliday, Resnick, Walker - Fundamentals of Physics"
+    ],
+    "sourceFile": "physics-subject.txt"
+  },
   "recordCount": 0,
   "mediaCount": 0,
   "firstRecord": null,
@@ -9,5 +69,5 @@
   "latestProgress": "0/0",
   "recordDates": [],
   "records": [],
-  "updated": "2026-07-24T01:52:39"
+  "updated": "2026-07-28T21:55:28"
 }
