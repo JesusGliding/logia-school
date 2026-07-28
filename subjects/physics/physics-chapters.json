@@ -1,13 +1,273 @@
 {
-  "cacheVersion": 1785248921,
+  "cacheVersion": 1785261599,
   "subject": "physics",
-  "format": "simple",
+  "format": "physics",
   "sourceFile": "physics-chapters.txt",
-  "groupCount": 0,
-  "chapterCount": 0,
-  "sectionCount": 0,
-  "groups": [],
-  "chapters": [],
+  "groupCount": 1,
+  "chapterCount": 7,
+  "sectionCount": 44,
+  "groups": [
+    {
+      "type": "part",
+      "number": "1",
+      "title": "역학"
+    }
+  ],
+  "chapters": [
+    {
+      "number": "1",
+      "title": "물리학과 측정",
+      "group": {
+        "type": "part",
+        "number": "1",
+        "title": "역학"
+      },
+      "sections": [
+        {
+          "number": "1.1",
+          "title": "길이, 질량 그리고 시간의 표준"
+        },
+        {
+          "number": "1.2",
+          "title": "모형화와 대체 표현"
+        },
+        {
+          "number": "1.3",
+          "title": "차원 분석"
+        },
+        {
+          "number": "1.4",
+          "title": "단위의 환산"
+        },
+        {
+          "number": "1.5",
+          "title": "어림과 크기의 정도 계산"
+        },
+        {
+          "number": "1.6",
+          "title": "유효 숫자"
+        }
+      ]
+    },
+    {
+      "number": "2",
+      "title": "일차원에서의 운동",
+      "group": {
+        "type": "part",
+        "number": "1",
+        "title": "역학"
+      },
+      "sections": [
+        {
+          "number": "2.1",
+          "title": "입자의 위치, 속도 그리고 속력"
+        },
+        {
+          "number": "2.2",
+          "title": "순간 속도와 속력"
+        },
+        {
+          "number": "2.3",
+          "title": "분석 모형: 등속 운동하는 입자"
+        },
+        {
+          "number": "2.4",
+          "title": "문제 풀이를 위한 분석 모형 접근법"
+        },
+        {
+          "number": "2.5",
+          "title": "가속도"
+        },
+        {
+          "number": "2.6",
+          "title": "분석 모형: 등가속도 운동하는 입자"
+        },
+        {
+          "number": "2.7",
+          "title": "자유 낙하 물체"
+        }
+      ]
+    },
+    {
+      "number": "3",
+      "title": "벡터",
+      "group": {
+        "type": "part",
+        "number": "1",
+        "title": "역학"
+      },
+      "sections": [
+        {
+          "number": "3.1",
+          "title": "좌표계"
+        },
+        {
+          "number": "3.2",
+          "title": "벡터양과 스칼라양"
+        },
+        {
+          "number": "3.3",
+          "title": "기본적인 벡터 연산"
+        },
+        {
+          "number": "3.4",
+          "title": "벡터의 성분과 단위 벡터"
+        }
+      ]
+    },
+    {
+      "number": "4",
+      "title": "이차원에서의 운동",
+      "group": {
+        "type": "part",
+        "number": "1",
+        "title": "역학"
+      },
+      "sections": [
+        {
+          "number": "4.1",
+          "title": "위치, 속도 그리고 가속도 벡터"
+        },
+        {
+          "number": "4.2",
+          "title": "이차원 등가속도 운동"
+        },
+        {
+          "number": "4.3",
+          "title": "포물체 운동"
+        },
+        {
+          "number": "4.4",
+          "title": "분석 모형: 등속 원운동하는 입자"
+        },
+        {
+          "number": "4.5",
+          "title": "접선 및 지름 가속도"
+        },
+        {
+          "number": "4.6",
+          "title": "상대 속도와 상대 가속도"
+        }
+      ]
+    },
+    {
+      "number": "5",
+      "title": "운동의 법칙",
+      "group": {
+        "type": "part",
+        "number": "1",
+        "title": "역학"
+      },
+      "sections": [
+        {
+          "number": "5.1",
+          "title": "힘의 개념"
+        },
+        {
+          "number": "5.2",
+          "title": "뉴턴의 제1법칙과 관성틀"
+        },
+        {
+          "number": "5.3",
+          "title": "질량"
+        },
+        {
+          "number": "5.4",
+          "title": "뉴턴의 제2법칙"
+        },
+        {
+          "number": "5.5",
+          "title": "중력과 무게"
+        },
+        {
+          "number": "5.6",
+          "title": "뉴턴의 제3법칙"
+        },
+        {
+          "number": "5.7",
+          "title": "뉴턴의 제2법칙을 이용한 분석 모형"
+        },
+        {
+          "number": "5.8",
+          "title": "마찰력"
+        }
+      ]
+    },
+    {
+      "number": "6",
+      "title": "원운동과 뉴턴 법칙의 적용",
+      "group": {
+        "type": "part",
+        "number": "1",
+        "title": "역학"
+      },
+      "sections": [
+        {
+          "number": "6.1",
+          "title": "등속 원운동하는 입자 모형의 확장"
+        },
+        {
+          "number": "6.2",
+          "title": "비등속 원운동"
+        },
+        {
+          "number": "6.3",
+          "title": "가속틀에서의 운동"
+        },
+        {
+          "number": "6.4",
+          "title": "저항력을 받는 운동"
+        }
+      ]
+    },
+    {
+      "number": "7",
+      "title": "계의 에너지",
+      "group": {
+        "type": "part",
+        "number": "1",
+        "title": "역학"
+      },
+      "sections": [
+        {
+          "number": "7.1",
+          "title": "계와 환경"
+        },
+        {
+          "number": "7.2",
+          "title": "일정한 힘이 한 일"
+        },
+        {
+          "number": "7.3",
+          "title": "두 벡터의 스칼라곱"
+        },
+        {
+          "number": "7.4",
+          "title": "변하는 힘이 한 일"
+        },
+        {
+          "number": "7.5",
+          "title": "운동 에너지와 일-운동 에너지 정리"
+        },
+        {
+          "number": "7.6",
+          "title": "계의 퍼텐셜 에너지의 관계"
+        },
+        {
+          "number": "7.7",
+          "title": "보존력과 비보존력"
+        },
+        {
+          "number": "7.8",
+          "title": "보존력과 퍼텐셜 에너지의 관계"
+        },
+        {
+          "number": "7.9",
+          "title": "에너지 도표와 계의 평형"
+        }
+      ]
+    }
+  ],
   "unparsedLines": [],
-  "updated": "2026-07-28T23:28:41"
+  "updated": "2026-07-29T02:59:59"
 }

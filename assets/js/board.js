@@ -516,9 +516,12 @@ const StudyBoard = (() => {
       return `제${chapter.number}장 ${chapter.title}`;
     }
 
+    if (format === "physics") {
+      return `Chapter ${chapter.number} ${chapter.title}`;
+    }
+
     return `${chapter.number} ${chapter.title}`;
   }
-
 
   function formatGroupTitle(group) {
     if (!group) {
@@ -529,9 +532,12 @@ const StudyBoard = (() => {
       return `${group.number}단원 ${group.title}`.trim();
     }
 
+    if (group.type === "part") {
+      return `Part ${group.number} ${group.title}`.trim();
+    }
+
     return `${group.number} ${group.title}`.trim();
   }
-
 
   function getChapterTitle(progress) {
     const unit = getProgressUnit(progress);
@@ -568,8 +574,8 @@ const StudyBoard = (() => {
 
       return `${groupTitle}${CHAPTER_SEPARATOR}${chapterTitle}`;
     }
-
-    if (format === "campbell") {
+    
+    if (["campbell", "physics"].includes(format)) {
       const groupTitle = formatGroupTitle(chapter.group);
       const sectionTitle = section
         ? `${section.number} ${section.title}`

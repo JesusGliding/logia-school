@@ -44,7 +44,7 @@ textarea {
 .subject-category-header {
   display: grid;
   grid-template-columns: 
-    minmax(240px, 20%)
+    minmax(200px, 20%)
     max-content;
 
   gap: 22px;

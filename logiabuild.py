@@ -43,6 +43,7 @@ HISTORY_TIMELINE_FILES = {
 # 자동 판별 결과를 특정 과목에서 강제로 덮어쓰고 싶을 때 사용한다.
 CHAPTER_FORMAT_OVERRIDES = {
     "biology": "campbell",
+    "physics": "physics",
     "cosmology": "classic"
 }
 
@@ -872,6 +873,23 @@ def detect_chapter_format(subject, lines):
     if override:
         return override
 
+    has_physics_heading = any(
+        re.match(
+            r"^part\s*\d+\s+.+$",
+            line,
+            re.IGNORECASE
+        )
+        or re.match(
+            r"^chapter\s*\d+\s+.+$",
+            line,
+            re.IGNORECASE
+        )
+        for line in lines
+    )
+
+    if has_physics_heading:
+        return "physics"
+
     has_campbell_unit = any(
         re.match(r"^\d+\s*단원(?:\s+.*)?$", line)
         for line in lines
@@ -978,6 +996,37 @@ def parse_chapter_lines(lines, chapter_format):
     current_chapter = None
 
     for line in lines:
+        
+
+        # ----------------------------------------------------
+        # Physics 형식의 Part
+        # 예:
+        # Part 1 역학
+        # part1 역학
+        # ----------------------------------------------------
+        physics_part_match = re.match(
+            r"^part\s*(\d+)\s+(.+)$",
+            line,
+            re.IGNORECASE
+        )
+
+        if (
+            chapter_format == "physics"
+            and physics_part_match
+        ):
+            part_number = physics_part_match.group(1)
+            part_title = physics_part_match.group(2).strip()
+
+            current_group = create_group(
+                "part",
+                part_number,
+                part_title
+            )
+
+            groups.append(current_group)
+            current_chapter = None
+            continue
+
 
         # ----------------------------------------------------
         # Campbell 형식의 단원
@@ -1057,6 +1106,40 @@ def parse_chapter_lines(lines, chapter_format):
 
             chapter_title = (
                 classic_chapter_match
+                .group(2)
+                .strip()
+            )
+
+            current_chapter = create_chapter(
+                chapter_number,
+                chapter_title,
+                current_group
+            )
+
+            chapters.append(current_chapter)
+            continue
+
+        # ----------------------------------------------------
+        # Physics 형식의 Chapter
+        # 예:
+        # Chapter 1 물리학과 측정
+        # ----------------------------------------------------
+        physics_chapter_match = re.match(
+            r"^chapter\s*(\d+)\s+(.+)$",
+            line,
+            re.IGNORECASE
+        )
+
+        if (
+            chapter_format == "physics"
+            and physics_chapter_match
+        ):
+            chapter_number = (
+                physics_chapter_match.group(1)
+            )
+
+            chapter_title = (
+                physics_chapter_match
                 .group(2)
                 .strip()
             )

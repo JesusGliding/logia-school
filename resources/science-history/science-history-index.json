@@ -1,8 +1,8 @@
 {
-  "cacheVersion": 1785248921,
+  "cacheVersion": 1785261599,
   "historyCategory": "science-history",
   "timelineSource": "science_timeline.txt",
-  "timelineCount": 16,
+  "timelineCount": 23,
   "archiveCount": 5,
   "mediaCount": 6,
   "linkedTimelineCount": 2,
@@ -10,17 +10,24 @@
     "alhaytham",
     "aristotle",
     "cuneiform",
+    "ebers-papyrus",
+    "edwin-smith-papyrus",
     "egyptian-civilization",
     "einstein",
+    "equal-hours",
     "great-pyramid",
     "lavoisier",
     "mesopotamian-civilization",
+    "mummification",
     "nielsbohr",
     "phoenician-alphabet",
     "ptolemy",
     "pythagoras",
+    "rhind-papyrus",
     "sexagesimal",
-    "thales"
+    "sirius-calendar",
+    "thales",
+    "twenty-four-hour-day"
   ],
   "archivesWithoutTimeline": [
     "entropy",
@@ -90,11 +97,53 @@
       "description": "A numeral system based on 60"
     },
     {
+      "year": -3000,
+      "id": "sirius-calendar",
+      "korean": "시리우스 달력",
+      "name": "Sirius Calendar",
+      "description": "365-day year linked to Sirius"
+    },
+    {
       "year": -2600,
       "id": "great-pyramid",
       "korean": "기자의 대피라미드",
       "name": "Great Pyramid of Giza",
       "description": "Oldest surviving wonder"
+    },
+    {
+      "year": -2500,
+      "id": "mummification",
+      "korean": "미라 제작",
+      "name": "Mummification",
+      "description": "Body preservation using natron"
+    },
+    {
+      "year": -1650,
+      "id": "rhind-papyrus",
+      "korean": "린드 파피루스",
+      "name": "Rhind Papyrus",
+      "description": "A key text of ancient Egyptian mathematics"
+    },
+    {
+      "year": -1600,
+      "id": "edwin-smith-papyrus",
+      "korean": "에드윈 스미스 파피루스",
+      "name": "Edwin Smith Papyrus",
+      "description": "The oldest known surgical text"
+    },
+    {
+      "year": -1550,
+      "id": "ebers-papyrus",
+      "korean": "에버스 파피루스",
+      "name": "Ebers Papyrus",
+      "description": "A major text of Egyptian medicine"
+    },
+    {
+      "year": -1500,
+      "id": "twenty-four-hour-day",
+      "korean": "24시간제",
+      "name": "24-Hour Day",
+      "description": "12 daylight and 12 night hours"
     },
     {
       "year": -1050,
@@ -123,6 +172,13 @@
       "korean": "아리스토텔레스",
       "name": "Aristotle",
       "description": "자연학과 논리학을 체계화"
+    },
+    {
+      "year": -150,
+      "id": "equal-hours",
+      "korean": "균등 24시간제",
+      "name": "Equal 24-Hour Day",
+      "description": "Day divided into 24 equal hours"
     },
     {
       "year": 83,
@@ -391,5 +447,5 @@
       ]
     }
   ],
-  "updated": "2026-07-28T23:28:41"
+  "updated": "2026-07-29T02:59:59"
 }

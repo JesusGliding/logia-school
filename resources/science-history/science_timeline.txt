@@ -2,11 +2,18 @@
 -3200|cuneiform|쐐기 문자|Cuneiform|The earliest known logo-syllabic writing system
 -3100|egyptian-civilization|이집트 문명|Egyptian Civilization|One of the world's oldest civilizations
 -3000|sexagesimal|60진법|Sexagesimal System|A numeral system based on 60
+-3000|sirius-calendar|시리우스 달력|Sirius Calendar|365-day year linked to Sirius
 -2600|great-pyramid|기자의 대피라미드|Great Pyramid of Giza|Oldest surviving wonder
+-2500|mummification|미라 제작|Mummification|Body preservation using natron
+-1650|rhind-papyrus|린드 파피루스|Rhind Papyrus|A key text of ancient Egyptian mathematics
+-1600|edwin-smith-papyrus|에드윈 스미스 파피루스|Edwin Smith Papyrus|The oldest known surgical text
+-1550|ebers-papyrus|에버스 파피루스|Ebers Papyrus|A major text of Egyptian medicine
+-1500|twenty-four-hour-day|24시간제|24-Hour Day|12 daylight and 12 night hours
 -1050|phoenician-alphabet|페니키아 알파벳|Phoenician Alphabet|Ancestor of most modern alphabets
 -624|thales|탈레스|Thales|자연철학의 출발점, 만물의 근원은 물
 -570|pythagoras|피타고라스|Pythagoras|수와 자연의 조화를 탐구
 -384|aristotle|아리스토텔레스|Aristotle|자연학과 논리학을 체계화
+-150|equal-hours|균등 24시간제|Equal 24-Hour Day|Day divided into 24 equal hours
 83|ptolemy|프톨레마이오스|Claudius Ptolemy|지구 중심의 천동설 주장
 965|alhaytham|이븐 알하이삼|Ibn al-Haytham|광학 이론에 큰 공헌
 1564|galileo|갈릴레이|Galileo Galilei|근대 관측과 실험 과학의 발전

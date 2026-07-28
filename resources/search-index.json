@@ -1,10 +1,10 @@
 {
-  "cacheVersion": 1785248921,
+  "cacheVersion": 1785261599,
   "indexType": "integrated-search",
-  "recordCount": 90,
+  "recordCount": 97,
   "sourceCounts": {
     "subjects": 8,
-    "science-history": 19,
+    "science-history": 26,
     "math-history": 15,
     "philosophy-history": 15,
     "computer": 18,
@@ -226,6 +226,30 @@
       "href": "/resources/library.html?category=science-history&id=entropy"
     },
     {
+      "id": "twenty-four-hour-day",
+      "source": "library",
+      "category": "science-history",
+      "categoryTitle": "과학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "24시간제",
+      "subtitle": "24-Hour Day",
+      "aliases": [
+        "24시간제",
+        "24-Hour Day"
+      ],
+      "date": "-1500",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "12 daylight and 12 night hours"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=science-history&id=twenty-four-hour-day"
+    },
+    {
       "id": "sexagesimal",
       "source": "library",
       "category": "science-history",
@@ -248,6 +272,30 @@
       "content": [],
       "related": [],
       "href": "/resources/library.html?category=science-history&id=sexagesimal"
+    },
+    {
+      "id": "equal-hours",
+      "source": "library",
+      "category": "science-history",
+      "categoryTitle": "과학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "균등 24시간제",
+      "subtitle": "Equal 24-Hour Day",
+      "aliases": [
+        "균등 24시간제",
+        "Equal 24-Hour Day"
+      ],
+      "date": "-150",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "Day divided into 24 equal hours"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=science-history&id=equal-hours"
     },
     {
       "id": "great-pyramid",
@@ -322,6 +370,30 @@
       "href": "/resources/library.html?category=science-history&id=lavoisier"
     },
     {
+      "id": "rhind-papyrus",
+      "source": "library",
+      "category": "science-history",
+      "categoryTitle": "과학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "린드 파피루스",
+      "subtitle": "Rhind Papyrus",
+      "aliases": [
+        "린드 파피루스",
+        "Rhind Papyrus"
+      ],
+      "date": "-1650",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "A key text of ancient Egyptian mathematics"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=science-history&id=rhind-papyrus"
+    },
+    {
       "id": "mesopotamian-civilization",
       "source": "library",
       "category": "science-history",
@@ -344,6 +416,54 @@
       "content": [],
       "related": [],
       "href": "/resources/library.html?category=science-history&id=mesopotamian-civilization"
+    },
+    {
+      "id": "mummification",
+      "source": "library",
+      "category": "science-history",
+      "categoryTitle": "과학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "미라 제작",
+      "subtitle": "Mummification",
+      "aliases": [
+        "미라 제작",
+        "Mummification"
+      ],
+      "date": "-2500",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "Body preservation using natron"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=science-history&id=mummification"
+    },
+    {
+      "id": "sirius-calendar",
+      "source": "library",
+      "category": "science-history",
+      "categoryTitle": "과학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "시리우스 달력",
+      "subtitle": "Sirius Calendar",
+      "aliases": [
+        "시리우스 달력",
+        "Sirius Calendar"
+      ],
+      "date": "-3000",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "365-day year linked to Sirius"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=science-history&id=sirius-calendar"
     },
     {
       "id": "cuneiform",
@@ -416,6 +536,54 @@
       "content": [],
       "related": [],
       "href": "/resources/library.html?category=science-history&id=einstein"
+    },
+    {
+      "id": "edwin-smith-papyrus",
+      "source": "library",
+      "category": "science-history",
+      "categoryTitle": "과학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "에드윈 스미스 파피루스",
+      "subtitle": "Edwin Smith Papyrus",
+      "aliases": [
+        "에드윈 스미스 파피루스",
+        "Edwin Smith Papyrus"
+      ],
+      "date": "-1600",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "The oldest known surgical text"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=science-history&id=edwin-smith-papyrus"
+    },
+    {
+      "id": "ebers-papyrus",
+      "source": "library",
+      "category": "science-history",
+      "categoryTitle": "과학사",
+      "location": "연대기",
+      "kind": "history",
+      "type": "timeline",
+      "title": "에버스 파피루스",
+      "subtitle": "Ebers Papyrus",
+      "aliases": [
+        "에버스 파피루스",
+        "Ebers Papyrus"
+      ],
+      "date": "-1550",
+      "fields": [],
+      "keywords": [],
+      "summary": [
+        "A major text of Egyptian medicine"
+      ],
+      "content": [],
+      "related": [],
+      "href": "/resources/library.html?category=science-history&id=ebers-papyrus"
     },
     {
       "id": "alhaytham",
@@ -2880,5 +3048,5 @@
       "href": "/resources/library.html?category=computer&id=transistor"
     }
   ],
-  "updated": "2026-07-28T23:28:41"
+  "updated": "2026-07-29T02:59:59"
 }
