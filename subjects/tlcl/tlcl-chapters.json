@@ -1,13 +1,431 @@
 {
-  "cacheVersion": 1785418038,
+  "cacheVersion": 1785436576,
   "subject": "tlcl",
-  "format": "simple",
+  "format": "physics",
   "sourceFile": "tlcl-chapters.txt",
-  "groupCount": 0,
-  "chapterCount": 0,
+  "groupCount": 4,
+  "chapterCount": 36,
   "sectionCount": 0,
-  "groups": [],
-  "chapters": [],
+  "groups": [
+    {
+      "type": "part",
+      "number": "1",
+      "title": "Learning the Shell"
+    },
+    {
+      "type": "part",
+      "number": "2",
+      "title": "Configuration and the Environment"
+    },
+    {
+      "type": "part",
+      "number": "3",
+      "title": "Common Tasks and Essential Tools"
+    },
+    {
+      "type": "part",
+      "number": "4",
+      "title": "Writing Shell Scripts"
+    }
+  ],
+  "chapters": [
+    {
+      "number": "1",
+      "title": "What Is the Shell?",
+      "group": {
+        "type": "part",
+        "number": "1",
+        "title": "Learning the Shell"
+      },
+      "sections": [],
+      "displayNumber": "1"
+    },
+    {
+      "number": "2",
+      "title": "Navigation",
+      "group": {
+        "type": "part",
+        "number": "1",
+        "title": "Learning the Shell"
+      },
+      "sections": [],
+      "displayNumber": "2"
+    },
+    {
+      "number": "3",
+      "title": "Exploring the System",
+      "group": {
+        "type": "part",
+        "number": "1",
+        "title": "Learning the Shell"
+      },
+      "sections": [],
+      "displayNumber": "3"
+    },
+    {
+      "number": "4",
+      "title": "Manipulating Files and Directories",
+      "group": {
+        "type": "part",
+        "number": "1",
+        "title": "Learning the Shell"
+      },
+      "sections": [],
+      "displayNumber": "4"
+    },
+    {
+      "number": "5",
+      "title": "Working with Commands",
+      "group": {
+        "type": "part",
+        "number": "1",
+        "title": "Learning the Shell"
+      },
+      "sections": [],
+      "displayNumber": "5"
+    },
+    {
+      "number": "6",
+      "title": "Redirection",
+      "group": {
+        "type": "part",
+        "number": "1",
+        "title": "Learning the Shell"
+      },
+      "sections": [],
+      "displayNumber": "6"
+    },
+    {
+      "number": "7",
+      "title": "Seeing the World as the Shell Sees It",
+      "group": {
+        "type": "part",
+        "number": "1",
+        "title": "Learning the Shell"
+      },
+      "sections": [],
+      "displayNumber": "7"
+    },
+    {
+      "number": "8",
+      "title": "Advanced Keyboard Tricks",
+      "group": {
+        "type": "part",
+        "number": "1",
+        "title": "Learning the Shell"
+      },
+      "sections": [],
+      "displayNumber": "8"
+    },
+    {
+      "number": "9",
+      "title": "Permissions",
+      "group": {
+        "type": "part",
+        "number": "1",
+        "title": "Learning the Shell"
+      },
+      "sections": [],
+      "displayNumber": "9"
+    },
+    {
+      "number": "10",
+      "title": "Processes",
+      "group": {
+        "type": "part",
+        "number": "1",
+        "title": "Learning the Shell"
+      },
+      "sections": [],
+      "displayNumber": "10"
+    },
+    {
+      "number": "11",
+      "title": "The Environment",
+      "group": {
+        "type": "part",
+        "number": "2",
+        "title": "Configuration and the Environment"
+      },
+      "sections": [],
+      "displayNumber": "11"
+    },
+    {
+      "number": "12",
+      "title": "A gentle Introduction to vi(m)",
+      "group": {
+        "type": "part",
+        "number": "2",
+        "title": "Configuration and the Environment"
+      },
+      "sections": [],
+      "displayNumber": "12"
+    },
+    {
+      "number": "13",
+      "title": "Customizing the Prompt",
+      "group": {
+        "type": "part",
+        "number": "2",
+        "title": "Configuration and the Environment"
+      },
+      "sections": [],
+      "displayNumber": "13"
+    },
+    {
+      "number": "14",
+      "title": "Package Management",
+      "group": {
+        "type": "part",
+        "number": "3",
+        "title": "Common Tasks and Essential Tools"
+      },
+      "sections": [],
+      "displayNumber": "14"
+    },
+    {
+      "number": "15",
+      "title": "Storage Media",
+      "group": {
+        "type": "part",
+        "number": "3",
+        "title": "Common Tasks and Essential Tools"
+      },
+      "sections": [],
+      "displayNumber": "15"
+    },
+    {
+      "number": "16",
+      "title": "Networking",
+      "group": {
+        "type": "part",
+        "number": "3",
+        "title": "Common Tasks and Essential Tools"
+      },
+      "sections": [],
+      "displayNumber": "16"
+    },
+    {
+      "number": "17",
+      "title": "Searching for Files",
+      "group": {
+        "type": "part",
+        "number": "3",
+        "title": "Common Tasks and Essential Tools"
+      },
+      "sections": [],
+      "displayNumber": "17"
+    },
+    {
+      "number": "18",
+      "title": "Archiving and Backup",
+      "group": {
+        "type": "part",
+        "number": "3",
+        "title": "Common Tasks and Essential Tools"
+      },
+      "sections": [],
+      "displayNumber": "18"
+    },
+    {
+      "number": "19",
+      "title": "Regular Expressions",
+      "group": {
+        "type": "part",
+        "number": "3",
+        "title": "Common Tasks and Essential Tools"
+      },
+      "sections": [],
+      "displayNumber": "19"
+    },
+    {
+      "number": "20",
+      "title": "Text Processing",
+      "group": {
+        "type": "part",
+        "number": "3",
+        "title": "Common Tasks and Essential Tools"
+      },
+      "sections": [],
+      "displayNumber": "20"
+    },
+    {
+      "number": "21",
+      "title": "Formatting Output",
+      "group": {
+        "type": "part",
+        "number": "3",
+        "title": "Common Tasks and Essential Tools"
+      },
+      "sections": [],
+      "displayNumber": "21"
+    },
+    {
+      "number": "22",
+      "title": "Printing",
+      "group": {
+        "type": "part",
+        "number": "3",
+        "title": "Common Tasks and Essential Tools"
+      },
+      "sections": [],
+      "displayNumber": "22"
+    },
+    {
+      "number": "23",
+      "title": "Compiling Programs",
+      "group": {
+        "type": "part",
+        "number": "3",
+        "title": "Common Tasks and Essential Tools"
+      },
+      "sections": [],
+      "displayNumber": "23"
+    },
+    {
+      "number": "24",
+      "title": "Writing Your First Script",
+      "group": {
+        "type": "part",
+        "number": "4",
+        "title": "Writing Shell Scripts"
+      },
+      "sections": [],
+      "displayNumber": "24"
+    },
+    {
+      "number": "25",
+      "title": "Starting a Project",
+      "group": {
+        "type": "part",
+        "number": "4",
+        "title": "Writing Shell Scripts"
+      },
+      "sections": [],
+      "displayNumber": "25"
+    },
+    {
+      "number": "26",
+      "title": "Top-Down Design",
+      "group": {
+        "type": "part",
+        "number": "4",
+        "title": "Writing Shell Scripts"
+      },
+      "sections": [],
+      "displayNumber": "26"
+    },
+    {
+      "number": "27",
+      "title": "Flow Control: Branching with if",
+      "group": {
+        "type": "part",
+        "number": "4",
+        "title": "Writing Shell Scripts"
+      },
+      "sections": [],
+      "displayNumber": "27"
+    },
+    {
+      "number": "28",
+      "title": "Reading Keyboard Input",
+      "group": {
+        "type": "part",
+        "number": "4",
+        "title": "Writing Shell Scripts"
+      },
+      "sections": [],
+      "displayNumber": "28"
+    },
+    {
+      "number": "29",
+      "title": "Flow Control: Looping with while / until",
+      "group": {
+        "type": "part",
+        "number": "4",
+        "title": "Writing Shell Scripts"
+      },
+      "sections": [],
+      "displayNumber": "29"
+    },
+    {
+      "number": "30",
+      "title": "Troubleshooting",
+      "group": {
+        "type": "part",
+        "number": "4",
+        "title": "Writing Shell Scripts"
+      },
+      "sections": [],
+      "displayNumber": "30"
+    },
+    {
+      "number": "31",
+      "title": "Flow Control: Branching with case",
+      "group": {
+        "type": "part",
+        "number": "4",
+        "title": "Writing Shell Scripts"
+      },
+      "sections": [],
+      "displayNumber": "31"
+    },
+    {
+      "number": "32",
+      "title": "Positional Parameters",
+      "group": {
+        "type": "part",
+        "number": "4",
+        "title": "Writing Shell Scripts"
+      },
+      "sections": [],
+      "displayNumber": "32"
+    },
+    {
+      "number": "33",
+      "title": "Flow Control: Looping with for",
+      "group": {
+        "type": "part",
+        "number": "4",
+        "title": "Writing Shell Scripts"
+      },
+      "sections": [],
+      "displayNumber": "33"
+    },
+    {
+      "number": "34",
+      "title": "Strings and Numbers",
+      "group": {
+        "type": "part",
+        "number": "4",
+        "title": "Writing Shell Scripts"
+      },
+      "sections": [],
+      "displayNumber": "34"
+    },
+    {
+      "number": "35",
+      "title": "Arrays",
+      "group": {
+        "type": "part",
+        "number": "4",
+        "title": "Writing Shell Scripts"
+      },
+      "sections": [],
+      "displayNumber": "35"
+    },
+    {
+      "number": "36",
+      "title": "Exotica",
+      "group": {
+        "type": "part",
+        "number": "4",
+        "title": "Writing Shell Scripts"
+      },
+      "sections": [],
+      "displayNumber": "36"
+    }
+  ],
   "unparsedLines": [],
-  "updated": "2026-07-30T22:27:18"
+  "updated": "2026-07-31T03:36:16"
 }

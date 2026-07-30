@@ -1,0 +1,51 @@
+Part 1 Learning the Shell
+
+1 What Is the Shell?
+2 Navigation
+3 Exploring the System
+4 Manipulating Files and Directories
+5 Working with Commands
+6 Redirection
+7 Seeing the World as the Shell Sees It
+8 Advanced Keyboard Tricks
+9 Permissions
+10 Processes
+
+
+Part 2 Configuration and the Environment
+
+11 The Environment
+12 A gentle Introduction to vi(m)
+13 Customizing the Prompt
+
+
+Part 3 Common Tasks and Essential Tools
+
+14 Package Management
+15 Storage Media
+16 Networking
+17 Searching for Files
+18 Archiving and Backup
+19 Regular Expressions
+20 Text Processing
+21 Formatting Output
+22 Printing
+23 Compiling Programs
+
+
+Part 4 Writing Shell Scripts
+
+24 Writing Your First Script
+25 Starting a Project
+26 Top-Down Design
+27 Flow Control: Branching with if
+28 Reading Keyboard Input
+29 Flow Control: Looping with while / until
+30 Troubleshooting
+31 Flow Control: Branching with case
+32 Positional Parameters
+33 Flow Control: Looping with for
+34 Strings and Numbers
+35 Arrays
+36 Exotica
+

@@ -105,6 +105,14 @@
       white-space: pre-line;
     }
 
+    #chapter-text {
+      white-space: pre-line;
+    }
+
+    #chapter-text.chapter-title-measuring {
+      white-space: nowrap;
+    }
+    
     .calendar-panel {
       overflow: hidden;
     }

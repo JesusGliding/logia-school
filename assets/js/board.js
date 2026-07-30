@@ -254,6 +254,12 @@ const StudyBoard = (() => {
 
       rebuildCalendarState();
     });
+
+    window.addEventListener("resize", () => {
+      renderChapterTitle(
+        getProgressForDate(dateInput.value)
+      );
+    });
   }
 
 
@@ -314,8 +320,7 @@ const StudyBoard = (() => {
     const progress = getProgressForDate(date);
 
     updateProgress(progress);
-    chapterText.textContent = getChapterTitle(progress);
-    renderMath(chapterText);
+    renderChapterTitle(progress);
 
     if (!record) {
       memoText.value = "이 날짜에는 학습 기록이 없습니다.";
@@ -542,7 +547,8 @@ const StudyBoard = (() => {
     }
 
     if (format === "physics") {
-      return `Chapter ${chapter.number} ${chapter.title}`;
+      const displayNumber = chapter.displayNumber || chapter.number;
+      return `${displayNumber} ${chapter.title}`;
     }
 
     return `${chapter.displayNumber || chapter.number} ${chapter.title}`;
@@ -625,6 +631,45 @@ const StudyBoard = (() => {
     );
   }
 
+  function renderChapterTitle(progress) {
+    const fullTitle = getChapterTitle(progress);
+
+    // 소단원처럼 이미 다음 줄에 표시되는 내용은 제외하고
+    // 첫 번째 줄만 너비를 검사한다.
+    const mainLine = fullTitle.split("\n")[0];
+
+    chapterText.classList.add(
+      "chapter-title-measuring"
+    );
+
+    chapterText.textContent = mainLine;
+    renderMath(chapterText);
+
+    requestAnimationFrame(() => {
+      const canSplit =
+        Boolean(CHAPTER_SEPARATOR)
+        && mainLine.includes(CHAPTER_SEPARATOR);
+
+      const isOverflowing =
+        chapterText.scrollWidth
+        > chapterText.clientWidth + 1;
+
+      chapterText.classList.remove(
+        "chapter-title-measuring"
+      );
+
+      const finalTitle =
+        canSplit && isOverflowing
+          ? fullTitle.replace(
+              CHAPTER_SEPARATOR,
+              "\n"
+            )
+          : fullTitle;
+
+      chapterText.textContent = finalTitle;
+      renderMath(chapterText);
+    });
+  }
 
   /* ---------------------------------------------------------
      Calendar

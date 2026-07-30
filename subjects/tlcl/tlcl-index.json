@@ -1,5 +1,5 @@
 {
-  "cacheVersion": 1785418038,
+  "cacheVersion": 1785436576,
   "subject": "tlcl",
   "subjectInfo": {
     "id": "tlcl-subject",
@@ -63,13 +63,26 @@
     ],
     "sourceFile": "tlcl-subject.txt"
   },
-  "recordCount": 0,
+  "recordCount": 1,
   "mediaCount": 0,
-  "firstRecord": null,
-  "lastRecord": null,
-  "studyDays": 0,
-  "latestProgress": "0/0",
-  "recordDates": [],
-  "records": [],
-  "updated": "2026-07-30T22:27:18"
+  "firstRecord": "2026-07-30",
+  "lastRecord": "2026-07-30",
+  "studyDays": 1,
+  "latestProgress": "1/36",
+  "recordDates": [
+    "2026-07-30"
+  ],
+  "records": [
+    {
+      "date": "2026-07-30",
+      "file": "tlcl_2026-07-30.txt",
+      "progress": "1/36",
+      "studytime": "10m",
+      "memo": [
+        "test file of chapter text"
+      ],
+      "media": []
+    }
+  ],
+  "updated": "2026-07-31T03:36:16"
 }

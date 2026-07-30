@@ -1,5 +1,5 @@
 {
-  "cacheVersion": 1785418038,
+  "cacheVersion": 1785436576,
   "subject": "physics",
   "format": "physics",
   "sourceFile": "physics-chapters.txt",
@@ -72,7 +72,8 @@
           "number": "1.6",
           "title": "유효 숫자"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 1"
     },
     {
       "number": "2",
@@ -111,7 +112,8 @@
           "number": "2.7",
           "title": "자유 낙하 물체"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 2"
     },
     {
       "number": "3",
@@ -138,7 +140,8 @@
           "number": "3.4",
           "title": "벡터의 성분과 단위 벡터"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 3"
     },
     {
       "number": "4",
@@ -173,7 +176,8 @@
           "number": "4.6",
           "title": "상대 속도와 상대 가속도"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 4"
     },
     {
       "number": "5",
@@ -216,7 +220,8 @@
           "number": "5.8",
           "title": "마찰력"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 5"
     },
     {
       "number": "6",
@@ -243,7 +248,8 @@
           "number": "6.4",
           "title": "저항력을 받는 운동"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 6"
     },
     {
       "number": "7",
@@ -290,7 +296,8 @@
           "number": "7.9",
           "title": "에너지 도표와 계의 평형"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 7"
     },
     {
       "number": "8",
@@ -321,7 +328,8 @@
           "number": "8.5",
           "title": "일률"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 8"
     },
     {
       "number": "9",
@@ -368,7 +376,8 @@
           "number": "9.9",
           "title": "로켓의 추진"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 9"
     },
     {
       "number": "10",
@@ -415,7 +424,8 @@
           "number": "10.9",
           "title": "강체의 굴림 운동"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 10"
     },
     {
       "number": "11",
@@ -446,7 +456,8 @@
           "number": "11.5",
           "title": "자이로스코프와 팽이의 운동"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 11"
     },
     {
       "number": "12",
@@ -473,7 +484,8 @@
           "number": "12.4",
           "title": "고체의 탄성"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 12"
     },
     {
       "number": "13",
@@ -508,7 +520,8 @@
           "number": "13.6",
           "title": "행성과 위성의 운동에서 에너지 관계"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 13"
     },
     {
       "number": "14",
@@ -551,7 +564,8 @@
           "number": "14.8",
           "title": "유체 동역학의 적용"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 14"
     },
     {
       "number": "15",
@@ -590,7 +604,8 @@
           "number": "15.7",
           "title": "강제 진동"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 15"
     },
     {
       "number": "16",
@@ -637,7 +652,8 @@
           "number": "16.9",
           "title": "도플러 효과"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 16"
     },
     {
       "number": "17",
@@ -680,7 +696,8 @@
           "number": "17.8",
           "title": "비사인형 파형"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 17"
     },
     {
       "number": "18",
@@ -711,7 +728,8 @@
           "number": "18.5",
           "title": "이상 기체의 거시적 기술"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 18"
     },
     {
       "number": "19",
@@ -746,7 +764,8 @@
           "number": "19.6",
           "title": "열 과정에서 에너지 전달 메커니즘"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 19"
     },
     {
       "number": "20",
@@ -777,7 +796,8 @@
           "number": "20.5",
           "title": "분자의 속력 분포"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 20"
     },
     {
       "number": "21",
@@ -820,7 +840,8 @@
           "number": "21.8",
           "title": "엔트로피와 제2법칙"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 21"
     },
     {
       "number": "22",
@@ -855,7 +876,8 @@
           "number": "22.6",
           "title": "균일한 전기장 내에서 대전 입자의 운동"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 22"
     },
     {
       "number": "23",
@@ -882,7 +904,8 @@
           "number": "23.4",
           "title": "다양한 형태의 전하 분포에 대한 가우스 법칙의 적용"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 23"
     },
     {
       "number": "24",
@@ -917,7 +940,8 @@
           "number": "24.6",
           "title": "정전기적 평형 상태의 도체"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 24"
     },
     {
       "number": "25",
@@ -956,7 +980,8 @@
           "number": "25.7",
           "title": "유전체의 원자적 기술"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 25"
     },
     {
       "number": "26",
@@ -991,7 +1016,8 @@
           "number": "26.6",
           "title": "전력"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 26"
     },
     {
       "number": "27",
@@ -1022,7 +1048,8 @@
           "number": "27.5",
           "title": "가정용 배선 및 전기 안전"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 27"
     },
     {
       "number": "28",
@@ -1057,7 +1084,8 @@
           "number": "28.6",
           "title": "홀 효과"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 28"
     },
     {
       "number": "29",
@@ -1092,7 +1120,8 @@
           "number": "29.6",
           "title": "물질 내의 자성"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 29"
     },
     {
       "number": "30",
@@ -1127,7 +1156,8 @@
           "number": "30.6",
           "title": "맴돌이 전류"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 30"
     },
     {
       "number": "31",
@@ -1162,7 +1192,8 @@
           "number": "31.6",
           "title": "RLC 회로"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 31"
     },
     {
       "number": "32",
@@ -1205,7 +1236,8 @@
           "number": "32.8",
           "title": "변압기와 전력 수송"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 32"
     },
     {
       "number": "33",
@@ -1244,7 +1276,8 @@
           "number": "33.7",
           "title": "전자기파의 스펙트럼"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 33"
     },
     {
       "number": "34",
@@ -1283,7 +1316,8 @@
           "number": "34.7",
           "title": "내부 전반사"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 34"
     },
     {
       "number": "35",
@@ -1318,7 +1352,8 @@
           "number": "35.6",
           "title": "광학 기기"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 35"
     },
     {
       "number": "36",
@@ -1353,7 +1388,8 @@
           "number": "36.6",
           "title": "마이컬슨 간섭계"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 36"
     },
     {
       "number": "37",
@@ -1388,7 +1424,8 @@
           "number": "37.6",
           "title": "빛의 편광"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 37"
     },
     {
       "number": "38",
@@ -1435,7 +1472,8 @@
           "number": "38.9",
           "title": "일반 상대성 이론"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 38"
     },
     {
       "number": "39",
@@ -1478,7 +1516,8 @@
           "number": "39.8",
           "title": "불확정성 원리"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 39"
     },
     {
       "number": "40",
@@ -1517,7 +1556,8 @@
           "number": "40.7",
           "title": "단조화 진동자"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 40"
     },
     {
       "number": "41",
@@ -1568,7 +1608,8 @@
           "number": "41.10",
           "title": "레이저"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 41"
     },
     {
       "number": "42",
@@ -1619,9 +1660,10 @@
           "number": "42.10",
           "title": "핵자기 공명과 자기 공명 영상법"
         }
-      ]
+      ],
+      "displayNumber": "Chapter 42"
     }
   ],
   "unparsedLines": [],
-  "updated": "2026-07-30T22:27:18"
+  "updated": "2026-07-31T03:36:16"
 }

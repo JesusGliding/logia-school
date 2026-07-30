@@ -1150,6 +1150,10 @@ def parse_chapter_lines(lines, chapter_format):
                 current_group
             )
 
+            current_chapter["displayNumber"] = (
+                f"Chapter {chapter_number}"
+            )
+
             chapters.append(current_chapter)
             continue
 
