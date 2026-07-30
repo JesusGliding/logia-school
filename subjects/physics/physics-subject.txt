@@ -3,7 +3,7 @@ title: 대학물리학
 englishTitle: Physics
 displayOrder: 3
 level: university-basic
-startDate: 2026-07-29
+startDate: 2026-07-28
 status: studying
 
 description:

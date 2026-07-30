@@ -272,6 +272,30 @@ const StudyBoard = (() => {
     filesList.innerHTML = "";
   }
 
+  function renderMath(container) {
+    if (
+      !container ||
+      typeof renderMathInElement !== "function"
+    ) {
+      return;
+    }
+
+    renderMathInElement(container, {
+      delimiters: [
+        {
+          left: "\\(",
+          right: "\\)",
+          display: false
+        },
+        {
+          left: "\\[",
+          right: "\\]",
+          display: true
+        }
+      ],
+      throwOnError: false
+    });
+  }
 
   /* ---------------------------------------------------------
      Study Record
@@ -291,6 +315,7 @@ const StudyBoard = (() => {
 
     updateProgress(progress);
     chapterText.textContent = getChapterTitle(progress);
+    renderMath(chapterText);
 
     if (!record) {
       memoText.value = "이 날짜에는 학습 기록이 없습니다.";

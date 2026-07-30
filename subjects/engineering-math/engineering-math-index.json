@@ -1,5 +1,5 @@
 {
-  "cacheVersion": 1785261599,
+  "cacheVersion": 1785403620,
   "subject": "engineering-math",
   "subjectInfo": {
     "id": "engineering-math-subject",
@@ -60,13 +60,42 @@
     ],
     "sourceFile": "engineering-math-subject.txt"
   },
-  "recordCount": 0,
-  "mediaCount": 0,
-  "firstRecord": null,
-  "lastRecord": null,
-  "studyDays": 0,
-  "latestProgress": "0/0",
-  "recordDates": [],
-  "records": [],
-  "updated": "2026-07-29T02:59:59"
+  "recordCount": 1,
+  "mediaCount": 1,
+  "firstRecord": "2026-07-29",
+  "lastRecord": "2026-07-29",
+  "studyDays": 1,
+  "latestProgress": "1.1/23",
+  "recordDates": [
+    "2026-07-29"
+  ],
+  "records": [
+    {
+      "date": "2026-07-29",
+      "file": "engineering-math_2026-07-29.txt",
+      "progress": "1.1/23",
+      "studytime": null,
+      "memo": [
+        "공업수업의 챕터를 적으며 공업수학이 어떤 과목인지 ",
+        "훑어 보았다. 아주아주 경이로운 내용들이다. ",
+        "현대 과학, 수학의 근간들이 아닌가 싶다.",
+        "나는 수학자도 아니고 과학자도 아니다. ",
+        "하지만 이것저것 공부하고 접하면서 통밥이 생겼다.",
+        "현대 과학이 무엇인지 , 어떤 부분이 중요한지 ",
+        "핵심 과목들이 무엇인지, 그런 지식이 생겼다.",
+        "세부적으로 머리속에 집어 넣기만 하면 된다.",
+        "모든 것을 알고 싶다. 특히 공학과 과학.. ",
+        "나는 신이 문명이라고 생각하다.",
+        "위대한 지성이 창조의 근간이라고 생각한다. "
+      ],
+      "media": [
+        {
+          "file": "engineering-math_2026-07-29-개관.pdf",
+          "title": "공업수학 시작하며",
+          "exists": true
+        }
+      ]
+    }
+  ],
+  "updated": "2026-07-30T18:27:00"
 }

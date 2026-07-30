@@ -1,5 +1,5 @@
 {
-  "cacheVersion": 1785261599,
+  "cacheVersion": 1785403620,
   "subject": "physics",
   "subjectInfo": {
     "id": "physics-subject",
@@ -7,7 +7,7 @@
     "englishTitle": "Physics",
     "displayOrder": 3,
     "level": "university-basic",
-    "startDate": "2026-07-29",
+    "startDate": "2026-07-28",
     "status": "studying",
     "description": [
       "대학물리학은 물리학의 기초를 다루는 과목으로, 물체의 운동, 힘, 에너지 등 다양한 물리적 현상을 수학적으로 분석한다."
@@ -66,7 +66,7 @@
   "firstRecord": "2026-07-28",
   "lastRecord": "2026-07-28",
   "studyDays": 1,
-  "latestProgress": "7.5/7",
+  "latestProgress": "1/42",
   "recordDates": [
     "2026-07-28"
   ],
@@ -74,16 +74,11 @@
     {
       "date": "2026-07-28",
       "file": "physics_2026-07-28.txt",
-      "progress": "7.5/7",
-      "studytime": "60m",
-      "memo": [
-        "물리학 챕터 정리하면서 임시로 적은 텍스트다.",
-        "자료 테스용도이다.\\n",
-        "물리학 학습을 시작했었지만 아직 진도표에 올려 놓지는 않고 있다.",
-        "다시 시작할때 그날로 시작일을 정하고 시작할 것이다."
-      ],
+      "progress": "1/42",
+      "studytime": null,
+      "memo": [],
       "media": []
     }
   ],
-  "updated": "2026-07-29T02:59:59"
+  "updated": "2026-07-30T18:27:00"
 }

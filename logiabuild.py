@@ -875,7 +875,7 @@ def detect_chapter_format(subject, lines):
 
     has_physics_heading = any(
         re.match(
-            r"^part\s*\d+\s+.+$",
+            r"^part\s*([A-Z0-9]+)\s+.+$",
             line,
             re.IGNORECASE
         )
@@ -1005,7 +1005,7 @@ def parse_chapter_lines(lines, chapter_format):
         # part1 역학
         # ----------------------------------------------------
         physics_part_match = re.match(
-            r"^part\s*(\d+)\s+(.+)$",
+            r"^part\s*([A-Z0-9]+)\s+(.+)$",
             line,
             re.IGNORECASE
         )

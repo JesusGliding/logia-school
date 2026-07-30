@@ -1,13 +1,577 @@
 {
-  "cacheVersion": 1785261599,
+  "cacheVersion": 1785403620,
   "subject": "engineering-math",
-  "format": "simple",
+  "format": "physics",
   "sourceFile": "engineering-math-chapters.txt",
-  "groupCount": 0,
-  "chapterCount": 0,
-  "sectionCount": 0,
-  "groups": [],
-  "chapters": [],
+  "groupCount": 6,
+  "chapterCount": 23,
+  "sectionCount": 73,
+  "groups": [
+    {
+      "type": "part",
+      "number": "A",
+      "title": "상미분방정식"
+    },
+    {
+      "type": "part",
+      "number": "B",
+      "title": "선형대수. 벡터미적분"
+    },
+    {
+      "type": "part",
+      "number": "C",
+      "title": "Fourier 해석. 편미분방정식"
+    },
+    {
+      "type": "part",
+      "number": "D",
+      "title": "복소해석"
+    },
+    {
+      "type": "part",
+      "number": "E",
+      "title": "수치해석"
+    },
+    {
+      "type": "part",
+      "number": "F",
+      "title": "최적화, 그래프"
+    }
+  ],
+  "chapters": [
+    {
+      "number": "1",
+      "title": "1계 상미분방정식",
+      "group": {
+        "type": "part",
+        "number": "A",
+        "title": "상미분방정식"
+      },
+      "sections": [
+        {
+          "number": "1.1",
+          "title": "기본개념. 모델링"
+        },
+        {
+          "number": "1.2",
+          "title": "y'=f(x,y)의 기하학적 의미. 방향장, Euler의 방법"
+        },
+        {
+          "number": "1.3",
+          "title": "분리가능 상미분방정식. 모델링"
+        },
+        {
+          "number": "1.4",
+          "title": "완전상미분방정식. 적분인자"
+        },
+        {
+          "number": "1.5",
+          "title": "선형상미분방정식. Bernoulli 방정식. 개체군 역학"
+        },
+        {
+          "number": "1.6",
+          "title": "직교철선. 선택사항"
+        },
+        {
+          "number": "1.7",
+          "title": "초기값 문제에 대한 해의 존재와 유일성"
+        }
+      ]
+    },
+    {
+      "number": "2",
+      "title": "2계 선형상미분방정식",
+      "group": {
+        "type": "part",
+        "number": "A",
+        "title": "상미분방정식"
+      },
+      "sections": [
+        {
+          "number": "2.1",
+          "title": "2계 제차 선형상미분방정식"
+        },
+        {
+          "number": "2.2",
+          "title": "상수계수를 갖는 제차 선형상미분방정식"
+        },
+        {
+          "number": "2.3",
+          "title": "미분연산자. 선택사항"
+        },
+        {
+          "number": "2.4",
+          "title": "질량-용수철 시스템의 자유진동의 모델링"
+        },
+        {
+          "number": "2.5",
+          "title": "Euler-Cauchy 방정식"
+        },
+        {
+          "number": "2.6",
+          "title": "해의 존재와 유일성. Wronskian"
+        },
+        {
+          "number": "2.7",
+          "title": "비제차 상미분방정식"
+        },
+        {
+          "number": "2.8",
+          "title": "모델링: 강제진동. 공진"
+        },
+        {
+          "number": "2.9",
+          "title": "모델링: 전기회로"
+        },
+        {
+          "number": "2.10",
+          "title": "매개변수변환에 의한 풀이"
+        }
+      ]
+    },
+    {
+      "number": "3",
+      "title": "고계 선형상미분방정식",
+      "group": {
+        "type": "part",
+        "number": "A",
+        "title": "상미분방정식"
+      },
+      "sections": [
+        {
+          "number": "3.1",
+          "title": "제차 선형상미분방정식"
+        },
+        {
+          "number": "3.2",
+          "title": "상수계수를 갖는 제차 선형상미분방정식"
+        },
+        {
+          "number": "3.3",
+          "title": "비제차 선형상미분방정식"
+        }
+      ]
+    },
+    {
+      "number": "4",
+      "title": "연립상미분방정식. 위상평면. 정성법",
+      "group": {
+        "type": "part",
+        "number": "A",
+        "title": "상미분방정식"
+      },
+      "sections": [
+        {
+          "number": "4.0",
+          "title": "참고자료: 행렬과 벡터의 기본"
+        },
+        {
+          "number": "4.1",
+          "title": "공학적 응용에서 모델로서의 연립상미분방정식"
+        },
+        {
+          "number": "4.2",
+          "title": "연립상미분방정식에 대한 기본 이론. Wronskian"
+        },
+        {
+          "number": "4.3",
+          "title": "상수계수연립방정식. 위상평면법"
+        },
+        {
+          "number": "4.4",
+          "title": "임계점에 대한 판별법. 안정성"
+        },
+        {
+          "number": "4.5",
+          "title": "비선형연립방정식에 대한 정성법"
+        },
+        {
+          "number": "4.6",
+          "title": "비제차 선형연립방정식"
+        }
+      ]
+    },
+    {
+      "number": "5",
+      "title": "상미분방정식의 급수해. 특수함수",
+      "group": {
+        "type": "part",
+        "number": "A",
+        "title": "상미분방정식"
+      },
+      "sections": [
+        {
+          "number": "5.1",
+          "title": "거듭제곱급수 해법"
+        },
+        {
+          "number": "5.2",
+          "title": "Legendre 방정식. Legendre 다항식 \\(P_n(x)\\)"
+        },
+        {
+          "number": "5.3",
+          "title": "확장된 거듭제곱급수 해법. Frobenius 해법"
+        },
+        {
+          "number": "5.4",
+          "title": "Bessel 방정식. Bessel 함수 \\(J_\\nu(x)\\)"
+        },
+        {
+          "number": "5.5",
+          "title": "Bessel 함수 \\(Y_\\nu(x)\\). 일반해"
+        }
+      ]
+    },
+    {
+      "number": "6",
+      "title": "Laplace 변환",
+      "group": {
+        "type": "part",
+        "number": "A",
+        "title": "상미분방정식"
+      },
+      "sections": [
+        {
+          "number": "6.1",
+          "title": "Laplace 변환. 선형성. 제1이동정리(s-이동)"
+        },
+        {
+          "number": "6.2",
+          "title": "도함수와 적분의 변환. 상미분방정식"
+        },
+        {
+          "number": "6.3",
+          "title": "단위계단함수(Heaviside 함수). 제2이동정리(t-이동)"
+        },
+        {
+          "number": "6.4",
+          "title": "짧은 충격(short impulse). Dirac의 델타함수. 부분분수"
+        },
+        {
+          "number": "6.5",
+          "title": "함성곱(convolution). 적분방정식"
+        },
+        {
+          "number": "6.6",
+          "title": "변환의 미분과 적분. 변수계수를 갖는 상미분방정식"
+        },
+        {
+          "number": "6.7",
+          "title": "연립상미분방정식"
+        },
+        {
+          "number": "6.8",
+          "title": "Laplace 변환: 일반 공식"
+        },
+        {
+          "number": "6.9",
+          "title": "Laplace 변환표"
+        }
+      ]
+    },
+    {
+      "number": "7",
+      "title": "선형대수: 행렬, 벡터, 행렬식. 선형연립방정식",
+      "group": {
+        "type": "part",
+        "number": "B",
+        "title": "선형대수. 벡터미적분"
+      },
+      "sections": [
+        {
+          "number": "7.1",
+          "title": "행렬, 벡터: 합과 스칼라곱"
+        },
+        {
+          "number": "7.2",
+          "title": "행렬의 곱"
+        },
+        {
+          "number": "7.3",
+          "title": "선형연립방정식. Gauss 소거법"
+        },
+        {
+          "number": "7.4",
+          "title": "1차독립. 행렬의 계수(rank). 벡터공간"
+        },
+        {
+          "number": "7.5",
+          "title": "선형연립방정식의 해: 존재성, 유일성"
+        },
+        {
+          "number": "7.6",
+          "title": "참조용 요약: 2차 및 3차 행렬식"
+        },
+        {
+          "number": "7.7",
+          "title": "행렬식. Cramer의 법칙"
+        },
+        {
+          "number": "7.8",
+          "title": "역행렬. Gauss-Jordan 소거법"
+        },
+        {
+          "number": "7.9",
+          "title": "벡터공간, 내적공간, 선형변환"
+        }
+      ]
+    },
+    {
+      "number": "8",
+      "title": "선형대수: 행렬의 고유값 문제",
+      "group": {
+        "type": "part",
+        "number": "B",
+        "title": "선형대수. 벡터미적분"
+      },
+      "sections": [
+        {
+          "number": "8.1",
+          "title": "행렬의 고유값 문제. 고유값과 고유벡터 구하기"
+        },
+        {
+          "number": "8.2",
+          "title": "고유값 문제의 몇 가지 응용"
+        },
+        {
+          "number": "8.3",
+          "title": "대칭, 반대칭, 직교행렬"
+        },
+        {
+          "number": "8.4",
+          "title": "고유기저. 대각화. 2차형식"
+        },
+        {
+          "number": "8.5",
+          "title": "복소행렬과 형식. 선택사항"
+        }
+      ]
+    },
+    {
+      "number": "9",
+      "title": "벡터미분. 기울기, 발산, 회전",
+      "group": {
+        "type": "part",
+        "number": "B",
+        "title": "선형대수. 벡터미적분"
+      },
+      "sections": [
+        {
+          "number": "9.1",
+          "title": "2차원과 3차원 공간에서의 벡터"
+        },
+        {
+          "number": "9.2",
+          "title": "내적(점곱)[inner product (dot product)]"
+        },
+        {
+          "number": "9.3",
+          "title": "외적(벡터곱, vector product, cross product)"
+        },
+        {
+          "number": "9.4",
+          "title": "벡터함수와 스칼라함수. 장(field). 도함수"
+        },
+        {
+          "number": "9.5",
+          "title": "곡선. 호의 길이. 곡률. 비틀림(torsion)"
+        },
+        {
+          "number": "9.6",
+          "title": "미적분의 복습: 다변수함수. 선택사항"
+        },
+        {
+          "number": "9.7",
+          "title": "스칼라장의 기울기. 방향도함수"
+        },
+        {
+          "number": "9.8",
+          "title": "벡터장의 발산(divergence)"
+        },
+        {
+          "number": "9.9",
+          "title": "벡터장의 회전(curl)"
+        }
+      ]
+    },
+    {
+      "number": "10",
+      "title": "벡터적분. 적분정리",
+      "group": {
+        "type": "part",
+        "number": "B",
+        "title": "선형대수. 벡터미적분"
+      },
+      "sections": [
+        {
+          "number": "10.1",
+          "title": "선적분(line integrals)"
+        },
+        {
+          "number": "10.2",
+          "title": "선적분의 경로 독립성"
+        },
+        {
+          "number": "10.3",
+          "title": "미적분복습: 이중적분. 선택사항"
+        },
+        {
+          "number": "10.4",
+          "title": "평면에서 Green의 정리"
+        },
+        {
+          "number": "10.5",
+          "title": "면적분에서의 곡면"
+        },
+        {
+          "number": "10.6",
+          "title": "면적분(surface integrals)"
+        },
+        {
+          "number": "10.7",
+          "title": "삼중적분. Gauss의 발산정리"
+        },
+        {
+          "number": "10.8",
+          "title": "발산정리의 응용"
+        },
+        {
+          "number": "10.9",
+          "title": "Stokes의 정리"
+        }
+      ]
+    },
+    {
+      "number": "11",
+      "title": "Fourier 해석",
+      "group": {
+        "type": "part",
+        "number": "C",
+        "title": "Fourier 해석. 편미분방정식"
+      },
+      "sections": []
+    },
+    {
+      "number": "12",
+      "title": "편미분방정식",
+      "group": {
+        "type": "part",
+        "number": "C",
+        "title": "Fourier 해석. 편미분방정식"
+      },
+      "sections": []
+    },
+    {
+      "number": "13",
+      "title": "복소수와 복소함수, 복소미분",
+      "group": {
+        "type": "part",
+        "number": "D",
+        "title": "복소해석"
+      },
+      "sections": []
+    },
+    {
+      "number": "14",
+      "title": "복소적분",
+      "group": {
+        "type": "part",
+        "number": "D",
+        "title": "복소해석"
+      },
+      "sections": []
+    },
+    {
+      "number": "15",
+      "title": "거듭제곱급수, Taylor 급수",
+      "group": {
+        "type": "part",
+        "number": "D",
+        "title": "복소해석"
+      },
+      "sections": []
+    },
+    {
+      "number": "16",
+      "title": "Laurent 급수, 유수적분",
+      "group": {
+        "type": "part",
+        "number": "D",
+        "title": "복소해석"
+      },
+      "sections": []
+    },
+    {
+      "number": "17",
+      "title": "등각사상",
+      "group": {
+        "type": "part",
+        "number": "D",
+        "title": "복소해석"
+      },
+      "sections": []
+    },
+    {
+      "number": "18",
+      "title": "복소해석과 퍼텐셜이론",
+      "group": {
+        "type": "part",
+        "number": "D",
+        "title": "복소해석"
+      },
+      "sections": []
+    },
+    {
+      "number": "19",
+      "title": "일반적인 수치해법",
+      "group": {
+        "type": "part",
+        "number": "E",
+        "title": "수치해석"
+      },
+      "sections": []
+    },
+    {
+      "number": "20",
+      "title": "선형대수의 수치해법",
+      "group": {
+        "type": "part",
+        "number": "E",
+        "title": "수치해석"
+      },
+      "sections": []
+    },
+    {
+      "number": "21",
+      "title": "상미분방정식과 편미분방정식의 수치해법",
+      "group": {
+        "type": "part",
+        "number": "E",
+        "title": "수치해석"
+      },
+      "sections": []
+    },
+    {
+      "number": "22",
+      "title": "무제약 최적화, 선형계획법",
+      "group": {
+        "type": "part",
+        "number": "F",
+        "title": "최적화, 그래프"
+      },
+      "sections": []
+    },
+    {
+      "number": "23",
+      "title": "그래프, 조합 최적화",
+      "group": {
+        "type": "part",
+        "number": "F",
+        "title": "최적화, 그래프"
+      },
+      "sections": []
+    }
+  ],
   "unparsedLines": [],
-  "updated": "2026-07-29T02:59:59"
+  "updated": "2026-07-30T18:27:00"
 }

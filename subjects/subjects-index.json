@@ -1,5 +1,5 @@
 {
-  "cacheVersion": 1785261599,
+  "cacheVersion": 1785403620,
   "indexType": "subject-catalog",
   "subjectCount": 8,
   "subjects": [
@@ -157,7 +157,7 @@
       "englishTitle": "Physics",
       "displayOrder": 3,
       "level": "university-basic",
-      "startDate": "2026-07-29",
+      "startDate": "2026-07-28",
       "status": "studying",
       "href": "/subjects/subject.html?subject=physics",
       "legacy": false,
@@ -167,7 +167,7 @@
         "englishTitle": "Physics",
         "displayOrder": 3,
         "level": "university-basic",
-        "startDate": "2026-07-29",
+        "startDate": "2026-07-28",
         "status": "studying",
         "description": [
           "대학물리학은 물리학의 기초를 다루는 과목으로, 물체의 운동, 힘, 에너지 등 다양한 물리적 현상을 수학적으로 분석한다."
@@ -587,5 +587,5 @@
       }
     }
   ],
-  "updated": "2026-07-29T02:59:59"
+  "updated": "2026-07-30T18:27:00"
 }

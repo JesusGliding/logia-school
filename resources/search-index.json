@@ -1,5 +1,5 @@
 {
-  "cacheVersion": 1785261599,
+  "cacheVersion": 1785403620,
   "indexType": "integrated-search",
   "recordCount": 97,
   "sourceCounts": {
@@ -939,7 +939,7 @@
         "physics",
         "Physics"
       ],
-      "date": "2026-07-29",
+      "date": "2026-07-28",
       "fields": [
         "university-basic",
         "물리학 기초"
@@ -3048,5 +3048,5 @@
       "href": "/resources/library.html?category=computer&id=transistor"
     }
   ],
-  "updated": "2026-07-29T02:59:59"
+  "updated": "2026-07-30T18:27:00"
 }
