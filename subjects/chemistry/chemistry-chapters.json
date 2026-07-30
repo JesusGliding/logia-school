@@ -1,5 +1,5 @@
 {
-  "cacheVersion": 1785410519,
+  "cacheVersion": 1785418038,
   "subject": "chemistry",
   "format": "general",
   "sourceFile": "chemistry-chapters.txt",
@@ -57,7 +57,8 @@
           "number": "1.11",
           "title": "혼합물의 분리"
         }
-      ]
+      ],
+      "displayNumber": "1"
     },
     {
       "number": "2",
@@ -96,7 +97,8 @@
           "number": "2.8",
           "title": "간단한 화합물의 명명법"
         }
-      ]
+      ],
+      "displayNumber": "2"
     },
     {
       "number": "3",
@@ -147,7 +149,8 @@
           "number": "3.11",
           "title": "한계 반응물의 개념"
         }
-      ]
+      ],
+      "displayNumber": "3"
     },
     {
       "number": "4",
@@ -198,7 +201,8 @@
           "number": "4.11",
           "title": "간단한 산화-환원 적정"
         }
-      ]
+      ],
+      "displayNumber": "4"
     },
     {
       "number": "5",
@@ -245,7 +249,8 @@
           "number": "5.10",
           "title": "대기 화학"
         }
-      ]
+      ],
+      "displayNumber": "5"
     },
     {
       "number": "6",
@@ -272,7 +277,8 @@
           "number": "6.5",
           "title": "현재의 에너지 자원"
         }
-      ]
+      ],
+      "displayNumber": "6"
     },
     {
       "number": "7",
@@ -331,7 +337,8 @@
           "number": "7.13",
           "title": "족의 성질: 알칼리 금속"
         }
-      ]
+      ],
+      "displayNumber": "7"
     },
     {
       "number": "8",
@@ -390,7 +397,8 @@
           "number": "8.13",
           "title": "분자 구조: VSEPR 모형"
         }
-      ]
+      ],
+      "displayNumber": "8"
     },
     {
       "number": "9",
@@ -417,7 +425,8 @@
           "number": "9.5",
           "title": "편재 전자 모형과 분자 오비탈 모형의 결합"
         }
-      ]
+      ],
+      "displayNumber": "9"
     },
     {
       "number": "10",
@@ -464,7 +473,8 @@
           "number": "10.10",
           "title": "상평형 그림"
         }
-      ]
+      ],
+      "displayNumber": "10"
     },
     {
       "number": "11",
@@ -503,7 +513,8 @@
           "number": "11.8",
           "title": "콜로이드"
         }
-      ]
+      ],
+      "displayNumber": "11"
     },
     {
       "number": "12",
@@ -538,7 +549,8 @@
           "number": "12.7",
           "title": "촉매작용"
         }
-      ]
+      ],
+      "displayNumber": "12"
     },
     {
       "number": "13",
@@ -573,7 +585,8 @@
           "number": "13.7",
           "title": "Le Chatelier의 원리"
         }
-      ]
+      ],
+      "displayNumber": "13"
     },
     {
       "number": "14",
@@ -628,7 +641,8 @@
           "number": "14.12",
           "title": "산-염기 문제 풀이를 위한 전략: 요약"
         }
-      ]
+      ],
+      "displayNumber": "14"
     },
     {
       "number": "15",
@@ -659,7 +673,8 @@
           "number": "15.6",
           "title": "다양성자산 적정"
         }
-      ]
+      ],
+      "displayNumber": "15"
     },
     {
       "number": "16",
@@ -678,7 +693,8 @@
           "number": "16.3",
           "title": "착이온과 관련된 평형"
         }
-      ]
+      ],
+      "displayNumber": "16"
     },
     {
       "number": "17",
@@ -725,7 +741,8 @@
           "number": "17.10",
           "title": "자유 에너지와 일"
         }
-      ]
+      ],
+      "displayNumber": "17"
     },
     {
       "number": "18",
@@ -764,7 +781,8 @@
           "number": "18.8",
           "title": "상업적 전해 과정"
         }
-      ]
+      ],
+      "displayNumber": "18"
     },
     {
       "number": "19",
@@ -799,7 +817,8 @@
           "number": "19.7",
           "title": "방사선의 영향"
         }
-      ]
+      ],
+      "displayNumber": "19"
     },
     {
       "number": "20",
@@ -862,7 +881,8 @@
           "number": "20.14",
           "title": "8A(18)족 원소"
         }
-      ]
+      ],
+      "displayNumber": "20"
     },
     {
       "number": "21",
@@ -901,7 +921,8 @@
           "number": "21.8",
           "title": "야금 및 철과 강철의 생산"
         }
-      ]
+      ],
+      "displayNumber": "21"
     },
     {
       "number": "22",
@@ -932,9 +953,10 @@
           "number": "22.6",
           "title": "천연 중합체"
         }
-      ]
+      ],
+      "displayNumber": "22"
     }
   ],
   "unparsedLines": [],
-  "updated": "2026-07-30T20:21:59"
+  "updated": "2026-07-30T22:27:18"
 }

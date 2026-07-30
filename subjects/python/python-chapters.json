@@ -1,13 +1,343 @@
 {
-  "cacheVersion": 1785410519,
+  "cacheVersion": 1785418038,
   "subject": "python",
   "format": "simple",
   "sourceFile": "python-chapters.txt",
   "groupCount": 0,
-  "chapterCount": 0,
+  "chapterCount": 47,
   "sectionCount": 0,
   "groups": [],
-  "chapters": [],
+  "chapters": [
+    {
+      "number": "1",
+      "title": "소프트웨어 교육과 파이썬",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 1"
+    },
+    {
+      "number": "2",
+      "title": "파이썬 설치하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 2"
+    },
+    {
+      "number": "3",
+      "title": "Hello, world!로 시작하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 3"
+    },
+    {
+      "number": "4",
+      "title": "기본 문법 알아보기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 4"
+    },
+    {
+      "number": "5",
+      "title": "숫자 계산하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 5"
+    },
+    {
+      "number": "6",
+      "title": "변수와 입력 사용하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 6"
+    },
+    {
+      "number": "7",
+      "title": "출력 방법 알아보기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 7"
+    },
+    {
+      "number": "8",
+      "title": "불과 비교, 논리 연산자 알아보기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 8"
+    },
+    {
+      "number": "9",
+      "title": "문자열 사용하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 9"
+    },
+    {
+      "number": "10",
+      "title": "리스트와 튜플 사용하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 10"
+    },
+    {
+      "number": "11",
+      "title": "시퀀스 자료형 활용하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 11"
+    },
+    {
+      "number": "12",
+      "title": "딕셔너리 사용하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 12"
+    },
+    {
+      "number": "13",
+      "title": "if 조건문으로 특정 조건일 때 코드 실행하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 13"
+    },
+    {
+      "number": "14",
+      "title": "else를 사용하여 두 방향으로 분기하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 14"
+    },
+    {
+      "number": "15",
+      "title": "elif를 사용하여 여러 방향으로 분기하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 15"
+    },
+    {
+      "number": "16",
+      "title": "for 반복문으로 Hello, world! 100번 출력하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 16"
+    },
+    {
+      "number": "17",
+      "title": "while 반복문으로 Hello, world! 100번 출력하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 17"
+    },
+    {
+      "number": "18",
+      "title": "break, continue로 반복문 제어하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 18"
+    },
+    {
+      "number": "19",
+      "title": "계단식으로 별 출력하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 19"
+    },
+    {
+      "number": "20",
+      "title": "FizzBuzz 문제",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 20"
+    },
+    {
+      "number": "21",
+      "title": "터틀 그래픽스로 그림 그리기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 21"
+    },
+    {
+      "number": "22",
+      "title": "리스트와 튜플 응용하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 22"
+    },
+    {
+      "number": "23",
+      "title": "2차원 리스트 사용하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 23"
+    },
+    {
+      "number": "24",
+      "title": "문자열 응용하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 24"
+    },
+    {
+      "number": "25",
+      "title": "딕셔너리 응용하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 25"
+    },
+    {
+      "number": "26",
+      "title": "세트 사용하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 26"
+    },
+    {
+      "number": "27",
+      "title": "파일 사용하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 27"
+    },
+    {
+      "number": "28",
+      "title": "회문 판별과 N-gram 만들기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 28"
+    },
+    {
+      "number": "29",
+      "title": "함수 사용하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 29"
+    },
+    {
+      "number": "30",
+      "title": "함수에서 위치 인수와 키워드 인수 사용하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 30"
+    },
+    {
+      "number": "31",
+      "title": "함수에서 재귀호출 사용하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 31"
+    },
+    {
+      "number": "32",
+      "title": "람다 표현식 사용하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 32"
+    },
+    {
+      "number": "33",
+      "title": "클로저 사용하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 33"
+    },
+    {
+      "number": "34",
+      "title": "클래스 사용하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 34"
+    },
+    {
+      "number": "35",
+      "title": "클래스 속성과 정적, 클래스 메서드 사용하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 35"
+    },
+    {
+      "number": "36",
+      "title": "클래스 상속 사용하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 36"
+    },
+    {
+      "number": "37",
+      "title": "두 점 사이의 거리 구하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 37"
+    },
+    {
+      "number": "38",
+      "title": "예외 처리 사용하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 38"
+    },
+    {
+      "number": "39",
+      "title": "이터레이터 사용하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 39"
+    },
+    {
+      "number": "40",
+      "title": "제너레이터 사용하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 40"
+    },
+    {
+      "number": "41",
+      "title": "코루틴 사용하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 41"
+    },
+    {
+      "number": "42",
+      "title": "데코레이터 사용하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 42"
+    },
+    {
+      "number": "43",
+      "title": "정규표현식 사용하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 43"
+    },
+    {
+      "number": "44",
+      "title": "모듈과 패키지 사용하기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 44"
+    },
+    {
+      "number": "45",
+      "title": "모듈과 패키지 만들기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 45"
+    },
+    {
+      "number": "46",
+      "title": "실전예제: 웹의 데이터로 그래프 그리기",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 46"
+    },
+    {
+      "number": "47",
+      "title": "부록",
+      "group": null,
+      "sections": [],
+      "displayNumber": "Unit 47"
+    }
+  ],
   "unparsedLines": [],
-  "updated": "2026-07-30T20:21:59"
+  "updated": "2026-07-30T22:27:18"
 }

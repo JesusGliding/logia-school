@@ -1,0 +1,47 @@
+Unit 1 소프트웨어 교육과 파이썬
+Unit 2 파이썬 설치하기
+Unit 3 Hello, world!로 시작하기
+Unit 4 기본 문법 알아보기
+Unit 5 숫자 계산하기
+Unit 6 변수와 입력 사용하기
+Unit 7 출력 방법 알아보기
+Unit 8 불과 비교, 논리 연산자 알아보기
+Unit 9 문자열 사용하기
+Unit 10 리스트와 튜플 사용하기
+Unit 11 시퀀스 자료형 활용하기
+Unit 12 딕셔너리 사용하기
+Unit 13 if 조건문으로 특정 조건일 때 코드 실행하기
+Unit 14 else를 사용하여 두 방향으로 분기하기
+Unit 15 elif를 사용하여 여러 방향으로 분기하기
+Unit 16 for 반복문으로 Hello, world! 100번 출력하기
+Unit 17 while 반복문으로 Hello, world! 100번 출력하기
+Unit 18 break, continue로 반복문 제어하기
+Unit 19 계단식으로 별 출력하기
+Unit 20 FizzBuzz 문제
+Unit 21 터틀 그래픽스로 그림 그리기
+Unit 22 리스트와 튜플 응용하기
+Unit 23 2차원 리스트 사용하기
+Unit 24 문자열 응용하기
+Unit 25 딕셔너리 응용하기
+Unit 26 세트 사용하기
+Unit 27 파일 사용하기
+Unit 28 회문 판별과 N-gram 만들기
+Unit 29 함수 사용하기
+Unit 30 함수에서 위치 인수와 키워드 인수 사용하기
+Unit 31 함수에서 재귀호출 사용하기
+Unit 32 람다 표현식 사용하기
+Unit 33 클로저 사용하기
+Unit 34 클래스 사용하기
+Unit 35 클래스 속성과 정적, 클래스 메서드 사용하기
+Unit 36 클래스 상속 사용하기
+Unit 37 두 점 사이의 거리 구하기
+Unit 38 예외 처리 사용하기
+Unit 39 이터레이터 사용하기
+Unit 40 제너레이터 사용하기
+Unit 41 코루틴 사용하기
+Unit 42 데코레이터 사용하기
+Unit 43 정규표현식 사용하기
+Unit 44 모듈과 패키지 사용하기
+Unit 45 모듈과 패키지 만들기
+Unit 46 실전예제: 웹의 데이터로 그래프 그리기
+Unit 47 부록

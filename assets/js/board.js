@@ -545,7 +545,7 @@ const StudyBoard = (() => {
       return `Chapter ${chapter.number} ${chapter.title}`;
     }
 
-    return `${chapter.number} ${chapter.title}`;
+    return `${chapter.displayNumber || chapter.number} ${chapter.title}`;
   }
 
   function formatGroupTitle(group) {

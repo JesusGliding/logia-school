@@ -1,5 +1,5 @@
 {
-  "cacheVersion": 1785410519,
+  "cacheVersion": 1785418038,
   "subject": "physics",
   "format": "physics",
   "sourceFile": "physics-chapters.txt",
@@ -1617,11 +1617,11 @@
         },
         {
           "number": "42.10",
-          "title": "핵자기 공명과 자기 공명 영상법 부록 A 표 B 자주 사용되는 수학 C SI 단위 D 원소와 주기율표 E 물리량 그림 표현과 주요 물리 상수 퀴즈 및 연습문제 해답 찾아보기 -end-"
+          "title": "핵자기 공명과 자기 공명 영상법"
         }
       ]
     }
   ],
   "unparsedLines": [],
-  "updated": "2026-07-30T20:21:59"
+  "updated": "2026-07-30T22:27:18"
 }

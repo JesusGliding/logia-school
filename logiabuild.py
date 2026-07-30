@@ -1194,19 +1194,20 @@ def parse_chapter_lines(lines, chapter_format):
         # 1 함수와 모델
         # 2 원자와 분자
         # ----------------------------------------------------
+
         numbered_chapter_match = re.match(
-            r"^(\d+)\s+(.+)$",
-            line
+            r"^(?:(unit)\s*)?(\d+)\s+(.+)$",
+            line,
+            re.IGNORECASE
         )
 
         if numbered_chapter_match:
-            chapter_number = (
-                numbered_chapter_match.group(1)
-            )
+            chapter_prefix = numbered_chapter_match.group(1)
+            chapter_number = numbered_chapter_match.group(2)
 
             chapter_title = (
                 numbered_chapter_match
-                .group(2)
+                .group(3)
                 .strip()
             )
 
@@ -1215,6 +1216,15 @@ def parse_chapter_lines(lines, chapter_format):
                 chapter_title,
                 current_group
             )
+
+            if chapter_prefix:
+                current_chapter["displayNumber"] = (
+                    f"Unit {chapter_number}"
+                )
+            else:
+                current_chapter["displayNumber"] = (
+                    chapter_number
+                )
 
             chapters.append(current_chapter)
             continue

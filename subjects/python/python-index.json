@@ -1,5 +1,5 @@
 {
-  "cacheVersion": 1785410519,
+  "cacheVersion": 1785418038,
   "subject": "python",
   "subjectInfo": {
     "id": "python-subject",
@@ -66,13 +66,26 @@
     ],
     "sourceFile": "python-subject.txt"
   },
-  "recordCount": 0,
+  "recordCount": 1,
   "mediaCount": 0,
-  "firstRecord": null,
-  "lastRecord": null,
-  "studyDays": 0,
-  "latestProgress": "0/0",
-  "recordDates": [],
-  "records": [],
-  "updated": "2026-07-30T20:21:59"
+  "firstRecord": "2026-07-30",
+  "lastRecord": "2026-07-30",
+  "studyDays": 1,
+  "latestProgress": "23/47",
+  "recordDates": [
+    "2026-07-30"
+  ],
+  "records": [
+    {
+      "date": "2026-07-30",
+      "file": "python_2026-07-30.txt",
+      "progress": "23/47",
+      "studytime": null,
+      "memo": [
+        "Python 챕터 작업이 끝났다. 파싱 테스트 "
+      ],
+      "media": []
+    }
+  ],
+  "updated": "2026-07-30T22:27:18"
 }

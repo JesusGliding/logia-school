@@ -1,11 +1,11 @@
 {
-  "cacheVersion": 1785410519,
+  "cacheVersion": 1785418038,
   "subject": "engineering-math",
   "format": "physics",
   "sourceFile": "engineering-math-chapters.txt",
   "groupCount": 6,
   "chapterCount": 23,
-  "sectionCount": 120,
+  "sectionCount": 159,
   "groups": [
     {
       "type": "part",
@@ -70,7 +70,7 @@
         },
         {
           "number": "1.6",
-          "title": "직교철선. 선택사항"
+          "title": "직교절선. 선택사항"
         },
         {
           "number": "1.7",
@@ -249,7 +249,7 @@
         },
         {
           "number": "6.5",
-          "title": "함성곱(convolution). 적분방정식"
+          "title": "합성곱(convolution). 적분방정식"
         },
         {
           "number": "6.6",
@@ -460,7 +460,7 @@
         },
         {
           "number": "11.3",
-          "title": "강제진동(foreced oscillations)"
+          "title": "강제진동(forced oscillations)"
         },
         {
           "number": "11.4",
@@ -644,7 +644,7 @@
         },
         {
           "number": "15.5",
-          "title": "균등수렴."
+          "title": "균등수렴. 선택사항"
         }
       ]
     },
@@ -714,7 +714,32 @@
         "number": "D",
         "title": "복소해석"
       },
-      "sections": []
+      "sections": [
+        {
+          "number": "18.1",
+          "title": "정전기장"
+        },
+        {
+          "number": "18.2",
+          "title": "등각사상의 이용. 모델링"
+        },
+        {
+          "number": "18.3",
+          "title": "열에 관한 문제"
+        },
+        {
+          "number": "18.4",
+          "title": "유체흐름"
+        },
+        {
+          "number": "18.5",
+          "title": "퍼텐셜에 대한 Poisson 적분공식"
+        },
+        {
+          "number": "18.6",
+          "title": "조화함수의 일반 성질. Dirichlet 문제에 대한 유일성 정리"
+        }
+      ]
     },
     {
       "number": "19",
@@ -724,7 +749,28 @@
         "number": "E",
         "title": "수치해석"
       },
-      "sections": []
+      "sections": [
+        {
+          "number": "19.1",
+          "title": "개요"
+        },
+        {
+          "number": "19.2",
+          "title": "반복계산에 의한 방정식의 해"
+        },
+        {
+          "number": "19.3",
+          "title": "보간법"
+        },
+        {
+          "number": "19.4",
+          "title": "스플라인 보간법"
+        },
+        {
+          "number": "19.5",
+          "title": "수치적분과 수치미분"
+        }
+      ]
     },
     {
       "number": "20",
@@ -734,7 +780,44 @@
         "number": "E",
         "title": "수치해석"
       },
-      "sections": []
+      "sections": [
+        {
+          "number": "20.1",
+          "title": "1차 연립방정식: Gauss 소거법"
+        },
+        {
+          "number": "20.2",
+          "title": "1차 연립방정식: LU-분해, 행렬 역변환"
+        },
+        {
+          "number": "20.3",
+          "title": "1차 연립방정식: 반복법에 의한 풀이"
+        },
+        {
+          "number": "20.4",
+          "title": "1차 연립방정식: 불량조건, 노름"
+        },
+        {
+          "number": "20.5",
+          "title": "최소제곱법"
+        },
+        {
+          "number": "20.6",
+          "title": "행렬의 고유값 문제: 개요"
+        },
+        {
+          "number": "20.7",
+          "title": "행렬 고유값의 포함"
+        },
+        {
+          "number": "20.8",
+          "title": "고유값을 위한 거듭제곱법"
+        },
+        {
+          "number": "20.9",
+          "title": "삼중대각화와 QR-분해"
+        }
+      ]
     },
     {
       "number": "21",
@@ -744,7 +827,36 @@
         "number": "E",
         "title": "수치해석"
       },
-      "sections": []
+      "sections": [
+        {
+          "number": "21.1",
+          "title": "1계 상미분방정식의 수치해법"
+        },
+        {
+          "number": "21.2",
+          "title": "다단계법(multistep methods)"
+        },
+        {
+          "number": "21.3",
+          "title": "연립상미분방정식과 고계 상미분방정식에 대한 방법"
+        },
+        {
+          "number": "21.4",
+          "title": "타원형 편미분방정식의 해법"
+        },
+        {
+          "number": "21.5",
+          "title": "Neumann 및 혼합경계값 문제. 불규칙 경계"
+        },
+        {
+          "number": "21.6",
+          "title": "포물형 편미분방정식의 해법"
+        },
+        {
+          "number": "21.7",
+          "title": "쌍곡형 편미분방정식의 해법"
+        }
+      ]
     },
     {
       "number": "22",
@@ -754,7 +866,24 @@
         "number": "F",
         "title": "최적화, 그래프"
       },
-      "sections": []
+      "sections": [
+        {
+          "number": "22.1",
+          "title": "기본 개념. 무제약 최적화: 최급강하법"
+        },
+        {
+          "number": "22.2",
+          "title": "선형계획법"
+        },
+        {
+          "number": "22.3",
+          "title": "심플렉스방법"
+        },
+        {
+          "number": "22.4",
+          "title": "심플렉스방법: 어려움"
+        }
+      ]
     },
     {
       "number": "23",
@@ -764,9 +893,42 @@
         "number": "F",
         "title": "최적화, 그래프"
       },
-      "sections": []
+      "sections": [
+        {
+          "number": "23.1",
+          "title": "그래프와 유향그래프"
+        },
+        {
+          "number": "23.2",
+          "title": "최단경로 문제. 복잡도"
+        },
+        {
+          "number": "23.3",
+          "title": "Bellman의 원칙. Dijkstra의 알고리즘"
+        },
+        {
+          "number": "23.4",
+          "title": "최단생성 수형도: Greedy 알고리즘"
+        },
+        {
+          "number": "23.5",
+          "title": "최단생성 수형도: Prim 알고리즘"
+        },
+        {
+          "number": "23.6",
+          "title": "네트워크에서의 유량"
+        },
+        {
+          "number": "23.7",
+          "title": "최대유량: Ford-Fulkerson 알고리즘"
+        },
+        {
+          "number": "23.8",
+          "title": "이분그래프. 할당문제"
+        }
+      ]
     }
   ],
   "unparsedLines": [],
-  "updated": "2026-07-30T20:21:59"
+  "updated": "2026-07-30T22:27:18"
 }

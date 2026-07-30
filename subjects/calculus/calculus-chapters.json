@@ -1,5 +1,5 @@
 {
-  "cacheVersion": 1785410519,
+  "cacheVersion": 1785418038,
   "subject": "calculus",
   "format": "general",
   "sourceFile": "calculus-chapters.txt",
@@ -37,7 +37,8 @@
           "number": "1.6",
           "title": "무한대와 관련된 극한"
         }
-      ]
+      ],
+      "displayNumber": "1"
     },
     {
       "number": "2",
@@ -76,7 +77,8 @@
           "number": "2.8",
           "title": "선형 근사와 미분"
         }
-      ]
+      ],
+      "displayNumber": "2"
     },
     {
       "number": "3",
@@ -111,7 +113,8 @@
           "number": "3.7",
           "title": "부정형과 로피탈의 법칙"
         }
-      ]
+      ],
+      "displayNumber": "3"
     },
     {
       "number": "4",
@@ -146,7 +149,8 @@
           "number": "4.7",
           "title": "역도함수"
         }
-      ]
+      ],
+      "displayNumber": "4"
     },
     {
       "number": "5",
@@ -173,7 +177,8 @@
           "number": "5.5",
           "title": "치환 적분법"
         }
-      ]
+      ],
+      "displayNumber": "5"
     },
     {
       "number": "6",
@@ -204,7 +209,8 @@
           "number": "6.6",
           "title": "특이 적분"
         }
-      ]
+      ],
+      "displayNumber": "6"
     },
     {
       "number": "7",
@@ -239,7 +245,8 @@
           "number": "7.7",
           "title": "미분 방정식"
         }
-      ]
+      ],
+      "displayNumber": "7"
     },
     {
       "number": "8",
@@ -278,7 +285,8 @@
           "number": "8.8",
           "title": "테일러 다항 함수의 활용"
         }
-      ]
+      ],
+      "displayNumber": "8"
     },
     {
       "number": "9",
@@ -305,7 +313,8 @@
           "number": "9.5",
           "title": "극 좌표에서의 원뿔 곡선"
         }
-      ]
+      ],
+      "displayNumber": "9"
     },
     {
       "number": "10",
@@ -348,7 +357,8 @@
           "number": "10.9",
           "title": "공간 운동: 속도와 가속도"
         }
-      ]
+      ],
+      "displayNumber": "10"
     },
     {
       "number": "11",
@@ -387,7 +397,8 @@
           "number": "11.8",
           "title": "라그랑주 곱수"
         }
-      ]
+      ],
+      "displayNumber": "11"
     },
     {
       "number": "12",
@@ -426,7 +437,8 @@
           "number": "12.8",
           "title": "다중 적분에서의 변수 변환"
         }
-      ]
+      ],
+      "displayNumber": "12"
     },
     {
       "number": "13",
@@ -469,9 +481,10 @@
           "number": "13.9",
           "title": "발산 정리"
         }
-      ]
+      ],
+      "displayNumber": "13"
     }
   ],
   "unparsedLines": [],
-  "updated": "2026-07-30T20:21:59"
+  "updated": "2026-07-30T22:27:18"
 }
