@@ -1,11 +1,11 @@
 {
-  "cacheVersion": 1785403620,
+  "cacheVersion": 1785408642,
   "subject": "engineering-math",
   "format": "physics",
   "sourceFile": "engineering-math-chapters.txt",
   "groupCount": 6,
   "chapterCount": 23,
-  "sectionCount": 73,
+  "sectionCount": 120,
   "groups": [
     {
       "type": "part",
@@ -449,7 +449,48 @@
         "number": "C",
         "title": "Fourier 해석. 편미분방정식"
       },
-      "sections": []
+      "sections": [
+        {
+          "number": "11.1",
+          "title": "Fourier 급수(Fourier series)"
+        },
+        {
+          "number": "11.2",
+          "title": "임의의 주기. 우함수와 기함수. 반구간 전개"
+        },
+        {
+          "number": "11.3",
+          "title": "강제진동(foreced oscillations)"
+        },
+        {
+          "number": "11.4",
+          "title": "삼각함수 다항식에 의한 근사"
+        },
+        {
+          "number": "11.5",
+          "title": "Sturm-Liouville 문제. 직교함수"
+        },
+        {
+          "number": "11.6",
+          "title": "직교급수. 일반화된 Fourier 급수"
+        },
+        {
+          "number": "11.7",
+          "title": "Fourier 적분"
+        },
+        {
+          "number": "11.8",
+          "title": "Fourier 코사인 및 사인 변환"
+        },
+        {
+          "number": "11.9",
+          "title": "Fourier 변환. 이산 및 고속 Fourier 변환"
+        },
+        {
+          "number": "11.10",
+          "title": "변환공식의 표"
+        }
+      ]
     },
     {
       "number": "12",
@@ -459,17 +500,95 @@
         "number": "C",
         "title": "Fourier 해석. 편미분방정식"
       },
-      "sections": []
+      "sections": [
+        {
+          "number": "12.1",
+          "title": "기본개념"
+        },
+        {
+          "number": "12.2",
+          "title": "모델링: 진동하는 현, 파동방정식"
+        },
+        {
+          "number": "12.3",
+          "title": "변수분리법. Fourier 급수의 사용"
+        },
+        {
+          "number": "12.4",
+          "title": "파동방정식의 D'Alembert 해. 특성"
+        },
+        {
+          "number": "12.5",
+          "title": "모델링: 입체 내의 열전도. 열전도방정식"
+        },
+        {
+          "number": "12.6",
+          "title": "열전도방정식: Fourier 급수에 의한 해"
+        },
+        {
+          "number": "12.7",
+          "title": "열전도방정식: 긴 막대의 모델링. Fourier 적분과 변환에 의한 해"
+        },
+        {
+          "number": "12.8",
+          "title": "모델링: 박막, 2차원 파동방정식"
+        },
+        {
+          "number": "12.9",
+          "title": "직사각형의 박막. 이중 Fourier 급수"
+        },
+        {
+          "number": "12.10",
+          "title": "극좌표에서의 Laplace 연산자. 원형 박막. Fourier-Bessel 급수"
+        },
+        {
+          "number": "12.11",
+          "title": "원통좌표 및 구좌표에서의 Laplace 방정식. 퍼텐셜"
+        },
+        {
+          "number": "12.12",
+          "title": "Laplace 변환에 의한 해"
+        }
+      ]
     },
     {
       "number": "13",
-      "title": "복소수와 복소함수, 복소미분",
+      "title": "복소수와 복소함수. 복소미분",
       "group": {
         "type": "part",
         "number": "D",
         "title": "복소해석"
       },
-      "sections": []
+      "sections": [
+        {
+          "number": "13.1",
+          "title": "복소수와 이들에 대한 기하학적인 도식"
+        },
+        {
+          "number": "13.2",
+          "title": "복소수의 극형식. 거듭제곱과 근"
+        },
+        {
+          "number": "13.3",
+          "title": "도함수와 해석함수"
+        },
+        {
+          "number": "13.4",
+          "title": "Cauchy-Riemann 방정식과 Laplace 방정식"
+        },
+        {
+          "number": "13.5",
+          "title": "지수함수"
+        },
+        {
+          "number": "13.6",
+          "title": "삼각함수와 쌍곡선함수. Euler 공식"
+        },
+        {
+          "number": "13.7",
+          "title": "로그. 일반 거듭제곱. 주값"
+        }
+      ]
     },
     {
       "number": "14",
@@ -479,7 +598,24 @@
         "number": "D",
         "title": "복소해석"
       },
-      "sections": []
+      "sections": [
+        {
+          "number": "14.1",
+          "title": "복소평면에서의 선적분"
+        },
+        {
+          "number": "14.2",
+          "title": "Cauchy 적분정리"
+        },
+        {
+          "number": "14.3",
+          "title": "Cauchy 적분공식"
+        },
+        {
+          "number": "14.4",
+          "title": "해석함수의 도함수"
+        }
+      ]
     },
     {
       "number": "15",
@@ -489,7 +625,28 @@
         "number": "D",
         "title": "복소해석"
       },
-      "sections": []
+      "sections": [
+        {
+          "number": "15.1",
+          "title": "수열과 급수, 수렴판정"
+        },
+        {
+          "number": "15.2",
+          "title": "거듭제곱급수"
+        },
+        {
+          "number": "15.3",
+          "title": "거듭제곱급수로 주어지는 함수"
+        },
+        {
+          "number": "15.4",
+          "title": "Taylor 급수와 Maclaurin 급수"
+        },
+        {
+          "number": "15.5",
+          "title": "균등수렴."
+        }
+      ]
     },
     {
       "number": "16",
@@ -499,7 +656,24 @@
         "number": "D",
         "title": "복소해석"
       },
-      "sections": []
+      "sections": [
+        {
+          "number": "16.1",
+          "title": "Laurent 급수"
+        },
+        {
+          "number": "16.2",
+          "title": "특이점과 영점. 무한대"
+        },
+        {
+          "number": "16.3",
+          "title": "유수적분법"
+        },
+        {
+          "number": "16.4",
+          "title": "실적분의 유수적분"
+        }
+      ]
     },
     {
       "number": "17",
@@ -509,7 +683,28 @@
         "number": "D",
         "title": "복소해석"
       },
-      "sections": []
+      "sections": [
+        {
+          "number": "17.1",
+          "title": "해석함수의 기하학: 등각사상"
+        },
+        {
+          "number": "17.2",
+          "title": "선형분수변환(Möbius 변환)"
+        },
+        {
+          "number": "17.3",
+          "title": "특별한 선형분수변환"
+        },
+        {
+          "number": "17.4",
+          "title": "다른 함수들에 의한 등각사상"
+        },
+        {
+          "number": "17.5",
+          "title": "Riemann 곡면. 선택사항"
+        }
+      ]
     },
     {
       "number": "18",
@@ -573,5 +768,5 @@
     }
   ],
   "unparsedLines": [],
-  "updated": "2026-07-30T18:27:00"
+  "updated": "2026-07-30T19:50:42"
 }
