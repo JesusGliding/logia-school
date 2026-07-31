@@ -1,14 +1,14 @@
 {
-  "cacheVersion": 1785436576,
+  "cacheVersion": 1785515281,
   "indexType": "integrated-search",
-  "recordCount": 97,
+  "recordCount": 98,
   "sourceCounts": {
     "subjects": 8,
     "science-history": 26,
     "math-history": 15,
     "philosophy-history": 15,
     "computer": 18,
-    "notes": 6,
+    "notes": 7,
     "reading-science": 3,
     "reading-philosophy": 1,
     "reading-fiction": 2,
@@ -1333,6 +1333,40 @@
       ],
       "related": [],
       "href": "/resources/library.html?category=notes&section=media&id=car-jpg"
+    },
+    {
+      "id": "light-refraction",
+      "source": "notes",
+      "category": "notes",
+      "categoryTitle": "노트",
+      "location": "theory",
+      "kind": "note",
+      "type": "개념정리",
+      "title": "빛의 굴절에 관하여",
+      "subtitle": "개념정리",
+      "aliases": [],
+      "date": "2026-07-31",
+      "fields": [
+        "광학",
+        "물리학"
+      ],
+      "keywords": [
+        "굴절률",
+        "하위헌스 원리",
+        "페르마 원리",
+        "파면",
+        "간섭"
+      ],
+      "summary": [
+        "빛의 굴절에 관한 이론들과 개념들을 정리한 문서이다."
+      ],
+      "content": [
+        "빛의 굴절 원리 개념 설명",
+        "refraction-of-light.pdf",
+        "pdf"
+      ],
+      "related": [],
+      "href": "/resources/library.html?category=notes&section=theory&id=light-refraction"
     },
     {
       "id": "about-my-project",
@@ -3048,5 +3082,5 @@
       "href": "/resources/library.html?category=computer&id=transistor"
     }
   ],
-  "updated": "2026-07-31T03:36:16"
+  "updated": "2026-08-01T01:28:01"
 }

@@ -1,5 +1,5 @@
 {
-  "cacheVersion": 1785436576,
+  "cacheVersion": 1785515281,
   "archiveType": "notes",
   "sections": [
     "archive",
@@ -10,9 +10,9 @@
     "theory",
     "treasure"
   ],
-  "recordCount": 6,
-  "fileCount": 15,
-  "existingFileCount": 15,
+  "recordCount": 7,
+  "fileCount": 16,
+  "existingFileCount": 16,
   "missingFileCount": 0,
   "sectionCounts": {
     "archive": 0,
@@ -20,7 +20,7 @@
     "media": 1,
     "papers": 0,
     "reference": 0,
-    "theory": 0,
+    "theory": 1,
     "treasure": 4
   },
   "sectionFileCounts": {
@@ -29,16 +29,18 @@
     "media": 1,
     "papers": 0,
     "reference": 0,
-    "theory": 0,
+    "theory": 1,
     "treasure": 13
   },
   "typeCounts": {
+    "개념정리": 1,
     "개인연구": 3,
     "기고문": 1,
     "자료": 1,
     "종합자료": 1
   },
   "types": [
+    "개념정리",
     "개인연구",
     "기고문",
     "자료",
@@ -46,6 +48,7 @@
   ],
   "authors": [],
   "fields": [
+    "광학",
     "기계공학",
     "디자인",
     "물리학",
@@ -63,7 +66,9 @@
   "keywords": [
     "M이론",
     "pdf",
+    "간섭",
     "개인 연구",
+    "굴절률",
     "기고",
     "디자인",
     "리눅스",
@@ -84,7 +89,10 @@
     "창조",
     "책",
     "취미 연구",
-    "프로잭트"
+    "파면",
+    "페르마 원리",
+    "프로잭트",
+    "하위헌스 원리"
   ],
   "rootTxtFilesIgnored": [
     "sample.txt"
@@ -121,6 +129,41 @@
     "treasure": []
   },
   "records": [
+    {
+      "id": "light-refraction",
+      "section": "theory",
+      "file": "light_refraction.txt",
+      "title": "빛의 굴절에 관하여",
+      "date": "2026-07-31",
+      "type": "개념정리",
+      "author": "",
+      "published": "",
+      "fields": [
+        "광학",
+        "물리학"
+      ],
+      "keywords": [
+        "굴절률",
+        "하위헌스 원리",
+        "페르마 원리",
+        "파면",
+        "간섭"
+      ],
+      "summary": "빛의 굴절에 관한 이론들과 개념들을 정리한 문서이다.",
+      "files": [
+        {
+          "file": "refraction-of-light.pdf",
+          "title": "빛의 굴절 원리 개념 설명",
+          "format": "pdf",
+          "path": "notes/theory/data/refraction-of-light.pdf",
+          "exists": true
+        }
+      ],
+      "source": [
+        "LOGIA School"
+      ],
+      "related": []
+    },
     {
       "id": "about-my-project",
       "section": "treasure",
@@ -401,5 +444,5 @@
       ]
     }
   ],
-  "updated": "2026-07-31T03:36:16"
+  "updated": "2026-08-01T01:28:01"
 }
