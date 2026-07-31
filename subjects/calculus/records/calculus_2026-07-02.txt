@@ -8,12 +8,8 @@ memo:
 로기아 LSF standard는 정말 잘 만든거 같다. ^^
 
 progress:
-11.3/13
 
 studytime: 
-3h 
-
-false data:
 
 files:
 calculus_2026-07-02-01.jpg | 차례 목록 추출 사진

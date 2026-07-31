@@ -2,9 +2,8 @@ memo:
 Python 챕터 작업이 끝났다. 파싱 테스트 
 
 progress:
-23/47
 
-studytime:30m
+studytime:
 
 files:
 

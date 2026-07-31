@@ -1,5 +1,5 @@
 {
-  "cacheVersion": 1785515281,
+  "cacheVersion": 1785537696,
   "subject": "chemistry",
   "subjectInfo": {
     "id": "chemistry-subject",
@@ -67,15 +67,16 @@
     ],
     "sourceFile": "chemistry-subject.txt"
   },
-  "recordCount": 2,
+  "recordCount": 3,
   "mediaCount": 4,
   "firstRecord": "2026-07-02",
-  "lastRecord": "2026-07-07",
-  "studyDays": 1,
-  "latestProgress": "1.4/22",
+  "lastRecord": "2026-08-01",
+  "studyDays": 2,
+  "latestProgress": "1.5/22",
   "recordDates": [
     "2026-07-02",
-    "2026-07-07"
+    "2026-07-07",
+    "2026-08-01"
   ],
   "records": [
     {
@@ -125,7 +126,19 @@
           "exists": true
         }
       ]
+    },
+    {
+      "date": "2026-08-01",
+      "file": "chemistry_2026-08-01.txt",
+      "progress": "1.5/22",
+      "studytime": "40m",
+      "memo": [
+        "화학 공부도 다시 재계",
+        "매일 조금씩이라도 진도를 나갈것이다.",
+        "그게 좋을거 같다.(복습도 했다)"
+      ],
+      "media": []
     }
   ],
-  "updated": "2026-08-01T01:28:01"
+  "updated": "2026-08-01T07:41:36"
 }

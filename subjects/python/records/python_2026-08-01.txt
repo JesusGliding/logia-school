@@ -1,0 +1,16 @@
+memo: 
+Python 수업 시작
+앞부분은 늘 그렇듯이 설치 작업이다. 
+linux에서 idle 설치가지 끝냈다.
+>python3 hello.py
+
+progress:
+4/47
+
+studytime:
+30m
+
+files:
+
+
+

@@ -1,5 +1,5 @@
 {
-  "cacheVersion": 1785515281,
+  "cacheVersion": 1785537696,
   "subject": "python",
   "subjectInfo": {
     "id": "python-subject",
@@ -66,26 +66,40 @@
     ],
     "sourceFile": "python-subject.txt"
   },
-  "recordCount": 1,
+  "recordCount": 2,
   "mediaCount": 0,
   "firstRecord": "2026-07-30",
-  "lastRecord": "2026-07-30",
+  "lastRecord": "2026-08-01",
   "studyDays": 1,
-  "latestProgress": "23/47",
+  "latestProgress": "4/47",
   "recordDates": [
-    "2026-07-30"
+    "2026-07-30",
+    "2026-08-01"
   ],
   "records": [
     {
       "date": "2026-07-30",
       "file": "python_2026-07-30.txt",
-      "progress": "23/47",
+      "progress": null,
       "studytime": null,
       "memo": [
         "Python 챕터 작업이 끝났다. 파싱 테스트 "
       ],
       "media": []
+    },
+    {
+      "date": "2026-08-01",
+      "file": "python_2026-08-01.txt",
+      "progress": "4/47",
+      "studytime": "30m",
+      "memo": [
+        "Python 수업 시작",
+        "앞부분은 늘 그렇듯이 설치 작업이다. ",
+        "linux에서 idle 설치가지 끝냈다.",
+        ">python3 hello.py"
+      ],
+      "media": []
     }
   ],
-  "updated": "2026-08-01T01:28:01"
+  "updated": "2026-08-01T07:41:36"
 }
