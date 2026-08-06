@@ -1,5 +1,5 @@
 {
-  "cacheVersion": 1785537696,
+  "cacheVersion": 1785985002,
   "historyCategory": "math-history",
   "timelineSource": "math_timeline.txt",
   "timelineCount": 15,
@@ -26,6 +26,8 @@
   "typeCounts": {
     "concept": 0,
     "document": 0,
+    "event": 0,
+    "organization": 0,
     "person": 1,
     "theory": 0
   },
@@ -189,5 +191,5 @@
       "media": []
     }
   ],
-  "updated": "2026-08-01T07:41:36"
+  "updated": "2026-08-06T11:56:42"
 }

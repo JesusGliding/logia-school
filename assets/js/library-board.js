@@ -19,6 +19,7 @@ const LibraryBoard = (() => {
     "science-history",
     "math-history",
     "philosophy-history",
+    "religion-history",
     "computer"
   ];
 

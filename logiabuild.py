@@ -30,13 +30,15 @@ READING_CATEGORIES = [
 HISTORY_CATEGORIES = [
     "science-history",
     "math-history",
-    "philosophy-history"
+    "philosophy-history",
+    "religion-history"
 ]
 
 HISTORY_TIMELINE_FILES = {
     "science-history": "science_timeline.txt",
     "math-history": "math_timeline.txt",
-    "philosophy-history": "philosophy_timeline.txt"
+    "philosophy-history": "philosophy_timeline.txt",
+    "religion-history": "religion_timeline.txt"
 }
 
 
@@ -1952,7 +1954,14 @@ HISTORY_LIST_FIELDS = {
 }
 
 HISTORY_MULTILINE_FIELDS = {"summary", "achievements", "files"}
-HISTORY_VALID_TYPES = {"person", "theory", "concept", "document"}
+HISTORY_VALID_TYPES = {
+    "person", 
+    "organization",
+    "theory", 
+    "concept", 
+    "event",
+    "document"
+    }
 
 
 def create_empty_history_record():
@@ -3678,6 +3687,7 @@ SEARCH_CATEGORY_TITLES = {
     "science-history": "과학사",
     "math-history": "수학사",
     "philosophy-history": "철학사",
+    "religion-history": "종교사",
     "computer": "컴퓨터",
     "notes": "노트",
     "science": "과학 서적",

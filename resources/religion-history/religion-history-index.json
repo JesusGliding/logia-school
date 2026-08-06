@@ -1,0 +1,24 @@
+{
+  "cacheVersion": 1785985002,
+  "historyCategory": "religion-history",
+  "timelineSource": "religion_timeline.txt",
+  "timelineCount": 0,
+  "archiveCount": 0,
+  "mediaCount": 0,
+  "linkedTimelineCount": 0,
+  "unlinkedTimelineIds": [],
+  "archivesWithoutTimeline": [],
+  "typeCounts": {
+    "concept": 0,
+    "document": 0,
+    "event": 0,
+    "organization": 0,
+    "person": 0,
+    "theory": 0
+  },
+  "fields": [],
+  "keywords": [],
+  "timeline": [],
+  "archives": [],
+  "updated": "2026-08-06T11:56:42"
+}

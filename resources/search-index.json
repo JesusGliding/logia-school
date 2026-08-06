@@ -1,5 +1,5 @@
 {
-  "cacheVersion": 1785537696,
+  "cacheVersion": 1785985002,
   "indexType": "integrated-search",
   "recordCount": 98,
   "sourceCounts": {
@@ -7,6 +7,7 @@
     "science-history": 26,
     "math-history": 15,
     "philosophy-history": 15,
+    "religion-history": 0,
     "computer": 18,
     "notes": 7,
     "reading-science": 3,
@@ -3082,5 +3083,5 @@
       "href": "/resources/library.html?category=computer&id=transistor"
     }
   ],
-  "updated": "2026-08-01T07:41:36"
+  "updated": "2026-08-06T11:56:42"
 }

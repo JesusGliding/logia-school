@@ -69,6 +69,20 @@
         </span>
       </button>
 
+      <button
+        type="button"
+        class="library-category"
+        data-category="religion-history"
+        aria-selected="false"
+      >
+        <span class="category-title">
+          종교사
+        </span>
+
+        <span class="category-subtitle">
+          History of Religion
+        </span>
+      </button>
 
       <button
         type="button"
@@ -271,8 +285,11 @@
               >
                 <option value="">전체</option>
                 <option value="person">인물</option>
+                <option value="organization">조직</option>
                 <option value="theory">이론</option>
                 <option value="concept">개념</option>
+                <option value="event">사건</option>
+                <option value="document">문서</option>
               </select>
 
             </div>
@@ -581,6 +598,14 @@
           archiveSearchTitle: "철학사 자료 검색",
           dataFile: "philosophy-history/philosophy-history-index.json",
           mediaPath: "philosophy-history/media/"
+        },
+
+        "religion-history": {
+          title: "종교사",
+          timelineTitle: "종교사 연대기",
+          archiveSearchTitle: "종교사 자료 검색",
+          dataFile: "religion-history/religion-history-index.json",
+          mediaPath: "religion-history/media/"
         },
 
         computer: {

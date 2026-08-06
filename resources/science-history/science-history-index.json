@@ -1,5 +1,5 @@
 {
-  "cacheVersion": 1785537696,
+  "cacheVersion": 1785985002,
   "historyCategory": "science-history",
   "timelineSource": "science_timeline.txt",
   "timelineCount": 23,
@@ -37,6 +37,8 @@
   "typeCounts": {
     "concept": 1,
     "document": 1,
+    "event": 0,
+    "organization": 0,
     "person": 2,
     "theory": 1
   },
@@ -447,5 +449,5 @@
       ]
     }
   ],
-  "updated": "2026-08-01T07:41:36"
+  "updated": "2026-08-06T11:56:42"
 }
